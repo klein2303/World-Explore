@@ -1,7 +1,7 @@
 import {Routes, Route, BrowserRouter} from "react-router-dom";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
-import Explore from "./pages/Explore";
+import ExploreCountries from "./pages/ExploreCountries";
 import MyJournals from "./pages/MyJournals";
 import LogIn from "./pages/LogIn";
 import Register from "./pages/Register";
@@ -21,7 +21,7 @@ const Router = () => {
                 />
                 <Route path="/LogIn" element={<LogIn />} />
                 <Route path="/Register" element={<Register />} />
-                <Route path="/Explore" element={<Explore />} />
+                <Route path="/ExploreCountries" element={<ExploreCountries />} />
                 <Route path="/MyJournals" element={<MyJournals />} />
             </Routes>
         </BrowserRouter>

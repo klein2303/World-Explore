@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar/Navbar";
 
-const MyJournals = () => {
+const ExploreCountries = () => {
     return(
         <>
             <Navbar />
@@ -8,4 +8,4 @@ const MyJournals = () => {
     )
 }
 
-export default MyJournals;
+export default ExploreCountries;

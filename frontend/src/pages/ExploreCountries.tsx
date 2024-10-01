@@ -1,11 +1,11 @@
 import Navbar from "../components/Navbar/Navbar";
 
 const ExploreCountries = () => {
-    return(
+    return (
         <>
             <Navbar />
         </>
-    )
-}
+    );
+};
 
 export default ExploreCountries;

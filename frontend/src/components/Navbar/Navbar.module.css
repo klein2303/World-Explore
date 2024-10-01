@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     padding-top: 20px;
-    font-family: "Poppins", sans-serif; 
+    font-family: "Poppins", sans-serif;
 }
 
 .navTitle,
@@ -18,7 +18,7 @@
     width: 15%;
     margin-left: 40px;
     text-decoration: none;
-    color: #424242; 
+    color: #424242;
     font-size: 30px;
 }
 
@@ -31,7 +31,6 @@
     width: 85%;
     margin-right: 40px;
 }
-
 
 .navlink,
 .navlink:hover,
@@ -47,7 +46,7 @@
 }
 
 .profile {
-    font-size: 40px;   
+    font-size: 40px;
     font-weight: lighter;
     color: #424242;
     padding-left: 20px;
@@ -59,10 +58,9 @@
 
 .signout {
     margin-top: 40px;
-    background-color: #E4E1F7;
+    background-color: #e4e1f7;
     padding: 10px;
     border-radius: 10px;
-    
 }
 
 .profilemenu {

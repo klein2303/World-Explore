@@ -1,11 +1,11 @@
 import Navbar from "../components/Navbar/Navbar";
 
 const MyJournals = () => {
-    return(
+    return (
         <>
             <Navbar />
         </>
-    )
-}
+    );
+};
 
 export default MyJournals;

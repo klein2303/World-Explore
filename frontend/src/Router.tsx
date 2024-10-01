@@ -14,7 +14,7 @@ const Router = () => {
                 <Route
                     path="*"
                     element={
-                        <>                            
+                        <>
                             <NoPage />
                         </>
                     }
@@ -25,7 +25,7 @@ const Router = () => {
                 <Route path="/MyJournals" element={<MyJournals />} />
             </Routes>
         </BrowserRouter>
-    )
-}
+    );
+};
 
-export default Router
+export default Router;

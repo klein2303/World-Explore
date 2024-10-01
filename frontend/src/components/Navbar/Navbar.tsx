@@ -29,10 +29,10 @@ const Navbar = () => {
                         <Link to={"/"} className={styles.navlink}>
                             <p>Home</p>
                         </Link>
-                        <Link to={"/ExploreCountries"} className={styles.navlink}>
+                        <Link to={"/ExploreCountries"} className={styles.navlink} aria-label="Explore Countries">
                             <p>Explore Countries</p>
                         </Link>
-                        <Link to={"/MyJournals"} className={styles.navlink}>
+                        <Link to={"/MyJournals"} className={styles.navlink} aria-label="My Journals">
                             <p>My Journals</p>
                         </Link>
 

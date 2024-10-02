@@ -1,0 +1,161 @@
+.navbar {
+    background-color: white;
+    width: 100%;
+    height: 120px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.navTitle,
+.navTitle:hover,
+.navTitle:focus {
+    height: max-content;
+    width: 15%;
+    margin-left: 40px;
+    text-decoration: none;
+    color: #424242;
+    font-size: 30px;
+}
+
+.navlinks {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: end;
+    align-items: center;
+    width: 85%;
+    margin-right: 40px;
+}
+
+.navlink,
+.navlink:hover,
+.navlink:focus {
+    text-decoration: none;
+    color: #424242;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    font-size: 18px;
+}
+
+.profile {
+    font-size: 40px;
+    font-weight: lighter;
+    color: #424242;
+    padding-left: 20px;
+}
+
+.hamburgmenu {
+    display: none;
+}
+
+.signout {
+    margin-top: 40px;
+    background-color: #e4e1f7;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.profilemenu {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    text-align: end;
+    align-items: flex-end;
+    position: absolute;
+    right: 0px;
+    top: 38px;
+    margin-right: 40px;
+    height: fit-content;
+    width: 125px;
+    z-index: 50;
+}
+
+.crosspos {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    padding-top: 22px;
+    padding-bottom: 20px;
+}
+
+.cross {
+    font-size: 1.6em;
+    color: #424242;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .hamburgmenu {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        font-size: 1.6em;
+        color: #424242;
+        width: 65px;
+        cursor: pointer;
+        padding-left: 10px;
+    }
+
+    .navTitle {
+        display: none;
+    }
+
+    .navlinks {
+        display: none;
+    }
+
+    .crosspos {
+        display: flex;
+        justify-content: start;
+        width: 100%;
+        padding-top: 22px;
+        padding-bottom: 20px;
+    }
+
+    .cross {
+        font-size: 1.6em;
+        color: #424242;
+        cursor: pointer;
+    }
+
+    .navlink {
+        width: 100%;
+        height: 20px;
+    }
+
+    .navbar {
+        background-color: white;
+        width: 100%;
+        height: 70px;
+        position: relative;
+        gap: 20%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .mobilemenu {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        text-align: start;
+        align-items: baseline;
+        position: absolute;
+        left: 0;
+        top: 20px;
+        margin-left: 20px;
+        height: fit-content;
+        width: 125px;
+        z-index: 50;
+    }
+}

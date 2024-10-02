@@ -8,7 +8,6 @@
     align-items: center;
     justify-content: center;
     padding-top: 20px;
-    font-family: "Poppins", sans-serif;
 }
 
 .navTitle,
@@ -77,8 +76,6 @@
     height: fit-content;
     width: 125px;
     z-index: 50;
-
-    font-family: "Poppins", sans-serif;
 }
 
 .crosspos {
@@ -160,7 +157,5 @@
         height: fit-content;
         width: 125px;
         z-index: 50;
-
-        font-family: "Poppins", sans-serif;
     }
 }

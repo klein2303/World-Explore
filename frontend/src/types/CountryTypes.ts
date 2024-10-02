@@ -10,4 +10,5 @@ export type CountryType = {
     agriculture_area: string,
     forest_area: string,
     co2_emissions: number,
+    image: string
 }

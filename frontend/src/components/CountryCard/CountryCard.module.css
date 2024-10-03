@@ -1,7 +1,7 @@
 .cardcontainer {
     background-color: #E4E1F7;
     height: 180px;
-    width: 200px;
+    width: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,13 +13,13 @@
 .cardimage {
     margin-top: 10px;
     height: 130px;
-    width: 190px;
+    width: 170px;
     border-radius: 10px;
     overflow: hidden;
 }
 
 .information {
-    width: 190px;
+    width: 170px;
     height: 30px;
     display: flex;
     flex-direction: row;

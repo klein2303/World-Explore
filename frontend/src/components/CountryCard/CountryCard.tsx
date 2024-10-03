@@ -28,7 +28,7 @@ const CountryCard = ({name, image}: CountryCardProps) => {
     }, [name]);
 
     return (
-        <div className={styles.cardcontainer} role="region" aria-labelledby={`country-name-${name}`}>
+        <main className={styles.cardcontainer} role="region" aria-labelledby={`country-name-${name}`}>
             <img src={image} alt={`image of the country ${name}`} className={styles.cardimage} aria-hidden="true" />
             <div className={styles.information}>
                 <p id={`country-name-${name}`} className={styles.name}>
@@ -53,7 +53,7 @@ const CountryCard = ({name, image}: CountryCardProps) => {
                     />
                 )}
             </div>
-        </div>
+        </main>
     );
 };
 

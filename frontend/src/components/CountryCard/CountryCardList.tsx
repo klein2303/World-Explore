@@ -8,13 +8,13 @@ interface CountryCardListProps {
 
 const CountryCardList = ({countries}: CountryCardListProps) => {
     return (
-        <div className={styles.cardlist} role="list">
+        <main className={styles.cardlist} role="list">
             {countries.map((country: CountryType) => (
                 <div role="listitem" key={country.name}>
                     <CountryCard name={country.name} image={country.image} />
                 </div>
             ))}
-        </div>
+        </main>
     );
 };
 

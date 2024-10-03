@@ -1,5 +1,5 @@
 .cardcontainer {
-    background-color: #E4E1F7;
+    background-color: #e4e1f7;
     height: 180px;
     width: 180px;
     display: flex;
@@ -29,7 +29,7 @@
 }
 
 .filled {
-    fill: #FCF5FF;
+    fill: #fcf5ff;
     cursor: pointer;
     font-size: 24px;
 }

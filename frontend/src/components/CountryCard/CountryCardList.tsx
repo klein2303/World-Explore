@@ -1,16 +1,21 @@
-import styles from './CountryCardList.module.css'
-import CountryCard from './CountryCard'
-import Countrys from '../../data/Countrys';
-import { CountryType } from '../../types/CountryTypes';
+import styles from "./CountryCardList.module.css";
+import CountryCard from "./CountryCard";
+import {CountryType} from "../../types/CountryTypes";
 
-const CountryCardList = () => {
+interface CountryCardListProps {
+    countries: CountryType[];
+}
+
+const CountryCardList = ({countries}: CountryCardListProps) => {
     return (
-        <div className={styles.cardlist}>
-            {Countrys.map((country: CountryType) => (
-                <CountryCard name={country.name} image={country.image} />
+        <div className={styles.cardlist} role="list">
+            {countries.map((country: CountryType) => (
+                <div role="listitem" key={country.name}>
+                    <CountryCard name={country.name} image={country.image} />
+                </div>
             ))}
         </div>
     );
-}
+};
 
 export default CountryCardList;

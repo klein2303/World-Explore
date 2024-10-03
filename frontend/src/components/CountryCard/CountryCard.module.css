@@ -25,6 +25,20 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    font-size: 20px;
     color: #424242;
+}
+
+.filled {
+    fill: #FCF5FF;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.name {
+    font-size: 15px;
 }

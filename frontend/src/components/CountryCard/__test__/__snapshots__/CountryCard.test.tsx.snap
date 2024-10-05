@@ -3,7 +3,7 @@
 exports[`CountryCard Tests > renders the country card correctly 1`] = `
 <DocumentFragment>
   // Mock data
-  <div
+  <main
     aria-labelledby="country-name-Australia"
     class="_cardcontainer_043c24"
     role="region"
@@ -48,7 +48,7 @@ exports[`CountryCard Tests > renders the country card correctly 1`] = `
         />
       </svg>
     </div>
-  </div>
+  </main>
   ,
 </DocumentFragment>
 `;

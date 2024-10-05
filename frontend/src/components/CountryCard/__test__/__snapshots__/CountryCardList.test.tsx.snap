@@ -2,14 +2,14 @@
 
 exports[`CountryCardList Tests > renders the country card list correctly 1`] = `
 <DocumentFragment>
-  <div
+  <main
     class="_cardlist_beaa0e"
     role="list"
   >
     <div
       role="listitem"
     >
-      <div
+      <main
         aria-labelledby="country-name-Australia"
         class="_cardcontainer_043c24"
         role="region"
@@ -54,12 +54,12 @@ exports[`CountryCardList Tests > renders the country card list correctly 1`] = `
             />
           </svg>
         </div>
-      </div>
+      </main>
     </div>
     <div
       role="listitem"
     >
-      <div
+      <main
         aria-labelledby="country-name-Brazil"
         class="_cardcontainer_043c24"
         role="region"
@@ -104,8 +104,8 @@ exports[`CountryCardList Tests > renders the country card list correctly 1`] = `
             />
           </svg>
         </div>
-      </div>
+      </main>
     </div>
-  </div>
+  </main>
 </DocumentFragment>
 `;

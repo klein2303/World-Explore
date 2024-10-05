@@ -3,14 +3,17 @@ import "@testing-library/jest-dom";
 import { describe, it, expect } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import Search from "../Search";
+import { RecoilRoot } from "recoil";
 
 describe("Search Component Tests", () => {
     it("renders the search input and icon correctly", () => {
         // Render the Search component 
         const { asFragment } = render(
-            <MemoryRouter>
-                <Search />
-            </MemoryRouter>
+            <RecoilRoot>
+                <MemoryRouter>
+                    <Search />
+                </MemoryRouter>
+            </RecoilRoot>
         );
 
         // Take a snapshot of the initial render
@@ -28,9 +31,11 @@ describe("Search Component Tests", () => {
     it("allows typing in the search input", () => {
         // Render the Search component
         render(
-            <MemoryRouter>
-                <Search />
-            </MemoryRouter>
+            <RecoilRoot>
+                <MemoryRouter>
+                    <Search />
+                </MemoryRouter>
+            </RecoilRoot>
         );
 
         // Get the input element by its placeholder text

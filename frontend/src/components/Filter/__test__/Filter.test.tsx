@@ -3,14 +3,17 @@ import "@testing-library/jest-dom";
 import { describe, it, expect, beforeEach} from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import Filter from "../Filter";
+import { RecoilRoot } from "recoil";
 
 describe("Filter Component Tests (Desktop)", () => {
   it("renders the filter component correctly", () => {
    
     const { asFragment } = render(
-      <MemoryRouter>
-        <Filter />
-      </MemoryRouter>
+      <RecoilRoot>
+        <MemoryRouter>
+          <Filter />
+        </MemoryRouter>
+      </RecoilRoot>
     );
 
     // Snapshot the initial render
@@ -31,9 +34,11 @@ describe("Filter Component Tests (Desktop)", () => {
 
   it("handles checkbox clicks and updates state", () => {
     render(
-      <MemoryRouter>
-        <Filter />
-      </MemoryRouter>
+      <RecoilRoot>
+        <MemoryRouter>
+          <Filter />
+        </MemoryRouter>
+      </RecoilRoot>
     );
 
     // Select the Africa checkbox and check if it's originally not checked
@@ -59,9 +64,11 @@ describe("Filter Component Tests (Mobile)", () => {
 
   it("renders the filter component correctly in mobile view", () => {
     const { asFragment } = render(
-      <MemoryRouter>
-        <Filter />
-      </MemoryRouter>
+      <RecoilRoot>
+        <MemoryRouter>
+          <Filter />
+        </MemoryRouter>
+      </RecoilRoot>
     );
 
     // Snapshot the mobile render
@@ -82,9 +89,11 @@ describe("Filter Component Tests (Mobile)", () => {
 
   it("handles checkbox interactions in mobile view", () => {
     render(
-      <MemoryRouter>
-        <Filter />
-      </MemoryRouter>
+      <RecoilRoot>
+        <MemoryRouter>
+          <Filter />
+        </MemoryRouter>
+      </RecoilRoot>
     );
 
     // Select the Oceania checkbox

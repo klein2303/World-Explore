@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CountryCardList Tests > renders the country card list correctly 1`] = `
+<DocumentFragment>
+  <main
+    class="_cardlist_beaa0e"
+    role="list"
+  >
+    <div
+      class="_listitem_beaa0e"
+      role="listitem"
+    >
+      <main
+        aria-labelledby="country-name-Australia"
+        class="_cardcontainer_043c24"
+        role="region"
+      >
+        <img
+          alt="image of the country Australia"
+          aria-hidden="true"
+          class="_cardimage_043c24"
+          src="https://example.com/australia.jpg"
+        />
+        <div
+          class="_information_043c24"
+        >
+          <p
+            class="_name_043c24"
+            id="country-name-Australia"
+          >
+            Australia
+          </p>
+          <svg
+            aria-label="Mark Australia as visited"
+            aria-pressed="false"
+            class="_icon_043c24"
+            fill="none"
+            height="1em"
+            role="button"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+            />
+            <circle
+              cx="12"
+              cy="10"
+              r="3"
+            />
+          </svg>
+        </div>
+      </main>
+    </div>
+    <div
+      class="_listitem_beaa0e"
+      role="listitem"
+    >
+      <main
+        aria-labelledby="country-name-Brazil"
+        class="_cardcontainer_043c24"
+        role="region"
+      >
+        <img
+          alt="image of the country Brazil"
+          aria-hidden="true"
+          class="_cardimage_043c24"
+          src="https://example.com/brazil.jpg"
+        />
+        <div
+          class="_information_043c24"
+        >
+          <p
+            class="_name_043c24"
+            id="country-name-Brazil"
+          >
+            Brazil
+          </p>
+          <svg
+            aria-label="Mark Brazil as visited"
+            aria-pressed="false"
+            class="_icon_043c24"
+            fill="none"
+            height="1em"
+            role="button"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+            />
+            <circle
+              cx="12"
+              cy="10"
+              r="3"
+            />
+          </svg>
+        </div>
+      </main>
+    </div>
+  </main>
+</DocumentFragment>
+`;

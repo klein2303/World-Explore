@@ -1,7 +1,7 @@
 import {render, screen, fireEvent} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import {describe, it, expect} from "vitest";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import {MemoryRouter} from "react-router-dom";
 
 describe("Navbar Tests (Desktop)", () => {

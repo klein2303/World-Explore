@@ -7,6 +7,7 @@ import Search from "../components/Search/Search";
 import { useEffect, useState } from "react";
 import { filterAtom } from "../atoms/FilterAtom";
 import { useRecoilValue } from "recoil";
+
 const ExploreCountries = () => {
     const [countries, setCountries] = useState(Countries);
     const filter = useRecoilValue(filterAtom);

@@ -9,10 +9,80 @@
     gap: 20px;
 }
 
-@media (max-width: 600px) {
+.title {
+    color: #424242;
+    font-size: 30px;
+}
+
+.maincontent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.filters {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.sort {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: #424242;
+}
+
+.sorticon {
+    font-size: 18px;
+}
+
+.sorttext {
+    font-size: 14px;
+}
+
+.sortdropdown {
+    border: none;
+    color: #424242;
+    font-size: 14px;
+}
+
+@media (max-width: 850px) {
+    .maincontainer {
+        margin-left: 30px;
+        margin-right: 0px;
+    } 
+    
+    .sorttext {
+        font-size: 12px;
+    }
+
+    .sortdropdown {
+        font-size: 12px;
+    }
+
+    .filters {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 620px) {
     .maincontainer {
         flex-direction: column;
         margin: 0px;
         align-items: center;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .sorttext {
+        display: none;
     }
 }

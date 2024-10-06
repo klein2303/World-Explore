@@ -33,12 +33,23 @@
 
 @media (max-width: 950px) {
     .searchcontainer {
-        width: 350px;
+        width: 330px;
         padding: 2px;
     }
 
     .input { 
-        width: 320px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 800px) {
+    .searchcontainer {
+        width: 300px;
+        padding: 2px;
+    }
+
+    .input { 
+        width: 270px;
     }
 }
 

@@ -25,7 +25,7 @@ const Filter = () => {
     }, [isClicked]);
 
     return (
-        <main className={styles.filtercontainer} aria-label="Filter Section">
+        <main className={styles.filtercontainer} aria-label="Filter based on continents">
             <div className={styles.informationbox} role="region" aria-labelledby="filters-title">
                 <p id="filters-title" className={styles.title}>Filters</p>
                 <p id="continents-description" className={styles.decription}>Continents</p>

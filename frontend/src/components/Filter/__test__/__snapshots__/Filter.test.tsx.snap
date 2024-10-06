@@ -3,7 +3,7 @@
 exports[`Filter Component Tests (Desktop) > renders the filter component correctly 1`] = `
 <DocumentFragment>
   <main
-    aria-label="Filter Section"
+    aria-label="Filter based on continents"
     class="_filtercontainer_435ebf"
   >
     <div
@@ -175,7 +175,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
 exports[`Filter Component Tests (Mobile) > renders the filter component correctly in mobile view 1`] = `
 <DocumentFragment>
   <main
-    aria-label="Filter Section"
+    aria-label="Filter based on continents"
     class="_filtercontainer_435ebf"
   >
     <div

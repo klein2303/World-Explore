@@ -15,8 +15,9 @@ const ExploreCountries = () => {
     const [countries, setCountries] = useState(Countrys);
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
 
-    // Filter countries based on search and continent filters
+    // Filter countries based on search, continent filters and sort
     useEffect(() => {
+        // Filter countries based on the continent and search filters
         if (!Object.values(filter.continent).includes(true)) {
             setCountries(Countrys);
             setCountries((prevCountries) => prevCountries.filter((country) => country.name.toLowerCase().includes(filter.search.toLowerCase())));
@@ -26,6 +27,7 @@ const ExploreCountries = () => {
             setCountries((prevCountries) => prevCountries.filter((country) => country.name.toLowerCase().includes(filter.search.toLowerCase())));
         }
 
+        // Apply sorting based on A-Z or Z-A selection
         if (filter.sort === "A-Z") {
             setCountries((prevCountries) => prevCountries.sort((a, b) => a.name.localeCompare(b.name)));
         }
@@ -33,7 +35,9 @@ const ExploreCountries = () => {
             setCountries((prevCountries) => prevCountries.sort((a, b) => b.name.localeCompare(a.name)));
         }
 
-    }, [Countrys, filter]);
+        setFilters(filter);
+
+    }, [filter]);
 
     const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setFilter((prevFilter) => ({
@@ -42,23 +46,21 @@ const ExploreCountries = () => {
         }));
     }
 
-    useEffect(() => {
-        setFilters(filter);
-    }, [filter]);
-
     return (
         <>
             <Navbar />
-            <main className={styles.maincontainer}>
-                <Filter />
-                <div className={styles.maincontent}>
-                    <p className={styles.title}>Discover your dream vacations</p>
-                    <div className={styles.filters}>
-                        <Search />
-                        <div className={styles.sort}>
-                            <MdOutlineSort className={styles.sorticon}/>
-                            <p className={styles.sorttext}>Sort after:</p>
-                            <select className={styles.sortdropdown} onChange={handleSort} value={filter.sort}>
+            <main className={styles.maincontainer} role="main" aria-label="Explore Countries">
+                <Filter aria-label="Filter based on continents"/>
+                <div className={styles.maincontent} role="region" aria-labelledby="country-list">
+                    <p id="country-list" className={styles.title}>Discover your dream vacations</p>
+                    <div className={styles.filters} role="region" aria-labelledby="filter-section">
+                        <Search aria-label="Search countries"/>
+                        <div className={styles.sort} role="region" aria-labelledby="sort-section">
+                            <MdOutlineSort className={styles.sorticon} aria-hidden="true"/>
+                            <label htmlFor="sort-dropdown" className={styles.sorttext}>Sort after:</label>
+
+                             {/* Dropdown to select sorting order (A-Z or Z-A) with aria-label for screen readers */}
+                            <select id="sort-dropdown" className={styles.sortdropdown} onChange={handleSort} value={filter.sort} aria-label="Sort countries alphabetically">
                                 <option value="A-Z">A-Z</option>
                                 <option value="Z-A">Z-A</option>
                             </select>

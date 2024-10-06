@@ -10,7 +10,7 @@ const CountryCardList = ({countries}: CountryCardListProps) => {
     return (
         <main className={styles.cardlist} role="list">
             {countries.map((country: CountryType) => (
-                <div role="listitem" key={country.name}>
+                <div role="listitem" key={country.name} className={styles.listitem}>
                     <CountryCard name={country.name} image={country.image} />
                 </div>
             ))}

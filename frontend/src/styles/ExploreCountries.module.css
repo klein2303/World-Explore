@@ -1,0 +1,18 @@
+.maincontainer {
+    margin-left: 40px;
+    margin-right: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .maincontainer {
+        flex-direction: column;
+        margin: 0px;
+        align-items: center;
+    }
+}

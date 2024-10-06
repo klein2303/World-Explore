@@ -8,8 +8,8 @@ describe("CountryCard Tests", () => {
     it("renders the country card correctly", () => {
         // Render the component
         const {asFragment} = render(
+            
             <MemoryRouter>
-                // Mock data
                 <CountryCard name="Australia" image="https://example.com/australia.jpg" />,
             </MemoryRouter>,
         );

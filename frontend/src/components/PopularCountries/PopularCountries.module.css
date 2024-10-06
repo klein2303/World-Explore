@@ -6,7 +6,7 @@
     margin-top: 10px; 
 }
 
-button { 
+.countryButton { 
     flex-direction: row;
     padding: 10px 20px; 
     margin: 20px;
@@ -18,7 +18,7 @@ button {
     transition: background-color 0.3s, color 0.3s; 
 }
   
-button:hover {
+.countryButton:hover {
     background-color: #E4E1F7; 
     border-color: #E4E1F7;     
     color: #000;               
@@ -64,7 +64,7 @@ button:hover {
         max-width: 400px; 
     }
 
-    button { 
+    .countryButton { 
         flex-direction: row;
         padding: 10px 12px; 
         margin: 12px;

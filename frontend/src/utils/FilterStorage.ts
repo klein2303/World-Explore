@@ -15,6 +15,7 @@ export const getFilters = (): FilterType => {
             "South America": false,
         },
         search: "",
+        sort: "A-Z"
     } 
     
     return JSON.parse(sessionStorage.getItem("filters") || JSON.stringify(defaultFilters));

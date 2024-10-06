@@ -1,6 +1,7 @@
 export type FilterType = {
     continent: ContinentType;
     search: string;
+    sort: string;
 };
 
 type ContinentType = {

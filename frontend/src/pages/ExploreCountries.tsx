@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar/Navbar";
 import CountryCardList from "../components/CountryCard/CountryCardList";
-import Countrys from "../data/Countrys";
+import Countries from "../data/Countries";
 import Filter from "../components/Filter/Filter";
 import styles from "../styles/ExploreCountries.module.css";
 import Search from "../components/Search/Search";
@@ -9,7 +9,7 @@ import { filterAtom } from "../atoms/FilterAtom";
 import { useRecoilValue } from "recoil";
 
 const ExploreCountries = () => {
-    const [countries, setCountries] = useState(Countrys);
+    const [countries, setCountries] = useState(Countries);
     const filter = useRecoilValue(filterAtom);
     useEffect(() => {
         // const filters = sessionStorage.getItem("clickedContinents") ? JSON.parse(sessionStorage.getItem("clickedContinents") as string) : [];
@@ -18,15 +18,15 @@ const ExploreCountries = () => {
         // }
 
         if (!Object.values(filter.continent).includes(true)) {
-            setCountries(Countrys);
+            setCountries(Countries);
             setCountries((prevCountries) => prevCountries.filter((country) => country.name.toLowerCase().includes(filter.search.toLowerCase())));
         }
         else {
-            setCountries(Countrys.filter((country) => filter.continent[country.continent as keyof typeof filter.continent] === true));
+            setCountries(Countries.filter((country) => filter.continent[country.continent as keyof typeof filter.continent] === true));
             setCountries((prevCountries) => prevCountries.filter((country) => country.name.toLowerCase().includes(filter.search.toLowerCase())));
         }
 
-    }, [Countrys, filter]);
+    }, [Countries, filter]);
 
     return (
         <>

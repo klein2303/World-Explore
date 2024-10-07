@@ -1,0 +1,52 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PopularCountries Tests > renders the popular countries section correctly 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Buttons with 10 most popular countries"
+    class="_popularCountriesSection_f12b3d"
+  >
+    <p
+      aria-label="Title"
+      class="_popularTitle_f12b3d"
+    >
+      Popular countries
+    </p>
+    <section
+      aria-label="Buttons for each country"
+      class="_buttonContainer_f12b3d"
+    >
+      <button>
+        Norway
+      </button>
+      <button>
+        USA
+      </button>
+      <button>
+        Finland
+      </button>
+      <button>
+        Madagascar
+      </button>
+      <button>
+        Germany
+      </button>
+      <button>
+        China
+      </button>
+      <button>
+        Sri lanka
+      </button>
+      <button>
+        Indonesia
+      </button>
+      <button>
+        Japan
+      </button>
+      <button>
+        Thailand
+      </button>
+    </section>
+  </section>
+</DocumentFragment>
+`;

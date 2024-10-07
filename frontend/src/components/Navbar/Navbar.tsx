@@ -57,7 +57,7 @@ const Navbar = () => {
                         <GoSearch className={styles.search} aria-hidden="true" />
                         <p>Explore Countries</p>
                     </Link>
-                    <Link to={"/MyJournals"} className={styles.navlink}>
+                    <Link to={"/Register"} className={styles.navlink}>
                         <LuMapPin className={styles.pin} aria-hidden="true" />
                         <p>My Journals</p>
                     </Link>

@@ -32,33 +32,33 @@ const LoginOrRegister = () => {
            setIsValidPassword(value.length >= 8);
         }
       };
-    
+      
       const handleSubmit = () => {
         const existingUsers = loadUsers();
-        if(formValues.name.length == 0 || formValues.email.length == 0 || formValues.password.length == 0){
+        if (formValues.name.length === 0 || formValues.email.length === 0 || formValues.password.length === 0) {
           setFeedbackMessage("Please enter all of the fields");
-        }else if (existingUsers.some(user => user.email === formValues.email)) {
+        } else if (existingUsers.some(user => user.email === formValues.email)) {
           setFeedbackMessage("Email already exists. Please use a different email.");
-        }else if(!isValidPassword){
-          console.log("Password is not valid."); 
-          setFeedbackMessage("Password is not valid. Password must have 8 characters.")
-        }
-        else{
-            existingUsers.push(formValues);
-            localStorage.setItem("userProfiles", JSON.stringify(existingUsers));
-            console.log("Form Values:", formValues);
-            setFormValues({
-                name: "",
-                email: "",
-                password: ""
-              });
-            setIsValidPassword(false);
-            setFeedbackMessage("Account is made successfully");
+        } else if (!isValidPassword) {
+          setFeedbackMessage("Password is not valid. Password must have 8 characters.");
+        } else {
+          existingUsers.push(formValues);
+          localStorage.setItem("userProfiles", JSON.stringify(existingUsers));
+          setFormValues({
+            name: "",
+            email: "",
+            password: ""
+          });
+          setIsValidPassword(false);
+          setFeedbackMessage("Account is made successfully");
+          
+          // Delay the switch to login form by 1 second
+          setTimeout(() => {
             setIsLogin(true);
+          }, 1000);
         }
-        
       };
-
+      
       
 
     return(

@@ -1,0 +1,69 @@
+
+.loginOrRegister {
+    margin: 100px auto;
+    width: 500px;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+   
+}
+
+.title h3{
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    font-weight: 300;
+}
+
+
+hr {
+    border: 1px solid #ccc; /* Light gray border */
+    width: 100%; /* Ensure it takes up the full width */
+    margin: 20px 0; /* Add vertical spacing */
+  }
+  
+
+.inputSections {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.inputSections h5{
+    color: #B5A8A8;
+    font-weight: 300;
+
+}
+
+.inputField {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+.submitButton {
+    width: 100%;  
+    max-width: 300px;
+    padding: 10px 20px;
+    background-color: #424242;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    color:#E4E1F7;
+}
+
+.submitButton:hover {
+    background-color: #351939;
+}

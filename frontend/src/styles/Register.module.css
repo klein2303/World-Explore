@@ -1,0 +1,14 @@
+.registerPage{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: #E4E1F7;
+
+}
+
+.inputSection{
+    width: 50%;
+    padding: 20px;
+    justify-content: center;
+
+}

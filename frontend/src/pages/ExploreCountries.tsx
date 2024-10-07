@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar/Navbar";
 import CountryCardList from "../components/CountryCard/CountryCardList";
-import Countrys from "../data/Countrys";
+import Countries from "../data/Countries";
 import Filter from "../components/Filter/Filter";
 import styles from "../styles/ExploreCountries.module.css";
 import Search from "../components/Search/Search";
@@ -10,20 +10,21 @@ import { useRecoilState} from "recoil";
 import { MdOutlineSort } from "react-icons/md";
 import { FilterType } from "../types/FilterType";
 import { setFilters } from "../utils/FilterStorage";
+import { CountryType } from "../types/CountryTypes";
 
 const ExploreCountries = () => {
-    const [countries, setCountries] = useState(Countrys);
+    const [countries, setCountries] = useState<CountryType[]>(Countries);
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
 
     // Filter countries based on search, continent filters and sort
     useEffect(() => {
         // Filter countries based on the continent and search filters
         if (!Object.values(filter.continent).includes(true)) {
-            setCountries(Countrys);
+            setCountries(Countries);
             setCountries((prevCountries) => prevCountries.filter((country) => country.name.toLowerCase().includes(filter.search.toLowerCase())));
         }
         else {
-            setCountries(Countrys.filter((country) => filter.continent[country.continent as keyof typeof filter.continent] === true));
+            setCountries(Countries.filter((country) => filter.continent[country.continent as keyof typeof filter.continent] === true));
             setCountries((prevCountries) => prevCountries.filter((country) => country.name.toLowerCase().includes(filter.search.toLowerCase())));
         }
 

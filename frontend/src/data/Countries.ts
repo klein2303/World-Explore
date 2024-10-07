@@ -1,6 +1,6 @@
 import {CountryType} from "../types/CountryTypes";
 
-const Countrys: CountryType[] = [
+const Countries: CountryType[] = [
     {
         name: "Aountry1",
         continent: "Africa",
@@ -283,4 +283,4 @@ const Countrys: CountryType[] = [
     },
 ];
 
-export default Countrys;
+export default Countries;

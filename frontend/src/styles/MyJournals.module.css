@@ -1,0 +1,91 @@
+/* Container for the entire page */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+  
+/* Header section containing the title and tabs */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+  
+/* Page title styling */
+.pageTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #424242;
+}
+  
+/* Tabs container */
+.tabs {
+    display: flex;
+    justify-content: flex-end;
+}
+  
+/* Individual tab button styling */
+.tabButton {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-left: 8px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    background-color: #f2f0f5;
+    color: #8c8c8c;
+    transition: background-color 0.3s, color 0.3s;
+}
+  
+/* Tab button hover effect */
+.tabButton:hover {
+    background-color: #ddd9e3;
+}
+  
+/* Active tab button styling */
+.active {
+    background-color: #E4E1F7;
+    color: #424242;
+    font-weight: bold;
+}
+  
+/* Subtitle styling */
+.subtitle {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 20px;
+    text-align: center;
+}
+  
+/* Grid layout for journal cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+  
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .pageTitle {
+        font-size: 20px;
+    }
+  
+    .tabButton {
+        font-size: 12px;
+        padding: 6px 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+  
+    .subtitle {
+        font-size: 14px;
+    }
+}

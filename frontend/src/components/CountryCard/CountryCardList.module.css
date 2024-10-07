@@ -17,14 +17,12 @@
     height: fit-content;
 }
 
-
 @media (max-width: 1200px) {
     .cardlist {
         width: 700px;
         height: 600px;
         gap: 8px;
     }
-    
 }
 
 @media (max-width: 900px) {

@@ -25,7 +25,7 @@ const Navbar = () => {
                             />
                         </div>
 
-                        <Link to={"/"} className={styles.navlink} aria-label= "Home">
+                        <Link to={"/"} className={styles.navlink} aria-label="Home">
                             <p>Home</p>
                         </Link>
                         <Link to={"/ExploreCountries"} className={styles.navlink} aria-label="Explore Countries">

@@ -1,5 +1,5 @@
 .searchcontainer {
-    border: 2px solid #E4E1F7;
+    border: 2px solid #e4e1f7;
     height: fit-content;
     width: 500px;
     border-radius: 10px;
@@ -21,7 +21,7 @@
 }
 
 .searchicon {
-    background-color: #E4E1F7;
+    background-color: #e4e1f7;
     color: #424242;
     font-size: 20px;
     border-radius: 20px;
@@ -30,14 +30,13 @@
     cursor: pointer;
 }
 
-
 @media (max-width: 950px) {
     .searchcontainer {
         width: 330px;
         padding: 2px;
     }
 
-    .input { 
+    .input {
         width: 300px;
     }
 }
@@ -48,7 +47,7 @@
         padding: 2px;
     }
 
-    .input { 
+    .input {
         width: 270px;
     }
 }
@@ -64,7 +63,7 @@
         border-radius: 15px;
         font-size: 16px;
     }
-    .input { 
+    .input {
         width: 250px;
     }
 }

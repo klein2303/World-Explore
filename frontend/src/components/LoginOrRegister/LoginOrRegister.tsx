@@ -62,24 +62,24 @@ const LoginOrRegister = () => {
       
 
     return(
-        <section>
+        <section aria-label= "Login og register component">
                 {isLogin? <section>
                     {/*Make login component here*/}
-                    <title>Login</title>
+                    <title aria-label= "Login title">Login</title>
                     <h4>User</h4>
                 </section>
-                : <section className= {styles.loginOrRegister}>
+                : <section className= {styles.loginOrRegister} aria-label= "Register a new account">
                   {/*Register component*/}
-                    <div className={styles.title}>
-                        <h3>Create an account</h3>
+                    <div className={styles.title} aria-label= "Title">
+                        <h3 aria-label= "Create a new account">Create an account</h3>
                     </div>
                     <hr />
-                    <section className={styles.inputSections}>
-                        <input className= {styles.inputField} type="text"name="name" value={formValues.name} onChange={handleInputChange} placeholder="Place enter your name"/>
-                        <input className= {styles.inputField} type="email" name="email" value={formValues.email} onChange={handleInputChange} placeholder="Please enter your email"/>
-                        <input className= {styles.inputField} type="password" name="password" value={formValues.password} onChange={handleInputChange} placeholder="Please enter a password"/>
-                        <h5>{feedbackMessage}</h5>
-                        <button className= {styles.submitButton} onClick={handleSubmit}>Create account</button>
+                    <section className={styles.inputSections} aria-label= "Input fields">
+                        <input className= {styles.inputField} type="text"name="name" value={formValues.name} onChange={handleInputChange} placeholder="Place enter your name" aria-label= "Name input field"/>
+                        <input className= {styles.inputField} type="email" name="email" value={formValues.email} onChange={handleInputChange} placeholder="Please enter your email" aria-label= "Email input field"/>
+                        <input className= {styles.inputField} type="password" name="password" value={formValues.password} onChange={handleInputChange} placeholder="Please enter a password" aria-label= "Password input field"/>
+                        <h5 aria-label= {feedbackMessage}> {feedbackMessage}</h5>
+                        <button className= {styles.submitButton} onClick={handleSubmit} aria-label= "Submit to create a new account">Create account</button>
                     </section>                  
                 </section>}       
         </section>

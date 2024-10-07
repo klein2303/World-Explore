@@ -20,9 +20,9 @@
 
 
 hr {
-    border: 1px solid #ccc; /* Light gray border */
-    width: 100%; /* Ensure it takes up the full width */
-    margin: 20px 0; /* Add vertical spacing */
+    border: 1px solid #ccc; 
+    width: 100%; 
+    margin: 20px 0; 
   }
   
 
@@ -33,6 +33,7 @@ hr {
     flex-direction: column;
     gap: 15px;
     align-items: center;
+    text-align: center;
 }
 
 .inputSections h5{
@@ -66,4 +67,19 @@ hr {
 
 .submitButton:hover {
     background-color: #351939;
+}
+
+@media (max-width: 1124px) {
+    .loginOrRegister {
+        width: 90vw; 
+        max-width: none; /* Remove the fixed max-width for better scaling */
+        padding: 5vw; 
+       
+       
+    }
+
+    .inputField, .submitButton {
+        width: 90%;
+        max-width: none; /* Ensure fields also scale with the container */
+    }
 }

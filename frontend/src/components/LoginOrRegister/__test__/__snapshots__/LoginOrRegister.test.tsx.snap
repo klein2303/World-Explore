@@ -1,0 +1,66 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoginOrRegister Component Tests > renders the registration form correctly 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Login og register component"
+  >
+    <section
+      aria-label="Register a new account"
+      class="_loginOrRegister_d1f9f8"
+    >
+      <div
+        aria-label="Title"
+        class="_title_d1f9f8"
+      >
+        <h3
+          aria-label="Create a new account"
+        >
+          Create an account
+        </h3>
+      </div>
+      <hr />
+      <section
+        aria-label="Input fields"
+        class="_inputSections_d1f9f8"
+      >
+        <input
+          aria-label="Name input field"
+          class="_inputField_d1f9f8"
+          name="name"
+          placeholder="Place enter your name"
+          type="text"
+          value=""
+        />
+        <input
+          aria-label="Email input field"
+          class="_inputField_d1f9f8"
+          name="email"
+          placeholder="Please enter your email"
+          type="email"
+          value=""
+        />
+        <input
+          aria-label="Password input field"
+          class="_inputField_d1f9f8"
+          name="password"
+          placeholder="Please enter a password"
+          type="password"
+          value=""
+        />
+        <h5
+          aria-label="Password must at least be 8 characters"
+        >
+           Password must at least be 8 characters
+        </h5>
+        <button
+          aria-label="Submit to create a new account"
+          class="_submitButton_d1f9f8"
+        >
+          Create account
+        </button>
+      </section>
+    </section>
+  </section>
+</DocumentFragment>
+`;

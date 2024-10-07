@@ -12,3 +12,23 @@
     justify-content: center;
 
 }
+
+@media (max-width: 1124px){
+    .image{
+        display: none;
+    }
+
+    .registerPage{
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .inputSection{
+        width: 100%;
+        padding: 0px;
+        justify-content: center;
+
+    }
+}
+

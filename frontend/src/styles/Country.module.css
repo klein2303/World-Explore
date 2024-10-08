@@ -24,7 +24,7 @@
     justify-content: flex-start;
 
     text-decoration: none;
-    color: #424242
+    color: #424242;
 }
 
 .returnicon {
@@ -65,8 +65,8 @@
 }
 
 .funfactbox {
-    background-color: #E4E1F7;
-    color : #424242;
+    background-color: #e4e1f7;
+    color: #424242;
 
     width: 50%;
     height: 300px;
@@ -132,16 +132,14 @@
     align-items: center;
 
     border-radius: 10px;
-    background-color: #E4E1F7;
+    background-color: #e4e1f7;
     color: #424242;
     gap: 18px;
-}   
-
+}
 
 @media (max-width: 900px) {
     .container {
         width: 600px;
-
     }
 
     .countryimage {
@@ -185,7 +183,7 @@
     .returnicon {
         font-size: 18px;
     }
-    
+
     .returntext {
         font-size: 16px;
     }
@@ -193,7 +191,7 @@
     .countryname {
         font-size: 26px;
     }
-    
+
     .countrycontinent {
         font-size: 15px;
     }
@@ -201,7 +199,7 @@
     .funfacttext {
         font-size: 13px;
     }
-    
+
     .icon {
         font-size: 20px;
     }
@@ -209,7 +207,7 @@
     .infotitle {
         font-size: 20px;
     }
-    
+
     .infotext {
         font-size: 14px;
         line-height: 2;
@@ -240,7 +238,7 @@
     .returnicon {
         font-size: 18px;
     }
-    
+
     .returntext {
         font-size: 16px;
     }
@@ -248,7 +246,7 @@
     .countryname {
         font-size: 26px;
     }
-    
+
     .countrycontinent {
         font-size: 15px;
     }
@@ -256,7 +254,7 @@
     .funfacttext {
         font-size: 13px;
     }
-    
+
     .icon {
         font-size: 20px;
     }
@@ -264,7 +262,7 @@
     .infotitle {
         font-size: 20px;
     }
-    
+
     .infotext {
         font-size: 14px;
         line-height: 2;

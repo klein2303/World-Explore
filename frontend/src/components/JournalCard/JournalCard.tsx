@@ -25,7 +25,9 @@ const JournalCard = ({country, date, image}: JournalCardProps) => {
                 <img src={image} alt={`Image of ${country}`} className={styles.cardImage} />
 
                 {/* Overlay text */}
-                <div className={styles.overlayText} role="text">{date ? "Read Journal" : "Write Journal"}</div>
+                <div className={styles.overlayText} role="text">
+                    {date ? "Read Journal" : "Write Journal"}
+                </div>
             </section>
             <div className={styles.cardText} role="contentinfo" aria-label={`Journal card text for ${country}`}>
                 <header className={styles.cardTitle}>{country}</header>

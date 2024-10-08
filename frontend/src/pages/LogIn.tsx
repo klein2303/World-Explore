@@ -1,10 +1,5 @@
 const LogIn = () => {
-    return (
-        <section>
-            
-        </section>
-
-    );
+    return <section></section>;
 };
 
 export default LogIn;

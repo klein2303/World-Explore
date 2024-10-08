@@ -1,7 +1,7 @@
 export type JournalType = {
     country: string;
     reviews: reviewType[];
-}
+};
 
 type reviewType = {
     id: number;
@@ -10,4 +10,4 @@ type reviewType = {
     rating: number;
     text: string;
     public: boolean;
-}
+};

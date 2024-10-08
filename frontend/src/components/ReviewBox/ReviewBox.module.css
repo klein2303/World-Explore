@@ -1,0 +1,37 @@
+.container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.reviewBox{
+    background-color: #FCF5FF;
+    margin-top: 30px;
+    padding: 10px;
+    width: 100%;       
+    height: 400px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    resize: none;
+}
+
+.starsContainer {
+    position: absolute;
+    bottom: 10px; /* Juster avstand fra bunnen av textarea */
+    left: 10px;
+    display: flex;
+    gap: 10px; /* Avstand mellom stjernene */
+}
+
+/* Individual star style */
+.star {
+    font-size: 50px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.star:hover {
+    color: #FFD700; /* Endre til gullfarge ved hover */
+}

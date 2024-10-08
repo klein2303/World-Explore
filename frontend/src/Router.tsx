@@ -22,7 +22,8 @@ const Router = () => {
                 <Route path="/LogIn" element={<LogIn />} />
                 <Route path="/Register" element={<Register />} />
                 <Route path="/ExploreCountries" element={<ExploreCountries />} />
-                <Route path="/MyJournals" element={<MyJournals />} />
+                {/*Temporary, change back to "MyJournals" when implemented */}
+                <Route path="/MyJournals" element={<MyJournals />} /> 
             </Routes>
         </BrowserRouter>
     );

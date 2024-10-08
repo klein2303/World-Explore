@@ -1,0 +1,24 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.returnLink{
+    font-size: 18px;
+    text-decoration: none; 
+    color: #424242;
+}
+
+.returnLink:visited{
+    text-decoration: none; 
+}
+
+.title{
+    margin-top: 30px;
+    font-size: 36px;
+}
+
+

@@ -1,14 +1,26 @@
 import styles from "../styles/Country.module.css";
-import { CountryType } from "../types/CountryTypes";
 import { PiArrowElbowDownLeft } from "react-icons/pi";
 import Navbar from "../components/Navbar/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {LuMapPin} from "react-icons/lu";
 import { GrLanguage } from "react-icons/gr";
 import { TbMoneybag } from "react-icons/tb";
 import { PiPlant } from "react-icons/pi";
+import { CountryType } from "../types/CountryTypes";
+import { useEffect, useState } from "react";
+import Countries from "../data/Countries";
 
-const Country = ({ country }: { country: CountryType }) => {
+const Country = () => {
+    const {name} = useParams<{name: string}>();
+    const [country, setCountry] = useState<CountryType | null>(null);
+
+    useEffect(() => {
+        const country = Countries.find((country) => country.name.toLowerCase() === (name?.toLowerCase() ?? ""));
+        setCountry(country ?? null);
+    }, [name]);
+
+    if(!country) return <p>Loading...</p>;
+
     return (
         <>
             <Navbar />

@@ -4,7 +4,7 @@ import JournalCard from "../components/JournalCard/JournalCard";
 import styles from "../styles/MyJournals.module.css";
 import Countries from "../data/Countries";
 
-const MyJournals: React.FC = () => {
+const MyJournals = () => {
     const [activeTab, setActiveTab] = useState<"journals" | "unwritten">("journals");
 
     // Using mockdata for now, but this would be fetched from the backend
@@ -21,7 +21,7 @@ const MyJournals: React.FC = () => {
             : activeTab === "journals"
               ? "Your travel stories, captured and cherished forever."
               : "You’ve visited, but the story’s still untold. Ready to write?";
-    const [subtitleText, setSubtitleText] = useState(initialSubtitle);
+    const [subtitleText, setSubtitleText] = useState<string>(initialSubtitle);
 
     useEffect(() => {
         const getSubtitle = () => {
@@ -64,7 +64,9 @@ const MyJournals: React.FC = () => {
                             role="tab"
                             aria-selected={activeTab === "journals"}
                             aria-controls="journals-panel"
-                            id="journals-tab">
+                            id="journals-tab"
+                            aria-label="Journal Entries Tab"
+                            >    
                             Journal Entries
                         </button>
                         <button
@@ -73,14 +75,15 @@ const MyJournals: React.FC = () => {
                             role="tab"
                             aria-selected={activeTab === "unwritten"}
                             aria-controls="unwritten-panel"
-                            id="unwritten-tab">
+                            id="unwritten-tab"
+                            aria-label="Unwritten Adventures Tab">
                             Unwritten Adventures
                         </button>
                     </div>
                 </header>
 
                 {/* Catchy subtitle based on active tab */}
-                <p className={styles.subtitle}>{subtitleText}</p>
+                <h2 className={styles.subtitle}>{subtitleText}</h2>
 
                 {/* Content based on active tab */}
                 <section

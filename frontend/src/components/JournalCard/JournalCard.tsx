@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import styles from "./JournalCard.module.css";
 
 interface JournalCardProps {
@@ -7,8 +7,8 @@ interface JournalCardProps {
     image: string;
 }
 
-const JournalCard: React.FC<JournalCardProps> = ({country, date, image}) => {
-    const [isWriting, setIsWriting] = useState(false); // To handle modal visibility
+const JournalCard = ({country, date, image}: JournalCardProps) => {
+    const [isWriting, setIsWriting] = useState<boolean>(false); // To handle modal visibility
 
     // Function to toggle the modal
     const toggleModal = () => {
@@ -19,24 +19,24 @@ const JournalCard: React.FC<JournalCardProps> = ({country, date, image}) => {
     };
 
     return (
-        <div className={styles.cardWrapper}>
+        <article className={styles.cardWrapper} aria-label={`Journal card wrapper for ${country}`}>
             <section className={styles.card} onClick={toggleModal} aria-label={`Journal card for ${country}`}>
-                <div className={styles.verticalStrip}></div>
+                <div className={styles.verticalStrip} role="presentation"></div>
                 <img src={image} alt={`Image of ${country}`} className={styles.cardImage} />
 
                 {/* Overlay text */}
-                <div className={styles.overlayText}>{date ? "Read Journal" : "Write Journal"}</div>
+                <div className={styles.overlayText} role="text">{date ? "Read Journal" : "Write Journal"}</div>
             </section>
-            <div className={styles.cardText}>
-                <p className={styles.cardTitle}>{country}</p>
+            <div className={styles.cardText} role="contentinfo" aria-label={`Journal card text for ${country}`}>
+                <header className={styles.cardTitle}>{country}</header>
 
                 {/* Display the date if the country has a journal entry */}
                 {date && <p className={styles.cardDate}>{date}</p>}
 
                 {/* Modal for writing a journal */}
                 {isWriting && (
-                    <div className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="journalModalTitle">
-                        <div className={styles.modalContent}>
+                    <aside className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="journalModalTitle">
+                        <div className={styles.modalContent} role="document">
                             <h2 id="journalModalTitle">Write your journal entry for {country}</h2>
                             <textarea
                                 placeholder="Start writing..."
@@ -46,10 +46,10 @@ const JournalCard: React.FC<JournalCardProps> = ({country, date, image}) => {
                                 Close
                             </button>
                         </div>
-                    </div>
+                    </aside>
                 )}
             </div>
-        </div>
+        </article>
     );
 };
 

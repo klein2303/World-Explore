@@ -13,34 +13,41 @@ const MyJournals: React.FC = () => {
 
   const getPageTitle = () => (activeTab === 'journals' ? 'Captured Adventures' : 'Places Yet to Journal');
 
-  const getSubtitle = () => {
-    return activeTab === 'journals'
+  const initialSubtitle = window.innerWidth <= 768
+    ? (activeTab === 'journals'
+      ? "Tap the images to dive into your adventures!"
+      : "Tap the images to start writing your stories!")
+    : (activeTab === 'journals'
       ? "Your travel stories, captured and cherished forever."
-      : "You’ve visited, but the story’s still untold. Ready to write?";
-  };
-
-  const getMobileSubtitle = () => {
-    return activeTab === 'journals'
-      ? "Tap the images to read about your adventures!"
-      : "Tap the images to start writing about your adventures!";
-  };
-
-  const [subtitleText, setSubtitleText] = useState(() => window.innerWidth <= 768 ? getMobileSubtitle() : getSubtitle());
+      : "You’ve visited, but the story’s still untold. Ready to write?");
+  const [subtitleText, setSubtitleText] = useState(initialSubtitle);
 
   useEffect(() => {
-    const updateSubtitle = () => {
+    const getSubtitle = () => {
+      return activeTab === 'journals'
+        ? "Your travel stories, captured and cherished forever."
+        : "You’ve visited, but the story’s still untold. Ready to write?";
+    };
+
+    const getMobileSubtitle = () => {
+      return activeTab === 'journals'
+      ? "Tap the images to read about your adventures!"
+      : "Tap the images to start writing about your adventures!";
+    };
+
+    const handleResize = () => {
       if (window.innerWidth <= 768) {
         setSubtitleText(getMobileSubtitle());
       } else {
         setSubtitleText(getSubtitle());
       }
     };
-  
-    updateSubtitle(); // Update the subtitle when activeTab changes or window resizes
-    window.addEventListener('resize', updateSubtitle);
-  
-    return () => window.removeEventListener('resize', updateSubtitle);
-  }, [activeTab]);  
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call handler right away so state gets updated with initial window size
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [activeTab]);
 
   return (
     <>
@@ -101,6 +108,7 @@ const MyJournals: React.FC = () => {
           hidden={activeTab !== 'unwritten'}
           className={styles.grid}
         >
+          {/* Only render visited countries when 'unwritten' tab is active */}
           {activeTab === 'unwritten' && visitedCountries.map((entry) => (
             <JournalCard
               key={entry.name}

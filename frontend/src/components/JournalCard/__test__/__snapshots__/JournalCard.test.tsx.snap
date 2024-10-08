@@ -2,7 +2,8 @@
 
 exports[`JournalCard > renders correctly with a journal entry 1`] = `
 <DocumentFragment>
-  <div
+  <article
+    aria-label="Journal card wrapper for France"
     class="_cardWrapper_be814f"
   >
     <section
@@ -11,6 +12,7 @@ exports[`JournalCard > renders correctly with a journal entry 1`] = `
     >
       <div
         class="_verticalStrip_be814f"
+        role="presentation"
       />
       <img
         alt="Image of France"
@@ -19,31 +21,35 @@ exports[`JournalCard > renders correctly with a journal entry 1`] = `
       />
       <div
         class="_overlayText_be814f"
+        role="text"
       >
         Read Journal
       </div>
     </section>
     <div
+      aria-label="Journal card text for France"
       class="_cardText_be814f"
+      role="contentinfo"
     >
-      <p
+      <header
         class="_cardTitle_be814f"
       >
         France
-      </p>
+      </header>
       <p
         class="_cardDate_be814f"
       >
         2023-01-12
       </p>
     </div>
-  </div>
+  </article>
 </DocumentFragment>
 `;
 
 exports[`JournalCard > renders correctly without a journal entry 1`] = `
 <DocumentFragment>
-  <div
+  <article
+    aria-label="Journal card wrapper for Spain"
     class="_cardWrapper_be814f"
   >
     <section
@@ -52,6 +58,7 @@ exports[`JournalCard > renders correctly without a journal entry 1`] = `
     >
       <div
         class="_verticalStrip_be814f"
+        role="presentation"
       />
       <img
         alt="Image of Spain"
@@ -60,19 +67,22 @@ exports[`JournalCard > renders correctly without a journal entry 1`] = `
       />
       <div
         class="_overlayText_be814f"
+        role="text"
       >
         Write Journal
       </div>
     </section>
     <div
+      aria-label="Journal card text for Spain"
       class="_cardText_be814f"
+      role="contentinfo"
     >
-      <p
+      <header
         class="_cardTitle_be814f"
       >
         Spain
-      </p>
+      </header>
     </div>
-  </div>
+  </article>
 </DocumentFragment>
 `;

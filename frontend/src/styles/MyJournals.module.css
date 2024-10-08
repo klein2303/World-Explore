@@ -57,6 +57,7 @@
     color: #666666;
     margin-bottom: 20px;
     text-align: center;
+    padding: 20px;
 }
   
 /* Grid layout for journal cards */
@@ -87,5 +88,6 @@
   
     .subtitle {
         font-size: 14px;
+        padding: 5px;
     }
 }

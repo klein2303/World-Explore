@@ -1,5 +1,5 @@
 .filtercontainer {
-    background-color: #E4E1F7;
+    background-color: #e4e1f7;
     height: fit-content;
     width: 180px;
 
@@ -33,8 +33,8 @@
 .filteritem {
     display: flex;
     align-items: center;
-    gap: 5px;  
-    color: #424242;  
+    gap: 5px;
+    color: #424242;
 }
 
 .checkbox {
@@ -62,10 +62,10 @@
 }
 
 .checkbox:checked + label .checkboxVisual {
-    background-color: #424242; 
+    background-color: #424242;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
     .title {
         display: none;
     }
@@ -78,7 +78,7 @@
         background-color: white;
         height: fit-content;
         width: 340px;
-    
+
         display: flex;
         justify-content: center;
         margin-left: 10px;
@@ -95,7 +95,7 @@
 
         display: flex;
         flex-direction: row;
-        
+
         overflow-x: auto;
         white-space: nowrap;
     }
@@ -110,10 +110,10 @@
         padding: 5px;
 
         border-radius: 10px;
-        border: 2px solid #E4E1F7;
+        border: 2px solid #e4e1f7;
     }
 
     .checkbox:checked + .customCheckbox {
-        background-color: #E4E1F7; 
+        background-color: #e4e1f7;
     }
 }

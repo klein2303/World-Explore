@@ -56,32 +56,34 @@ const ExploreCountries = () => {
         <>
             <Navbar />
             <main className={styles.maincontainer} role="main" aria-label="Explore Countries">
-                <Filter aria-label="Filter based on continents" />
-                <div className={styles.maincontent} role="region" aria-labelledby="country-list">
-                    <p id="country-list" className={styles.title}>
-                        Discover your dream vacations
-                    </p>
-                    <div className={styles.filters} role="region" aria-labelledby="filter-section">
-                        <Search aria-label="Search countries" />
-                        <div className={styles.sort} role="region" aria-labelledby="sort-section">
-                            <MdOutlineSort className={styles.sorticon} aria-hidden="true" />
-                            <label htmlFor="sort-dropdown" className={styles.sorttext}>
-                                Sort after:
-                            </label>
+                <div className={styles.container}>
+                    <Filter aria-label="Filter based on continents" />
+                    <div className={styles.maincontent} role="region" aria-labelledby="country-list">
+                        <p id="country-list" className={styles.title}>
+                            Discover your dream vacations
+                        </p>
+                        <div className={styles.filters} role="region" aria-labelledby="filter-section">
+                            <Search aria-label="Search countries" />
+                            <div className={styles.sort} role="region" aria-labelledby="sort-section">
+                                <MdOutlineSort className={styles.sorticon} aria-hidden="true" />
+                                <label htmlFor="sort-dropdown" className={styles.sorttext}>
+                                    Sort after:
+                                </label>
 
-                            {/* Dropdown to select sorting order (A-Z or Z-A) with aria-label for screen readers */}
-                            <select
-                                id="sort-dropdown"
-                                className={styles.sortdropdown}
-                                onChange={handleSort}
-                                value={filter.sort}
-                                aria-label="Sort countries alphabetically">
-                                <option value="A-Z">A-Z</option>
-                                <option value="Z-A">Z-A</option>
-                            </select>
+                                {/* Dropdown to select sorting order (A-Z or Z-A) with aria-label for screen readers */}
+                                <select
+                                    id="sort-dropdown"
+                                    className={styles.sortdropdown}
+                                    onChange={handleSort}
+                                    value={filter.sort}
+                                    aria-label="Sort countries alphabetically">
+                                    <option value="A-Z">A-Z</option>
+                                    <option value="Z-A">Z-A</option>
+                                </select>
+                            </div>
                         </div>
+                        <CountryCardList countries={countries} />
                     </div>
-                    <CountryCardList countries={countries} />
                 </div>
             </main>
         </>

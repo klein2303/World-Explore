@@ -1,10 +1,19 @@
 .maincontainer {
-    margin-left: 40px;
-    margin-right: 18px;
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    justify-content: center;
+}
+
+.container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+
+    height: fit-content;
+    width: 1200px;
 
     gap: 20px;
 }
@@ -52,10 +61,16 @@
     font-size: 14px;
 }
 
+@media (max-width: 1200px) {
+    .container {
+        margin-left: 40px;
+    }
+}
+
 @media (max-width: 850px) {
-    .maincontainer {
-        margin-left: 30px;
-        margin-right: 0px;
+    .container {
+        width: 800px;
+        padding: 0px 20px;
     }
 
     .sorttext {
@@ -72,7 +87,7 @@
 }
 
 @media (max-width: 620px) {
-    .maincontainer {
+    .container {
         flex-direction: column;
         margin: 0px;
         align-items: center;

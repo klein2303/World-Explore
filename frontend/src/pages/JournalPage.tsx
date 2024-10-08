@@ -19,7 +19,7 @@ const JournalPage = ({jounalReviews}: review) => {
                 <ReviewBox jounalReviews={{
                     country: jounalReviews.country,
                     reviews: jounalReviews.reviews
-                }} />
+                }} country={jounalReviews.country} />
             </main>
         </>
     );

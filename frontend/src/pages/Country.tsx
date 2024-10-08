@@ -1,0 +1,56 @@
+import styles from "../styles/Country.module.css";
+import { CountryType } from "../types/CountryTypes";
+import { PiArrowElbowDownLeft } from "react-icons/pi";
+import Navbar from "../components/Navbar/Navbar";
+import { Link } from "react-router-dom";
+import {LuMapPin} from "react-icons/lu";
+import { GrLanguage } from "react-icons/gr";
+import { TbMoneybag } from "react-icons/tb";
+import { PiPlant } from "react-icons/pi";
+
+const Country = ({ country }: { country: CountryType }) => {
+    return (
+        <>
+            <Navbar />
+            <main className={styles.maincontainer}>
+                <div className={styles.container}>
+                    <Link to={"/ExploreCountries"} className={styles.return}>
+                        <PiArrowElbowDownLeft className={styles.returnicon}/>
+                        <p className={styles.returntext}>Return to Explore</p>
+                    </Link>
+                    <p className={styles.countryname}>{country.name}</p>
+                    <p className={styles.countrycontinent}>Continent: {country.continent}</p>
+                    <div className={styles.funfacts}>
+                        <div className={styles.funfactbox}>
+                            <section className={styles.funfact}>
+                                <LuMapPin className={styles.icon}/>
+                                <p className={styles.funfacttext}>Capital: {country.capital}</p>
+                            </section>
+                            <section className={styles.funfact}>
+                                <GrLanguage className={styles.icon}/>
+                                <p className={styles.funfacttext}>Language: {country.language}</p>
+                            </section>
+                            <section className={styles.funfact}>
+                                <TbMoneybag className={styles.icon}/>
+                                <p className={styles.funfacttext}>Currency: {country.currency}</p>
+                            </section>
+                            <section className={styles.funfact}>
+                                <PiPlant className={styles.icon}/>
+                                <p className={styles.funfacttext}>Forest Area: {country.forest_area}</p>
+                            </section>
+                        </div>
+                        <img src={country.image} alt={country.name} className={styles.countryimage}/>
+                    </div>
+                    <div className={styles.infobox}>
+                        <div className={styles.info}>
+                        <p className={styles.infotitle}>About the Country</p>
+                        <p className={styles.infotext}>The name of the country is {country.name}, and it's in the contintent {country.continent}. The language spoken in the country is {country.language}, and the currency used is {country.currency}. The capital of the country is {country.capital}, and the largest city is {country.largest_city}. It has a population of {country.population} people, and a land area of {country.land_area} km^2. The land area contains {country.agriculture_area} agriculture and {country.forest_area} forest. The CO2 emission produced by the country is {country.co2_emissions} tons.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </>
+    );
+}; 
+
+export default Country;

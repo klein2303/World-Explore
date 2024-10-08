@@ -19,7 +19,7 @@
 }
 
 
-hr {
+.line {
     border: 1px solid #ccc; 
     width: 100%; 
     margin: 20px 0; 
@@ -69,9 +69,24 @@ hr {
     background-color: #351939;
 }
 
-@media (max-width: 1124px) {
+@media (max-width: 1024px) {
     .loginOrRegister {
-        width: 90vw; 
+        width: 85%; 
+        max-width: none; /* Remove the fixed max-width for better scaling */
+        padding: 5vw; 
+       
+       
+    }
+
+    .inputField, .submitButton {
+        width: 90%;
+        max-width: none; /* Ensure fields also scale with the container */
+    }
+}
+
+@media (width: 1024px){
+    .loginOrRegister {
+        width: 85%; 
         max-width: none; /* Remove the fixed max-width for better scaling */
         padding: 5vw; 
        

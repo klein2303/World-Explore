@@ -1,8 +1,8 @@
 const LogIn = () => {
     return (
-        <div>
+        <section>
             
-        </div>
+        </section>
 
     );
 };

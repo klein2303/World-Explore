@@ -36,7 +36,7 @@
 
 }
 
-@media (max-width: 1124px){
+@media (max-width: 1024px){
     .image{
         display: none;
     }
@@ -48,7 +48,7 @@
     }
 
     .inputSection{
-        width: 100%;
+        width: 70vw;
         padding: 0px;
         justify-content: center;
 

@@ -8,14 +8,14 @@ interface Profile {
 }
 
 const LoginOrRegister = () => {
-    const[isLogin, setIsLogin] = useState(false);
+    const[isLogin, setIsLogin] = useState<boolean>(false);
     const[formValues, setFormValues] = useState<Profile>({
         name: "",
         email: "",
         password: ""
       });
-    const[isValidPassword, setIsValidPassword] = useState(false)
-    const[feedbackMessage, setFeedbackMessage] = useState("Password must at least be 8 characters");
+    const[isValidPassword, setIsValidPassword] = useState<boolean>(false)
+    const[feedbackMessage, setFeedbackMessage] = useState<string>("Password must at least be 8 characters");
     // Load existing users from local storage
     const loadUsers = (): Profile[] => {
       const storedUsers = localStorage.getItem("userProfiles");
@@ -32,7 +32,7 @@ const LoginOrRegister = () => {
            setIsValidPassword(value.length >= 8);
         }
       };
-      
+
       const handleSubmit = () => {
         const existingUsers = loadUsers();
         if (formValues.name.length === 0 || formValues.email.length === 0 || formValues.password.length === 0) {
@@ -73,7 +73,7 @@ const LoginOrRegister = () => {
                     <div className={styles.title} aria-label= "Title">
                         <h3 aria-label= "Create a new account">Create an account</h3>
                     </div>
-                    <hr />
+                    <hr className={styles.line}/>
                     <section className={styles.inputSections} aria-label= "Input fields">
                         <input className= {styles.inputField} type="text"name="name" value={formValues.name} onChange={handleInputChange} placeholder="Place enter your name" aria-label= "Name input field"/>
                         <input className= {styles.inputField} type="email" name="email" value={formValues.email} onChange={handleInputChange} placeholder="Please enter your email" aria-label= "Email input field"/>

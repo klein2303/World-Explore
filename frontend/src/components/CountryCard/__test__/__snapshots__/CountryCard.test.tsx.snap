@@ -7,12 +7,16 @@ exports[`CountryCard Tests > renders the country card correctly 1`] = `
     class="_cardcontainer_043c24"
     role="region"
   >
-    <img
-      alt="image of the country Australia"
-      aria-hidden="true"
-      class="_cardimage_043c24"
-      src="https://example.com/australia.jpg"
-    />
+    <a
+      href="/australia"
+    >
+      <img
+        alt="image of the country Australia"
+        aria-hidden="true"
+        class="_cardimage_043c24"
+        src="https://example.com/australia.jpg"
+      />
+    </a>
     <div
       class="_information_043c24"
     >

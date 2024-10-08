@@ -1,78 +1,85 @@
 /* General CSS here */
-.popularCountriesSection{
+.popularCountriesSection {
     display: flex;
-    flex-direction: column; 
-    align-items: center;    
-    margin-top: 10px; 
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
 }
 
-.countryButton { 
+.countryButton {
     flex-direction: row;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     margin: 20px;
-    font-size: 20px;    
-    border-radius: 10px; 
-    border: 2px solid #d3d3d3; 
-    background-color: #ffffff; 
-    color: #333;          
-    transition: background-color 0.3s, color 0.3s; 
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid #d3d3d3;
+    background-color: #ffffff;
+    color: #333;
+    transition:
+        background-color 0.3s,
+        color 0.3s;
 }
-  
+
 .countryButton:hover {
-    background-color: #E4E1F7; 
-    border-color: #E4E1F7;     
-    color: #000;               
+    background-color: #e4e1f7;
+    border-color: #e4e1f7;
+    color: #000;
 }
 
 /*Display specific CSS below*/
 
-@media (min-width: 1025px){ /*Display */
-    .popularTitle{
+@media (min-width: 1025px) {
+    /*Display */
+    .popularTitle {
         font-size: 24px;
-    }   
-    
-    .buttonContainer{
-        display: flex;            
-        flex-wrap: wrap;         
-        justify-content: center;  
-        max-width: 1000px; 
+    }
+
+    .buttonContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 1000px;
     }
 }
 
-@media (max-width: 1024px){ /*Tablet */
-    .popularTitle{
+@media (max-width: 1024px) {
+    /*Tablet */
+    .popularTitle {
         font-size: 22px;
     }
-    
-    .buttonContainer{
-        display: flex;            
-        flex-wrap: wrap;         
-        justify-content: center;  
-        max-width: 700px; 
+
+    .buttonContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 700px;
     }
 }
 
-@media (max-width: 500px){ /* Phone*/
-    .popularTitle{
+@media (max-width: 500px) {
+    /* Phone*/
+    .popularTitle {
         font-size: 18px;
     }
 
-    .buttonContainer{
-        display: flex;            
-        flex-wrap: wrap;         
-        justify-content: center;  
-        max-width: 400px; 
+    .buttonContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 400px;
     }
 
-    .countryButton { 
+    .countryButton {
         flex-direction: row;
-        padding: 10px 12px; 
+        padding: 10px 12px;
         margin: 12px;
-        font-size: 14px;    
-        border-radius: 10px; 
-        border: 2px solid #d3d3d3; 
-        background-color: #ffffff; 
-        color: #333;          
-        transition: background-color 0.3s, color 0.3s; 
+        font-size: 14px;
+        border-radius: 10px;
+        border: 2px solid #d3d3d3;
+        background-color: #ffffff;
+        color: #333;
+        transition:
+            background-color 0.3s,
+            color 0.3s;
     }
 }

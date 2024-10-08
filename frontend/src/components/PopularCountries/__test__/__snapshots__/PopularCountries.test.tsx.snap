@@ -16,34 +16,54 @@ exports[`PopularCountries Tests > renders the popular countries section correctl
       aria-label="Buttons for each country"
       class="_buttonContainer_f12b3d"
     >
-      <button>
+      <button
+        class="_countryButton_f12b3d"
+      >
         Norway
       </button>
-      <button>
+      <button
+        class="_countryButton_f12b3d"
+      >
         USA
       </button>
-      <button>
+      <button
+        class="_countryButton_f12b3d"
+      >
         Finland
       </button>
-      <button>
+      <button
+        class="_countryButton_f12b3d"
+      >
         Madagascar
       </button>
-      <button>
+      <button
+        class="_countryButton_f12b3d"
+      >
         Germany
       </button>
-      <button>
+      <button
+        class="_countryButton_f12b3d"
+      >
         China
       </button>
-      <button>
+      <button
+        class="_countryButton_f12b3d"
+      >
         Sri lanka
       </button>
-      <button>
+      <button
+        class="_countryButton_f12b3d"
+      >
         Indonesia
       </button>
-      <button>
+      <button
+        class="_countryButton_f12b3d"
+      >
         Japan
       </button>
-      <button>
+      <button
+        class="_countryButton_f12b3d"
+      >
         Thailand
       </button>
     </section>

@@ -1,6 +1,7 @@
 export type FilterType = {
     continent: ContinentType;
     search: string;
+    sort: string;
 };
 
 type ContinentType = {
@@ -10,4 +11,4 @@ type ContinentType = {
     "North America": boolean;
     Oceania: boolean;
     "South America": boolean;
-}
+};

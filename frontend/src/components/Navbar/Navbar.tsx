@@ -7,8 +7,8 @@ import {GoSearch} from "react-icons/go";
 import {LuMapPin} from "react-icons/lu";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isProfileOpen, setIsProfileOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
 
     return (
         <main>
@@ -25,7 +25,7 @@ const Navbar = () => {
                             />
                         </div>
 
-                        <Link to={"/"} className={styles.navlink} aria-label= "Home">
+                        <Link to={"/"} className={styles.navlink} aria-label="Home">
                             <p>Home</p>
                         </Link>
                         <Link to={"/ExploreCountries"} className={styles.navlink} aria-label="Explore Countries">

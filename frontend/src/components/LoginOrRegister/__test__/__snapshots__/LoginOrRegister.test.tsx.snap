@@ -19,7 +19,9 @@ exports[`LoginOrRegister Component Tests > renders the registration form correct
           Create an account
         </h3>
       </div>
-      <hr />
+      <hr
+        class="_line_d1f9f8"
+      />
       <section
         aria-label="Input fields"
         class="_inputSections_d1f9f8"

@@ -122,1290 +122,1044 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
     class="_maincontainer_7797f4"
     role="main"
   >
-    <main
-      aria-label="Filter based on continents"
-      class="_filtercontainer_435ebf"
-    >
-      <div
-        aria-labelledby="filters-title"
-        class="_informationbox_435ebf"
-        role="region"
-      >
-        <p
-          class="_title_435ebf"
-          id="filters-title"
-        >
-          Filters
-        </p>
-        <p
-          class="_decription_435ebf"
-          id="continents-description"
-        >
-          Continents
-        </p>
-        <div
-          aria-labelledby="continent-filter"
-          class="_filterlist_435ebf"
-          role="group"
-        >
-          <div
-            class="_filteritem_435ebf"
-          >
-            <input
-              aria-labelledby="label-africa"
-              class="_checkbox_435ebf"
-              id="Africa"
-              name="Africa"
-              type="checkbox"
-              value="Africa"
-            />
-            <label
-              class="_customCheckbox_435ebf"
-              for="Africa"
-              id="label-africa"
-            >
-              <span
-                class="_checkboxVisual_435ebf"
-                role="presentation"
-              />
-              Africa
-            </label>
-          </div>
-          <div
-            class="_filteritem_435ebf"
-          >
-            <input
-              aria-labelledby="label-asia"
-              class="_checkbox_435ebf"
-              id="Asia"
-              name="Asia"
-              type="checkbox"
-              value="Asia"
-            />
-            <label
-              class="_customCheckbox_435ebf"
-              for="Asia"
-              id="label-asia"
-            >
-              <span
-                class="_checkboxVisual_435ebf"
-                role="presentation"
-              />
-              Asia
-            </label>
-          </div>
-          <div
-            class="_filteritem_435ebf"
-          >
-            <input
-              aria-labelledby="label-europe"
-              class="_checkbox_435ebf"
-              id="Europe"
-              name="Europe"
-              type="checkbox"
-              value="Europe"
-            />
-            <label
-              class="_customCheckbox_435ebf"
-              for="Europe"
-              id="label-europe"
-            >
-              <span
-                class="_checkboxVisual_435ebf"
-                role="presentation"
-              />
-              Europe
-            </label>
-          </div>
-          <div
-            class="_filteritem_435ebf"
-          >
-            <input
-              aria-labelledby="label-north-america"
-              class="_checkbox_435ebf"
-              id="North America"
-              name="North America"
-              type="checkbox"
-              value="North America"
-            />
-            <label
-              class="_customCheckbox_435ebf"
-              for="North America"
-              id="label-north-america"
-            >
-              <span
-                class="_checkboxVisual_435ebf"
-                role="presentation"
-              />
-              North America
-            </label>
-          </div>
-          <div
-            class="_filteritem_435ebf"
-          >
-            <input
-              aria-labelledby="label-oceania"
-              class="_checkbox_435ebf"
-              id="Oceania"
-              name="Oceania"
-              type="checkbox"
-              value="Oceania"
-            />
-            <label
-              class="_customCheckbox_435ebf"
-              for="Oceania"
-              id="label-oceania"
-            >
-              <span
-                class="_checkboxVisual_435ebf"
-                role="presentation"
-              />
-              Oceania
-            </label>
-          </div>
-          <div
-            class="_filteritem_435ebf"
-          >
-            <input
-              aria-labelledby="label-south-america"
-              class="_checkbox_435ebf"
-              id="South America"
-              name="South America"
-              type="checkbox"
-              value="South America"
-            />
-            <label
-              class="_customCheckbox_435ebf"
-              for="South America"
-              id="label-south-america"
-            >
-              <span
-                class="_checkboxVisual_435ebf"
-                role="presentation"
-              />
-              South America
-            </label>
-          </div>
-        </div>
-      </div>
-    </main>
     <div
-      aria-labelledby="country-list"
-      class="_maincontent_7797f4"
-      role="region"
+      class="_container_7797f4"
     >
-      <p
-        class="_title_7797f4"
-        id="country-list"
+      <main
+        aria-label="Filter based on continents"
+        class="_filtercontainer_435ebf"
       >
-        Discover your dream vacations
-      </p>
-      <div
-        aria-labelledby="filter-section"
-        class="_filters_7797f4"
-        role="region"
-      >
-        <main
-          class="_searchcontainer_a9d8a5"
-        >
-          <input
-            aria-label="Search countries"
-            class="_input_a9d8a5"
-            placeholder="Search after countries..."
-            type="text"
-            value=""
-          />
-          <svg
-            aria-label="Click to search"
-            class="_searchicon_a9d8a5"
-            fill="currentColor"
-            height="1em"
-            role="button"
-            stroke="currentColor"
-            stroke-width="0"
-            tabindex="0"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2ZM3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0Z"
-            />
-          </svg>
-        </main>
         <div
-          aria-labelledby="sort-section"
-          class="_sort_7797f4"
+          aria-labelledby="filters-title"
+          class="_informationbox_435ebf"
           role="region"
         >
-          <svg
-            aria-hidden="true"
-            class="_sorticon_7797f4"
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            stroke-width="0"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <p
+            class="_title_435ebf"
+            id="filters-title"
           >
-            <path
-              d="M0 0h24v24H0V0z"
-              fill="none"
-            />
-            <path
-              d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
-            />
-          </svg>
-          <label
-            class="_sorttext_7797f4"
-            for="sort-dropdown"
+            Filters
+          </p>
+          <p
+            class="_decription_435ebf"
+            id="continents-description"
           >
-            Sort after:
-          </label>
-          <select
-            aria-label="Sort countries alphabetically"
-            class="_sortdropdown_7797f4"
-            id="sort-dropdown"
+            Continents
+          </p>
+          <div
+            aria-labelledby="continent-filter"
+            class="_filterlist_435ebf"
+            role="group"
           >
-            <option
-              value="A-Z"
-            >
-              A-Z
-            </option>
-            <option
-              value="Z-A"
-            >
-              Z-A
-            </option>
-          </select>
-        </div>
-      </div>
-      <main
-        class="_cardlist_beaa0e"
-        role="list"
-      >
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Aountry1"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Aountry1"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
             <div
-              class="_information_043c24"
+              class="_filteritem_435ebf"
             >
-              <p
-                class="_name_043c24"
-                id="country-name-Aountry1"
+              <input
+                aria-labelledby="label-africa"
+                class="_checkbox_435ebf"
+                id="Africa"
+                name="Africa"
+                type="checkbox"
+                value="Africa"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="Africa"
+                id="label-africa"
               >
-                Aountry1
-              </p>
-              <svg
-                aria-label="Mark Aountry1 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
                 />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
+                Africa
+              </label>
             </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Bountry2"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Bountry2"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
             <div
-              class="_information_043c24"
+              class="_filteritem_435ebf"
             >
-              <p
-                class="_name_043c24"
-                id="country-name-Bountry2"
+              <input
+                aria-labelledby="label-asia"
+                class="_checkbox_435ebf"
+                id="Asia"
+                name="Asia"
+                type="checkbox"
+                value="Asia"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="Asia"
+                id="label-asia"
               >
-                Bountry2
-              </p>
-              <svg
-                aria-label="Mark Bountry2 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
                 />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
+                Asia
+              </label>
             </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Country3"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Country3"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
             <div
-              class="_information_043c24"
+              class="_filteritem_435ebf"
             >
-              <p
-                class="_name_043c24"
-                id="country-name-Country3"
+              <input
+                aria-labelledby="label-europe"
+                class="_checkbox_435ebf"
+                id="Europe"
+                name="Europe"
+                type="checkbox"
+                value="Europe"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="Europe"
+                id="label-europe"
               >
-                Country3
-              </p>
-              <svg
-                aria-label="Mark Country3 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
                 />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
+                Europe
+              </label>
             </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Dountry4"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Dountry4"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
             <div
-              class="_information_043c24"
+              class="_filteritem_435ebf"
             >
-              <p
-                class="_name_043c24"
-                id="country-name-Dountry4"
+              <input
+                aria-labelledby="label-north-america"
+                class="_checkbox_435ebf"
+                id="North America"
+                name="North America"
+                type="checkbox"
+                value="North America"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="North America"
+                id="label-north-america"
               >
-                Dountry4
-              </p>
-              <svg
-                aria-label="Mark Dountry4 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
                 />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
+                North America
+              </label>
             </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Eountry5"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Eountry5"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
             <div
-              class="_information_043c24"
+              class="_filteritem_435ebf"
             >
-              <p
-                class="_name_043c24"
-                id="country-name-Eountry5"
+              <input
+                aria-labelledby="label-oceania"
+                class="_checkbox_435ebf"
+                id="Oceania"
+                name="Oceania"
+                type="checkbox"
+                value="Oceania"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="Oceania"
+                id="label-oceania"
               >
-                Eountry5
-              </p>
-              <svg
-                aria-label="Mark Eountry5 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
                 />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
+                Oceania
+              </label>
             </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Fountry6"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Fountry6"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
             <div
-              class="_information_043c24"
+              class="_filteritem_435ebf"
             >
-              <p
-                class="_name_043c24"
-                id="country-name-Fountry6"
+              <input
+                aria-labelledby="label-south-america"
+                class="_checkbox_435ebf"
+                id="South America"
+                name="South America"
+                type="checkbox"
+                value="South America"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="South America"
+                id="label-south-america"
               >
-                Fountry6
-              </p>
-              <svg
-                aria-label="Mark Fountry6 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
                 />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
+                South America
+              </label>
             </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Gountry7"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Gountry7"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Gountry7"
-              >
-                Gountry7
-              </p>
-              <svg
-                aria-label="Mark Gountry7 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Hountry8"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Hountry8"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Hountry8"
-              >
-                Hountry8
-              </p>
-              <svg
-                aria-label="Mark Hountry8 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Iountry9"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Iountry9"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Iountry9"
-              >
-                Iountry9
-              </p>
-              <svg
-                aria-label="Mark Iountry9 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Jountry10"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Jountry10"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Jountry10"
-              >
-                Jountry10
-              </p>
-              <svg
-                aria-label="Mark Jountry10 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Kountry11"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Kountry11"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Kountry11"
-              >
-                Kountry11
-              </p>
-              <svg
-                aria-label="Mark Kountry11 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Lountry12"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Lountry12"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Lountry12"
-              >
-                Lountry12
-              </p>
-              <svg
-                aria-label="Mark Lountry12 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Mountry13"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Mountry13"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Mountry13"
-              >
-                Mountry13
-              </p>
-              <svg
-                aria-label="Mark Mountry13 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Nountry14"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Nountry14"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Nountry14"
-              >
-                Nountry14
-              </p>
-              <svg
-                aria-label="Mark Nountry14 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Oountry15"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Oountry15"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Oountry15"
-              >
-                Oountry15
-              </p>
-              <svg
-                aria-label="Mark Oountry15 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Pountry16"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Pountry16"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Pountry16"
-              >
-                Pountry16
-              </p>
-              <svg
-                aria-label="Mark Pountry16 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Qountry17"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Qountry17"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Qountry17"
-              >
-                Qountry17
-              </p>
-              <svg
-                aria-label="Mark Qountry17 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Rountry18"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Rountry18"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Rountry18"
-              >
-                Rountry18
-              </p>
-              <svg
-                aria-label="Mark Rountry18 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Sountry19"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Sountry19"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Sountry19"
-              >
-                Sountry19
-              </p>
-              <svg
-                aria-label="Mark Sountry19 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
-        </div>
-        <div
-          class="_listitem_beaa0e"
-          role="listitem"
-        >
-          <main
-            aria-labelledby="country-name-Tountry20"
-            class="_cardcontainer_043c24"
-            role="region"
-          >
-            <img
-              alt="image of the country Tountry20"
-              aria-hidden="true"
-              class="_cardimage_043c24"
-              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-            />
-            <div
-              class="_information_043c24"
-            >
-              <p
-                class="_name_043c24"
-                id="country-name-Tountry20"
-              >
-                Tountry20
-              </p>
-              <svg
-                aria-label="Mark Tountry20 as visited"
-                aria-pressed="false"
-                class="_icon_043c24"
-                fill="none"
-                height="1em"
-                role="button"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                />
-                <circle
-                  cx="12"
-                  cy="10"
-                  r="3"
-                />
-              </svg>
-            </div>
-          </main>
+          </div>
         </div>
       </main>
+      <div
+        aria-labelledby="country-list"
+        class="_maincontent_7797f4"
+        role="region"
+      >
+        <p
+          class="_title_7797f4"
+          id="country-list"
+        >
+          Discover your dream vacations
+        </p>
+        <div
+          aria-labelledby="filter-section"
+          class="_filters_7797f4"
+          role="region"
+        >
+          <main
+            class="_searchcontainer_a9d8a5"
+          >
+            <input
+              aria-label="Search countries"
+              class="_input_a9d8a5"
+              placeholder="Search after countries..."
+              type="text"
+              value=""
+            />
+            <svg
+              aria-label="Click to search"
+              class="_searchicon_a9d8a5"
+              fill="currentColor"
+              height="1em"
+              role="button"
+              stroke="currentColor"
+              stroke-width="0"
+              tabindex="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2ZM3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0Z"
+              />
+            </svg>
+          </main>
+          <div
+            aria-labelledby="sort-section"
+            class="_sort_7797f4"
+            role="region"
+          >
+            <svg
+              aria-hidden="true"
+              class="_sorticon_7797f4"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h24v24H0V0z"
+                fill="none"
+              />
+              <path
+                d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+              />
+            </svg>
+            <label
+              class="_sorttext_7797f4"
+              for="sort-dropdown"
+            >
+              Sort after:
+            </label>
+            <select
+              aria-label="Sort countries alphabetically"
+              class="_sortdropdown_7797f4"
+              id="sort-dropdown"
+            >
+              <option
+                value="A-Z"
+              >
+                A-Z
+              </option>
+              <option
+                value="Z-A"
+              >
+                Z-A
+              </option>
+            </select>
+          </div>
+        </div>
+        <main
+          class="_cardlist_beaa0e"
+          role="list"
+        >
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Argentina"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/argentina"
+              >
+                <img
+                  alt="image of the country Argentina"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Argentina"
+                >
+                  Argentina
+                </p>
+                <svg
+                  aria-label="Mark Argentina as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Australia"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/australia"
+              >
+                <img
+                  alt="image of the country Australia"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Australia"
+                >
+                  Australia
+                </p>
+                <svg
+                  aria-label="Mark Australia as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Brazil"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/brazil"
+              >
+                <img
+                  alt="image of the country Brazil"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Brazil"
+                >
+                  Brazil
+                </p>
+                <svg
+                  aria-label="Mark Brazil as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Canada"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/canada"
+              >
+                <img
+                  alt="image of the country Canada"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Canada"
+                >
+                  Canada
+                </p>
+                <svg
+                  aria-label="Mark Canada as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-China"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/china"
+              >
+                <img
+                  alt="image of the country China"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-China"
+                >
+                  China
+                </p>
+                <svg
+                  aria-label="Mark China as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Egypt"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/egypt"
+              >
+                <img
+                  alt="image of the country Egypt"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Egypt"
+                >
+                  Egypt
+                </p>
+                <svg
+                  aria-label="Mark Egypt as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-France"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/france"
+              >
+                <img
+                  alt="image of the country France"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-France"
+                >
+                  France
+                </p>
+                <svg
+                  aria-label="Mark France as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Germany"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/germany"
+              >
+                <img
+                  alt="image of the country Germany"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Germany"
+                >
+                  Germany
+                </p>
+                <svg
+                  aria-label="Mark Germany as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-India"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/india"
+              >
+                <img
+                  alt="image of the country India"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-India"
+                >
+                  India
+                </p>
+                <svg
+                  aria-label="Mark India as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Japan"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/japan"
+              >
+                <img
+                  alt="image of the country Japan"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Japan"
+                >
+                  Japan
+                </p>
+                <svg
+                  aria-label="Mark Japan as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Mexico"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/mexico"
+              >
+                <img
+                  alt="image of the country Mexico"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Mexico"
+                >
+                  Mexico
+                </p>
+                <svg
+                  aria-label="Mark Mexico as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Nigeria"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/nigeria"
+              >
+                <img
+                  alt="image of the country Nigeria"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Nigeria"
+                >
+                  Nigeria
+                </p>
+                <svg
+                  aria-label="Mark Nigeria as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-South Africa"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/south africa"
+              >
+                <img
+                  alt="image of the country South Africa"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-South Africa"
+                >
+                  South Africa
+                </p>
+                <svg
+                  aria-label="Mark South Africa as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-United States"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/united states"
+              >
+                <img
+                  alt="image of the country United States"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                class="_information_043c24"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-United States"
+                >
+                  United States
+                </p>
+                <svg
+                  aria-label="Mark United States as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+        </main>
+      </div>
     </div>
   </main>
 </DocumentFragment>

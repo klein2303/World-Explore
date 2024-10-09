@@ -18,7 +18,9 @@ exports[`CountryCard Tests > renders the country card correctly 1`] = `
       />
     </a>
     <div
+      aria-label="Information and actions for Australia"
       class="_information_043c24"
+      role="group"
     >
       <p
         class="_name_043c24"

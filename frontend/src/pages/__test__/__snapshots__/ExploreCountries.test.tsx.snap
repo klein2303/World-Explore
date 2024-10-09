@@ -35,7 +35,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
         </p>
       </a>
       <div
+        aria-label="Navigation Links"
         class="_navlinks_278c00"
+        role="group"
       >
         <a
           class="_navlink_278c00"
@@ -151,7 +153,7 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
             class="_filterlist_435ebf"
             role="group"
           >
-            <div
+            <section
               class="_filteritem_435ebf"
             >
               <input
@@ -173,8 +175,8 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
                 Africa
               </label>
-            </div>
-            <div
+            </section>
+            <section
               class="_filteritem_435ebf"
             >
               <input
@@ -196,8 +198,8 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
                 Asia
               </label>
-            </div>
-            <div
+            </section>
+            <section
               class="_filteritem_435ebf"
             >
               <input
@@ -219,8 +221,8 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
                 Europe
               </label>
-            </div>
-            <div
+            </section>
+            <section
               class="_filteritem_435ebf"
             >
               <input
@@ -242,8 +244,8 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
                 North America
               </label>
-            </div>
-            <div
+            </section>
+            <section
               class="_filteritem_435ebf"
             >
               <input
@@ -265,8 +267,8 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
                 Oceania
               </label>
-            </div>
-            <div
+            </section>
+            <section
               class="_filteritem_435ebf"
             >
               <input
@@ -288,7 +290,7 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
                 South America
               </label>
-            </div>
+            </section>
           </div>
         </div>
       </main>
@@ -408,7 +410,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for Argentina"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -463,7 +467,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for Australia"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -518,7 +524,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for Brazil"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -573,7 +581,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for Canada"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -628,7 +638,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for China"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -683,7 +695,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for Egypt"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -738,7 +752,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for France"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -793,7 +809,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for Germany"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -848,7 +866,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for India"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -903,7 +923,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for Japan"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -958,7 +980,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for Mexico"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -1013,7 +1037,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for Nigeria"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -1068,7 +1094,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for South Africa"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"
@@ -1123,7 +1151,9 @@ exports[`ExploreCountries Component > renders the ExploreCountries component cor
                 />
               </a>
               <div
+                aria-label="Information and actions for United States"
                 class="_information_043c24"
+                role="group"
               >
                 <p
                   class="_name_043c24"

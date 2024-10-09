@@ -33,7 +33,7 @@ const CountryCard = ({name, image}: CountryCardProps) => {
             <Link to={`/${name.toLowerCase()}`}>
                 <img src={image} alt={`image of the country ${name}`} className={styles.cardimage} aria-hidden="true" />
             </Link>
-            <div className={styles.information}>
+            <div className={styles.information} role="group" aria-label={`Information and actions for ${name}`}>
                 <p id={`country-name-${name}`} className={styles.name}>
                     {name}
                 </p>

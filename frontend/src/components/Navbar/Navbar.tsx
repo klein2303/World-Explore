@@ -17,7 +17,7 @@ const Navbar = () => {
                 {isOpen && (
                     <div className={styles.mobilemenu} role="dialog" aria-label="Mobile Navigation Menu">
                         {/* Close button for mobile menu */}
-                        <div className={styles.crosspos}>
+                        <div className={styles.crosspos} role="presentation">
                             <RxCross1
                                 className={styles.cross}
                                 onClick={() => setIsOpen(false)}
@@ -52,7 +52,7 @@ const Navbar = () => {
                     <p>WorldExplore</p>
                 </Link>
 
-                <div className={styles.navlinks}>
+                <div className={styles.navlinks} role="group" aria-label="Navigation Links">
                     <Link to={"/ExploreCountries"} className={styles.navlink}>
                         <GoSearch className={styles.search} aria-hidden="true" />
                         <p>Explore Countries</p>
@@ -73,7 +73,7 @@ const Navbar = () => {
                     {isProfileOpen && (
                         <div className={styles.profilemenu} role="dialog" aria-modal="true" aria-label="Profile Menu">
                             {/* Close button for profile menu */}
-                            <div className={styles.crosspos}>
+                            <div className={styles.crosspos} role="presentation">
                                 <CgProfile
                                     className={styles.profile}
                                     onClick={() => setIsProfileOpen(false)}

@@ -34,7 +34,7 @@ const Country = () => {
                     <p className={styles.countrycontinent}>Continent: {country.continent}</p>
 
                     <section className={styles.funfacts} aria-label="Country fun facts">
-                        <div className={styles.funfactbox}>
+                        <div className={styles.funfactbox} role="group" aria-label="Country fun facts information">
                             <section className={styles.funfact} role="region" aria-label="Capital information">
                                 <LuMapPin className={styles.icon} aria-hidden="true" />
                                 <p className={styles.funfacttext}>Capital: {country.capital}</p>

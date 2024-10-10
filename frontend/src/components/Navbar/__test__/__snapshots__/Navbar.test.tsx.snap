@@ -35,7 +35,9 @@ exports[`Navbar Tests (Desktop) > renders the navigation bar correctly 1`] = `
         </p>
       </a>
       <div
+        aria-label="Navigation Links"
         class="_navlinks_278c00"
+        role="group"
       >
         <a
           class="_navlink_278c00"
@@ -155,7 +157,9 @@ exports[`Navbar Tests (Mobile) > renders the mobile navigation bar correctly 1`]
         </p>
       </a>
       <div
+        aria-label="Navigation Links"
         class="_navlinks_278c00"
+        role="group"
       >
         <a
           class="_navlink_278c00"

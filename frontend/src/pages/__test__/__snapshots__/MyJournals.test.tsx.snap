@@ -35,7 +35,9 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         </p>
       </a>
       <div
+        aria-label="Navigation Links"
         class="_navlinks_278c00"
+        role="group"
       >
         <a
           class="_navlink_278c00"

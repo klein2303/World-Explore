@@ -56,6 +56,7 @@ describe("JournalCard", () => {
                 <JournalCard {...mockPropsUnwritten} />
             </MemoryRouter>
         );
+      
         const card = screen.getByLabelText("Journal card for Spain");
         fireEvent.click(card);
         expect(screen.getByRole("dialog")).toBeInTheDocument();

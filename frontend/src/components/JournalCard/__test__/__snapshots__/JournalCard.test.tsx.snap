@@ -6,6 +6,7 @@ exports[`JournalCard > renders correctly with a journal entry 1`] = `
     aria-label="Journal card wrapper for France"
     class="_cardWrapper_be814f"
   >
+
     <a
       href="/JournalPage/France"
     >
@@ -30,6 +31,7 @@ exports[`JournalCard > renders correctly with a journal entry 1`] = `
         </div>
       </section>
     </a>
+
     <div
       aria-label="Journal card text for France"
       class="_cardText_be814f"

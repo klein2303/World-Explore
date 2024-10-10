@@ -2,6 +2,7 @@ import {useState} from "react";
 import styles from "./JournalCard.module.css";
 import { Link } from "react-router-dom";
 
+
 interface JournalCardProps {
     country: string;
     date: string | null; // Null if visited, but not journaled
@@ -32,6 +33,7 @@ const JournalCard = ({country, date, image}: JournalCardProps) => {
                 </div>
             </section>
             </Link>
+
             <div className={styles.cardText} role="contentinfo" aria-label={`Journal card text for ${country}`}>
                 <header className={styles.cardTitle}>{country}</header>
 

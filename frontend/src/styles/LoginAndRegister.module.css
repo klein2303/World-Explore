@@ -6,6 +6,11 @@
 
 }
 
+.logoLink{
+    color:#000000;
+    text-decoration: none;
+}
+
 .logo{
     height: max-content;
     width: 35vw;
@@ -36,8 +41,13 @@
 
 }
 
-@media (max-width: 1024px){
+@media (max-width: 1024px) and (max-height: 1366px), 
+(max-width: 1366px) and (max-height: 1024px){
     .image{
+        display: none;
+    }
+    
+    .imageimage{
         display: none;
     }
 

@@ -15,7 +15,7 @@ describe("LoginOrRegister Component Tests", () => {
   it("renders the registration form correctly", () => {
     const { asFragment } = render(
       <MemoryRouter>
-        <LoginOrRegister />
+        <LoginOrRegister login={false} />
       </MemoryRouter>
     );
 
@@ -32,7 +32,7 @@ describe("LoginOrRegister Component Tests", () => {
   it("validates form and handles submission", () => {
     render(
       <MemoryRouter>
-        <LoginOrRegister />
+        <LoginOrRegister login={false} />
       </MemoryRouter>
     );
 
@@ -51,7 +51,7 @@ describe("LoginOrRegister Component Tests", () => {
   it("validates form and handles submission", async () => {
     render(
       <MemoryRouter>
-        <LoginOrRegister />
+        <LoginOrRegister login={false}/>
       </MemoryRouter>
     );
   
@@ -72,7 +72,7 @@ describe("LoginOrRegister Component Tests", () => {
   it("shows password validation error", () => {
     render(
       <MemoryRouter>
-        <LoginOrRegister />
+        <LoginOrRegister login={false} />
       </MemoryRouter>
     );
 

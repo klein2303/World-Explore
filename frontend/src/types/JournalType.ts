@@ -6,7 +6,7 @@ export type JournalType = {
 type reviewType = {
     id: number;
     title: string;
-    dato: string;
+    date: string;
     rating: number;
     text: string;
     public: boolean;

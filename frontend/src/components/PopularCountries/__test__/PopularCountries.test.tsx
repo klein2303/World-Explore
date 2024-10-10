@@ -43,9 +43,6 @@ describe("PopularCountries Tests", () => {
         buttons.forEach((button) => {
             expect(button).toBeInTheDocument();
 
-            // Uncomment this if you implement a click handler
-            // fireEvent.click(button);
-            // expect(someFunction).toHaveBeenCalled(); // Mock this function to check if it's called on click
         });
     });
 });

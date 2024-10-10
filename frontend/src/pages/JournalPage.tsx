@@ -1,25 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import { PiArrowElbowDownLeft } from "react-icons/pi";
 import styles from "../styles/JournalPage.module.css"
 import ReviewBox from "../components/ReviewBox/ReviewBox";
-import { JournalType } from "../types/JournalType";
+import { SlPencil } from "react-icons/sl";
 
-interface review{
-    jounalReviews: JournalType;
-}
 
-const JournalPage = ({jounalReviews}: review) => {
+
+const JournalPage = () => {
+    {/*Get countryName from the URL */}
+    const { countryName } = useParams<{ countryName: string }>();
+    
+    {/*Let country be an default string if countryName is empty */}
+    const country = countryName || "";
+
     return (
         <>
             <Navbar/>
-            <main className= {styles.page} aria-label= "Page for writing your journal">
-                <Link to = {"/"} className= {styles.returnLink} aria-label= "Return to all journals"> <PiArrowElbowDownLeft /> Return to all journals</Link>
-                <p className= {styles.title}>{jounalReviews.country}</p>
-                <ReviewBox jounalReviews={{
-                    country: jounalReviews.country,
-                    reviews: jounalReviews.reviews
-                }} country={jounalReviews.country} />
+            <main className= {styles.page} aria-label= "Page for reading your journals">
+                <Link to = {"/MyJournals"} className= {styles.returnLink} aria-label= "Return to all journals"> <PiArrowElbowDownLeft /> Return to all journals</Link>
+                <section className= {styles.upperSection}>
+                    <p className={styles.title}>My {countryName} journals</p>
+                    <button className= {styles.addButton} aria-label= "Add new journal entry">Add new journal entry <SlPencil /></button>
+                </section>
+                <ReviewBox country={country}  />
             </main>
         </>
     );

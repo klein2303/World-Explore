@@ -1,37 +1,145 @@
-.container {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
+@media (min-width: 601px){
+    .reviewBox{
+        position: relative;
+        background-color: #FCF5FF;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        max-width: 100%;      
+        height: 290px;
+        border: none;
+        border-radius: 10px;
+        resize: none;
+        padding: 20px;
+        padding-bottom: 60px;
+    }
+    
+    .reviewTitle{
+        font-size: 25px;
+        width: fit-content;
+    }
+    
+    .date{
+        font-size: 15px;
+        width: fit-content;
+    }
+    
+    .reviewText{
+        margin-top: 10px;
+        position: absolute;
+        background-color: #FCF5FF;
+        width: 97%;
+        height: 180px;
+        font-size: 16px;
+        overflow-y: scroll; 
+        white-space: pre-wrap;
+        line-height: 2.0; 
+    }
+    
+    .starsContainer {
+        position: absolute;
+        left: 10px;
+        bottom: 55px;
+        display: flex;
+        gap: 10px; 
+        width: fit-content;
+        font-size: 35px;
+        color: #f5d103;
+    }
+    
+    .publicContainer{
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        bottom: 20px;
+        gap: 10px; 
+        width: fit-content;
+    }
+    
+    .checkBox{
+        font-size: 25px;
+    }
+    
+    .checkBox:hover{
+        cursor: pointer;
+    }
+
+    .noJournal{
+        font-size: 32px;
+        font-style: italic;
+        margin-top: 50px;
+        text-align: center;
+    }
+
 }
 
-.reviewBox{
-    background-color: #FCF5FF;
-    margin-top: 30px;
-    padding: 10px;
-    width: 100%;       
-    height: 400px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: none;
-    resize: none;
-}
+@media (max-width: 500px){
+    /*Phone */
+    .reviewBox{
+        position: relative;
+        background-color: #FCF5FF;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        max-width: 100%;      
+        height: 320px;
+        border: none;
+        border-radius: 10px;
+        resize: none;
+        padding: 20px;
+        padding-bottom: 60px;
+    }
+    .reviewTitle{
+        font-size: 25px;
+        width: fit-content;
+    }
+    
+    .date{
+        font-size: 15px;
+        width: fit-content;
+    }
+    
+    .reviewText{
+        margin-top: 10px;
+        width: 100%;
+        background-color: #FCF5FF;
+        height: 180px;
+        font-size: 16px;
+        overflow-y: scroll; 
+        white-space: pre-wrap;
+        line-height: 2.0; 
+    }
+    
+    .starsContainer {
+        position: absolute;
+        left: 10px;
+        bottom: 55px;
+        display: flex;
+        gap: 10px; 
+        width: fit-content;
+        font-size: 35px;
+        color: #f5d103;
+    }
+    
+    .publicContainer{
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        bottom: 20px;
+        gap: 10px; 
+        width: fit-content;
+    }
+    
+    .checkBox{
+        font-size: 25px;
+    }
+    
+    .checkBox:hover{
+        cursor: pointer;
+    }
 
-.starsContainer {
-    position: absolute;
-    bottom: 10px; /* Juster avstand fra bunnen av textarea */
-    left: 10px;
-    display: flex;
-    gap: 10px; /* Avstand mellom stjernene */
-}
-
-/* Individual star style */
-.star {
-    font-size: 50px;
-    color: #999;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.star:hover {
-    color: #FFD700; /* Endre til gullfarge ved hover */
+    .noJournal{
+        font-size: 24px;
+        font-style: italic;
+        margin-top: 70px;
+        text-align: center;
+    }
 }

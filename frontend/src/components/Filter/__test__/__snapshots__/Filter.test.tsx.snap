@@ -28,7 +28,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
         class="_filterlist_435ebf"
         role="group"
       >
-        <div
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -50,8 +50,8 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             />
             Africa
           </label>
-        </div>
-        <div
+        </section>
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -73,8 +73,8 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             />
             Asia
           </label>
-        </div>
-        <div
+        </section>
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -96,8 +96,8 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             />
             Europe
           </label>
-        </div>
-        <div
+        </section>
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -119,8 +119,8 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             />
             North America
           </label>
-        </div>
-        <div
+        </section>
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -142,8 +142,8 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             />
             Oceania
           </label>
-        </div>
-        <div
+        </section>
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -165,7 +165,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             />
             South America
           </label>
-        </div>
+        </section>
       </div>
     </div>
   </main>
@@ -200,7 +200,7 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
         class="_filterlist_435ebf"
         role="group"
       >
-        <div
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -222,8 +222,8 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             />
             Africa
           </label>
-        </div>
-        <div
+        </section>
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -245,8 +245,8 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             />
             Asia
           </label>
-        </div>
-        <div
+        </section>
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -268,8 +268,8 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             />
             Europe
           </label>
-        </div>
-        <div
+        </section>
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -291,8 +291,8 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             />
             North America
           </label>
-        </div>
-        <div
+        </section>
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -314,8 +314,8 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             />
             Oceania
           </label>
-        </div>
-        <div
+        </section>
+        <section
           class="_filteritem_435ebf"
         >
           <input
@@ -337,7 +337,7 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             />
             South America
           </label>
-        </div>
+        </section>
       </div>
     </div>
   </main>

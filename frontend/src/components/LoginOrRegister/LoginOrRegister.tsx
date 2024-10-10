@@ -16,13 +16,7 @@ const LoginOrRegister = ({login} : ComponentInterface) => {
     
 
     const[isValidEmail, setIsValidEmail] = useState<boolean>(false);
-    
-    const[isExistingEmail, setIsExistingEmail] = useState<boolean>(false);
-    const[isExistingUsername, setIsExistingUsername] = useState<boolean>(false);
-
     const[isValidPassword, setIsValidPassword] = useState<boolean>(false)
-    const[isCorrectPassword, setIsCorrectPassword] = useState<boolean>(false)
-
     const[registerFeedbackMessage, setRegisterFeedbackMessage] = useState<string>("Password must at least be 8 characters");
     const[loginFeedbackMessage, setLoginFeedbackMessage] = useState<string>("");
 

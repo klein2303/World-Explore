@@ -27,8 +27,8 @@ const LoginOrRegister = ({login} : ComponentInterface) => {
         password: ""
       });
 
-    const [loginFormValues, setLoginFormValues] = useState<{ nameOrEmail: string; password: string }>({
-        nameOrEmail: "",
+    const [loginFormValues, setLoginFormValues] = useState<{ email: string; password: string }>({
+        email: "",
         password: ""
     });
     
@@ -92,14 +92,14 @@ const LoginOrRegister = ({login} : ComponentInterface) => {
       const handleLogin = () => {
         const existingUsers = loadUsers();
     
-        // Find user by username or email
+        // Find user by email
         const user = existingUsers.find(
-            (user) => user.name === loginFormValues.nameOrEmail || user.email === loginFormValues.nameOrEmail
+            (user) => user.email === loginFormValues.email
         );
     
         // Check if user exists
         if (!user) {
-            setLoginFeedbackMessage("No such username/email");
+            setLoginFeedbackMessage("No such email");
             return;
         }
     
@@ -112,7 +112,7 @@ const LoginOrRegister = ({login} : ComponentInterface) => {
         // If everything is correct
         setLoginFeedbackMessage("Log in successful");
         setLoginFormValues({
-            nameOrEmail: "",
+            email: "",
             password: ""
         });
     };
@@ -127,7 +127,7 @@ const LoginOrRegister = ({login} : ComponentInterface) => {
                     </section>
                     <hr className={styles.line}/>
                     <section className={styles.inputSections} aria-label= "Input fields">
-                        <input className= {styles.inputField} type="text"name="nameOrEmail" value={loginFormValues.nameOrEmail} onChange={handleLoginInputChange} placeholder="Email or username" aria-label= "Name or email input field for login"/>
+                        <input className= {styles.inputField} type="email"name="email" value={loginFormValues.email} onChange={handleLoginInputChange} placeholder="Email" aria-label= "Email input field for login"/>
                         <input className= {styles.inputField} type="password" name="password" value={loginFormValues.password} onChange={handleLoginInputChange} placeholder="Password" aria-label= "Password input field for login"/>
                         <h5 aria-label= {loginFeedbackMessage}> {loginFeedbackMessage}</h5>
                         <button className= {styles.submitButton} onClick={handleLogin} aria-label= "Login button">Log in</button>

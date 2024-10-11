@@ -9,6 +9,7 @@
   - [Design](#design)
   - [Accessibility](#accessibility)
   - [Technicalities](#technicalities)
+  - [Sustainability](#sustainability)
 - [Future](#future)
 - [Usage of AI](#usage-of-ai)
 
@@ -71,9 +72,22 @@ Our pages are designed with consistent navigation, making them easy to understan
 ### Visual Design
 Icons and images are paired with descriptive alternative text, or are hidden from screen readers if they are not essential to understanding the content
 
+## Sustainability
+Our application uses no videoes to lower data trafic as well as energy usage.In our next iteration, we aim to enhance the sustainability of our travel diary app by implementing energy-efficient design practices, such as prioritizing lightweight images and optimizing file sizes with formats like WEBP and AVIF to reduce data transfer and energy consumption. Additionally, we will explore incorporating dark mode and limited color schemes to decrease energy use. We strive to be more mindful about sustainable development practises in the next iteration.
+
 ## Technicalities
+- The background color and image for the Log in page cuts of on the bottom. How much it cuts of depends on the size of the screen.
+- It is not possible to save a journal entry or view your actual saved countries yet. This is all moch data.
+- It is not possible to view other user's journal entries yet.
+- The placement on the text on the frontpage image does not adjust well for different screen sizes.
+- The box that appears when pressing the profile icon is missing shading and contrast to the rest of the page, which can be confusing.
+- The user experience is the same for logged in or not logged in at the moment. In the future we will slightly differentiate these experiences.
+- When creating a user it is only saved in local storage.
+- When viewing the Log in or register page on mobile or smaller screens, the button for returning to the explore page disappears.
+
 
 <!-- Write more here -->
+
 
 # Future
 

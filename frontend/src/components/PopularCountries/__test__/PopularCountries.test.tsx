@@ -32,17 +32,11 @@ describe("PopularCountries Tests", () => {
         });
     });
 
-    it("checks if country buttons are clickable", () => {
+    it("checks if country labels are rendered correctly", () => {
         render(<PopularCountries />);
 
-        // Check that all buttons are present
-        const buttons = screen.getAllByRole("button");
-        expect(buttons.length).toBe(10); // Ensure there are 10 buttons
-
-        // Check click behavior
-        buttons.forEach((button) => {
-            expect(button).toBeInTheDocument();
-
-        });
+        // Check that all labels are present using getAllByLabelText
+        const labels = screen.getAllByLabelText("label for country");
+        expect(labels.length).toBe(10); // Ensure there are 10 labels
     });
 });

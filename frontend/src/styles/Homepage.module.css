@@ -25,7 +25,7 @@
 
 /*Display specific CSS below */
 
-@media (min-width: 1025px) {
+@media (min-width: 1081px) {
     /*Display */
 
     .topText {
@@ -63,7 +63,7 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
     /*Tablet */
 
     .topText {
@@ -74,7 +74,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         color: #ffffff;
-        font-size: 22px;
+        font-size: 20px;
         font-weight: bold;
         font-style: italic;
         text-align: center;
@@ -104,7 +104,7 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
     /*Phone */
     .imageArticle {
         width: 100%;

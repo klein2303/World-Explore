@@ -1,7 +1,6 @@
 import Navbar from "../components/Navbar/Navbar";
 import styles from "../styles/Homepage.module.css";
 import homepage from "/homepage.svg";
-import PopularCountries from "../components/PopularCountries/PopularCountries";
 
 const Home = () => {
     return (
@@ -14,8 +13,8 @@ const Home = () => {
                     <p className={styles.topText}>All your special travels at one place</p>
                     <p className={styles.bottomText}>Explore and write to your heart's content</p>
                 </article>
-                {/*Adding buttons showing the 10 most popular countries on the Homepage */}
-                <PopularCountries />
+                {/*Adding buttons showing the 10 most popular countries on the Homepage. Implementation is currently not visible for the user*/}
+                {/*<PopularCountries /> */}
             </main>
         </>
     );

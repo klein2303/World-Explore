@@ -1,0 +1,170 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`JournalEntryModal > renders correctly when open 1`] = `
+<DocumentFragment>
+  <div
+    aria-describedby="modal-description"
+    aria-labelledby="modal-title"
+    aria-modal="true"
+    class="_overlay_4dfb0c"
+    role="dialog"
+  >
+    <aside
+      aria-labelledby="journalModalTitle"
+      aria-modal="true"
+      class="_modal_4dfb0c"
+      role="dialog"
+    >
+      <button
+        aria-label="Close modal"
+        class="_closeButton_4dfb0c"
+      >
+        ×
+      </button>
+      <div
+        class="_modalContent_4dfb0c"
+        role="document"
+      >
+        <h2
+          class="_journalEntryTitle_4dfb0c"
+        >
+          Write your journal entry for Norway
+        </h2>
+        <input
+          aria-label="Title input"
+          class="_input_4dfb0c"
+          maxlength="50"
+          placeholder="Title"
+          type="text"
+          value=""
+        />
+        <input
+          aria-label="Date input"
+          class="_input_4dfb0c"
+          type="date"
+          value=""
+        />
+        <textarea
+          aria-label="Journal entry text area"
+          class="_textArea_4dfb0c"
+          placeholder="Relive the moment..."
+        />
+        <div
+          class="_rating_4dfb0c"
+        >
+          <p
+            class="_ratingLabel_4dfb0c"
+          >
+            Rating:
+          </p>
+          <svg
+            aria-label="Rate 1 star"
+            aria-pressed="false"
+            class="_star_4dfb0c"
+            fill="currentColor"
+            height="1em"
+            role="button"
+            stroke="currentColor"
+            stroke-width="0"
+            tabindex="0"
+            viewBox="0 0 576 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+            />
+          </svg>
+          <svg
+            aria-label="Rate 2 stars"
+            aria-pressed="false"
+            class="_star_4dfb0c"
+            fill="currentColor"
+            height="1em"
+            role="button"
+            stroke="currentColor"
+            stroke-width="0"
+            tabindex="0"
+            viewBox="0 0 576 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+            />
+          </svg>
+          <svg
+            aria-label="Rate 3 stars"
+            aria-pressed="false"
+            class="_star_4dfb0c"
+            fill="currentColor"
+            height="1em"
+            role="button"
+            stroke="currentColor"
+            stroke-width="0"
+            tabindex="0"
+            viewBox="0 0 576 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+            />
+          </svg>
+          <svg
+            aria-label="Rate 4 stars"
+            aria-pressed="false"
+            class="_star_4dfb0c"
+            fill="currentColor"
+            height="1em"
+            role="button"
+            stroke="currentColor"
+            stroke-width="0"
+            tabindex="0"
+            viewBox="0 0 576 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+            />
+          </svg>
+          <svg
+            aria-label="Rate 5 stars"
+            aria-pressed="false"
+            class="_star_4dfb0c"
+            fill="currentColor"
+            height="1em"
+            role="button"
+            stroke="currentColor"
+            stroke-width="0"
+            tabindex="0"
+            viewBox="0 0 576 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+            />
+          </svg>
+        </div>
+        <label
+          class="_checkbox_4dfb0c"
+        >
+          <input
+            aria-label="Public checkbox"
+            type="checkbox"
+          />
+          Public
+        </label>
+        <button
+          aria-label="Submit journal entry"
+          class="_submitButton_4dfb0c"
+        >
+          Save your journal entry
+        </button>
+      </div>
+    </aside>
+  </div>
+</DocumentFragment>
+`;

@@ -111,7 +111,6 @@ Our application uses no videoes to lower data trafic as well as energy usage.In 
 - When creating a user it is only saved in local storage.
 - When logging in, you will not be sent back to the home-page. You need to navigate to it by pressing on the logo. 
 
-<!-- Write more here -->
 
 # Future
 

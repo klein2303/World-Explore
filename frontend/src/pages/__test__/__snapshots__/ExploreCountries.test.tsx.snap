@@ -1,0 +1,1196 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ExploreCountries Component > renders the ExploreCountries component correctly 1`] = `
+<DocumentFragment>
+  <main>
+    <nav
+      aria-label="Main Navigation"
+      class="_navbar_278c00"
+      role="navigation"
+    >
+      <svg
+        aria-label="Open Mobile Menu"
+        class="_hamburgmenu_278c00"
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 15 15"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M1.5 3C1.22386 3 1 3.22386 1 3.5C1 3.77614 1.22386 4 1.5 4H13.5C13.7761 4 14 3.77614 14 3.5C14 3.22386 13.7761 3 13.5 3H1.5ZM1 7.5C1 7.22386 1.22386 7 1.5 7H13.5C13.7761 7 14 7.22386 14 7.5C14 7.77614 13.7761 8 13.5 8H1.5C1.22386 8 1 7.77614 1 7.5ZM1 11.5C1 11.2239 1.22386 11 1.5 11H13.5C13.7761 11 14 11.2239 14 11.5C14 11.7761 13.7761 12 13.5 12H1.5C1.22386 12 1 11.7761 1 11.5Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <a
+        class="_navTitle_278c00"
+        href="/"
+      >
+        <p>
+          WorldExplore
+        </p>
+      </a>
+      <div
+        aria-label="Navigation Links"
+        class="_navlinks_278c00"
+        role="group"
+      >
+        <a
+          class="_navlink_278c00"
+          href="/ExploreCountries"
+        >
+          <svg
+            aria-hidden="true"
+            class="_search_278c00"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2ZM3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0Z"
+            />
+          </svg>
+          <p>
+            Explore Countries
+          </p>
+        </a>
+        <a
+          class="_navlink_278c00"
+          href="/MyJournals"
+        >
+          <svg
+            aria-hidden="true"
+            class="_pin_278c00"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+            />
+            <circle
+              cx="12"
+              cy="10"
+              r="3"
+            />
+          </svg>
+          <p>
+            My Journals
+          </p>
+        </a>
+        <svg
+          aria-label="Open Profile Menu"
+          class="_profile_278c00"
+          fill="none"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M16 9C16 11.2091 14.2091 13 12 13C9.79086 13 8 11.2091 8 9C8 6.79086 9.79086 5 12 5C14.2091 5 16 6.79086 16 9ZM14 9C14 10.1046 13.1046 11 12 11C10.8954 11 10 10.1046 10 9C10 7.89543 10.8954 7 12 7C13.1046 7 14 7.89543 14 9Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1ZM3 12C3 14.0902 3.71255 16.014 4.90798 17.5417C6.55245 15.3889 9.14627 14 12.0645 14C14.9448 14 17.5092 15.3531 19.1565 17.4583C20.313 15.9443 21 14.0524 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12ZM12 21C9.84977 21 7.87565 20.2459 6.32767 18.9878C7.59352 17.1812 9.69106 16 12.0645 16C14.4084 16 16.4833 17.1521 17.7538 18.9209C16.1939 20.2191 14.1881 21 12 21Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+    </nav>
+  </main>
+  <main
+    aria-label="Explore Countries"
+    class="_maincontainer_7797f4"
+    role="main"
+  >
+    <div
+      class="_container_7797f4"
+    >
+      <main
+        aria-label="Filter based on continents"
+        class="_filtercontainer_435ebf"
+      >
+        <div
+          aria-labelledby="filters-title"
+          class="_informationbox_435ebf"
+          role="region"
+        >
+          <p
+            class="_title_435ebf"
+            id="filters-title"
+          >
+            Filters
+          </p>
+          <p
+            class="_decription_435ebf"
+            id="continents-description"
+          >
+            Continents
+          </p>
+          <div
+            aria-labelledby="continent-filter"
+            class="_filterlist_435ebf"
+            role="group"
+          >
+            <section
+              class="_filteritem_435ebf"
+            >
+              <input
+                aria-labelledby="label-africa"
+                class="_checkbox_435ebf"
+                id="Africa"
+                name="Africa"
+                type="checkbox"
+                value="Africa"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="Africa"
+                id="label-africa"
+              >
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
+                />
+                Africa
+              </label>
+            </section>
+            <section
+              class="_filteritem_435ebf"
+            >
+              <input
+                aria-labelledby="label-asia"
+                class="_checkbox_435ebf"
+                id="Asia"
+                name="Asia"
+                type="checkbox"
+                value="Asia"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="Asia"
+                id="label-asia"
+              >
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
+                />
+                Asia
+              </label>
+            </section>
+            <section
+              class="_filteritem_435ebf"
+            >
+              <input
+                aria-labelledby="label-europe"
+                class="_checkbox_435ebf"
+                id="Europe"
+                name="Europe"
+                type="checkbox"
+                value="Europe"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="Europe"
+                id="label-europe"
+              >
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
+                />
+                Europe
+              </label>
+            </section>
+            <section
+              class="_filteritem_435ebf"
+            >
+              <input
+                aria-labelledby="label-north-america"
+                class="_checkbox_435ebf"
+                id="North America"
+                name="North America"
+                type="checkbox"
+                value="North America"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="North America"
+                id="label-north-america"
+              >
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
+                />
+                North America
+              </label>
+            </section>
+            <section
+              class="_filteritem_435ebf"
+            >
+              <input
+                aria-labelledby="label-oceania"
+                class="_checkbox_435ebf"
+                id="Oceania"
+                name="Oceania"
+                type="checkbox"
+                value="Oceania"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="Oceania"
+                id="label-oceania"
+              >
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
+                />
+                Oceania
+              </label>
+            </section>
+            <section
+              class="_filteritem_435ebf"
+            >
+              <input
+                aria-labelledby="label-south-america"
+                class="_checkbox_435ebf"
+                id="South America"
+                name="South America"
+                type="checkbox"
+                value="South America"
+              />
+              <label
+                class="_customCheckbox_435ebf"
+                for="South America"
+                id="label-south-america"
+              >
+                <span
+                  class="_checkboxVisual_435ebf"
+                  role="presentation"
+                />
+                South America
+              </label>
+            </section>
+          </div>
+        </div>
+      </main>
+      <div
+        aria-labelledby="country-list"
+        class="_maincontent_7797f4"
+        role="region"
+      >
+        <p
+          class="_title_7797f4"
+          id="country-list"
+        >
+          Discover your dream vacations
+        </p>
+        <div
+          aria-labelledby="filter-section"
+          class="_filters_7797f4"
+          role="region"
+        >
+          <main
+            class="_searchcontainer_a9d8a5"
+          >
+            <input
+              aria-label="Search countries"
+              class="_input_a9d8a5"
+              placeholder="Search after countries..."
+              type="text"
+              value=""
+            />
+            <svg
+              aria-label="Click to search"
+              class="_searchicon_a9d8a5"
+              fill="currentColor"
+              height="1em"
+              role="button"
+              stroke="currentColor"
+              stroke-width="0"
+              tabindex="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.25 2a8.25 8.25 0 0 1 6.34 13.53l5.69 5.69a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215l-5.69-5.69A8.25 8.25 0 1 1 10.25 2ZM3.5 10.25a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0Z"
+              />
+            </svg>
+          </main>
+          <div
+            aria-labelledby="sort-section"
+            class="_sort_7797f4"
+            role="region"
+          >
+            <svg
+              aria-hidden="true"
+              class="_sorticon_7797f4"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h24v24H0V0z"
+                fill="none"
+              />
+              <path
+                d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"
+              />
+            </svg>
+            <label
+              class="_sorttext_7797f4"
+              for="sort-dropdown"
+            >
+              Sort after:
+            </label>
+            <select
+              aria-label="Sort countries alphabetically"
+              class="_sortdropdown_7797f4"
+              id="sort-dropdown"
+            >
+              <option
+                value="A-Z"
+              >
+                A-Z
+              </option>
+              <option
+                value="Z-A"
+              >
+                Z-A
+              </option>
+            </select>
+          </div>
+        </div>
+        <main
+          class="_cardlist_beaa0e"
+          role="list"
+        >
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Argentina"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/argentina"
+              >
+                <img
+                  alt="image of the country Argentina"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for Argentina"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Argentina"
+                >
+                  Argentina
+                </p>
+                <svg
+                  aria-label="Mark Argentina as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Australia"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/australia"
+              >
+                <img
+                  alt="image of the country Australia"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for Australia"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Australia"
+                >
+                  Australia
+                </p>
+                <svg
+                  aria-label="Mark Australia as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Brazil"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/brazil"
+              >
+                <img
+                  alt="image of the country Brazil"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for Brazil"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Brazil"
+                >
+                  Brazil
+                </p>
+                <svg
+                  aria-label="Mark Brazil as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Canada"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/canada"
+              >
+                <img
+                  alt="image of the country Canada"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for Canada"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Canada"
+                >
+                  Canada
+                </p>
+                <svg
+                  aria-label="Mark Canada as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-China"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/china"
+              >
+                <img
+                  alt="image of the country China"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for China"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-China"
+                >
+                  China
+                </p>
+                <svg
+                  aria-label="Mark China as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Egypt"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/egypt"
+              >
+                <img
+                  alt="image of the country Egypt"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for Egypt"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Egypt"
+                >
+                  Egypt
+                </p>
+                <svg
+                  aria-label="Mark Egypt as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-France"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/france"
+              >
+                <img
+                  alt="image of the country France"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for France"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-France"
+                >
+                  France
+                </p>
+                <svg
+                  aria-label="Mark France as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Germany"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/germany"
+              >
+                <img
+                  alt="image of the country Germany"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for Germany"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Germany"
+                >
+                  Germany
+                </p>
+                <svg
+                  aria-label="Mark Germany as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-India"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/india"
+              >
+                <img
+                  alt="image of the country India"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for India"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-India"
+                >
+                  India
+                </p>
+                <svg
+                  aria-label="Mark India as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Japan"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/japan"
+              >
+                <img
+                  alt="image of the country Japan"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for Japan"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Japan"
+                >
+                  Japan
+                </p>
+                <svg
+                  aria-label="Mark Japan as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Mexico"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/mexico"
+              >
+                <img
+                  alt="image of the country Mexico"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for Mexico"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Mexico"
+                >
+                  Mexico
+                </p>
+                <svg
+                  aria-label="Mark Mexico as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-Nigeria"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/nigeria"
+              >
+                <img
+                  alt="image of the country Nigeria"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for Nigeria"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-Nigeria"
+                >
+                  Nigeria
+                </p>
+                <svg
+                  aria-label="Mark Nigeria as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-South Africa"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/south africa"
+              >
+                <img
+                  alt="image of the country South Africa"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for South Africa"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-South Africa"
+                >
+                  South Africa
+                </p>
+                <svg
+                  aria-label="Mark South Africa as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+          <div
+            class="_listitem_beaa0e"
+            role="listitem"
+          >
+            <main
+              aria-labelledby="country-name-United States"
+              class="_cardcontainer_043c24"
+              role="region"
+            >
+              <a
+                href="/united states"
+              >
+                <img
+                  alt="image of the country United States"
+                  aria-hidden="true"
+                  class="_cardimage_043c24"
+                  src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+                />
+              </a>
+              <div
+                aria-label="Information and actions for United States"
+                class="_information_043c24"
+                role="group"
+              >
+                <p
+                  class="_name_043c24"
+                  id="country-name-United States"
+                >
+                  United States
+                </p>
+                <svg
+                  aria-label="Mark United States as visited"
+                  aria-pressed="false"
+                  class="_icon_043c24"
+                  fill="none"
+                  height="1em"
+                  role="button"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                  />
+                  <circle
+                    cx="12"
+                    cy="10"
+                    r="3"
+                  />
+                </svg>
+              </div>
+            </main>
+          </div>
+        </main>
+      </div>
+    </div>
+  </main>
+</DocumentFragment>
+`;

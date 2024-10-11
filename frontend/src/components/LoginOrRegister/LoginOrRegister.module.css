@@ -1,0 +1,107 @@
+.loginOrRegister {
+    margin: 100px auto;
+    width: 500px;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title h3 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.title h4  {
+    font-weight: 200;
+}
+
+.line {
+    border: 1px solid #ccc;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.inputSections h5  {
+    color: #000000;
+    font-weight: 300;
+}
+
+.inputSections {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    text-align: center;
+}
+
+.inputField {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.inputField::placeholder {
+    color: #b5a8a8;
+    color: #b5a8a8;
+}
+
+.submitButton {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 20px;
+    background-color: #424242;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #e4e1f7;
+    color: #e4e1f7;
+}
+
+.submitButton:hover {
+    background-color: #351939;
+}
+
+@media (max-width: 1030px) {
+    .loginOrRegister {
+        width: 85%;
+        max-width: none;
+        padding: 5vw;
+        height: 100%;
+    }
+
+    .inputField,
+    .submitButton {
+        width: 90%;
+        max-width: none;
+        /* Ensure fields also scale with the container */
+    }
+}
+
+@media (width: 1024px) {
+    .loginOrRegister {
+        width: 85%;
+        max-width: none;
+        /* Remove the fixed max-width for better scaling */
+        padding: 5vw;
+    }
+
+    .inputField,
+    .submitButton {
+        width: 90%;
+        max-width: none;
+        /* Ensure fields also scale with the container */
+    }
+}
+

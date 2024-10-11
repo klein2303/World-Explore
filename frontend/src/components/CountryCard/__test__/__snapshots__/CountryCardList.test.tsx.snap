@@ -15,14 +15,20 @@ exports[`CountryCardList Tests > renders the country card list correctly 1`] = `
         class="_cardcontainer_043c24"
         role="region"
       >
-        <img
-          alt="image of the country Australia"
-          aria-hidden="true"
-          class="_cardimage_043c24"
-          src="https://example.com/australia.jpg"
-        />
+        <a
+          href="/australia"
+        >
+          <img
+            alt="image of the country Australia"
+            aria-hidden="true"
+            class="_cardimage_043c24"
+            src="https://example.com/australia.jpg"
+          />
+        </a>
         <div
+          aria-label="Information and actions for Australia"
           class="_information_043c24"
+          role="group"
         >
           <p
             class="_name_043c24"
@@ -66,14 +72,20 @@ exports[`CountryCardList Tests > renders the country card list correctly 1`] = `
         class="_cardcontainer_043c24"
         role="region"
       >
-        <img
-          alt="image of the country Brazil"
-          aria-hidden="true"
-          class="_cardimage_043c24"
-          src="https://example.com/brazil.jpg"
-        />
+        <a
+          href="/brazil"
+        >
+          <img
+            alt="image of the country Brazil"
+            aria-hidden="true"
+            class="_cardimage_043c24"
+            src="https://example.com/brazil.jpg"
+          />
+        </a>
         <div
+          aria-label="Information and actions for Brazil"
           class="_information_043c24"
+          role="group"
         >
           <p
             class="_name_043c24"

@@ -34,7 +34,7 @@ const Filter = () => {
                     Continents
                 </p>
                 <div className={styles.filterlist} role="group" aria-labelledby="continent-filter">
-                    <div className={styles.filteritem}>
+                    <section className={styles.filteritem}>
                         <input
                             type="checkbox"
                             id="Africa"
@@ -49,8 +49,8 @@ const Filter = () => {
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             Africa
                         </label>
-                    </div>
-                    <div className={styles.filteritem}>
+                    </section>
+                    <section className={styles.filteritem}>
                         <input
                             type="checkbox"
                             id="Asia"
@@ -65,8 +65,8 @@ const Filter = () => {
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             Asia
                         </label>
-                    </div>
-                    <div className={styles.filteritem}>
+                    </section>
+                    <section className={styles.filteritem}>
                         <input
                             type="checkbox"
                             id="Europe"
@@ -81,8 +81,8 @@ const Filter = () => {
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             Europe
                         </label>
-                    </div>
-                    <div className={styles.filteritem}>
+                    </section>
+                    <section className={styles.filteritem}>
                         <input
                             type="checkbox"
                             id="North America"
@@ -97,8 +97,8 @@ const Filter = () => {
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             North America
                         </label>
-                    </div>
-                    <div className={styles.filteritem}>
+                    </section>
+                    <section className={styles.filteritem}>
                         <input
                             type="checkbox"
                             id="Oceania"
@@ -113,8 +113,8 @@ const Filter = () => {
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             Oceania
                         </label>
-                    </div>
-                    <div className={styles.filteritem}>
+                    </section>
+                    <section className={styles.filteritem}>
                         <input
                             type="checkbox"
                             id="South America"
@@ -129,7 +129,7 @@ const Filter = () => {
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             South America
                         </label>
-                    </div>
+                    </section>
                 </div>
             </div>
         </main>

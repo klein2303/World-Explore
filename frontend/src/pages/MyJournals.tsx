@@ -65,8 +65,7 @@ const MyJournals = () => {
                             aria-selected={activeTab === "journals"}
                             aria-controls="journals-panel"
                             id="journals-tab"
-                            aria-label="Journal Entries Tab"
-                            >    
+                            aria-label="Journal Entries Tab">
                             Journal Entries
                         </button>
                         <button

@@ -1,11 +1,17 @@
-.registerPage {
+.registerPage{
     display: flex;
     flex-direction: row;
     height: 100vh;
-    background-color: #e4e1f7;
+    background-color: #E4E1F7;
+
 }
 
-.logo {
+.logoLink{
+    color:#000000;
+    text-decoration: none;
+}
+
+.logo{
     height: max-content;
     width: 35vw;
     margin-left: 10px;
@@ -14,63 +20,87 @@
     font-size: 30px;
 }
 
-.linkToLogIn a {
+.linkToLogIn a{
     color: #000000;
     font-weight: 300;
     font-size: 15px;
 }
 
-.headerRegisterPage {
-    display: flex;
+.headerRegisterPage{
+    display: flex; 
     flex-direction: row;
 }
 
-.navlinkUnder {
+.navlinkUnder{
     display: none;
 }
-.inputSection {
+.inputSection{
     width: 50%;
     padding: 20px;
     justify-content: center;
-}
 
-@media (max-width: 1024px) {
-    .image {
+}
+.inputSection, .image {
+    height: 100%;
+    flex-grow: 1; /* Make both sections take up available space */
+  }
+  
+  .image {
+    height: 100vh; 
+    width: 50vw;
+  }
+  
+  .imageimage {
+    width: 100%;
+    object-fit: cover; 
+  }
+
+@media (max-width: 1140px){
+    .image{
+        display: none;
+    }
+    
+    .imageimage{
         display: none;
     }
 
-    .registerPage {
+    .registerPage{
         justify-content: center;
         width: 100vw;
         height: 100vh;
     }
 
-    .inputSection {
+    .inputSection{
         width: 70vw;
         padding: 0px;
         justify-content: center;
+
     }
 
-    .navlinkUnder {
+    .navlinkUnder{
         display: contents;
+        
+
     }
 
-    .navlinkOver {
+    .navlinkOver{
         display: none;
     }
 
-    .linkToLogInUnder a {
+    .linkToLogInUnder a{
         color: #000000;
         font-weight: 300;
         font-size: 15px;
     }
 
-    .linkToLogInUnder {
+    .linkToLogInUnder{
         text-align: center;
         text-decoration: underline;
     }
 
-    .logo {
+    .logo{
         display: none;
     }
 }
+
+

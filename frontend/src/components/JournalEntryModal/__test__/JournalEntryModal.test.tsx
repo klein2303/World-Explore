@@ -55,7 +55,7 @@ describe('JournalEntryModal', () => {
       country: 'Norway',
       reviews: [
         {
-          id: expect.any(Number), // Use matcher for any number
+          id: expect.any(Number),
           title: 'My Trip to Norway',
           date: '2023-01-01',
           rating: 0, // Default rating
@@ -89,5 +89,18 @@ describe('JournalEntryModal', () => {
         },
       ],
     });
+  });
+
+  // Snapshot test using @testing-library/react
+  it('matches the snapshot when modal is open', () => {
+    const { asFragment } = render(
+      <JournalEntryModal
+        country="Norway"
+        isOpen={true}
+        onClose={mockOnClose}
+        onSubmit={mockOnSubmit}
+      />
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 });

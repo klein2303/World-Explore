@@ -19,7 +19,7 @@ const PopularCountries = () => {
                     "Japan",
                     "Thailand",
                 ].map((country, index) => (
-                    <label key={index} className={styles.countryLabel} aria-label= "label for country">
+                    <label key={index} className={styles.countryLabel} aria-label="label for country">
                         {country}
                     </label>
                 ))}

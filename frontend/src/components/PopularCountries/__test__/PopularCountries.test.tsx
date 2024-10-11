@@ -34,7 +34,7 @@ describe("PopularCountries Tests", () => {
 
     it("checks if country labels are rendered correctly", () => {
         render(<PopularCountries />);
-    
+
         // Check that all labels are present using getAllByLabelText
         const labels = screen.getAllByLabelText("label for country");
         expect(labels.length).toBe(10); // Ensure there are 10 labels

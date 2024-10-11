@@ -1,5 +1,4 @@
-@media (min-width: 601px){
-
+@media (min-width: 601px) {
     .page {
         display: flex;
         flex-direction: column;
@@ -7,40 +6,41 @@
         margin-left: 150px;
         margin-right: 150px;
     }
-    
-    .returnLink{
+
+    .returnLink {
         font-size: 18px;
-        text-decoration: none; 
+        text-decoration: none;
         color: #424242;
     }
-    
-    .returnLink:visited{
-        text-decoration: none; 
+
+    .returnLink:visited {
+        text-decoration: none;
     }
-    
-    .upperSection{
+
+    .upperSection {
         display: flex;
         flex-direction: row;
-        justify-content: space-between; 
+        justify-content: space-between;
         align-items: center;
     }
-    
-    .title{
+
+    .title {
         margin-top: 20px;
         font-size: 36px;
     }
-    
-    .addButton{
+
+    .addButton {
         border: 1px solid #d3d3d3;
         font-size: 18px;
-        background-color: #FCF5FF;
+        background-color: #fcf5ff;
         color: #333;
         transition:
             background-color 0.3s,
             color 0.3s;
         border-radius: 5px;
+        padding: 5px;
     }
-    
+
     .addButton:hover {
         background-color: #e4e1f7;
         border-color: #e4e1f7;
@@ -48,8 +48,7 @@
     }
 }
 
-
-@media (max-width: 600px){
+@media (max-width: 600px) {
     /*Phone */
     .page {
         display: flex;
@@ -59,34 +58,35 @@
         max-width: 100%;
     }
 
-    .returnLink{
+    .returnLink {
         font-size: 16px;
-        text-decoration: none; 
+        text-decoration: none;
         align-items: flex-start;
         color: #424242;
     }
 
-    .upperSection{
+    .upperSection {
         display: flex;
         flex-direction: column;
-        justify-content: space-between; 
+        justify-content: space-between;
         align-items: center;
     }
-    
-    .title{
+
+    .title {
         margin-top: 10px;
         font-size: 32px;
     }
 
-    .addButton{
+    .addButton {
         border: 1px solid #d3d3d3;
         font-size: 18px;
-        background-color: #FCF5FF;
+        background-color: #fcf5ff;
         color: #333;
         transition:
             background-color 0.3s,
             color 0.3s;
         border-radius: 5px;
         margin-top: 15px;
+        padding: 5px;
     }
 }

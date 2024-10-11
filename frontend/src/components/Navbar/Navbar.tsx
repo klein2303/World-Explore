@@ -81,9 +81,11 @@ const Navbar = () => {
                                 />
                             </div>
 
-                            <button className={styles.signout} aria-label="Sign out">
-                                <p>Sign out</p>
-                            </button>
+                            
+                            <Link to= {"/LogIn"} className={styles.signout} aria-label="Sign out">
+                                <p>Log in</p>
+                            </Link>
+                           
                         </div>
                     )}
                 </div>

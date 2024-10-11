@@ -27,7 +27,7 @@ const Register = () => {
             </section>
         </section>
         <section className={styles.image} aria-label= "image">
-            <img src= {loginImage} alt="A beautiful landscape" width="700" height="700" aria-label= "A beautiful image of a landscape"></img>
+            <img src= {loginImage} className= {styles.imageimage} alt="A beautiful landscape" width="700" height="700" aria-label= "A beautiful image of a landscape"></img>
         </section>
     </main>
 

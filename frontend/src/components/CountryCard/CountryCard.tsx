@@ -28,6 +28,7 @@ const CountryCard = ({name, image}: CountryCardProps) => {
         }
     }, [name]);
 
+
     return (
         <main className={styles.cardcontainer} role="region" aria-labelledby={`country-name-${name}`}>
             <Link to={`/${name.toLowerCase()}`}>

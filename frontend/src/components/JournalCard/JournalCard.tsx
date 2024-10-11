@@ -1,5 +1,7 @@
 import {useState} from "react";
 import styles from "./JournalCard.module.css";
+import { Link } from "react-router-dom";
+
 
 interface JournalCardProps {
     country: string;
@@ -18,17 +20,20 @@ const JournalCard = ({country, date, image}: JournalCardProps) => {
         }
     };
 
+
     return (
         <article className={styles.cardWrapper} aria-label={`Journal card wrapper for ${country}`}>
+            <Link to={`/JournalPage/${country}`}>
             <section className={styles.card} onClick={toggleModal} aria-label={`Journal card for ${country}`}>
                 <div className={styles.verticalStrip} role="presentation"></div>
-                <img src={image} alt={`Image of ${country}`} className={styles.cardImage} />
-
+                    <img src={image} alt={`Image of ${country}`} className={styles.cardImage} />
                 {/* Overlay text */}
                 <div className={styles.overlayText} role="text">
                     {date ? "Read Journal" : "Write Journal"}
                 </div>
             </section>
+            </Link>
+
             <div className={styles.cardText} role="contentinfo" aria-label={`Journal card text for ${country}`}>
                 <header className={styles.cardTitle}>{country}</header>
 

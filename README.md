@@ -8,6 +8,9 @@ it2810-10.idi.ntnu.no/project2
 
 - [About the project](#about-the-project)
 - [Running the project](#running-the-project)
+- [Running tests](#running-tests)
+- [Running eslint](#running-eslint)
+
 
 ## About the project
 
@@ -21,7 +24,7 @@ The website is also made mobile friendly, as it will adapt to the smaller screen
 
 ## Running the project
 
-To run the project, you need to have Node 22 installed. Clone the repository from git with `git clone https://git.ntnu.no/IT2810-H24/T10-Project-2.git`. Then navigate to the folder `frontend` by writing `cd frontend` in the terminal.
+To run the project, you need to have Node 22 installed. Clone the repository from git with `git clone https://git.ntnu.no/IT2810-H24/T10-Project-2.git`. Then navigate to the folder `frontend` by writing `cd frontend` in the terminal. Make sure you are located in the main branch when running the project. To ckeckout to the main branch you can run `git checkout main` in the terminal.
 
 Now you need to install some npm components.
 To do so, run the following commands in a terminal while inside the mentioned folder:

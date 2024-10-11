@@ -1,0 +1,144 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Register Component > renders the Register component correctly 1`] = `
+<DocumentFragment>
+  <main
+    aria-label="Register page"
+    class="_registerPage_8c2a65"
+  >
+    <section
+      aria-label="A section for inputs"
+      class="_inputSection_8c2a65"
+    >
+      <section
+        aria-label="Header of register page"
+        class="_headerRegisterPage_8c2a65"
+      >
+        <section
+          aria-label="Logo"
+          class="_logo_8c2a65"
+        >
+          <a
+            aria-label="link to home page"
+            class="_logoLink_8c2a65"
+            href="/ExploreCountries"
+          >
+            <p
+              aria-label="World explore"
+            >
+              WorldExplore
+            </p>
+          </a>
+        </section>
+        <section
+          aria-label="A link to login"
+          class="_linkToLogIn_8c2a65"
+        >
+          <a
+            aria-label="link"
+            class="_navlinkOver_8c2a65"
+            href="/LogIn"
+          >
+            <p
+              aria-label="Already registered?"
+            >
+               Already registered?
+            </p>
+          </a>
+        </section>
+      </section>
+      <section
+        aria-label="Login og register component"
+      >
+        <section
+          aria-label="Register a new account"
+          class="_loginOrRegister_d1f9f8"
+        >
+          <section
+            aria-label="Title"
+            class="_title_d1f9f8"
+          >
+            <h3
+              aria-label="Create a new account"
+            >
+              Create an account
+            </h3>
+          </section>
+          <hr
+            class="_line_d1f9f8"
+          />
+          <section
+            aria-label="Input fields"
+            class="_inputSections_d1f9f8"
+          >
+            <input
+              aria-label="Name input field"
+              class="_inputField_d1f9f8"
+              name="name"
+              placeholder="Please enter your name"
+              type="text"
+              value=""
+            />
+            <input
+              aria-label="Email input field"
+              class="_inputField_d1f9f8"
+              name="email"
+              placeholder="Please enter your email"
+              type="email"
+              value=""
+            />
+            <input
+              aria-label="Password input field"
+              class="_inputField_d1f9f8"
+              name="password"
+              placeholder="Please enter a password"
+              type="password"
+              value=""
+            />
+            <h5
+              aria-label="Password must at least be 8 characters"
+            >
+               Password must at least be 8 characters
+            </h5>
+            <button
+              aria-label="Submit to create a new account"
+              class="_submitButton_d1f9f8"
+            >
+              Create account
+            </button>
+          </section>
+        </section>
+      </section>
+      <section
+        aria-label="A link to login"
+        class="_linkToLogInUnder_8c2a65"
+      >
+        <a
+          aria-label="link"
+          class="_navlinkUnder_8c2a65"
+          href="/LogIn"
+        >
+          <p
+            aria-label="Already registered"
+          >
+            Already registered?
+          </p>
+        </a>
+      </section>
+    </section>
+    <section
+      aria-label="image"
+      class="_image_8c2a65"
+    >
+      <img
+        alt="A beautiful landscape"
+        aria-label="A beautiful image of a landscape"
+        class="_imageimage_8c2a65"
+        height="700"
+        src="/project2/loginImagePurple.jpg"
+        width="700"
+      />
+    </section>
+  </main>
+</DocumentFragment>
+`;

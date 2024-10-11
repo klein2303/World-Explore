@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./JournalEntryModal.module.css";
 import { FaStar } from "react-icons/fa";
 
-// Husk å fjerne, skal importeres fra JournalType.ts
+// To be imported from JournalType.ts later
 type ReviewType = {
     id: number;
     title: string;
@@ -68,7 +68,7 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
                     <h2 className={styles.journalEntryTitle}>Write your journal entry for {country}</h2>
                     <input
                         type="text"
-                        placeholder="Title (max. 50 characters)"
+                        placeholder="Title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         className={styles.input}

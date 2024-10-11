@@ -172,26 +172,30 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         aria-label="Journal card wrapper for Egypt"
         class="_cardWrapper_be814f"
       >
-        <section
-          aria-label="Journal card for Egypt"
-          class="_card_be814f"
+        <a
+          href="/JournalPage/Egypt"
         >
-          <div
-            class="_verticalStrip_be814f"
-            role="presentation"
-          />
-          <img
-            alt="Image of Egypt"
-            class="_cardImage_be814f"
-            src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-          />
-          <div
-            class="_overlayText_be814f"
-            role="text"
+          <section
+            aria-label="Journal card for Egypt"
+            class="_card_be814f"
           >
-            Read Journal
-          </div>
-        </section>
+            <div
+              class="_verticalStrip_be814f"
+              role="presentation"
+            />
+            <img
+              alt="Image of Egypt"
+              class="_cardImage_be814f"
+              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+            />
+            <div
+              class="_overlayText_be814f"
+              role="text"
+            >
+              Read Journal
+            </div>
+          </section>
+        </a>
         <div
           aria-label="Journal card text for Egypt"
           class="_cardText_be814f"
@@ -213,26 +217,30 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         aria-label="Journal card wrapper for Australia"
         class="_cardWrapper_be814f"
       >
-        <section
-          aria-label="Journal card for Australia"
-          class="_card_be814f"
+        <a
+          href="/JournalPage/Australia"
         >
-          <div
-            class="_verticalStrip_be814f"
-            role="presentation"
-          />
-          <img
-            alt="Image of Australia"
-            class="_cardImage_be814f"
-            src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-          />
-          <div
-            class="_overlayText_be814f"
-            role="text"
+          <section
+            aria-label="Journal card for Australia"
+            class="_card_be814f"
           >
-            Read Journal
-          </div>
-        </section>
+            <div
+              class="_verticalStrip_be814f"
+              role="presentation"
+            />
+            <img
+              alt="Image of Australia"
+              class="_cardImage_be814f"
+              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+            />
+            <div
+              class="_overlayText_be814f"
+              role="text"
+            >
+              Read Journal
+            </div>
+          </section>
+        </a>
         <div
           aria-label="Journal card text for Australia"
           class="_cardText_be814f"
@@ -254,26 +262,30 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         aria-label="Journal card wrapper for Brazil"
         class="_cardWrapper_be814f"
       >
-        <section
-          aria-label="Journal card for Brazil"
-          class="_card_be814f"
+        <a
+          href="/JournalPage/Brazil"
         >
-          <div
-            class="_verticalStrip_be814f"
-            role="presentation"
-          />
-          <img
-            alt="Image of Brazil"
-            class="_cardImage_be814f"
-            src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-          />
-          <div
-            class="_overlayText_be814f"
-            role="text"
+          <section
+            aria-label="Journal card for Brazil"
+            class="_card_be814f"
           >
-            Read Journal
-          </div>
-        </section>
+            <div
+              class="_verticalStrip_be814f"
+              role="presentation"
+            />
+            <img
+              alt="Image of Brazil"
+              class="_cardImage_be814f"
+              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+            />
+            <div
+              class="_overlayText_be814f"
+              role="text"
+            >
+              Read Journal
+            </div>
+          </section>
+        </a>
         <div
           aria-label="Journal card text for Brazil"
           class="_cardText_be814f"
@@ -295,26 +307,30 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         aria-label="Journal card wrapper for Nigeria"
         class="_cardWrapper_be814f"
       >
-        <section
-          aria-label="Journal card for Nigeria"
-          class="_card_be814f"
+        <a
+          href="/JournalPage/Nigeria"
         >
-          <div
-            class="_verticalStrip_be814f"
-            role="presentation"
-          />
-          <img
-            alt="Image of Nigeria"
-            class="_cardImage_be814f"
-            src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-          />
-          <div
-            class="_overlayText_be814f"
-            role="text"
+          <section
+            aria-label="Journal card for Nigeria"
+            class="_card_be814f"
           >
-            Read Journal
-          </div>
-        </section>
+            <div
+              class="_verticalStrip_be814f"
+              role="presentation"
+            />
+            <img
+              alt="Image of Nigeria"
+              class="_cardImage_be814f"
+              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+            />
+            <div
+              class="_overlayText_be814f"
+              role="text"
+            >
+              Read Journal
+            </div>
+          </section>
+        </a>
         <div
           aria-label="Journal card text for Nigeria"
           class="_cardText_be814f"
@@ -336,26 +352,30 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         aria-label="Journal card wrapper for Germany"
         class="_cardWrapper_be814f"
       >
-        <section
-          aria-label="Journal card for Germany"
-          class="_card_be814f"
+        <a
+          href="/JournalPage/Germany"
         >
-          <div
-            class="_verticalStrip_be814f"
-            role="presentation"
-          />
-          <img
-            alt="Image of Germany"
-            class="_cardImage_be814f"
-            src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-          />
-          <div
-            class="_overlayText_be814f"
-            role="text"
+          <section
+            aria-label="Journal card for Germany"
+            class="_card_be814f"
           >
-            Read Journal
-          </div>
-        </section>
+            <div
+              class="_verticalStrip_be814f"
+              role="presentation"
+            />
+            <img
+              alt="Image of Germany"
+              class="_cardImage_be814f"
+              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+            />
+            <div
+              class="_overlayText_be814f"
+              role="text"
+            >
+              Read Journal
+            </div>
+          </section>
+        </a>
         <div
           aria-label="Journal card text for Germany"
           class="_cardText_be814f"
@@ -377,26 +397,30 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         aria-label="Journal card wrapper for South Africa"
         class="_cardWrapper_be814f"
       >
-        <section
-          aria-label="Journal card for South Africa"
-          class="_card_be814f"
+        <a
+          href="/JournalPage/South Africa"
         >
-          <div
-            class="_verticalStrip_be814f"
-            role="presentation"
-          />
-          <img
-            alt="Image of South Africa"
-            class="_cardImage_be814f"
-            src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-          />
-          <div
-            class="_overlayText_be814f"
-            role="text"
+          <section
+            aria-label="Journal card for South Africa"
+            class="_card_be814f"
           >
-            Read Journal
-          </div>
-        </section>
+            <div
+              class="_verticalStrip_be814f"
+              role="presentation"
+            />
+            <img
+              alt="Image of South Africa"
+              class="_cardImage_be814f"
+              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+            />
+            <div
+              class="_overlayText_be814f"
+              role="text"
+            >
+              Read Journal
+            </div>
+          </section>
+        </a>
         <div
           aria-label="Journal card text for South Africa"
           class="_cardText_be814f"
@@ -418,26 +442,30 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         aria-label="Journal card wrapper for France"
         class="_cardWrapper_be814f"
       >
-        <section
-          aria-label="Journal card for France"
-          class="_card_be814f"
+        <a
+          href="/JournalPage/France"
         >
-          <div
-            class="_verticalStrip_be814f"
-            role="presentation"
-          />
-          <img
-            alt="Image of France"
-            class="_cardImage_be814f"
-            src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-          />
-          <div
-            class="_overlayText_be814f"
-            role="text"
+          <section
+            aria-label="Journal card for France"
+            class="_card_be814f"
           >
-            Read Journal
-          </div>
-        </section>
+            <div
+              class="_verticalStrip_be814f"
+              role="presentation"
+            />
+            <img
+              alt="Image of France"
+              class="_cardImage_be814f"
+              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+            />
+            <div
+              class="_overlayText_be814f"
+              role="text"
+            >
+              Read Journal
+            </div>
+          </section>
+        </a>
         <div
           aria-label="Journal card text for France"
           class="_cardText_be814f"
@@ -459,26 +487,30 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         aria-label="Journal card wrapper for Japan"
         class="_cardWrapper_be814f"
       >
-        <section
-          aria-label="Journal card for Japan"
-          class="_card_be814f"
+        <a
+          href="/JournalPage/Japan"
         >
-          <div
-            class="_verticalStrip_be814f"
-            role="presentation"
-          />
-          <img
-            alt="Image of Japan"
-            class="_cardImage_be814f"
-            src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-          />
-          <div
-            class="_overlayText_be814f"
-            role="text"
+          <section
+            aria-label="Journal card for Japan"
+            class="_card_be814f"
           >
-            Read Journal
-          </div>
-        </section>
+            <div
+              class="_verticalStrip_be814f"
+              role="presentation"
+            />
+            <img
+              alt="Image of Japan"
+              class="_cardImage_be814f"
+              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+            />
+            <div
+              class="_overlayText_be814f"
+              role="text"
+            >
+              Read Journal
+            </div>
+          </section>
+        </a>
         <div
           aria-label="Journal card text for Japan"
           class="_cardText_be814f"
@@ -500,26 +532,30 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         aria-label="Journal card wrapper for India"
         class="_cardWrapper_be814f"
       >
-        <section
-          aria-label="Journal card for India"
-          class="_card_be814f"
+        <a
+          href="/JournalPage/India"
         >
-          <div
-            class="_verticalStrip_be814f"
-            role="presentation"
-          />
-          <img
-            alt="Image of India"
-            class="_cardImage_be814f"
-            src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-          />
-          <div
-            class="_overlayText_be814f"
-            role="text"
+          <section
+            aria-label="Journal card for India"
+            class="_card_be814f"
           >
-            Read Journal
-          </div>
-        </section>
+            <div
+              class="_verticalStrip_be814f"
+              role="presentation"
+            />
+            <img
+              alt="Image of India"
+              class="_cardImage_be814f"
+              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+            />
+            <div
+              class="_overlayText_be814f"
+              role="text"
+            >
+              Read Journal
+            </div>
+          </section>
+        </a>
         <div
           aria-label="Journal card text for India"
           class="_cardText_be814f"
@@ -541,26 +577,30 @@ exports[`MyJournals > renders correctly and matches snapshot 1`] = `
         aria-label="Journal card wrapper for United States"
         class="_cardWrapper_be814f"
       >
-        <section
-          aria-label="Journal card for United States"
-          class="_card_be814f"
+        <a
+          href="/JournalPage/United States"
         >
-          <div
-            class="_verticalStrip_be814f"
-            role="presentation"
-          />
-          <img
-            alt="Image of United States"
-            class="_cardImage_be814f"
-            src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-          />
-          <div
-            class="_overlayText_be814f"
-            role="text"
+          <section
+            aria-label="Journal card for United States"
+            class="_card_be814f"
           >
-            Read Journal
-          </div>
-        </section>
+            <div
+              class="_verticalStrip_be814f"
+              role="presentation"
+            />
+            <img
+              alt="Image of United States"
+              class="_cardImage_be814f"
+              src="https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+            />
+            <div
+              class="_overlayText_be814f"
+              role="text"
+            >
+              Read Journal
+            </div>
+          </section>
+        </a>
         <div
           aria-label="Journal card text for United States"
           class="_cardText_be814f"

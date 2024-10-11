@@ -1,7 +1,7 @@
-import { useState } from "react";
+import {useState} from "react";
 import styles from "./JournalCard.module.css";
-import { Link, useNavigate } from "react-router-dom"; // Importing useNavigate to manually navigate programmatically
-import { JournalType } from "../../types/JournalType";
+import {Link, useNavigate} from "react-router-dom"; // Importing useNavigate to manually navigate programmatically
+import {JournalType} from "../../types/JournalType";
 import JournalEntryModal from "../JournalEntryModal/JournalEntryModal";
 
 interface JournalCardProps {
@@ -10,7 +10,7 @@ interface JournalCardProps {
     image: string;
 }
 
-const JournalCard = ({ country, date, image }: JournalCardProps) => {
+const JournalCard = ({country, date, image}: JournalCardProps) => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // State to track modal visibility
     const navigate = useNavigate(); // Hook to manually navigate to another route
 

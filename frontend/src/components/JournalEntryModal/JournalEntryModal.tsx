@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import {useState, useEffect, useRef} from "react";
 import styles from "./JournalEntryModal.module.css";
-import { FaStar } from "react-icons/fa";
-import { JournalType } from "../../types/JournalType";
+import {FaStar} from "react-icons/fa";
+import {JournalType} from "../../types/JournalType";
 
 interface JournalEntryModalProps {
     country: string;
@@ -10,7 +10,7 @@ interface JournalEntryModalProps {
     onSubmit: (entry: JournalType) => void;
 }
 
-const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryModalProps) => {
+const JournalEntryModal = ({country, isOpen, onClose, onSubmit}: JournalEntryModalProps) => {
     const [title, setTitle] = useState<string>("");
     const [date, setDate] = useState<string>("");
     const [rating, setRating] = useState<number>(0);
@@ -21,13 +21,13 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
 
     useEffect(() => {
         const focusableElements = modalRef.current?.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
         );
         const firstElement = focusableElements?.[0] as HTMLElement;
         const lastElement = focusableElements?.[focusableElements.length - 1] as HTMLElement;
-        
+
         const trapFocus = (e: KeyboardEvent) => {
-            if (e.key === 'Tab') {
+            if (e.key === "Tab") {
                 if (document.activeElement === firstElement && e.shiftKey) {
                     e.preventDefault();
                     lastElement?.focus();
@@ -37,16 +37,16 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
                 }
             }
         };
-    
+
         if (isOpen) {
             firstElement?.focus();
-            document.addEventListener('keydown', trapFocus);
+            document.addEventListener("keydown", trapFocus);
         }
-    
+
         return () => {
-            document.removeEventListener('keydown', trapFocus);
+            document.removeEventListener("keydown", trapFocus);
         };
-    }, [isOpen]);    
+    }, [isOpen]);
 
     const handleSubmit = () => {
         onSubmit({
@@ -66,7 +66,13 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
     };
 
     return isOpen ? (
-        <div className={styles.overlay} role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description" ref={modalRef}>
+        <div
+            className={styles.overlay}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
+            ref={modalRef}>
             <aside className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="journalModalTitle">
                 <button onClick={onClose} className={styles.closeButton} aria-label="Close modal">
                     &times;
@@ -104,10 +110,10 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
                                 key={star}
                                 className={star <= rating ? styles.starActive : styles.star}
                                 onClick={() => setRating(star)}
-                                tabIndex={0}  // Make the stars keyboard accessible
+                                tabIndex={0} // Make the stars keyboard accessible
                                 role="button"
-                                aria-pressed={star <= rating}  // Screen reader announcement for the current state
-                                aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
+                                aria-pressed={star <= rating} // Screen reader announcement for the current state
+                                aria-label={`Rate ${star} star${star > 1 ? "s" : ""}`}
                                 onKeyDown={(e) => {
                                     if (e.key === "Enter" || e.key === " ") setRating(star);
                                 }}
@@ -130,6 +136,6 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
             </aside>
         </div>
     ) : null;
-}
+};
 
 export default JournalEntryModal;

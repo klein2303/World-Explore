@@ -30,7 +30,7 @@
 
 .closeButton {
     position: absolute;
-    top: 0;  /* Adjust the distance from the top */
+    top: 0; /* Adjust the distance from the top */
     right: 10px; /* Adjust the distance from the right */
     background: none;
     border: none;
@@ -45,7 +45,7 @@
     font-family: "Poppins", sans-serif;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #E4E1F7; /* Light purple background for input fields */
+    background-color: #e4e1f7; /* Light purple background for input fields */
     color: #424242; /* Gray text */
 }
 
@@ -56,7 +56,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     height: 100px;
-    background-color: #E4E1F7; /* Light purple background for textarea */
+    background-color: #e4e1f7; /* Light purple background for textarea */
     color: #424242; /* Gray text */
     resize: none; /* Prevent user from resizing the textarea */
 }
@@ -79,13 +79,15 @@
     color: transparent; /* No fill for inactive stars */
     stroke: #424242; /* Gray outline for stars */
     stroke-width: 15px; /* Thicker gray outline */
-    transition: fill 0.2s ease, transform 0.2s ease; /* Smooth transition for fill */
+    transition:
+        fill 0.2s ease,
+        transform 0.2s ease; /* Smooth transition for fill */
 }
 
 .starActive {
     font-size: 1.5rem;
     margin-right: 5px;
-    color: #E4E1F7; /* Purple fill for active stars */
+    color: #e4e1f7; /* Purple fill for active stars */
     stroke: #424242; /* Keep gray outline for active stars */
     stroke-width: 15px; /* Thicker gray outline */
 }
@@ -93,13 +95,13 @@
 .star:hover,
 .starActive:hover {
     stroke: #424242; /* Keep gray outline */
-    fill: #E4E1F7; /* Stars turn purple on hover */
+    fill: #e4e1f7; /* Stars turn purple on hover */
 }
 
 .submitButton {
     padding: 10px;
     font-size: 1rem;
-    background-color: #E4E1F7; /* Purple background for the submit button */
+    background-color: #e4e1f7; /* Purple background for the submit button */
     color: #424242; /* Gray text */
     border: none;
     border-radius: 5px;

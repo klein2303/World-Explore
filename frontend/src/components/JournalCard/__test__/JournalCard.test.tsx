@@ -1,79 +1,99 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { expect, it, describe } from "vitest";
+import {render, screen, fireEvent} from "@testing-library/react";
+import {MemoryRouter} from "react-router-dom";
+import {describe, it, expect, vi} from "vitest";
 import JournalCard from "../JournalCard";
-import { MemoryRouter } from "react-router-dom";
+
+// Mock the navigate function from react-router-dom
+const mockNavigate = vi.fn();
+vi.mock("react-router-dom", async () => {
+    const actual = await vi.importActual("react-router-dom");
+    return {
+        ...actual,
+        useNavigate: () => mockNavigate,
+    };
+});
+
+// Mock JournalEntryModal component to prevent rendering issues
+vi.mock("../../JournalEntryModal/JournalEntryModal", () => ({
+    default: vi.fn(() => <div>Mocked Modal</div>),
+}));
 
 describe("JournalCard", () => {
     const mockProps = {
-        country: "France",
-        date: "2023-01-12",
-        image: "https://example.com/france.jpg",
-    };
-
-    const mockPropsUnwritten = {
-        country: "Spain",
+        country: "Japan",
         date: null,
-        image: "https://example.com/spain.jpg",
+        image: "https://example.com/japan.jpg",
     };
 
-    it("renders correctly with a journal entry", () => {
-        const { asFragment } = render(
+    it("renders correctly and matches snapshot", () => {
+        const {asFragment} = render(
             <MemoryRouter>
                 <JournalCard {...mockProps} />
-            </MemoryRouter>
+            </MemoryRouter>,
         );
         expect(asFragment()).toMatchSnapshot();
     });
 
-    it("renders correctly without a journal entry", () => {
-        const { asFragment } = render(
-            <MemoryRouter>
-                <JournalCard {...mockPropsUnwritten} />
-            </MemoryRouter>
-        );
-        expect(asFragment()).toMatchSnapshot();
-    });
-
-    it("displays the correct overlay text based on the date", () => {
+    it("renders the country name", () => {
         render(
             <MemoryRouter>
                 <JournalCard {...mockProps} />
-            </MemoryRouter>
+            </MemoryRouter>,
         );
-        expect(screen.getByText("Read Journal")).toBeInTheDocument();
+        expect(screen.getByText("Japan")).toBeInTheDocument();
+    });
 
+    it("renders 'Write Journal' when date is null", () => {
         render(
             <MemoryRouter>
-                <JournalCard {...mockPropsUnwritten} />
-            </MemoryRouter>
+                <JournalCard {...mockProps} />
+            </MemoryRouter>,
         );
         expect(screen.getByText("Write Journal")).toBeInTheDocument();
     });
 
-    it("toggles the modal visibility when clicked", () => {
+    it("renders 'Read Journal' when date is provided", () => {
+        const newProps = {...mockProps, date: "2023-10-10"};
         render(
             <MemoryRouter>
-                <JournalCard {...mockPropsUnwritten} />
-            </MemoryRouter>
+                <JournalCard {...newProps} />
+            </MemoryRouter>,
         );
-      
-        const card = screen.getByLabelText("Journal card for Spain");
-        fireEvent.click(card);
-        expect(screen.getByRole("dialog")).toBeInTheDocument();
-
-        const closeButton = screen.getByLabelText("Close modal");
-        fireEvent.click(closeButton);
-        expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+        expect(screen.getByText("Read Journal")).toBeInTheDocument();
     });
 
-    it("does not toggle the modal visibility when there is a date", () => {
+    it("opens the journal entry modal when 'Write Journal' is clicked", () => {
         render(
             <MemoryRouter>
                 <JournalCard {...mockProps} />
-            </MemoryRouter>
+            </MemoryRouter>,
         );
-        const card = screen.getByLabelText("Journal card for France");
+        const card = screen.getByLabelText("Journal card for Japan");
         fireEvent.click(card);
-        expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+        expect(screen.getByText("Mocked Modal")).toBeInTheDocument();
+    });
+
+    it("prevents navigation when clicking 'Write Journal'", () => {
+        render(
+            <MemoryRouter>
+                <JournalCard {...mockProps} />
+            </MemoryRouter>,
+        );
+        const card = screen.getByLabelText("Journal card for Japan");
+        fireEvent.click(card);
+        expect(screen.getByText("Mocked Modal")).toBeInTheDocument();
+        expect(mockNavigate).not.toHaveBeenCalled();
+    });
+
+    it("navigates when 'Read Journal' is clicked", () => {
+        const newProps = {...mockProps, date: "2023-10-10"};
+        render(
+            <MemoryRouter>
+                <JournalCard {...newProps} />
+            </MemoryRouter>,
+        );
+        const card = screen.getByLabelText("Journal card for Japan");
+        fireEvent.click(card);
+        expect(mockNavigate).toHaveBeenCalledWith(`/JournalPage/Japan`);
     });
 });

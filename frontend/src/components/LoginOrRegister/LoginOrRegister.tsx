@@ -7,89 +7,180 @@ interface Profile {
     password: string;
 }
 
-const LoginOrRegister = () => {
-    const [isLogin, setIsLogin] = useState<boolean>(false);
-    const [formValues, setFormValues] = useState<Profile>({
+interface ComponentInterface {
+    //an input to decide whether this component is gonna be used as a login component. Otherwise it is a register component
+    login: boolean;
+}
+
+const LoginOrRegister = ({login}: ComponentInterface) => {
+    const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
+    const [isValidPassword, setIsValidPassword] = useState<boolean>(false);
+    const [registerFeedbackMessage, setRegisterFeedbackMessage] = useState<string>(
+        "Password must at least be 8 characters",
+    );
+    const [loginFeedbackMessage, setLoginFeedbackMessage] = useState<string>("");
+
+    //Get the data from the input
+    const [registerFormValues, setRegisterFormValues] = useState<Profile>({
         name: "",
         email: "",
         password: "",
     });
-    const [isValidPassword, setIsValidPassword] = useState<boolean>(false);
-    const [feedbackMessage, setFeedbackMessage] = useState<string>("Password must at least be 8 characters");
+
+    const [loginFormValues, setLoginFormValues] = useState<{email: string; password: string}>({
+        email: "",
+        password: "",
+    });
+
     // Load existing users from local storage
     const loadUsers = (): Profile[] => {
         const storedUsers = localStorage.getItem("userProfiles");
         return storedUsers ? JSON.parse(storedUsers) : [];
     };
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+    const handleRegisterInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
-        setFormValues({
-            ...formValues,
+        setRegisterFormValues({
+            ...registerFormValues,
             [name]: value,
         });
+        // Email validation: Check if the input email has a "@" character and ".com" at the end
+        if (name == "email") {
+            if (
+                value.includes("@") &&
+                value.split("@")[0].length > 0 &&
+                value.split("@")[1].length > 0 &&
+                value.includes(".") &&
+                value.split(".")[1] == "com"
+            ) {
+                setIsValidEmail(true);
+            }
+        }
         // Password validation: Check if password has at least 8 characters
         if (name === "password") {
             setIsValidPassword(value.length >= 8);
         }
     };
 
+    const handleLoginInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = event.target;
+        setLoginFormValues({
+            ...loginFormValues,
+            [name]: value,
+        });
+    };
+
     const handleSubmit = () => {
         const existingUsers = loadUsers();
-        if (formValues.name.length === 0 || formValues.email.length === 0 || formValues.password.length === 0) {
-            setFeedbackMessage("Please enter all of the fields");
-        } else if (existingUsers.some((user) => user.email === formValues.email)) {
-            setFeedbackMessage("Email already exists. Please use a different email.");
+        if (
+            registerFormValues.name.length === 0 ||
+            registerFormValues.email.length === 0 ||
+            registerFormValues.password.length === 0
+        ) {
+            setRegisterFeedbackMessage("Please enter all of the fields");
+        } else if (!isValidEmail) {
+            setRegisterFeedbackMessage("Email is not in the correct format");
+        } else if (existingUsers.some((user) => user.email === registerFormValues.email)) {
+            setRegisterFeedbackMessage("Email already exists. Please use a different email");
         } else if (!isValidPassword) {
-            setFeedbackMessage("Password is not valid. Password must have 8 characters.");
+            setRegisterFeedbackMessage("Password is not valid. Password must have 8 characters");
         } else {
-            existingUsers.push(formValues);
+            existingUsers.push(registerFormValues);
             localStorage.setItem("userProfiles", JSON.stringify(existingUsers));
-            setFormValues({
+            setRegisterFormValues({
                 name: "",
                 email: "",
                 password: "",
             });
             setIsValidPassword(false);
-            setFeedbackMessage("Account is made successfully");
-
-            // Delay the switch to login form by 1 second
-            setTimeout(() => {
-                setIsLogin(true);
-            }, 1000);
+            setRegisterFeedbackMessage("Account is made successfully");
         }
+    };
+
+    const handleLogin = () => {
+        const existingUsers = loadUsers();
+
+        // Find user by email
+        const user = existingUsers.find((user) => user.email === loginFormValues.email);
+
+        // Check if user exists
+        if (!user) {
+            setLoginFeedbackMessage("No such email");
+            return;
+        }
+
+        // Check if the password matches
+        if (user.password !== loginFormValues.password) {
+            setLoginFeedbackMessage("Wrong password");
+            return;
+        }
+
+        // If everything is correct
+        setLoginFeedbackMessage("Log in successful");
+        setLoginFormValues({
+            email: "",
+            password: "",
+        });
     };
 
     return (
         <section aria-label="Login og register component">
-            {isLogin ? (
-                <section>
-                    {/*Make login component here*/}
-                    <title aria-label="Login title">Login</title>
-                    <h4>User</h4>
+            {login ? (
+                <section className={styles.loginOrRegister} aria-label="Login">
+                    {/*Login component*/}
+                    <section className={styles.title} aria-label="Title">
+                        <h3 aria-label="Login page">Log in</h3>
+                        <h4 aria-label="Enter account details">Enter your WorldExplore account details</h4>
+                    </section>
+                    <hr className={styles.line} />
+                    <section className={styles.inputSections} aria-label="Input fields">
+                        <input
+                            className={styles.inputField}
+                            type="email"
+                            name="email"
+                            value={loginFormValues.email}
+                            onChange={handleLoginInputChange}
+                            placeholder="Email"
+                            aria-label="Email input field for login"
+                        />
+                        <input
+                            className={styles.inputField}
+                            type="password"
+                            name="password"
+                            value={loginFormValues.password}
+                            onChange={handleLoginInputChange}
+                            placeholder="Password"
+                            aria-label="Password input field for login"
+                        />
+                        <h5 aria-label={loginFeedbackMessage}> {loginFeedbackMessage}</h5>
+                        <button className={styles.submitButton} onClick={handleLogin} aria-label="Login button">
+                            Log in
+                        </button>
+                    </section>
                 </section>
             ) : (
                 <section className={styles.loginOrRegister} aria-label="Register a new account">
                     {/*Register component*/}
-                    <div className={styles.title} aria-label="Title">
+                    <section className={styles.title} aria-label="Title">
                         <h3 aria-label="Create a new account">Create an account</h3>
-                    </div>
+                    </section>
                     <hr className={styles.line} />
                     <section className={styles.inputSections} aria-label="Input fields">
                         <input
                             className={styles.inputField}
                             type="text"
                             name="name"
-                            value={formValues.name}
-                            onChange={handleInputChange}
-                            placeholder="Place enter your name"
+                            value={registerFormValues.name}
+                            onChange={handleRegisterInputChange}
+                            placeholder="Please enter your name"
                             aria-label="Name input field"
                         />
                         <input
                             className={styles.inputField}
                             type="email"
                             name="email"
-                            value={formValues.email}
-                            onChange={handleInputChange}
+                            value={registerFormValues.email}
+                            onChange={handleRegisterInputChange}
                             placeholder="Please enter your email"
                             aria-label="Email input field"
                         />
@@ -97,12 +188,12 @@ const LoginOrRegister = () => {
                             className={styles.inputField}
                             type="password"
                             name="password"
-                            value={formValues.password}
-                            onChange={handleInputChange}
+                            value={registerFormValues.password}
+                            onChange={handleRegisterInputChange}
                             placeholder="Please enter a password"
                             aria-label="Password input field"
                         />
-                        <h5 aria-label={feedbackMessage}> {feedbackMessage}</h5>
+                        <h5 aria-label={registerFeedbackMessage}> {registerFeedbackMessage}</h5>
                         <button
                             className={styles.submitButton}
                             onClick={handleSubmit}

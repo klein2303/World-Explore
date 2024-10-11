@@ -1,0 +1,141 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Login Component > renders the Login component correctly with mock data 1`] = `
+<DocumentFragment>
+  <main
+    aria-label="Login page"
+    class="_registerPage_8c2a65"
+  >
+    <section
+      aria-label="A section for inputs"
+      class="_inputSection_8c2a65"
+    >
+      <section
+        aria-label="Header of login page"
+        class="_headerRegisterPage_8c2a65"
+      >
+        <section
+          aria-label="Logo"
+          class="_logo_8c2a65"
+        >
+          <a
+            aria-label="link to home page"
+            class="_logoLink_8c2a65"
+            href="/ExploreCountries"
+          >
+            <p
+              aria-label="World explore"
+            >
+              WorldExplore
+            </p>
+          </a>
+        </section>
+        <section
+          aria-label="A link to login"
+          class="_linkToLogIn_8c2a65"
+        >
+          <a
+            aria-label="link"
+            class="_navlinkOver_8c2a65"
+            href="/Register"
+          >
+            <p
+              aria-label="Already registered?"
+            >
+               Create an account
+            </p>
+          </a>
+        </section>
+      </section>
+      <section
+        aria-label="Login og register component"
+      >
+        <section
+          aria-label="Login"
+          class="_loginOrRegister_d1f9f8"
+        >
+          <section
+            aria-label="Title"
+            class="_title_d1f9f8"
+          >
+            <h3
+              aria-label="Login page"
+            >
+              Log in
+            </h3>
+            <h4
+              aria-label="Enter account details"
+            >
+              Enter your WorldExplore account details
+            </h4>
+          </section>
+          <hr
+            class="_line_d1f9f8"
+          />
+          <section
+            aria-label="Input fields"
+            class="_inputSections_d1f9f8"
+          >
+            <input
+              aria-label="Email input field for login"
+              class="_inputField_d1f9f8"
+              name="email"
+              placeholder="Email"
+              type="email"
+              value=""
+            />
+            <input
+              aria-label="Password input field for login"
+              class="_inputField_d1f9f8"
+              name="password"
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+            <h5
+              aria-label=""
+            >
+               
+            </h5>
+            <button
+              aria-label="Login button"
+              class="_submitButton_d1f9f8"
+            >
+              Log in
+            </button>
+          </section>
+        </section>
+      </section>
+      <section
+        aria-label="A link to login"
+        class="_linkToLogInUnder_8c2a65"
+      >
+        <a
+          aria-label="link"
+          class="_navlinkUnder_8c2a65"
+          href="/Register"
+        >
+          <p
+            aria-label="Already registered"
+          >
+            Create an account
+          </p>
+        </a>
+      </section>
+    </section>
+    <section
+      aria-label="image"
+      class="_image_8c2a65"
+    >
+      <img
+        alt="A beautiful landscape"
+        aria-label="A beautiful image of a landscape"
+        class="_imageimage_8c2a65"
+        height="700"
+        src="/project2/loginImagePurple.jpg"
+        width="700"
+      />
+    </section>
+  </main>
+</DocumentFragment>
+`;

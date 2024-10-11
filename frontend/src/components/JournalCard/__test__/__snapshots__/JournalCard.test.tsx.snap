@@ -1,17 +1,16 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`JournalCard > renders correctly with a journal entry 1`] = `
+exports[`JournalCard > renders correctly and matches snapshot 1`] = `
 <DocumentFragment>
   <article
-    aria-label="Journal card wrapper for France"
+    aria-label="Journal card wrapper for Japan"
     class="_cardWrapper_be814f"
   >
-
     <a
-      href="/JournalPage/France"
+      href="/JournalPage/Japan"
     >
       <section
-        aria-label="Journal card for France"
+        aria-label="Journal card for Japan"
         class="_card_be814f"
       >
         <div
@@ -19,60 +18,9 @@ exports[`JournalCard > renders correctly with a journal entry 1`] = `
           role="presentation"
         />
         <img
-          alt="Image of France"
+          alt="Image of Japan"
           class="_cardImage_be814f"
-          src="https://example.com/france.jpg"
-        />
-        <div
-          class="_overlayText_be814f"
-          role="text"
-        >
-          Read Journal
-        </div>
-      </section>
-    </a>
-
-    <div
-      aria-label="Journal card text for France"
-      class="_cardText_be814f"
-      role="contentinfo"
-    >
-      <header
-        class="_cardTitle_be814f"
-      >
-        France
-      </header>
-      <p
-        class="_cardDate_be814f"
-      >
-        2023-01-12
-      </p>
-    </div>
-  </article>
-</DocumentFragment>
-`;
-
-exports[`JournalCard > renders correctly without a journal entry 1`] = `
-<DocumentFragment>
-  <article
-    aria-label="Journal card wrapper for Spain"
-    class="_cardWrapper_be814f"
-  >
-    <a
-      href="/JournalPage/Spain"
-    >
-      <section
-        aria-label="Journal card for Spain"
-        class="_card_be814f"
-      >
-        <div
-          class="_verticalStrip_be814f"
-          role="presentation"
-        />
-        <img
-          alt="Image of Spain"
-          class="_cardImage_be814f"
-          src="https://example.com/spain.jpg"
+          src="https://example.com/japan.jpg"
         />
         <div
           class="_overlayText_be814f"
@@ -83,14 +31,14 @@ exports[`JournalCard > renders correctly without a journal entry 1`] = `
       </section>
     </a>
     <div
-      aria-label="Journal card text for Spain"
+      aria-label="Journal card text for Japan"
       class="_cardText_be814f"
       role="contentinfo"
     >
       <header
         class="_cardTitle_be814f"
       >
-        Spain
+        Japan
       </header>
     </div>
   </article>

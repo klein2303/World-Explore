@@ -1,59 +1,68 @@
 import {useState} from "react";
 import styles from "./JournalCard.module.css";
-import { Link } from "react-router-dom";
-
+import {Link, useNavigate} from "react-router-dom"; // Importing useNavigate to manually navigate programmatically
+import {JournalType} from "../../types/JournalType";
+import JournalEntryModal from "../JournalEntryModal/JournalEntryModal";
 
 interface JournalCardProps {
     country: string;
-    date: string | null; // Null if visited, but not journaled
+    date: string | null; // Null if the country was visited but no journal entry was made
     image: string;
 }
 
 const JournalCard = ({country, date, image}: JournalCardProps) => {
-    const [isWriting, setIsWriting] = useState<boolean>(false); // To handle modal visibility
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // State to track modal visibility
+    const navigate = useNavigate(); // Hook to manually navigate to another route
 
-    // Function to toggle the modal
-    const toggleModal = () => {
+    // Toggle the modal visibility, and prevent navigation if there is no date (journal is unwritten)
+    const toggleModal = (event: React.MouseEvent) => {
         if (!date) {
-            // Only toggle the modal if there is no date (not journaled)
-            setIsWriting(!isWriting);
+            event.preventDefault(); // Prevent the Link from triggering navigation
+            setIsModalOpen(!isModalOpen); // Open or close the modal
         }
     };
 
+    // Close the modal
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+    // Handle journal submission and close the modal afterward
+    const handleJournalSubmit = (entry: JournalType) => {
+        console.log("New Journal Entry:", entry);
+        handleCloseModal();
+    };
 
     return (
         <article className={styles.cardWrapper} aria-label={`Journal card wrapper for ${country}`}>
-            <Link to={`/JournalPage/${country}`}>
-            <section className={styles.card} onClick={toggleModal} aria-label={`Journal card for ${country}`}>
-                <div className={styles.verticalStrip} role="presentation"></div>
+            {/* Link to the journal page if the journal is written (i.e., date exists) */}
+            <Link to={`/JournalPage/${country}`} onClick={() => date && navigate(`/JournalPage/${country}`)}>
+                <section className={styles.card} onClick={toggleModal} aria-label={`Journal card for ${country}`}>
+                    <div className={styles.verticalStrip} role="presentation"></div>
                     <img src={image} alt={`Image of ${country}`} className={styles.cardImage} />
-                {/* Overlay text */}
-                <div className={styles.overlayText} role="text">
-                    {date ? "Read Journal" : "Write Journal"}
-                </div>
-            </section>
+
+                    {/* Show appropriate overlay text based on whether a journal entry exists */}
+                    <div className={styles.overlayText} role="text">
+                        {date ? "Read Journal" : "Write Journal"}
+                    </div>
+                </section>
             </Link>
 
+            {/* Display the country name and journal date (if available) */}
             <div className={styles.cardText} role="contentinfo" aria-label={`Journal card text for ${country}`}>
                 <header className={styles.cardTitle}>{country}</header>
 
-                {/* Display the date if the country has a journal entry */}
+                {/* Show the journal date if the entry exists */}
                 {date && <p className={styles.cardDate}>{date}</p>}
 
-                {/* Modal for writing a journal */}
-                {isWriting && (
-                    <aside className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="journalModalTitle">
-                        <div className={styles.modalContent} role="document">
-                            <h2 id="journalModalTitle">Write your journal entry for {country}</h2>
-                            <textarea
-                                placeholder="Start writing..."
-                                className={styles.textArea}
-                                aria-label="Journal entry text area"></textarea>
-                            <button onClick={toggleModal} className={styles.closeButton} aria-label="Close modal">
-                                Close
-                            </button>
-                        </div>
-                    </aside>
+                {/* Modal for writing a journal entry (only visible when triggered) */}
+                {isModalOpen && (
+                    <JournalEntryModal
+                        country={country}
+                        isOpen={isModalOpen}
+                        onClose={handleCloseModal}
+                        onSubmit={handleJournalSubmit}
+                    />
                 )}
             </div>
         </article>

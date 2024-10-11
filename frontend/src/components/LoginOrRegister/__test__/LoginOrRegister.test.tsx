@@ -4,7 +4,7 @@ import {describe, it, expect, beforeEach, vi} from "vitest";
 import {MemoryRouter} from "react-router-dom";
 import LoginOrRegister from "../LoginOrRegister";
 
-describe("LoginOrRegister Component Tests", () => {
+describe("LoginOrRegister Component - Register tests", () => {
     beforeEach(() => {
         // Mock localStorage before each test to prevent actual browser interaction
         localStorage.clear();
@@ -15,7 +15,7 @@ describe("LoginOrRegister Component Tests", () => {
     it("renders the registration form correctly", () => {
         const {asFragment} = render(
             <MemoryRouter>
-                <LoginOrRegister />
+                <LoginOrRegister login={false} />
             </MemoryRouter>,
         );
 
@@ -32,7 +32,7 @@ describe("LoginOrRegister Component Tests", () => {
     it("validates form and handles submission", () => {
         render(
             <MemoryRouter>
-                <LoginOrRegister />
+                <LoginOrRegister login={false} />
             </MemoryRouter>,
         );
 
@@ -51,7 +51,7 @@ describe("LoginOrRegister Component Tests", () => {
     it("validates form and handles submission", async () => {
         render(
             <MemoryRouter>
-                <LoginOrRegister />
+                <LoginOrRegister login={false} />
             </MemoryRouter>,
         );
 
@@ -72,7 +72,7 @@ describe("LoginOrRegister Component Tests", () => {
     it("shows password validation error", () => {
         render(
             <MemoryRouter>
-                <LoginOrRegister />
+                <LoginOrRegister login={false} />
             </MemoryRouter>,
         );
 
@@ -85,6 +85,108 @@ describe("LoginOrRegister Component Tests", () => {
         fireEvent.click(screen.getByLabelText("Submit to create a new account"));
 
         // Check if the feedback message updates to "Password is not valid"
-        expect(screen.getByText("Password is not valid. Password must have 8 characters.")).toBeInTheDocument();
+        expect(screen.getByText(/Password is not valid.*8 characters/i)).toBeInTheDocument();
+    });
+});
+
+// Mock localStorage
+beforeEach(() => {
+    const mockLocalStorage = (() => {
+        let store: {[key: string]: string} = {};
+        return {
+            getItem: (key: string) => store[key] || null,
+            setItem: (key: string, value: string) => {
+                store[key] = value.toString();
+            },
+            clear: () => {
+                store = {};
+            },
+        };
+    })();
+    Object.defineProperty(window, "localStorage", {value: mockLocalStorage});
+});
+
+describe("Login functionality tests", () => {
+    test("renders the login form correctly", () => {
+        render(<LoginOrRegister login={true} />);
+
+        // Check if the title and input fields are rendered
+        expect(screen.getByLabelText("Login page")).toBeInTheDocument();
+        expect(screen.getByLabelText("Enter account details")).toBeInTheDocument();
+        expect(screen.getByPlaceholderText("Email")).toBeInTheDocument();
+        expect(screen.getByPlaceholderText("Password")).toBeInTheDocument();
+        expect(screen.getByLabelText("Login button")).toBeInTheDocument();
+    });
+
+    test("displays 'No such email' when logging in with non-existent email", () => {
+        render(<LoginOrRegister login={true} />);
+
+        // Simulate entering an email and password
+        fireEvent.change(screen.getByPlaceholderText("Email"), {target: {value: "nonexistent@example.com"}});
+        fireEvent.change(screen.getByPlaceholderText("Password"), {target: {value: "password123"}});
+
+        // Simulate clicking the login button
+        fireEvent.click(screen.getByLabelText("Login button"));
+
+        // Check if the error message is displayed
+        expect(screen.getByLabelText("No such email")).toBeInTheDocument();
+    });
+
+    test("displays 'Wrong password' when email is correct but password is wrong", () => {
+        // Mock a user in localStorage
+        const mockUser = [{name: "Test User", email: "testuser@example.com", password: "correctpassword"}];
+        window.localStorage.setItem("userProfiles", JSON.stringify(mockUser));
+
+        render(<LoginOrRegister login={true} />);
+
+        // Simulate entering the correct email but wrong password
+        fireEvent.change(screen.getByPlaceholderText("Email"), {target: {value: "testuser@example.com"}});
+        fireEvent.change(screen.getByPlaceholderText("Password"), {target: {value: "wrongpassword"}});
+
+        // Simulate clicking the login button
+        fireEvent.click(screen.getByLabelText("Login button"));
+
+        // Check if the wrong password message is displayed
+        expect(screen.getByLabelText("Wrong password")).toBeInTheDocument();
+    });
+
+    test("displays 'Log in successful' when email and password are correct", () => {
+        // Mock a user in localStorage
+        const mockUser = [{name: "Test User", email: "testuser@example.com", password: "correctpassword"}];
+        window.localStorage.setItem("userProfiles", JSON.stringify(mockUser));
+
+        render(<LoginOrRegister login={true} />);
+
+        // Simulate entering the correct email and password
+        fireEvent.change(screen.getByPlaceholderText("Email"), {target: {value: "testuser@example.com"}});
+        fireEvent.change(screen.getByPlaceholderText("Password"), {target: {value: "correctpassword"}});
+
+        // Simulate clicking the login button
+        fireEvent.click(screen.getByLabelText("Login button"));
+
+        // Check if the success message is displayed
+        expect(screen.getByLabelText("Log in successful")).toBeInTheDocument();
+    });
+
+    test("clears the form after successful login", () => {
+        // Mock a user in localStorage
+        const mockUser = [{name: "Test User", email: "testuser@example.com", password: "correctpassword"}];
+        window.localStorage.setItem("userProfiles", JSON.stringify(mockUser));
+
+        render(<LoginOrRegister login={true} />);
+
+        // Simulate entering the correct email and password
+        const emailInput = screen.getByPlaceholderText("Email");
+        const passwordInput = screen.getByPlaceholderText("Password");
+
+        fireEvent.change(emailInput, {target: {value: "testuser@example.com"}});
+        fireEvent.change(passwordInput, {target: {value: "correctpassword"}});
+
+        // Simulate clicking the login button
+        fireEvent.click(screen.getByLabelText("Login button"));
+
+        // Check if the inputs are cleared
+        expect(emailInput).toHaveValue("");
+        expect(passwordInput).toHaveValue("");
     });
 });

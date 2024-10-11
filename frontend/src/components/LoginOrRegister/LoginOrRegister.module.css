@@ -6,6 +6,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+
 }
 
 .title h3 {
@@ -13,12 +15,23 @@
     font-size: 24px;
     color: #333;
     font-weight: 300;
+    margin-bottom: 10px;
 }
+
+.title h4{
+    font-weight: 200;
+}
+
 
 .line {
     border: 1px solid #ccc;
     width: 100%;
     margin: 20px 0;
+}
+
+.inputSections h5{
+    color: #000000;
+    font-weight: 300;
 }
 
 .inputSections {
@@ -31,11 +44,6 @@
     text-align: center;
 }
 
-.inputSections h5 {
-    color: #b5a8a8;
-    font-weight: 300;
-}
-
 .inputField {
     width: 100%;
     max-width: 300px;
@@ -44,7 +52,13 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;
+
 }
+
+.inputField::placeholder {
+    color: #B5A8A8;
+}
+
 
 .submitButton {
     width: 100%;
@@ -55,37 +69,44 @@
     border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
-    color: #e4e1f7;
+    color: #E4E1F7;
 }
 
 .submitButton:hover {
     background-color: #351939;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1030px) {
     .loginOrRegister {
         width: 85%;
-        max-width: none; /* Remove the fixed max-width for better scaling */
+        max-width: none;
         padding: 5vw;
+
+
     }
 
     .inputField,
     .submitButton {
         width: 90%;
-        max-width: none; /* Ensure fields also scale with the container */
+        max-width: none;
+        /* Ensure fields also scale with the container */
     }
 }
 
 @media (width: 1024px) {
     .loginOrRegister {
         width: 85%;
-        max-width: none; /* Remove the fixed max-width for better scaling */
+        max-width: none;
+        /* Remove the fixed max-width for better scaling */
         padding: 5vw;
+
+
     }
 
     .inputField,
     .submitButton {
         width: 90%;
-        max-width: none; /* Ensure fields also scale with the container */
+        max-width: none;
+        /* Ensure fields also scale with the container */
     }
 }

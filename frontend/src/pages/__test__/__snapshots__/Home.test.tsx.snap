@@ -129,7 +129,7 @@ exports[`Home Component > should have appropriate roles and aria-labels 1`] = `
       class="_imageArticle_524292"
     >
       <img
-        alt="World map with different monuments on top"
+        alt="The ocean in a tropical landscape"
         class="_image_524292"
         src="mocked-homepage-image-path"
       />
@@ -155,59 +155,69 @@ exports[`Home Component > should have appropriate roles and aria-labels 1`] = `
         Popular countries
       </p>
       <section
-        aria-label="Buttons for each country"
-        class="_buttonContainer_f12b3d"
+        aria-label="Labels for each country"
+        class="_labelContainer_f12b3d"
       >
-        <button
-          class="_countryButton_f12b3d"
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Norway
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           USA
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Finland
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Madagascar
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Germany
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           China
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Sri lanka
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Indonesia
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Japan
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Thailand
-        </button>
+        </label>
       </section>
     </section>
   </main>
@@ -343,7 +353,7 @@ exports[`Home Component > should render the image component 1`] = `
       class="_imageArticle_524292"
     >
       <img
-        alt="World map with different monuments on top"
+        alt="The ocean in a tropical landscape"
         class="_image_524292"
         src="mocked-homepage-image-path"
       />
@@ -369,59 +379,69 @@ exports[`Home Component > should render the image component 1`] = `
         Popular countries
       </p>
       <section
-        aria-label="Buttons for each country"
-        class="_buttonContainer_f12b3d"
+        aria-label="Labels for each country"
+        class="_labelContainer_f12b3d"
       >
-        <button
-          class="_countryButton_f12b3d"
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Norway
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           USA
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Finland
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Madagascar
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Germany
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           China
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Sri lanka
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Indonesia
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Japan
-        </button>
-        <button
-          class="_countryButton_f12b3d"
+        </label>
+        <label
+          aria-label="label for country"
+          class="_countryLabel_f12b3d"
         >
           Thailand
-        </button>
+        </label>
       </section>
     </section>
   </main>

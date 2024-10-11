@@ -1,7 +1,7 @@
 .registerPage {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    height: 100%;
     background-color: #e4e1f7;
 }
 
@@ -37,6 +37,7 @@
     width: 50%;
     padding: 20px;
     justify-content: center;
+    height: 100%;
 }
 .inputSection,
 .image {
@@ -66,7 +67,7 @@
     .registerPage {
         justify-content: center;
         width: 100vw;
-        height: 100vh;
+        height: 100%;
     }
 
     .inputSection {
@@ -94,7 +95,19 @@
         text-decoration: underline;
     }
 
+    .headerRegisterPage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .logo {
-        display: none;
+        height: max-content;
+        width: fit-content;
+        margin-top: 30px;
+        text-decoration: none;
+        text-align: center;
+        color: #424242;
+        font-size: 32px;
     }
 }

@@ -2,6 +2,8 @@
 
 ## Table of content:
 
+- [IT2810: Project 2 Frontend](#it2810-project-2-frontend)
+  - [Table of content:](#table-of-content)
 - [Decisions](#decisions)
   - [Testing](#testing)
     - [Snapshot Testing](#snapshot-testing)
@@ -18,8 +20,8 @@
     - [Focus Management](#focus-management)
     - [Consistent Navigation and Structure](#consistent-navigation-and-structure)
     - [Visual Design](#visual-design)
-  - [Technicalities](#technicalities)
   - [Sustainability](#sustainability)
+  - [Technicalities](#technicalities)
 - [Future](#future)
   - [Database and Backend](#database-and-backend)
   - [Data Loading](#data-loading)
@@ -101,14 +103,13 @@ Our application uses no videoes to lower data trafic as well as energy usage.In 
 
 ## Technicalities
 
-- The background color and image for the Log in page cuts of on the bottom. How much it cuts of depends on the size of the screen.
-- It is not possible to save a journal entry or view your actual saved countries yet. This is all moch data.
+- The background color and image for the "Log in"- page cuts of on the bottom. How much it cuts of depends on the size of the screen.
+- It is not possible to save a journal entry or view your actual saved countries yet. This is all mock data.
 - It is not possible to view other user's journal entries yet.
-- The placement on the text on the frontpage image does not adjust well for different screen sizes.
 - The box that appears when pressing the profile icon is missing shading and contrast to the rest of the page, which can be confusing.
-- The user experience is the same for logged in or not logged in at the moment. In the future we will slightly differentiate these experiences.
+- The user experience is the same when logged in or not logged in at the moment. In the future we will slightly differentiate these experiences.
 - When creating a user it is only saved in local storage.
-- When viewing the Log in or register page on mobile or smaller screens, the button for returning to the explore page disappears.
+- When logging in, you will not be sent back to the home-page. You need to navigate to it by pressing on the logo. 
 
 <!-- Write more here -->
 

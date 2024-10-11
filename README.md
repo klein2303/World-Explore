@@ -6,8 +6,8 @@ it2810-10.idi.ntnu.no/project2
 
 ## Table of content:
 
--   [About the project](#about-the-project)
--   [Running the project](#running-the-project)
+- [About the project](#about-the-project)
+- [Running the project](#running-the-project)
 
 ## About the project
 
@@ -26,9 +26,9 @@ To run the project, you need to have Node 22 installed. Clone the repository fro
 Now you need to install some npm components.
 To do so, run the following commands in a terminal while inside the mentioned folder:
 
--   `npm install`
--   `npm install react-router-dom`
--   `npm install react-icons`
+- `npm install`
+- `npm install react-router-dom`
+- `npm install react-icons`
 
 Now run `npm run dev` in order to run the project
 

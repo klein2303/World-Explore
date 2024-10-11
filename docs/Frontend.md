@@ -2,27 +2,25 @@
 
 ## Table of content:
 
--   [Decisions](#decisions)
-    -   [Testing](#testing)
-    -   [Usage of Dev](#usage-of-dev)
-    -   [CSS modules](#css-modules)
-    -   [Design](#design)
-    -   [Accessibility](#accessibility)
-    -   [Technicalities](#technicalities)
--   [Future](#future)
--   [Usage of AI](#usage-of-ai)
+- [Decisions](#decisions)
+  - [Testing](#testing)
+  - [Usage of Dev](#usage-of-dev)
+  - [CSS modules](#css-modules)
+  - [Design](#design)
+  - [Accessibility](#accessibility)
+  - [Technicalities](#technicalities)
+- [Future](#future)
+- [Usage of AI](#usage-of-ai)
 
 ## Decisions
 
 In this section follows descriptions of the choices we have made while developing "WorldExplore", for different aspects of the project.
-
 
 ### Testing
 
 The project contains tests for testing some basic user interaction, checking correct state, snapshot tests, as well as checking for correct rendering. The tests are written using Vitest, as well as the React testing library and jest-dom.
 
 <!-- Write more here -->
-
 
 ### Usage of Dev
 
@@ -45,7 +43,6 @@ We chose a simple and straightforward design with focus on functionality. Our go
 ## Future
 
 <!-- Write more here -->
-
 
 ## Usage of AI
 

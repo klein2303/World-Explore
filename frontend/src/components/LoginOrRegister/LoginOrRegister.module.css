@@ -6,8 +6,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
 }
 
 .title h3 {
@@ -18,10 +16,9 @@
     margin-bottom: 10px;
 }
 
-.title h4{
+.title h4 {
     font-weight: 200;
 }
-
 
 .line {
     border: 1px solid #ccc;
@@ -29,7 +26,7 @@
     margin: 20px 0;
 }
 
-.inputSections h5{
+.inputSections h5 {
     color: #000000;
     font-weight: 300;
 }
@@ -52,13 +49,11 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;
-
 }
 
 .inputField::placeholder {
-    color: #B5A8A8;
+    color: #b5a8a8;
 }
-
 
 .submitButton {
     width: 100%;
@@ -69,7 +64,7 @@
     border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
-    color: #E4E1F7;
+    color: #e4e1f7;
 }
 
 .submitButton:hover {
@@ -81,8 +76,6 @@
         width: 85%;
         max-width: none;
         padding: 5vw;
-
-
     }
 
     .inputField,
@@ -99,8 +92,6 @@
         max-width: none;
         /* Remove the fixed max-width for better scaling */
         padding: 5vw;
-
-
     }
 
     .inputField,

@@ -42,7 +42,6 @@ describe("PopularCountries Tests", () => {
         // Check click behavior
         buttons.forEach((button) => {
             expect(button).toBeInTheDocument();
-
         });
     });
 });

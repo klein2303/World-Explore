@@ -1,11 +1,11 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import { describe, it, expect } from "vitest";
+import {render, screen, fireEvent} from "@testing-library/react";
+import {BrowserRouter} from "react-router-dom";
+import {describe, it, expect} from "vitest";
 import Login from "../LogIn"; // Assuming this is the correct path to your Login component
 
 describe("Login Page", () => {
     const renderWithRouter = (ui: React.ReactElement) => {
-        return render(ui, { wrapper: BrowserRouter });
+        return render(ui, {wrapper: BrowserRouter});
     };
 
     it("renders the login page correctly", () => {
@@ -28,8 +28,6 @@ describe("Login Page", () => {
         expect(image).toHaveAttribute("src", expect.stringContaining("loginImagePurple.jpg"));
     });
 
-
-
     it("handles login input changes", () => {
         renderWithRouter(<Login />);
 
@@ -37,8 +35,8 @@ describe("Login Page", () => {
         const passwordInput = screen.getByPlaceholderText("Password");
 
         // Simulate typing into the email and password fields
-        fireEvent.change(emailInput, { target: { value: "testuser@example.com" } });
-        fireEvent.change(passwordInput, { target: { value: "password123" } });
+        fireEvent.change(emailInput, {target: {value: "testuser@example.com"}});
+        fireEvent.change(passwordInput, {target: {value: "password123"}});
 
         // Check that the values are updated
         expect(emailInput).toHaveValue("testuser@example.com");
@@ -47,7 +45,10 @@ describe("Login Page", () => {
 
     it("submits the login form with valid credentials", () => {
         // Mock localStorage to simulate existing users
-        localStorage.setItem("userProfiles", JSON.stringify([{ email: "testuser@example.com", password: "password123" }]));
+        localStorage.setItem(
+            "userProfiles",
+            JSON.stringify([{email: "testuser@example.com", password: "password123"}]),
+        );
 
         renderWithRouter(<Login />);
 
@@ -56,8 +57,8 @@ describe("Login Page", () => {
         const loginButton = screen.getByLabelText("Login button");
 
         // Simulate typing valid login credentials
-        fireEvent.change(emailInput, { target: { value: "testuser@example.com" } });
-        fireEvent.change(passwordInput, { target: { value: "password123" } });
+        fireEvent.change(emailInput, {target: {value: "testuser@example.com"}});
+        fireEvent.change(passwordInput, {target: {value: "password123"}});
 
         // Simulate form submission
         fireEvent.click(loginButton);
@@ -74,8 +75,8 @@ describe("Login Page", () => {
         const loginButton = screen.getByLabelText("Login button");
 
         // Simulate typing invalid login credentials
-        fireEvent.change(emailInput, { target: { value: "wronguser@example.com" } });
-        fireEvent.change(passwordInput, { target: { value: "wrongpassword" } });
+        fireEvent.change(emailInput, {target: {value: "wronguser@example.com"}});
+        fireEvent.change(passwordInput, {target: {value: "wrongpassword"}});
 
         // Simulate form submission
         fireEvent.click(loginButton);

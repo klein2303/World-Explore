@@ -16,7 +16,7 @@
     margin-bottom: 10px;
 }
 
-.title h4 {
+.title h4  {
     font-weight: 200;
 }
 
@@ -26,7 +26,7 @@
     margin: 20px 0;
 }
 
-.inputSections h5 {
+.inputSections h5  {
     color: #000000;
     font-weight: 300;
 }
@@ -53,6 +53,7 @@
 
 .inputField::placeholder {
     color: #b5a8a8;
+    color: #b5a8a8;
 }
 
 .submitButton {
@@ -64,6 +65,7 @@
     border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
+    color: #e4e1f7;
     color: #e4e1f7;
 }
 
@@ -102,3 +104,4 @@
         /* Ensure fields also scale with the container */
     }
 }
+

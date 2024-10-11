@@ -4,15 +4,20 @@ import { PiArrowElbowDownLeft } from "react-icons/pi";
 import styles from "../styles/JournalPage.module.css"
 import ReviewBox from "../components/ReviewBox/ReviewBox";
 import { SlPencil } from "react-icons/sl";
-
+import { useEffect } from "react";
 
 
 const JournalPage = () => {
-    {/*Get countryName from the URL */}
+    // Get countryName from the URL 
     const { countryName } = useParams<{ countryName: string }>();
     
-    {/*Let country be an default string if countryName is empty */}
+    // Let country be an default string if countryName is empty 
     const country = countryName || "";
+
+    // Scroll to top when the component mounts
+    useEffect(() => {
+        window.scrollTo({ top: 0});
+      }, []);
 
     return (
         <>

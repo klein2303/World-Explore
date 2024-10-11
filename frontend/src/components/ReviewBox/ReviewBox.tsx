@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { JournalType } from "../../types/JournalType";
 import styles from "./ReviewBox.module.css"
 import { MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox} from "react-icons/md";
@@ -11,15 +11,27 @@ interface journalCountry{
 
 const ReviewBox = ({country}: journalCountry) => {
     
-    {/* Find the journal reviews for the given country, return null if no match is found*/}
-    const getReview = () => {
-        return JournalReviews.find((journal) => journal.country === country) || null;
-    };
+    // Find the journal reviews for the given country, return null if no match is found
+  const getReview = () => {
+    // Check if there are reviews stored in localStorage
+    const storedReviews = localStorage.getItem(`reviews_${country}`);
+    if (storedReviews) {
+      return JSON.parse(storedReviews);
+    }
+    return JournalReviews.find((journal) => journal.country === country) || null;
+  };
 
-    {/* Initialize the state with the result of the getReview function */}
-    const [reviews, setReviews] = useState<JournalType | null>(getReview());
+  // Initialize the state with the result of the getReview function
+  const [reviews, setReviews] = useState<JournalType | null>(getReview());
 
-    {/* Render 5 stars based on a given rating */}
+  // Effect to store reviews in localStorage whenever they change
+  useEffect(() => {
+    if (reviews) {
+      localStorage.setItem(`reviews_${country}`, JSON.stringify(reviews));
+    }
+  }, [reviews, country]);
+
+    // Render 5 stars based on a given rating 
     const renderStars = (rating: number) => {
         const maxStars = 5;
 
@@ -32,7 +44,7 @@ const ReviewBox = ({country}: journalCountry) => {
         );
     };
 
-    {/* Change the privacy of a review */}
+    //Change the privacy of a review 
     const makePublic = (id: number) => {
         if(reviews) {
             const updatedReviews = reviews.reviews.map((review) =>

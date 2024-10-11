@@ -35,9 +35,9 @@ const Navbar = () => {
                             <p>My Journals</p>
                         </Link>
 
-                        <button className={styles.signout} aria-label="Sign out">
-                            <p>Sign out</p>
-                        </button>
+                        <Link to={"/LogIn"} className={styles.login} aria-label="Link to login">
+                            <p>Log in</p>
+                        </Link>
                     </div>
                 )}
 
@@ -81,11 +81,9 @@ const Navbar = () => {
                                 />
                             </div>
 
-                            
-                            <Link to= {"/LogIn"} className={styles.signout} aria-label="Sign out">
+                            <Link to={"/LogIn"} className={styles.login} aria-label="Link to login">
                                 <p>Log in</p>
                             </Link>
-                           
                         </div>
                     )}
                 </div>

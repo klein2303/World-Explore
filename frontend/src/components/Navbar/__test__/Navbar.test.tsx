@@ -89,7 +89,7 @@ describe("Navbar Tests (Mobile)", () => {
         screen.debug();
         expect(screen.getByLabelText("Explore Countries")).toBeInTheDocument();
         expect(screen.getByLabelText("My Journals")).toBeInTheDocument();
-        expect(screen.getByText("Sign out")).toBeInTheDocument();
+        expect(screen.getByText("Log in")).toBeInTheDocument();
 
         // Expect the profile menu to be open and then close it
         const menuButtonOpen = screen.getByLabelText("Close Mobile Menu");

@@ -6,7 +6,7 @@ const PopularCountries = () => {
             <p className={styles.popularTitle} aria-label="Title">
                 Popular countries
             </p>
-            <section className={styles.buttonContainer} aria-label="Buttons for each country">
+            <section className={styles.labelContainer} aria-label="Labels for each country">
                 {[
                     "Norway",
                     "USA",
@@ -19,9 +19,9 @@ const PopularCountries = () => {
                     "Japan",
                     "Thailand",
                 ].map((country, index) => (
-                    <button key={index} className={styles.countryButton}>
+                    <label key={index} className={styles.countryLabel} aria-label= "label for country">
                         {country}
-                    </button>
+                    </label>
                 ))}
             </section>
         </section>

@@ -6,8 +6,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
 }
 
 .title h3 {
@@ -81,8 +79,7 @@
         width: 85%;
         max-width: none;
         padding: 5vw;
-
-
+        height: 100%;
     }
 
     .inputField,

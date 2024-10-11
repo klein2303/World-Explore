@@ -20,7 +20,7 @@ describe('Home Component', () => {
     expect(container).toMatchSnapshot();
 
     // Assert that the image is rendered with the correct alt text
-    const homepageImage = screen.getByAltText(/World map with different monuments on top/i);
+    const homepageImage = screen.getByAltText(/The ocean in a tropical landscape/i);
     expect(homepageImage).toBeInTheDocument();
     expect(homepageImage).toHaveAttribute('src', 'mocked-homepage-image-path');
 

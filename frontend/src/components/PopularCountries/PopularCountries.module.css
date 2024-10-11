@@ -6,24 +6,16 @@
     margin-top: 10px;
 }
 
-.countryButton {
+.countryLabel {
     flex-direction: row;
     padding: 10px 20px;
     margin: 20px;
     font-size: 20px;
-    border-radius: 10px;
-    border: 2px solid #d3d3d3;
     background-color: #ffffff;
     color: #333;
     transition:
         background-color 0.3s,
         color 0.3s;
-}
-
-.countryButton:hover {
-    background-color: #e4e1f7;
-    border-color: #e4e1f7;
-    color: #000;
 }
 
 /*Display specific CSS below*/
@@ -34,7 +26,7 @@
         font-size: 24px;
     }
 
-    .buttonContainer {
+    .labelContainer {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -48,7 +40,7 @@
         font-size: 22px;
     }
 
-    .buttonContainer {
+    .labelContainer {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -62,14 +54,14 @@
         font-size: 18px;
     }
 
-    .buttonContainer {
+    .labelContainer {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         max-width: 400px;
     }
 
-    .countryButton {
+    .countryLabel {
         flex-direction: row;
         padding: 10px 12px;
         margin: 12px;

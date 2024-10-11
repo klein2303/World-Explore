@@ -1,0 +1,159 @@
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    z-index: 1000;
+    overflow: hidden; /* Prevents content overflow */
+}
+
+.modalContent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 90vh; /* Prevents modal from overflowing the screen */
+    overflow-y: auto; /* Allows scrolling if the content is too tall */
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.closeButton {
+    position: absolute;
+    top: 0; /* Adjust the distance from the top */
+    right: 10px; /* Adjust the distance from the right */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10; /* Ensure it stays above other elements */
+}
+
+.input {
+    padding: 10px;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e4e1f7; /* Light purple background for input fields */
+    color: #424242; /* Gray text */
+}
+
+.textArea {
+    padding: 10px;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 100px;
+    background-color: #e4e1f7; /* Light purple background for textarea */
+    color: #424242; /* Gray text */
+    resize: none; /* Prevent user from resizing the textarea */
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.ratingLabel {
+    font-size: 1rem;
+    color: #424242; /* Gray text */
+    margin-right: 10px;
+}
+
+.star {
+    font-size: 1.5rem;
+    margin-right: 5px;
+    cursor: pointer;
+    color: transparent; /* No fill for inactive stars */
+    stroke: #424242; /* Gray outline for stars */
+    stroke-width: 15px; /* Thicker gray outline */
+    transition:
+        fill 0.2s ease,
+        transform 0.2s ease; /* Smooth transition for fill */
+}
+
+.starActive {
+    font-size: 1.5rem;
+    margin-right: 5px;
+    color: #e4e1f7; /* Purple fill for active stars */
+    stroke: #424242; /* Keep gray outline for active stars */
+    stroke-width: 15px; /* Thicker gray outline */
+}
+
+.star:hover,
+.starActive:hover {
+    stroke: #424242; /* Keep gray outline */
+    fill: #e4e1f7; /* Stars turn purple on hover */
+}
+
+.submitButton {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #e4e1f7; /* Purple background for the submit button */
+    color: #424242; /* Gray text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 500; /* Slightly bolder text */
+}
+
+.submitButton:hover {
+    background-color: #d1cdf5; /* Slightly darker purple on hover */
+}
+
+label {
+    font-size: 1rem;
+    color: #424242; /* Gray text for public checkbox */
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #d1cdf5; /* Purple checkbox when checked */
+}
+
+.journalEntryTitle {
+    color: #424242; /* Title color */
+    text-align: center; /* Center the title */
+    font-size: 1.2rem; /* Larger font size */
+    margin-top: 15px; /* Adjusted margin to prevent overlap with close button */
+    margin-bottom: 10px; /* Ensure the title has enough space from the content below */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .modal {
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        border-radius: 0;
+        padding: 20px;
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    .modalContent {
+        max-height: none;
+        padding-top: 60px; /* Adjust padding to create space for the close button */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    .closeButton {
+        top: 20px; /* Adjust the distance from the top */
+        right: 20px; /* Adjust the distance from the right */
+    }
+}

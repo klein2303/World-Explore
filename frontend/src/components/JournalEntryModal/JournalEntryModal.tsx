@@ -28,18 +28,34 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
 
     const modalRef = useRef<HTMLDivElement>(null);
 
-    // ARIA focus management: trap focus within modal
     useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === "Escape" && isOpen) {
-            onClose();
+        const focusableElements = modalRef.current?.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements?.[0] as HTMLElement;
+        const lastElement = focusableElements?.[focusableElements.length - 1] as HTMLElement;
+        
+        const trapFocus = (e: KeyboardEvent) => {
+            if (e.key === 'Tab') {
+                if (document.activeElement === firstElement && e.shiftKey) {
+                    e.preventDefault();
+                    lastElement?.focus();
+                } else if (document.activeElement === lastElement && !e.shiftKey) {
+                    e.preventDefault();
+                    firstElement?.focus();
+                }
+            }
+        };
+    
+        if (isOpen) {
+            firstElement?.focus();
+            document.addEventListener('keydown', trapFocus);
         }
-        };
-        document.addEventListener("keydown", handleKeyDown);
+    
         return () => {
-        document.removeEventListener("keydown", handleKeyDown);
+            document.removeEventListener('keydown', trapFocus);
         };
-    }, [isOpen, onClose]);
+    }, [isOpen]);    
 
     const handleSubmit = () => {
         onSubmit({
@@ -97,6 +113,13 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
                                 key={star}
                                 className={star <= rating ? styles.starActive : styles.star}
                                 onClick={() => setRating(star)}
+                                tabIndex={0}  // Make the stars keyboard accessible
+                                role="button"
+                                aria-pressed={star <= rating}  // Screen reader announcement for the current state
+                                aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") setRating(star);
+                                }}
                             />
                         ))}
                     </div>

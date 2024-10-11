@@ -1,22 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./JournalEntryModal.module.css";
 import { FaStar } from "react-icons/fa";
-
-// To be imported from JournalType.ts later
-type ReviewType = {
-    id: number;
-    title: string;
-    dato: string;
-    rating: number;
-    text: string;
-    public: boolean;
-}
+import { JournalType } from "../../types/JournalType";
 
 interface JournalEntryModalProps {
     country: string;
     isOpen: boolean;
     onClose: () => void;
-    onSubmit: (entry: {country: string, reviews: ReviewType[]}) => void;
+    onSubmit: (entry: JournalType) => void;
 }
 
 const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryModalProps) => {
@@ -64,7 +55,7 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
                 {
                     id: Math.floor(Math.random() * 1000), // Temporary ID
                     title,
-                    dato: date,
+                    date: date,
                     rating,
                     text,
                     public: isPublic,

@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 const Login = () => {
     return ( 
-    <section className={styles.registerPage} aria-label= "Login page">
+    <main className={styles.registerPage} aria-label= "Login page">
         <section className={styles.inputSection} aria-label= "A section for inputs">
             <section className={styles.headerRegisterPage} aria-label= "Header of login page">
                 <section className={styles.logo} aria-label= "Logo">
@@ -29,7 +29,7 @@ const Login = () => {
         <section className={styles.image} aria-label= "image">
             <img src= {loginImage} className= {styles.imageimage} alt="A beautiful landscape" width="700" height="700" aria-label= "A beautiful image of a landscape"></img>
         </section>
-    </section>
+    </main>
 
     );
 };

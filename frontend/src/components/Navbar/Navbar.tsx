@@ -81,11 +81,9 @@ const Navbar = () => {
                                 />
                             </div>
 
-                            
-                            <Link to= {"/LogIn"} className={styles.login} aria-label="Link to login">
+                            <Link to={"/LogIn"} className={styles.login} aria-label="Link to login">
                                 <p>Log in</p>
                             </Link>
-                           
                         </div>
                     )}
                 </div>

@@ -9,7 +9,7 @@ const Login = () => {
             <section className={styles.inputSection} aria-label="A section for inputs">
                 <section className={styles.headerRegisterPage} aria-label="Header of login page">
                     <section className={styles.logo} aria-label="Logo">
-                        <Link to={"/ExploreCountries"} className={styles.logoLink} aria-label="link to home page">
+                        <Link to={"/"} className={styles.logoLink} aria-label="link to home page">
                             <p aria-label="World explore">WorldExplore</p>
                         </Link>
                     </section>

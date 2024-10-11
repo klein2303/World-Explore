@@ -61,10 +61,10 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
     return isOpen ? (
         <div className={styles.overlay} role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description" ref={modalRef}>
             <aside className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="journalModalTitle">
+                <button onClick={onClose} className={styles.closeButton} aria-label="Close modal">
+                    &times;
+                </button>
                 <div className={styles.modalContent} role="document">
-                    <button onClick={onClose} className={styles.closeButton} aria-label="Close modal">
-                        &times;
-                    </button>
                     <h2 className={styles.journalEntryTitle}>Write your journal entry for {country}</h2>
                     <input
                         type="text"

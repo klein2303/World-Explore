@@ -25,18 +25,17 @@
 .checkbox {
     display: flex;
     align-items: center;
+    width: fit-content;
 }
 
 .closeButton {
     position: absolute;
-    top: 10px;  /* Adjust the distance from the top */
+    top: 0;  /* Adjust the distance from the top */
     right: 10px; /* Adjust the distance from the right */
     background: none;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 0;
-    margin: 0;
     z-index: 10; /* Ensure it stays above other elements */
 }
 
@@ -126,4 +125,7 @@ input[type="checkbox"] {
 .journalEntryTitle {
     color: #424242; /* Title color */
     text-align: center; /* Center the title */
+    font-size: 1.2rem; /* Larger font size */
+    margin-top: 15px; /* Adjusted margin to prevent overlap with close button */
+    margin-bottom: 10px; /* Ensure the title has enough space from the content below */
 }

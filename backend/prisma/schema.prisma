@@ -27,4 +27,24 @@ model Country {
   forestArea      String?
   co2Emission     Float?
   image           String?
+
+  Journal Journal[]
+}
+
+model Journal {
+  id        Int      @id @default(autoincrement())
+  countryId Int?
+  country   Country? @relation(fields: [countryId], references: [id])
+  reviews   Review[]
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  title     String?
+  date      String?
+  rating    Int?
+  text      String?
+  isPublic    Boolean?
+  journal   Journal? @relation(fields: [journalId], references: [id])
+  journalId Int?
 }

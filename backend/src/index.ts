@@ -23,10 +23,37 @@ const typeDefs = `
         forestArea: String!
         co2Emissions: Float!
         image: String!
+
+        journals: [Journal!]!
+    }
+
+    type Journal {
+        id: ID!
+        countryId: Int!
+        title: String!
+        reviews: [Review!]!
+    }
+    
+    type Review {
+        id: ID!
+        title: String!
+        date: String!
+        rating: Int!
+        text: String!
+        isPublic: Boolean!
+        journalId: Int!
     }
 
     type Query {
-        countries: [Country]
+        countries: [Country!]!
+
+        journals: [Journal!]!
+        reviews: [Review!]!
+    }
+
+    type Mutation {
+      addJournal(countryId: Int!): Journal
+      addReview(title: String!, date: String!, rating: Int!, text: String!, isPublic: Boolean!, journalId: Int!): Review
     }
 `;
 
@@ -36,6 +63,40 @@ const resolvers = {
     Query: {
       countries: async () => {
         return await prisma.country.findMany();
+      },
+      journals: async () => {
+        return await prisma.journal.findMany();
+      },
+      reviews: async () => {
+        return await prisma.review.findMany();
+      },
+    },
+    Mutation: {
+      addJournal: async (_, {countryId}) => {
+        return await prisma.journal.create({
+          data: {
+            country: {
+              connect: {
+                id: countryId,
+            }
+          },
+        }});
+      },
+      addReview: async (_, {title, date, rating, text, isPublic, journalId}) => {
+        return await prisma.review.create({
+          data: {
+            title: title,
+            date: date,
+            rating: rating,
+            text: text,
+            isPublic: isPublic,
+            journal: {
+              connect: {
+                id: journalId,
+              },
+            }
+          },
+        });
       },
     },
   };

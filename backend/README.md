@@ -7,6 +7,7 @@
 -   [Setting everything up](#setting-everything-up)
 -   [Updating](#updating)
 -   [Running Docker](#running-docker)
+-   [Adding default data into the database](#adding-default-data-into-the-database)
 -   [Visualising the database](#visualising-the-database)
 
 #
@@ -83,6 +84,13 @@ To shut down docker you need to run the command:
 ```
 docker compose down
 ```
+
+## Adding default data into the database
+To add the default data into the database run the script fictures.cjs in the terminal like:
+```
+node .\scripts\fixtures.cjs
+```
+and remember to update
 
 ## Visualising the database
 To visualise the database download the extension PostgreSQL in VSCode. After you have done that click on the PostgreSQL icon in the menu. To add the database for this project click the `+` button. Writhe inn this information:

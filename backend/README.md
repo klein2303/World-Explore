@@ -45,6 +45,7 @@ in the terminal. After that run the commands:
 ```
 npx prisma generate
 npx prisma db push
+npx prisma migrate dev --name init
 ```
 
 `npx prisma db push` pushes the schema to the postgresql server.
@@ -63,9 +64,10 @@ If you have done any changes to the schema run the command:
 
 ```
 npm run migrate
+npx prisma db push
 ``` 
 
-in the terminal.
+in the terminal after you have stopped running the server.
 
 ## Running Docker
 To run docker after the initial installation you have to run the command:

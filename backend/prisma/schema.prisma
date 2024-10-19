@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,27 +8,26 @@ datasource db {
 }
 
 model Country {
-  id              Int     @id @default(autoincrement())
+  id              Int       @id @default(autoincrement())
   name            String?
   continent       String?
   capital         String?
-  largestCity     String?
   currency        String?
   language        String?
   population      Float?
-  landArea        Float?
-  agricultureArea String?
-  forestArea      String?
-  co2Emission     Float?
   image           String?
-
-  Journal Journal[]
+  agriculturearea String?
+  co2emission     Float?
+  forestarea      String?
+  landarea        Float?
+  largestcity     String?
+  journal         Journal[]
 }
 
 model Journal {
   id        Int      @id @default(autoincrement())
-  countryId Int?
-  country   Country? @relation(fields: [countryId], references: [id])
+  countryid Int?
+  country   Country? @relation(fields: [countryid], references: [id])
   reviews   Review[]
 }
 
@@ -44,7 +37,7 @@ model Review {
   date      String?
   rating    Int?
   text      String?
-  isPublic    Boolean?
-  journal   Journal? @relation(fields: [journalId], references: [id])
-  journalId Int?
+  ispublic  Boolean?
+  journalid Int?
+  journal   Journal? @relation(fields: [journalid], references: [id])
 }

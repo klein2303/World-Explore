@@ -14,14 +14,14 @@ const typeDefs = `
         name: String!
         continent: String!
         capital: String!
-        largestCity: String!
+        largestcity: String!
         currency: String!
         language: String!
         population: Float!
-        landArea: Float!
-        agricultureArea: String!
-        forestArea: String!
-        co2Emissions: Float!
+        landarea: Float!
+        agriculturearea: String!
+        forestarea: String!
+        co2emissions: Float!
         image: String!
 
         journals: [Journal!]!
@@ -29,7 +29,7 @@ const typeDefs = `
 
     type Journal {
         id: ID!
-        countryId: Int!
+        countryid: Int!
         title: String!
         reviews: [Review!]!
     }
@@ -40,8 +40,8 @@ const typeDefs = `
         date: String!
         rating: Int!
         text: String!
-        isPublic: Boolean!
-        journalId: Int!
+        ispublic: Boolean!
+        journalid: Int!
     }
 
     type Query {
@@ -52,8 +52,8 @@ const typeDefs = `
     }
 
     type Mutation {
-      addJournal(countryId: Int!): Journal
-      addReview(title: String!, date: String!, rating: Int!, text: String!, isPublic: Boolean!, journalId: Int!): Review
+      addJournal(countryid: Int!): Journal
+      addReview(title: String!, date: String!, rating: Int!, text: String!, ispublic: Boolean!, journalid: Int!): Review
     }
 `;
 
@@ -71,6 +71,7 @@ const resolvers = {
         return await prisma.review.findMany();
       },
     },
+
     Mutation: {
       addJournal: async (_, {countryId}) => {
         return await prisma.journal.create({
@@ -82,17 +83,17 @@ const resolvers = {
           },
         }});
       },
-      addReview: async (_, {title, date, rating, text, isPublic, journalId}) => {
+      addReview: async (_, {title, date, rating, text, ispublic, journalid}) => {
         return await prisma.review.create({
           data: {
             title: title,
             date: date,
             rating: rating,
             text: text,
-            isPublic: isPublic,
+            ispublic: ispublic,
             journal: {
               connect: {
-                id: journalId,
+                id: journalid,
               },
             }
           },

@@ -1,6 +1,0 @@
-name,continent,capital,largestCity,currency,language,population,landArea,agricultureArea,forestArea,co2Emission,image
-Norway,Europe,Oslo,Oslo,NOK,Norwegian,5.4,385207.0,3%,33%,9.8,https://example.com/norway.png
-France,Europe,Paris,Paris,EUR,French,67.0,551695.0,54%,29%,34.8,https://example.com/france.png
-Brazil,South America,Brasilia,São Paulo,BRL,Portuguese,213.0,8515767.0,30%,60%,463.3,https://example.com/brazil.png
-Japan,Asia,Tokyo,Tokyo,JPY,Japanese,125.8,377975.0,12%,67%,1143.0,https://example.com/japan.png
-India,Asia,New Delhi,Mumbai,INR,Hindi,1393.0,3287263.0,60%,24%,2614.0,https://example.com/india.png

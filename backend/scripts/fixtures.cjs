@@ -3,6 +3,8 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const path = require('path');
 
+// Hvorfor får jeg null i kollonner jeg vet det er info på i databasen???????????
+
 console.log('Script is starting...');
 
 // Database connection parameters
@@ -15,7 +17,6 @@ const pool = new Pool({
 });
 
 const csvFilePath = path.join(__dirname, '../data/filtered_countries_data.csv'); // write in the csv file path when it exists
-const table_name = 'Country';
 
 // Function to insert data into the database
 async function insertData(row) {
@@ -41,14 +42,14 @@ async function insertData(row) {
     const name = row.name === '' ? null : row.name;
     const continent = row.continent === '' ? null : row.continent;
     const capital = row.capital === '' ? null : row.capital;
-    const largestCity = row.largestCity === '' ? null : row.largestCity;
+    const largestCity = row.largestcity === '' ? null : row.largestcity;
     const currency = row.currency === '' ? null : row.currency;
     const language = row.language === '' ? null : row.language;
-    const population = row.population == null ? null : parseFloat(row.population.toString());
-    const landArea = row.landArea == null ? null : parseFloat(row.landArea.toString());
-    const agricultureArea = row.agricultureArea === '' ? null : row.agricultureArea;
-    const forestArea = row.forestArea === '' ? null : row.forestArea;
-    const co2Emission = row.co2Emission == null ? null : parseFloat(row.co2Emission.toString());
+    const population = row.population === '' ? null : parseFloat(row.population.replace(/,/g, ''));
+    const landArea = row.landarea === '' ? null : parseFloat(row.landarea.replace(/,/g, ''));
+    const agricultureArea = row.agriculturearea === '' ? null : row.agriculturearea;
+    const forestArea = row.forestArea === '' ? null : row.forestarea;
+    const co2Emission = row.co2emissions == '' ? null : parseFloat(row.co2emissions.toString().replace(/,/g, ''));
     const image = row.image === '' ? null : row.image;
 
     const values = [

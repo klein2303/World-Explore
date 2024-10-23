@@ -1,6 +1,7 @@
 import { ApolloServer } from '@apollo/server'; // preserve-line
 import { startStandaloneServer } from '@apollo/server/standalone'; // preserve-line
 import { PrismaClient } from '@prisma/client';
+import { count } from 'console';
 
 
 const prisma = new PrismaClient();
@@ -46,6 +47,7 @@ const typeDefs = `
 
     type Query {
         countries: [Country!]!
+        country(name: String!): Country
 
         journals: [Journal!]!
         reviews: [Review!]!
@@ -64,6 +66,12 @@ const resolvers = {
       countries: async () => {
         return await prisma.country.findMany();
       },
+      country: async (_, {name}) => {
+        return await prisma.country.findUnique({
+          where: {
+            name: name,
+          },
+      })},
       journals: async () => {
         return await prisma.journal.findMany();
       },

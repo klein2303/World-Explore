@@ -13,15 +13,15 @@ const typeDefs = `
         id: ID!
         name: String!
         continent: String!
-        capital: String!
-        largestcity: String!
-        currency: String!
-        language: String!
-        population: Float!
-        landarea: Float!
-        agriculturearea: String!
-        forestarea: String!
-        co2emissions: Float!
+        capital: String
+        largestcity: String
+        currency: String
+        language: String
+        population: Float
+        landarea: Float
+        agriculturearea: String
+        forestarea: String
+        co2emissions: Float
         image: String!
 
         journals: [Journal!]!

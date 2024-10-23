@@ -9,8 +9,8 @@ datasource db {
 
 model Country {
   id              Int       @id @default(autoincrement())
-  name            String?
-  continent       String?
+  name            String
+  continent       String
   capital         String?
   currency        String?
   language        String?

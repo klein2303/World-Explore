@@ -1,0 +1,28 @@
+/* PublicJournalEntries.module.css */
+
+.journalContainer {
+    padding: 20px;
+    background-color: #e4e1f7;
+    
+}
+  
+.journalTitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #424242;
+}
+  
+.entriesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.horizontalLine {
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #424242;
+}

@@ -1,7 +1,6 @@
 .cardlist {
-    height: 600px;
+    height: fit-content;
     width: 900px;
-    overflow-y: scroll;
 
     display: flex;
     flex-direction: row;

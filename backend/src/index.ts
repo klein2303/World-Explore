@@ -22,7 +22,7 @@ const typeDefs = `
         landarea: Float
         agriculturearea: String
         forestarea: String
-        co2emissions: Float
+        co2emission: Float
         image: String!
 
         journals: [Journal!]!
@@ -48,7 +48,7 @@ const typeDefs = `
     type Query {
         countries: [Country!]!
         country(name: String!): Country
-
+        filteredcountries(skip: Int, name: String, continents: [String!]!, sort: Boolean!): [Country]
         journals: [Journal!]!
         reviews: [Review!]!
     }
@@ -72,6 +72,24 @@ const resolvers = {
             name: name,
           },
       })},
+      filteredcountries : async (_, {skip, name, continents, sort}) => {
+        return await prisma.country.findMany({
+          skip: skip,
+          take: 12,
+          where: {
+            name: {
+              contains: name.toLowerCase(),
+              mode: 'insensitive',
+            },
+            continent: {
+              in: continents,
+            },
+          },
+          orderBy: {
+              name: sort ? 'asc' : 'desc',
+          },
+        })
+      },
       journals: async () => {
         return await prisma.journal.findMany();
       },

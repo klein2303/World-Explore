@@ -7,7 +7,6 @@ import {GrLanguage} from "react-icons/gr";
 import {TbMoneybag} from "react-icons/tb";
 import {PiPlant} from "react-icons/pi";
 import { gql, useQuery } from "@apollo/client";
-import { useEffect } from "react";
 
 const Country = () => {
     const {name} = useParams<{name: string}>();
@@ -25,7 +24,7 @@ const Country = () => {
                 landarea
                 agriculturearea
                 forestarea
-                co2emissions
+                co2emission
                 image
             }
         }
@@ -35,12 +34,6 @@ const Country = () => {
         fetchPolicy: "cache-first", // Used for first execution
         nextFetchPolicy: "cache-first", // Used for subsequent executions
     });
-
-    useEffect(() => {
-        if (data) {
-            console.log(data.country.co2_emissions);
-        }
-    }, [data]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -97,7 +90,7 @@ const Country = () => {
                                 a land area of {data.country.landarea} km². The land area contains{" "}
                                 {data.country.agriculturearea}
                                 {" "} agriculture and {data.country.forestarea} forest. The CO2 emission produced by the country
-                                is {data.country.co2emissions} tons.
+                                is {data.country.co2emission} tons.
                             </p>
                         </section>
                     </aside>

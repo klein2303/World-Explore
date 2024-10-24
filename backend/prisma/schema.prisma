@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Country {
+  id              Int       @id @default(autoincrement())
+  name            String
+  continent       String
+  capital         String?
+  currency        String?
+  language        String?
+  population      Float?
+  image           String?
+  agriculturearea String?
+  co2emission     Float?
+  forestarea      String?
+  landarea        Float?
+  largestcity     String?
+  journal         Journal[]
+}
+
+model Journal {
+  id        Int      @id @default(autoincrement())
+  countryid Int?
+  country   Country? @relation(fields: [countryid], references: [id])
+  reviews   Review[]
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  title     String?
+  date      String?
+  rating    Int?
+  text      String?
+  ispublic  Boolean?
+  journalid Int?
+  journal   Journal? @relation(fields: [journalid], references: [id])
+}

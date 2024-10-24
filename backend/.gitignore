@@ -1,0 +1,12 @@
+node_modules
+dist/
+
+# Migration files
+prisma/migrations/
+
+# Keep environment variables out of version control
+.env
+.env.local
+
+# package-lock json
+package-lock.json

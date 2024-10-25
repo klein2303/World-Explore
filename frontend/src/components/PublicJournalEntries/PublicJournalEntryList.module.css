@@ -3,7 +3,6 @@
 .journalContainer {
     padding: 20px;
     background-color: #e4e1f7;
-    
 }
   
 .journalTitle {
@@ -18,6 +17,7 @@
     flex-wrap: wrap;
     gap: 20px;
     align-items: center;
+    justify-content: space-between;
 }
 
 .horizontalLine {

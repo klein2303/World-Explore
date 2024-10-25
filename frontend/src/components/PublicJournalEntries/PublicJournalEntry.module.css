@@ -67,3 +67,10 @@
 .reviewer {
     vertical-align: middle;
 }
+
+@media (max-width: 768px) {
+    .reviewCard {
+        flex-basis: 100%;  /* Make the cards take full width on smaller screens */
+        max-width: 100%;   /* Ensure they don't exceed the container width */
+    }
+}

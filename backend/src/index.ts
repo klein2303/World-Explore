@@ -49,6 +49,7 @@ const typeDefs = `
         countries: [Country!]!
         country(name: String!): Country
         filteredcountries(skip: Int, name: String, continents: [String!]!, sort: Boolean!): [Country]
+        filteredcountriescount(name: String, continents: [String!]!): Int!
         journals: [Journal!]!
         reviews: [Review!]!
     }
@@ -89,6 +90,19 @@ const resolvers = {
               name: sort ? 'asc' : 'desc',
           },
         })
+      },
+      filteredcountriescount: async (_, {name, continents}) => {
+        return await prisma.country.count({
+          where: {
+            name: {
+              contains: name.toLowerCase(),
+              mode: 'insensitive',
+            },
+            continent: {
+              in: continents,
+            },
+          },
+        });
       },
       journals: async () => {
         return await prisma.journal.findMany();

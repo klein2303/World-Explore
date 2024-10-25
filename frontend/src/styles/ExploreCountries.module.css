@@ -3,7 +3,9 @@
     height: fit-content;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -16,6 +18,10 @@
     width: 1200px;
 
     gap: 20px;
+}
+
+.pagination {
+    margin-bottom: 20px;
 }
 
 .title {

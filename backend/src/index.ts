@@ -1,6 +1,7 @@
 import { ApolloServer } from '@apollo/server'; // preserve-line
 import { startStandaloneServer } from '@apollo/server/standalone'; // preserve-line
 import { PrismaClient } from '@prisma/client';
+import { count } from 'console';
 
 
 const prisma = new PrismaClient();
@@ -21,7 +22,7 @@ const typeDefs = `
         landarea: Float
         agriculturearea: String
         forestarea: String
-        co2emissions: Float
+        co2emission: Float
         image: String!
 
         journals: [Journal!]!
@@ -46,7 +47,9 @@ const typeDefs = `
 
     type Query {
         countries: [Country!]!
-
+        country(name: String!): Country
+        filteredcountries(skip: Int, name: String, continents: [String!]!, sort: Boolean!): [Country]
+        filteredcountriescount(name: String, continents: [String!]!): Int!
         journals: [Journal!]!
         reviews: [Review!]!
     }
@@ -63,6 +66,43 @@ const resolvers = {
     Query: {
       countries: async () => {
         return await prisma.country.findMany();
+      },
+      country: async (_, {name}) => {
+        return await prisma.country.findUnique({
+          where: {
+            name: name,
+          },
+      })},
+      filteredcountries : async (_, {skip, name, continents, sort}) => {
+        return await prisma.country.findMany({
+          skip: skip,
+          take: 12,
+          where: {
+            name: {
+              contains: name.toLowerCase(),
+              mode: 'insensitive',
+            },
+            continent: {
+              in: continents,
+            },
+          },
+          orderBy: {
+              name: sort ? 'asc' : 'desc',
+          },
+        })
+      },
+      filteredcountriescount: async (_, {name, continents}) => {
+        return await prisma.country.count({
+          where: {
+            name: {
+              contains: name.toLowerCase(),
+              mode: 'insensitive',
+            },
+            continent: {
+              in: continents,
+            },
+          },
+        });
       },
       journals: async () => {
         return await prisma.journal.findMany();

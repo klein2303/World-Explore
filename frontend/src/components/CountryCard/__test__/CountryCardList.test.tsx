@@ -1,8 +1,8 @@
-import {render, screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {describe, it, expect} from "vitest";
+import { describe, it, expect } from "vitest";
 import CountryCardList from "../CountryCardList";
-import {MemoryRouter} from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 
 describe("CountryCardList Tests", () => {
     it("renders the country card list correctly", () => {
@@ -39,7 +39,7 @@ describe("CountryCardList Tests", () => {
         ];
 
         // Render the component
-        const {asFragment} = render(
+        const { asFragment } = render(
             <MemoryRouter>
                 <CountryCardList countries={countries} />
             </MemoryRouter>,

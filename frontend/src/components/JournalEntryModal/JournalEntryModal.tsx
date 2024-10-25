@@ -1,7 +1,7 @@
-import {useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./JournalEntryModal.module.css";
-import {FaStar} from "react-icons/fa";
-import {JournalType} from "../../types/JournalType";
+import { FaStar } from "react-icons/fa";
+import { JournalType } from "../../types/JournalType";
 
 interface JournalEntryModalProps {
     country: string;
@@ -10,7 +10,7 @@ interface JournalEntryModalProps {
     onSubmit: (entry: JournalType) => void;
 }
 
-const JournalEntryModal = ({country, isOpen, onClose, onSubmit}: JournalEntryModalProps) => {
+const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryModalProps) => {
     const [title, setTitle] = useState<string>("");
     const [date, setDate] = useState<string>("");
     const [rating, setRating] = useState<number>(0);

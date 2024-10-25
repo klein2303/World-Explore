@@ -1,7 +1,7 @@
 import csv
 import pandas as pd
 
-df = pd.read_csv('./backend/data/countries_with_images.csv')
+df = pd.read_csv('./backend/data/countries_with_updated_images.csv')
 
 column_renames = {
     'Country': 'name',

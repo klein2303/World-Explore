@@ -1,7 +1,7 @@
 import LoginOrRegister from "../components/LoginOrRegister/LoginOrRegister";
 import styles from "../styles/LoginAndRegister.module.css";
 import loginImage from "/loginImagePurple.jpg?url";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
     return (

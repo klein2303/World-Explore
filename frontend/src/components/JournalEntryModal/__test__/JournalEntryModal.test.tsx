@@ -1,5 +1,5 @@
-import {render, screen, fireEvent} from "@testing-library/react";
-import {describe, it, expect, vi} from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
 import JournalEntryModal from "../JournalEntryModal";
 
 describe("JournalEntryModal", () => {
@@ -36,9 +36,9 @@ describe("JournalEntryModal", () => {
         const submitButton = screen.getByLabelText(/Submit journal entry/i);
 
         // Fill out the form
-        fireEvent.change(titleInput, {target: {value: "My Trip to Norway"}});
-        fireEvent.change(dateInput, {target: {value: "2023-01-01"}});
-        fireEvent.change(textArea, {target: {value: "It was an amazing trip!"}});
+        fireEvent.change(titleInput, { target: { value: "My Trip to Norway" } });
+        fireEvent.change(dateInput, { target: { value: "2023-01-01" } });
+        fireEvent.change(textArea, { target: { value: "It was an amazing trip!" } });
 
         // Submit the form
         fireEvent.click(submitButton);
@@ -86,7 +86,7 @@ describe("JournalEntryModal", () => {
 
     // Snapshot test using @testing-library/react
     it("matches the snapshot when modal is open", () => {
-        const {asFragment} = render(
+        const { asFragment } = render(
             <JournalEntryModal country="Norway" isOpen={true} onClose={mockOnClose} onSubmit={mockOnSubmit} />,
         );
         expect(asFragment()).toMatchSnapshot();

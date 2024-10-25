@@ -1,7 +1,7 @@
-import {render, screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Home from "../Home";
-import {vi} from "vitest";
-import {MemoryRouter} from "react-router-dom";
+import { vi } from "vitest";
+import { MemoryRouter } from "react-router-dom";
 
 // Mock the image import
 vi.mock("/homepage.svg", () => ({
@@ -10,7 +10,7 @@ vi.mock("/homepage.svg", () => ({
 
 describe("Home Component", () => {
     it("should render the image component", () => {
-        const {container} = render(
+        const { container } = render(
             <MemoryRouter>
                 <Home />
             </MemoryRouter>,
@@ -30,7 +30,7 @@ describe("Home Component", () => {
     });
 
     it("should have appropriate roles and aria-labels", () => {
-        const {container} = render(
+        const { container } = render(
             <MemoryRouter>
                 <Home />
             </MemoryRouter>,
@@ -40,7 +40,7 @@ describe("Home Component", () => {
         expect(container).toMatchSnapshot();
 
         // Assert that the main element has the role of 'main'
-        const mainElement = screen.getByRole("main", {name: /Homepage/i});
+        const mainElement = screen.getByRole("main", { name: /Homepage/i });
         expect(mainElement).toBeInTheDocument();
 
         // Assert that the article has the aria-label 'Homepage image'

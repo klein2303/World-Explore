@@ -69,6 +69,12 @@ npx prisma db push
 ``` 
 
 in the terminal after you have stopped running the server.
+<br/><br/>
+To shut remove the docker comtainer run the command:
+```
+docker compose down --volumes
+```
+in the terminal.
 
 ## Running Docker
 To run docker after the initial installation you have to run the command:

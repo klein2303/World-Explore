@@ -3,7 +3,7 @@ export type JournalType = {
     reviews: reviewType[];
 };
 
-type reviewType = {
+export type reviewType = {
     id: number;
     title: string;
     date: string;

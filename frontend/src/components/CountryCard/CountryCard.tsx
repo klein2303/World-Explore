@@ -1,14 +1,14 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import styles from "./CountryCard.module.css";
-import {LuMapPin} from "react-icons/lu";
-import {Link} from "react-router-dom";
+import { LuMapPin } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 interface CountryCardProps {
     name: string;
     image: string;
 }
 
-const CountryCard = ({name, image}: CountryCardProps) => {
+const CountryCard = ({ name, image }: CountryCardProps) => {
     const [isFilled, setIsFilled] = useState<boolean>(false);
 
     const fillMapPin = () => {

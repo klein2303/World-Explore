@@ -1,10 +1,10 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
-import {RxHamburgerMenu, RxCross1} from "react-icons/rx";
-import {useState} from "react";
-import {CgProfile} from "react-icons/cg";
-import {GoSearch} from "react-icons/go";
-import {LuMapPin} from "react-icons/lu";
+import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
+import { useState } from "react";
+import { CgProfile } from "react-icons/cg";
+import { GoSearch } from "react-icons/go";
+import { LuMapPin } from "react-icons/lu";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);

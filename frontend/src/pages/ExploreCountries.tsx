@@ -3,14 +3,13 @@ import CountryCardList from "../components/CountryCard/CountryCardList";
 import Filter from "../components/Filter/Filter";
 import styles from "../styles/ExploreCountries.module.css";
 import Search from "../components/Search/Search";
-import {filterAtom} from "../atoms/FilterAtom";
-import {useRecoilState} from "recoil";
-import {MdOutlineSort} from "react-icons/md";
-import {FilterType} from "../types/FilterType";
+import { filterAtom } from "../atoms/FilterAtom";
+import { useRecoilState } from "recoil";
+import { MdOutlineSort } from "react-icons/md";
+import { FilterType } from "../types/FilterType";
 import { gql, useQuery } from "@apollo/client";
 import Pagination from "@mui/material/Pagination";
 import { pageAtom } from "../atoms/PageAtom";
-
 
 const ExploreCountries = () => {
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
@@ -18,7 +17,12 @@ const ExploreCountries = () => {
 
     const COUNTRIES_COUNT = gql`
         {
-            filteredcountriescount(name: "${filter.search}", continents: [${Object.entries(filter.continent).filter(([continent, value]) => value === true && continent).map(([continent]) => `"${continent}"`).join(", ") || '"Asia", "Africa", "Europe", "North America", "South America", "Oceania"'}])
+            filteredcountriescount(name: "${filter.search}", continents: [${
+                Object.entries(filter.continent)
+                    .filter(([continent, value]) => value === true && continent)
+                    .map(([continent]) => `"${continent}"`)
+                    .join(", ") || '"Asia", "Africa", "Europe", "North America", "South America", "Oceania"'
+            }])
         }
     `;
 
@@ -34,17 +38,19 @@ const ExploreCountries = () => {
         }));
         resetPage();
     };
-    
+
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setCurrentPage({ page: value });
-    }
+    };
 
     const resetPage = () => {
-        if (currentPage.page === 1) {return;}
-        setCurrentPage({ 
-            page: 1 
+        if (currentPage.page === 1) {
+            return;
+        }
+        setCurrentPage({
+            page: 1,
         });
-    }
+    };
 
     // useEffect(() => {
     //     resetPage()
@@ -52,7 +58,7 @@ const ExploreCountries = () => {
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
-    
+
     return (
         <>
             <Navbar />
@@ -83,7 +89,7 @@ const ExploreCountries = () => {
                                 </select>
                             </div>
                         </div>
-                        <CountryCardList/>
+                        <CountryCardList />
                         <Pagination
                             page={currentPage.page}
                             onChange={handleChange}

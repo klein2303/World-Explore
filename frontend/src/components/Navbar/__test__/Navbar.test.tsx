@@ -1,13 +1,13 @@
-import {render, screen, fireEvent} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {describe, it, expect} from "vitest";
+import { describe, it, expect } from "vitest";
 import Navbar from "../Navbar";
-import {MemoryRouter} from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Navbar Tests (Desktop)", () => {
     it("renders the navigation bar correctly", () => {
         // Render the component
-        const {asFragment} = render(
+        const { asFragment } = render(
             <MemoryRouter>
                 <Navbar />
             </MemoryRouter>,
@@ -59,7 +59,7 @@ describe("Navbar Tests (Mobile)", () => {
 
     it("renders the mobile navigation bar correctly", () => {
         // Render the Navbar component inside a MemoryRouter
-        const {asFragment} = render(
+        const { asFragment } = render(
             <MemoryRouter>
                 <Navbar />
             </MemoryRouter>,

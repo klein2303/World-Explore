@@ -1,10 +1,10 @@
 // JournalPage.test.tsx
 
-import {render, screen} from "@testing-library/react";
-import {MemoryRouter} from "react-router-dom";
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import JournalPage from "../JournalPage";
-import {useParams} from "react-router-dom";
-import {describe, it, vi} from "vitest";
+import { useParams } from "react-router-dom";
+import { describe, it, vi } from "vitest";
 
 // Mocking useParams to avoid actual route dependency
 vi.mock("react-router-dom", async () => {
@@ -18,9 +18,9 @@ vi.mock("react-router-dom", async () => {
 describe("JournalPage", () => {
     // Test with a countryName provided
     it("renders correctly with a countryName", () => {
-        vi.mocked(useParams).mockReturnValue({countryName: "Japan"});
+        vi.mocked(useParams).mockReturnValue({ countryName: "Japan" });
 
-        const {asFragment} = render(
+        const { asFragment } = render(
             <MemoryRouter>
                 <JournalPage />
             </MemoryRouter>,
@@ -39,9 +39,9 @@ describe("JournalPage", () => {
 
     // Test without a countryName
     it("renders correctly without a countryName", () => {
-        vi.mocked(useParams).mockReturnValue({countryName: undefined});
+        vi.mocked(useParams).mockReturnValue({ countryName: undefined });
 
-        const {asFragment} = render(
+        const { asFragment } = render(
             <MemoryRouter>
                 <JournalPage />
             </MemoryRouter>,

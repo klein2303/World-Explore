@@ -1,15 +1,15 @@
 import styles from "../styles/Country.module.css";
-import {PiArrowElbowDownLeft} from "react-icons/pi";
+import { PiArrowElbowDownLeft } from "react-icons/pi";
 import Navbar from "../components/Navbar/Navbar";
-import {Link, useParams} from "react-router-dom";
-import {LuMapPin} from "react-icons/lu";
-import {GrLanguage} from "react-icons/gr";
-import {TbMoneybag} from "react-icons/tb";
-import {PiPlant} from "react-icons/pi";
+import { Link, useParams } from "react-router-dom";
+import { LuMapPin } from "react-icons/lu";
+import { GrLanguage } from "react-icons/gr";
+import { TbMoneybag } from "react-icons/tb";
+import { PiPlant } from "react-icons/pi";
 import { gql, useQuery } from "@apollo/client";
 
 const Country = () => {
-    const {name} = useParams<{name: string}>();
+    const { name } = useParams<{ name: string }>();
 
     const COUNTRY_QUERY = gql`
         {
@@ -83,14 +83,14 @@ const Country = () => {
                                 About the Country
                             </h2>
                             <p className={styles.infotext}>
-                                The name of the country is {data.country.name}, and it's in the continent {data.country.continent}
-                                . The language spoken in the country is {data.country.language}, and the currency used is{" "}
-                                {data.currency}. The capital of the country is {data.country.capital}, and the largest
-                                city is {data.country.largestcity}. It has a population of {data.country.population} people, and
-                                a land area of {data.country.landarea} km². The land area contains{" "}
-                                {data.country.agriculturearea}
-                                {" "} agriculture and {data.country.forestarea} forest. The CO2 emission produced by the country
-                                is {data.country.co2emission} tons.
+                                The name of the country is {data.country.name}, and it's in the continent{" "}
+                                {data.country.continent}. The language spoken in the country is {data.country.language},
+                                and the currency used is {data.currency}. The capital of the country is{" "}
+                                {data.country.capital}, and the largest city is {data.country.largestcity}. It has a
+                                population of {data.country.population} people, and a land area of{" "}
+                                {data.country.landarea} km². The land area contains {data.country.agriculturearea}{" "}
+                                agriculture and {data.country.forestarea} forest. The CO2 emission produced by the
+                                country is {data.country.co2emission} tons.
                             </p>
                         </section>
                     </aside>

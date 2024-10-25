@@ -1,7 +1,7 @@
-import {render, screen, fireEvent} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {describe, it, expect, vi} from "vitest";
-import {MemoryRouter, Route, Routes} from "react-router-dom";
+import { describe, it, expect, vi } from "vitest";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import Country from "../Country";
 import Countries from "../../data/Countries";
 
@@ -52,7 +52,7 @@ describe("Country Component Tests", () => {
         expect(screen.getByRole("navigation")).toBeInTheDocument();
 
         // Check country name, continent, and other information
-        expect(screen.getByRole("heading", {name: "CountryName"})).toBeInTheDocument();
+        expect(screen.getByRole("heading", { name: "CountryName" })).toBeInTheDocument();
         expect(screen.getByText("Continent: ContinentName")).toBeInTheDocument();
         expect(screen.getByText("Capital: CapitalCity")).toBeInTheDocument();
         expect(screen.getByText("Language: LanguageSpoken")).toBeInTheDocument();

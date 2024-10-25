@@ -16,7 +16,7 @@
     margin-bottom: 10px;
 }
 
-.title h4  {
+.title h4 {
     font-weight: 200;
 }
 
@@ -26,7 +26,7 @@
     margin: 20px 0;
 }
 
-.inputSections h5  {
+.inputSections h5 {
     color: #000000;
     font-weight: 300;
 }
@@ -104,4 +104,3 @@
         /* Ensure fields also scale with the container */
     }
 }
-

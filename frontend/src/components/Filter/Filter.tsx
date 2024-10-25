@@ -1,15 +1,15 @@
-import {useEffect} from "react";
+import { useEffect } from "react";
 import styles from "./Filter.module.css";
-import {useRecoilState} from "recoil";
-import {filterAtom} from "../../atoms/FilterAtom";
-import {FilterType} from "../../types/FilterType";
-import {setFilters} from "../../utils/FilterStorage";
+import { useRecoilState } from "recoil";
+import { filterAtom } from "../../atoms/FilterAtom";
+import { FilterType } from "../../types/FilterType";
+import { setFilters } from "../../utils/FilterStorage";
 
 const Filter = () => {
     const [isClicked, setIsClicked] = useRecoilState<FilterType>(filterAtom);
 
     const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {id, checked} = e.target;
+        const { id, checked } = e.target;
 
         setIsClicked((prevState) => ({
             ...prevState,

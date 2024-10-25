@@ -1,12 +1,12 @@
-import {render, screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {describe, it, expect} from "vitest";
-import {MemoryRouter} from "react-router-dom";
+import { describe, it, expect } from "vitest";
+import { MemoryRouter } from "react-router-dom";
 import Register from "../Register";
 
 describe("Register Component", () => {
     it("renders the Register component correctly", () => {
-        const {asFragment} = render(
+        const { asFragment } = render(
             <MemoryRouter>
                 <Register />
             </MemoryRouter>,

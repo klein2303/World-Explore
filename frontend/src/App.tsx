@@ -1,5 +1,5 @@
 import Router from "./Router";
-import {RecoilRoot} from "recoil";
+import { RecoilRoot } from "recoil";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({

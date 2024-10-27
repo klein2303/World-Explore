@@ -30,8 +30,8 @@ const typeDefs = `
 
     type Journal {
         id: ID!
-        countryid: Int!
-        title: String!
+        countryid: String!
+        profileid: String!
         reviews: [Review!]!
     }
     
@@ -42,7 +42,17 @@ const typeDefs = `
         rating: Int!
         text: String!
         ispublic: Boolean!
+
         journalid: Int!
+    }
+    
+    type Profile {
+        id: ID!
+        username: String!
+        email: String!
+        password: String!
+        
+        journals: [Journal!]!
     }
 
     type Query {
@@ -55,8 +65,9 @@ const typeDefs = `
     }
 
     type Mutation {
-      addJournal(countryid: Int!): Journal
+      addJournal(countryid: String!, profileid: String!): Journal
       addReview(title: String!, date: String!, rating: Int!, text: String!, ispublic: Boolean!, journalid: Int!): Review
+      addProfile(username: String!, email: String!, password: String!): Profile
     }
 `;
 
@@ -113,14 +124,19 @@ const resolvers = {
     },
 
     Mutation: {
-      addJournal: async (_, {countryId}) => {
+      addJournal: async (_, {countryId, profileid}) => {
         return await prisma.journal.create({
           data: {
             country: {
               connect: {
                 id: countryId,
+              }
+            },
+            profile: {
+              connect: {
+                id: profileid,
+              }
             }
-          },
         }});
       },
       addReview: async (_, {title, date, rating, text, ispublic, journalid}) => {
@@ -136,6 +152,15 @@ const resolvers = {
                 id: journalid,
               },
             }
+          },
+        });
+      },
+      addProfile: async (_, {username, email, password}) => {
+        return await prisma.profile.create({
+          data: {
+            username: username,
+            email: email,
+            password: password,
           },
         });
       },

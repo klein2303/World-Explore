@@ -95,6 +95,7 @@ docker compose down
 To add the default data into the database run the script fictures.cjs in the terminal like:
 ```
 node .\scripts\fixtures.cjs
+node .\scripts\addReviews.cjs
 ```
 and remember to update
 

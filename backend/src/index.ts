@@ -30,8 +30,10 @@ const typeDefs = `
 
     type Journal {
         id: ID!
+
         countryid: String!
         profileid: String!
+
         reviews: [Review!]!
     }
     
@@ -58,10 +60,16 @@ const typeDefs = `
     type Query {
         countries: [Country!]!
         country(name: String!): Country
+        
         filteredcountries(skip: Int, name: String, continents: [String!]!, sort: Boolean!): [Country]
         filteredcountriescount(name: String, continents: [String!]!): Int!
+        
         journals: [Journal!]!
         reviews: [Review!]!
+
+        publicreviews: [Review!]!
+        writtenjournals: [Journal!]!
+        unwrittenjournals: [Journal!]!
     }
 
     type Mutation {
@@ -121,24 +129,54 @@ const resolvers = {
       reviews: async () => {
         return await prisma.review.findMany();
       },
+      publicreviews: async () => {
+        return await prisma.review.findMany({
+          where: {
+            ispublic: true,
+          },
+        });
+      },
+      writtenjournals: async () => {
+        return await prisma.journal.findMany(
+          {
+            where: {
+              reviews: {
+                some: {},
+              },
+            },  
+          },
+        );
+      },
+      unwrittenjournals: async () => {
+        return await prisma.journal.findMany(
+          {
+            where: {
+              reviews: {
+                none: {},
+              },
+            },  
+          },
+        );
+      },
     },
 
     Mutation: {
-      addJournal: async (_, {countryId, profileid}) => {
-        return await prisma.journal.create({
-          data: {
-            country: {
-              connect: {
-                id: countryId,
-              }
+        addJournal: async (_, {countryid, profileid}) => {
+          return await prisma.journal.create({
+            data: {
+              country: {
+                connect: {
+                  name: countryid,
+                },
+              },
+              profile: {
+                connect: {
+                  email: profileid,
+                },
+              },
             },
-            profile: {
-              connect: {
-                id: profileid,
-              }
-            }
-        }});
-      },
+          });
+        },
       addReview: async (_, {title, date, rating, text, ispublic, journalid}) => {
         return await prisma.review.create({
           data: {

@@ -36,6 +36,7 @@ const PublicJournalEntryModal = ({ review, onClose }: JournalEntryModalProps) =>
                 onClick={(e) => e.stopPropagation()} 
                 tabIndex={-1} 
             >
+                {/* Review title, date and close button */}
                 <header>
                     <button 
                         onClick={onClose} 
@@ -51,6 +52,8 @@ const PublicJournalEntryModal = ({ review, onClose }: JournalEntryModalProps) =>
                         {review.date}
                     </p>
                 </header>
+
+                {/* Review and reviewer info */}
                 <section className={styles.modalInfo} aria-labelledby="modal-rating modal-reviewer">
                     <p id="modal-rating" className={styles.modalRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
                         <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
@@ -61,6 +64,7 @@ const PublicJournalEntryModal = ({ review, onClose }: JournalEntryModalProps) =>
                         Ola Nordmann
                     </p>
                 </section>
+                {/* Review text */}
                 <article id={`review-text-${review.id}`} className={styles.modalText}>
                     {review.text}
                 </article>

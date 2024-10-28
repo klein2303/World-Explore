@@ -6,30 +6,21 @@ type PublicJournalEntriesProps = {
     journal: JournalType; // Expecting a full JournalType as prop, containing country and reviews
 };
 
-const PublicJournalEntryList: React.FC<PublicJournalEntriesProps> = ({journal}) => {
-    const {country, reviews} = journal; // Destructure country and reviews from journal prop
+const PublicJournalEntryList = ({journal}: PublicJournalEntriesProps) => {
+    const {reviews} = journal; // Destructure country and reviews from journal prop
 
     // Filter public reviews
     const publicReviews = reviews.filter((review) => review.public);
 
-    if (publicReviews.length === 0) {
-        return <p>No public journal entries available for {country}.</p>;
-    }
-
     return (
-        <section className={styles.journalContainer}>
-            <h3 className={styles.journalTitle}>Public Journal Entries for {country}</h3>
-
-            {/* Horizontal line */}
-            <div className={styles.horizontalLine}></div>
-
+        <>
             {/* Grid for journal entries */}
             <div className={styles.entriesGrid}>
                 {publicReviews.map((review) => (
                     <PublicJournalEntry key={review.id} review={review} />
                 ))}
             </div>
-        </section>
+        </>
     );
 };
 

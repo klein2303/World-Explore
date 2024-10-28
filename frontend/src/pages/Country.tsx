@@ -128,6 +128,9 @@ const Country = () => {
                             Write a journal entry <FaPenNib className={styles.penIcon} />
                     </button>
                 </div>
+                {/* Horizontal line */}
+                <div className={styles.horizontalLine}></div>
+
                 {/* Render message if there are no journal entries */}
                 {journal === null || journal.reviews.length === 0 ? (
                     <p>No public journal entries for this country yet.</p>

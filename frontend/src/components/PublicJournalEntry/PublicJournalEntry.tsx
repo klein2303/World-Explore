@@ -7,10 +7,10 @@ import {CgProfile} from "react-icons/cg";
 
 
 type PublicJournalEntryProps = {
-    review: reviewType; // A single review
+    review: reviewType;
 };
 
-const PublicJournalEntry: React.FC<PublicJournalEntryProps> = ({review}) => {
+const PublicJournalEntry = ({review}: PublicJournalEntryProps) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const truncatedText = review.text.length > 100 ? review.text.slice(0, 100) + "..." : review.text;
 

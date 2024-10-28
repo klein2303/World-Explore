@@ -3,11 +3,11 @@ import PublicJournalEntry from "./PublicJournalEntry"; // Import PublicJournalEn
 import styles from "./PublicJournalEntryList.module.css"; // Import CSS module
 
 type PublicJournalEntriesProps = {
-    journal: JournalType; // Expecting a full JournalType as prop, containing country and reviews
+    journal: JournalType;
 };
 
 const PublicJournalEntryList = ({journal}: PublicJournalEntriesProps) => {
-    const {reviews} = journal; // Destructure country and reviews from journal prop
+    const {reviews} = journal;
 
     // Filter public reviews
     const publicReviews = reviews.filter((review) => review.public);

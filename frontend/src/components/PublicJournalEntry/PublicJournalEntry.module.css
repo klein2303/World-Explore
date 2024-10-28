@@ -1,5 +1,3 @@
-/* PublicJournalEntry.module.css */
-
 .reviewCard {
     background-color: #FCF5FF;
     padding: 15px;
@@ -8,17 +6,20 @@
     width: 100%;
     max-width: 300px;
     color: #424242;
-    height: 175px; /* Må gjøre noe smart her for å få alle kortene like høye */
+    height: 200px;
     display: flex;
-    flex-direction: column; /* Ensure the content stacks vertically */
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
 }
-  
+
 .reviewTitle {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 10px;
 }
-  
+
 .reviewDate {
     font-size: 14px;
     margin-bottom: 10px;
@@ -28,11 +29,23 @@
 .reviewRating {
     font-size: 16px;
 }
-  
+
+.reviewInfoBox {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .reviewText {
     font-size: 16px;
+    line-height: 1.4;
+    height: 70px; /* Limit height to create uniform card size */
+    overflow: hidden;
+    -webkit-line-clamp: 3; /* Limit the number of lines */
+    line-clamp: 3; /* Standard property for compatibility */
+    -webkit-box-orient: vertical;
 }
-  
+
 .readMoreButton {
     background-color: #424242;
     color: white;
@@ -41,8 +54,9 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    margin-top: 5px;
 }
-  
+
 .readMoreButton:hover {
     background-color: #797979;
 }
@@ -70,7 +84,13 @@
 
 @media (max-width: 768px) {
     .reviewCard {
-        flex-basis: 100%;  /* Make the cards take full width on smaller screens */
-        max-width: 100%;   /* Ensure they don't exceed the container width */
+        max-width: 100%;
+        flex-basis: 100%;
+        height: auto;
+    }
+    .reviewText {
+        height: auto; /* Allow text to expand fully on mobile */
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
     }
 }

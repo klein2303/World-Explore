@@ -1,4 +1,5 @@
-import styles from "./PublicJournalEntryModal.module.css"; // Create this CSS file for the modal's styling
+import { useEffect } from "react";
+import styles from "./PublicJournalEntryModal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CgProfile } from "react-icons/cg";
@@ -10,27 +11,61 @@ type JournalEntryModalProps = {
 };
 
 const PublicJournalEntryModal = ({ review, onClose }: JournalEntryModalProps) => {
+    // Close modal on "Escape" key press
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                onClose();
+            }
+        };
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, [onClose]);
+
     return (
-        <div className={styles.modalBackdrop} onClick={onClose}>
-            <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-                <button onClick={onClose} className={styles.closeButton} aria-label="Close modal">
-                    &times;
-                </button>
-                <h3 className={styles.modalTitle}>{review.title}</h3>
-                <p className={styles.modalDate}>{review.date}</p>
-                <section className={styles.modalInfo}>
-                    <p className={styles.modalRating}>
-                        <FontAwesomeIcon icon={faStar} className={styles.starIcon} />
+        <aside
+            className={styles.modalBackdrop} 
+            onClick={onClose} 
+            role="dialog" 
+            aria-modal="true" 
+            aria-labelledby={`review-title-${review.id}`}
+            aria-describedby={`review-text-${review.id}`}
+        >
+            <div 
+                className={styles.modalContent} 
+                onClick={(e) => e.stopPropagation()} 
+                tabIndex={-1} 
+            >
+                <header>
+                    <button 
+                        onClick={onClose} 
+                        className={styles.closeButton} 
+                        aria-label="Close modal"
+                    >
+                        &times;
+                    </button>
+                    <h3 id={`review-title-${review.id}`} className={styles.modalTitle}>
+                        {review.title}
+                    </h3>
+                    <p className={styles.modalDate} aria-label={`Date range: ${review.date}`}>
+                        {review.date}
+                    </p>
+                </header>
+                <section className={styles.modalInfo} aria-labelledby="modal-rating modal-reviewer">
+                    <p id="modal-rating" className={styles.modalRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
+                        <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
                         {review.rating}/5
                     </p>
-                    <p className={styles.modalReviewer}>
-                        <CgProfile className={styles.profileIcon} />
+                    <p id="modal-reviewer" className={styles.modalReviewer} aria-label="Reviewer: Ola Nordmann">
+                        <CgProfile className={styles.profileIcon} aria-hidden="true" />
                         Ola Nordmann
                     </p>
                 </section>
-                <p className={styles.modalText}>{review.text}</p>
+                <article id={`review-text-${review.id}`} className={styles.modalText}>
+                    {review.text}
+                </article>
             </div>
-        </div>
+        </aside>
     );
 };
 

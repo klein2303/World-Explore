@@ -34,29 +34,63 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
 
     return (
         <>
-            <div className={styles.reviewCard}>
-                <h3 className={styles.reviewTitle}>{review.title}</h3>
-                <p className={styles.reviewDate}>{review.date}</p>
-                <section className={styles.reviewInfo}>
-                    <p className={styles.reviewRating}>
-                        <FontAwesomeIcon icon={faStar} className={styles.starIcon} />{review.rating}/5
+            <article 
+                className={styles.reviewCard} 
+                aria-labelledby={`review-title-${review.id}`} 
+                role="region"
+            >
+                {/* Header with title and date */}
+                <header>
+                    <h3 className={styles.reviewTitle} id={`review-title-${review.id}`}>
+                        {review.title}
+                    </h3>
+                    <p className={styles.reviewDate} aria-label={`Date range: ${review.date}`}>
+                        {review.date}
                     </p>
-                    <p className={styles.reviewer}>
-                        <CgProfile className={styles.profileIcon} />
+                </header>
+                
+                {/* Review Information */}
+                <div className={styles.reviewInfo} aria-label="Review information">
+                    <p className={styles.reviewRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
+                        <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />{review.rating}/5
+                    </p>
+                    <p className={styles.reviewer} aria-label="Reviewer: Ola Nordmann">
+                        <CgProfile className={styles.profileIcon} aria-hidden="true" />
                         Ola Nordmann
                     </p>
-                </section>
-                <section className={styles.reviewInfoBox}>
-                    <p className={styles.reviewText}>{isExpanded || showModal ? review.text : truncatedText}</p>
+                </div>
+
+                {/* Review Text with "Read More" button */}
+                <div className={styles.reviewInfoBox} aria-label="Review text">
+                    <p 
+                        className={styles.reviewText} 
+                        aria-expanded={isExpanded || showModal}
+                        id={`review-text-${review.id}`}
+                    >
+                        {isExpanded || showModal ? review.text : truncatedText}
+                    </p>
                     {review.text.length > 100 && (
-                        <button className={styles.readMoreButton} onClick={handleReadMore}>
-                            {isExpanded ? "Read Less" : "Read More"}
-                        </button>
+                        <footer>
+                            <button 
+                                className={styles.readMoreButton} 
+                                onClick={handleReadMore}
+                                aria-controls={`review-text-${review.id}`}
+                                aria-expanded={isExpanded}
+                                aria-label={isExpanded ? "Collapse review text" : "Expand review text"}
+                            >
+                                {isExpanded ? "Read Less" : "Read More"}
+                            </button>
+                        </footer>
                     )}
-                </section>
-            </div>
+                </div>
+            </article>
             {showModal && !isMobile && (
-                <PublicJournalEntryModal review={review} onClose={() => setShowModal(false)} />
+                <PublicJournalEntryModal 
+                    review={review} 
+                    onClose={() => setShowModal(false)} 
+                    aria-labelledby={`review-title-${review.id}`}
+                    aria-describedby={`review-text-${review.id}`}
+                />
             )}
         </>
     );

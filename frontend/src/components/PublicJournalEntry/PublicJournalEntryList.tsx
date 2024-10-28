@@ -1,4 +1,4 @@
-import {JournalType} from "../../types/JournalType"; // Import JournalType
+import { JournalType } from "../../types/JournalType"; // Import JournalType
 import PublicJournalEntry from "./PublicJournalEntry"; // Import PublicJournalEntry component
 import styles from "./PublicJournalEntryList.module.css"; // Import CSS module
 
@@ -6,8 +6,8 @@ type PublicJournalEntriesProps = {
     journal: JournalType;
 };
 
-const PublicJournalEntryList = ({journal}: PublicJournalEntriesProps) => {
-    const {reviews} = journal;
+const PublicJournalEntryList = ({ journal }: PublicJournalEntriesProps) => {
+    const { country, reviews } = journal;
 
     // Filter public reviews
     const publicReviews = reviews.filter((review) => review.public);
@@ -15,11 +15,17 @@ const PublicJournalEntryList = ({journal}: PublicJournalEntriesProps) => {
     return (
         <>
             {/* Grid for journal entries */}
-            <div className={styles.entriesGrid}>
+            <article 
+                className={styles.entriesGrid} 
+                role="list" 
+                aria-label={`Public journal entries for ${country}`}
+            >
                 {publicReviews.map((review) => (
-                    <PublicJournalEntry key={review.id} review={review} />
+                    <div key={review.id} role="listitem">
+                        <PublicJournalEntry review={review} />
+                    </div>
                 ))}
-            </div>
+            </article>
         </>
     );
 };

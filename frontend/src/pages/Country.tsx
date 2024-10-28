@@ -9,7 +9,7 @@ import {PiPlant} from "react-icons/pi";
 import {CountryType} from "../types/CountryTypes";
 import {useEffect, useState} from "react";
 import Countries from "../data/Countries";
-import PublicJournalEntryList from "../components/PublicJournalEntries/PublicJournalEntryList";
+import PublicJournalEntryList from "../components/PublicJournalEntry/PublicJournalEntryList";
 import { JournalReviews } from "../data/JournalReviews"; // Import the JournalReviews data
 import { JournalType } from "../types/JournalType"; // Import JournalType for the journal data
 import { FaPenNib } from "react-icons/fa"; // Icon for the button

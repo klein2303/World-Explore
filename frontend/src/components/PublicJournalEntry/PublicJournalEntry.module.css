@@ -34,7 +34,7 @@
 }
   
 .readMoreButton {
-    background-color: #007bff;
+    background-color: #424242;
     color: white;
     padding: 5px 10px;
     border: none;
@@ -44,7 +44,7 @@
 }
   
 .readMoreButton:hover {
-    background-color: #0056b3;
+    background-color: #797979;
 }
 
 .starIcon {

@@ -1,11 +1,11 @@
 import styles from "./Search.module.css";
-import {GoSearch} from "react-icons/go";
-import {filterAtom} from "../../atoms/FilterAtom";
-import {useRecoilState} from "recoil";
-import {useEffect, useState} from "react";
-import {FilterType} from "../../types/FilterType";
-import {setFilters, getFilters} from "../../utils/FilterStorage";
-import {useDebounce} from "use-debounce";
+import { GoSearch } from "react-icons/go";
+import { filterAtom } from "../../atoms/FilterAtom";
+import { useRecoilState } from "recoil";
+import { useEffect, useState } from "react";
+import { FilterType } from "../../types/FilterType";
+import { setFilters, getFilters } from "../../utils/FilterStorage";
+import { useDebounce } from "use-debounce";
 
 const Search = () => {
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);

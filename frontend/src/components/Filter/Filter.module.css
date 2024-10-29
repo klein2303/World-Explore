@@ -65,6 +65,59 @@
     background-color: #424242;
 }
 
+@media (max-width: 750px) {
+    .title {
+        display: none;
+    }
+
+    .decription {
+        display: none;
+    }
+
+    .filtercontainer {
+        background-color: white;
+        height: fit-content;
+        width: 410px;
+
+        display: flex;
+        justify-content: center;
+        margin-left: 10px;
+    }
+
+    .informationbox {
+        height: fit-content;
+        width: 100%;
+    }
+
+    .filterlist {
+        font-size: 13px;
+        gap: 14px;
+
+        display: flex;
+        flex-direction: row;
+
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .checkboxVisual {
+        display: none;
+    }
+
+    .customCheckbox {
+        height: fit-content;
+        width: fit-content;
+        padding: 5px;
+
+        border-radius: 10px;
+        border: 2px solid #e4e1f7;
+    }
+
+    .checkbox:checked + .customCheckbox {
+        background-color: #e4e1f7;
+    }
+}
+
 @media (max-width: 620px) {
     .title {
         display: none;

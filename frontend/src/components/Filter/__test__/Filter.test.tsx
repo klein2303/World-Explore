@@ -1,13 +1,13 @@
-import {render, screen, fireEvent} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {describe, it, expect, beforeEach} from "vitest";
-import {MemoryRouter} from "react-router-dom";
+import { describe, it, expect, beforeEach } from "vitest";
+import { MemoryRouter } from "react-router-dom";
 import Filter from "../Filter";
-import {RecoilRoot} from "recoil";
+import { RecoilRoot } from "recoil";
 
 describe("Filter Component Tests (Desktop)", () => {
     it("renders the filter component correctly", () => {
-        const {asFragment} = render(
+        const { asFragment } = render(
             <RecoilRoot>
                 <MemoryRouter>
                     <Filter />
@@ -62,7 +62,7 @@ describe("Filter Component Tests (Mobile)", () => {
     });
 
     it("renders the filter component correctly in mobile view", () => {
-        const {asFragment} = render(
+        const { asFragment } = render(
             <RecoilRoot>
                 <MemoryRouter>
                     <Filter />

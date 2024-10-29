@@ -1,13 +1,13 @@
-import {render, screen, fireEvent} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {describe, it, expect} from "vitest";
+import { describe, it, expect } from "vitest";
 import CountryCard from "../CountryCard";
-import {MemoryRouter} from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 
 describe("CountryCard Tests", () => {
     it("renders the country card correctly", () => {
         // Render the component
-        const {asFragment} = render(
+        const { asFragment } = render(
             <MemoryRouter>
                 <CountryCard name="Australia" image="https://example.com/australia.jpg" />,
             </MemoryRouter>,

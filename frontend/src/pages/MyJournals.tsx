@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import JournalCard from "../components/JournalCard/JournalCard";
 import styles from "../styles/MyJournals.module.css";

@@ -1,7 +1,7 @@
-import {render, screen, fireEvent, waitFor} from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {describe, it, expect, beforeEach, vi} from "vitest";
-import {MemoryRouter} from "react-router-dom";
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { MemoryRouter } from "react-router-dom";
 import LoginOrRegister from "../LoginOrRegister";
 
 describe("LoginOrRegister Component - Register tests", () => {
@@ -13,7 +13,7 @@ describe("LoginOrRegister Component - Register tests", () => {
     });
 
     it("renders the registration form correctly", () => {
-        const {asFragment} = render(
+        const { asFragment } = render(
             <MemoryRouter>
                 <LoginOrRegister login={false} />
             </MemoryRouter>,
@@ -37,9 +37,9 @@ describe("LoginOrRegister Component - Register tests", () => {
         );
 
         // Fill out the form with valid values
-        fireEvent.change(screen.getByLabelText("Name input field"), {target: {value: "John Doe"}});
-        fireEvent.change(screen.getByLabelText("Email input field"), {target: {value: "john@example.com"}});
-        fireEvent.change(screen.getByLabelText("Password input field"), {target: {value: "12345678"}});
+        fireEvent.change(screen.getByLabelText("Name input field"), { target: { value: "John Doe" } });
+        fireEvent.change(screen.getByLabelText("Email input field"), { target: { value: "john@example.com" } });
+        fireEvent.change(screen.getByLabelText("Password input field"), { target: { value: "12345678" } });
 
         // Submit the form
         fireEvent.click(screen.getByLabelText("Submit to create a new account"));
@@ -56,9 +56,9 @@ describe("LoginOrRegister Component - Register tests", () => {
         );
 
         // Fill out the form
-        fireEvent.change(screen.getByLabelText("Name input field"), {target: {value: "John Doe"}});
-        fireEvent.change(screen.getByLabelText("Email input field"), {target: {value: "john@example.com"}});
-        fireEvent.change(screen.getByLabelText("Password input field"), {target: {value: "12345678"}});
+        fireEvent.change(screen.getByLabelText("Name input field"), { target: { value: "John Doe" } });
+        fireEvent.change(screen.getByLabelText("Email input field"), { target: { value: "john@example.com" } });
+        fireEvent.change(screen.getByLabelText("Password input field"), { target: { value: "12345678" } });
 
         // Submit the form
         fireEvent.click(screen.getByLabelText("Submit to create a new account"));
@@ -77,9 +77,9 @@ describe("LoginOrRegister Component - Register tests", () => {
         );
 
         // Fill out the form with an invalid password
-        fireEvent.change(screen.getByLabelText("Name input field"), {target: {value: "John Doe"}});
-        fireEvent.change(screen.getByLabelText("Email input field"), {target: {value: "john@example.com"}});
-        fireEvent.change(screen.getByLabelText("Password input field"), {target: {value: "123"}}); // too short
+        fireEvent.change(screen.getByLabelText("Name input field"), { target: { value: "John Doe" } });
+        fireEvent.change(screen.getByLabelText("Email input field"), { target: { value: "john@example.com" } });
+        fireEvent.change(screen.getByLabelText("Password input field"), { target: { value: "123" } }); // too short
 
         // Submit the form
         fireEvent.click(screen.getByLabelText("Submit to create a new account"));
@@ -92,7 +92,7 @@ describe("LoginOrRegister Component - Register tests", () => {
 // Mock localStorage
 beforeEach(() => {
     const mockLocalStorage = (() => {
-        let store: {[key: string]: string} = {};
+        let store: { [key: string]: string } = {};
         return {
             getItem: (key: string) => store[key] || null,
             setItem: (key: string, value: string) => {
@@ -103,7 +103,7 @@ beforeEach(() => {
             },
         };
     })();
-    Object.defineProperty(window, "localStorage", {value: mockLocalStorage});
+    Object.defineProperty(window, "localStorage", { value: mockLocalStorage });
 });
 
 describe("Login functionality tests", () => {
@@ -122,8 +122,8 @@ describe("Login functionality tests", () => {
         render(<LoginOrRegister login={true} />);
 
         // Simulate entering an email and password
-        fireEvent.change(screen.getByPlaceholderText("Email"), {target: {value: "nonexistent@example.com"}});
-        fireEvent.change(screen.getByPlaceholderText("Password"), {target: {value: "password123"}});
+        fireEvent.change(screen.getByPlaceholderText("Email"), { target: { value: "nonexistent@example.com" } });
+        fireEvent.change(screen.getByPlaceholderText("Password"), { target: { value: "password123" } });
 
         // Simulate clicking the login button
         fireEvent.click(screen.getByLabelText("Login button"));
@@ -134,14 +134,14 @@ describe("Login functionality tests", () => {
 
     test("displays 'Wrong password' when email is correct but password is wrong", () => {
         // Mock a user in localStorage
-        const mockUser = [{name: "Test User", email: "testuser@example.com", password: "correctpassword"}];
+        const mockUser = [{ name: "Test User", email: "testuser@example.com", password: "correctpassword" }];
         window.localStorage.setItem("userProfiles", JSON.stringify(mockUser));
 
         render(<LoginOrRegister login={true} />);
 
         // Simulate entering the correct email but wrong password
-        fireEvent.change(screen.getByPlaceholderText("Email"), {target: {value: "testuser@example.com"}});
-        fireEvent.change(screen.getByPlaceholderText("Password"), {target: {value: "wrongpassword"}});
+        fireEvent.change(screen.getByPlaceholderText("Email"), { target: { value: "testuser@example.com" } });
+        fireEvent.change(screen.getByPlaceholderText("Password"), { target: { value: "wrongpassword" } });
 
         // Simulate clicking the login button
         fireEvent.click(screen.getByLabelText("Login button"));
@@ -152,14 +152,14 @@ describe("Login functionality tests", () => {
 
     test("displays 'Log in successful' when email and password are correct", () => {
         // Mock a user in localStorage
-        const mockUser = [{name: "Test User", email: "testuser@example.com", password: "correctpassword"}];
+        const mockUser = [{ name: "Test User", email: "testuser@example.com", password: "correctpassword" }];
         window.localStorage.setItem("userProfiles", JSON.stringify(mockUser));
 
         render(<LoginOrRegister login={true} />);
 
         // Simulate entering the correct email and password
-        fireEvent.change(screen.getByPlaceholderText("Email"), {target: {value: "testuser@example.com"}});
-        fireEvent.change(screen.getByPlaceholderText("Password"), {target: {value: "correctpassword"}});
+        fireEvent.change(screen.getByPlaceholderText("Email"), { target: { value: "testuser@example.com" } });
+        fireEvent.change(screen.getByPlaceholderText("Password"), { target: { value: "correctpassword" } });
 
         // Simulate clicking the login button
         fireEvent.click(screen.getByLabelText("Login button"));
@@ -170,7 +170,7 @@ describe("Login functionality tests", () => {
 
     test("clears the form after successful login", () => {
         // Mock a user in localStorage
-        const mockUser = [{name: "Test User", email: "testuser@example.com", password: "correctpassword"}];
+        const mockUser = [{ name: "Test User", email: "testuser@example.com", password: "correctpassword" }];
         window.localStorage.setItem("userProfiles", JSON.stringify(mockUser));
 
         render(<LoginOrRegister login={true} />);
@@ -179,8 +179,8 @@ describe("Login functionality tests", () => {
         const emailInput = screen.getByPlaceholderText("Email");
         const passwordInput = screen.getByPlaceholderText("Password");
 
-        fireEvent.change(emailInput, {target: {value: "testuser@example.com"}});
-        fireEvent.change(passwordInput, {target: {value: "correctpassword"}});
+        fireEvent.change(emailInput, { target: { value: "testuser@example.com" } });
+        fireEvent.change(passwordInput, { target: { value: "correctpassword" } });
 
         // Simulate clicking the login button
         fireEvent.click(screen.getByLabelText("Login button"));

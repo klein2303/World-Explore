@@ -1,15 +1,15 @@
-import {useEffect, useState} from "react";
-import {JournalType} from "../../types/JournalType";
+import { useEffect, useState } from "react";
+import { JournalType } from "../../types/JournalType";
 import styles from "./ReviewBox.module.css";
-import {MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox} from "react-icons/md";
+import { MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox } from "react-icons/md";
 import JournalReviews from "../../data/JournalReviews";
-import {FaRegStar, FaStar} from "react-icons/fa";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 interface journalCountry {
     country: string;
 }
 
-const ReviewBox = ({country}: journalCountry) => {
+const ReviewBox = ({ country }: journalCountry) => {
     // Find the journal reviews for the given country, return null if no match is found
     const getReview = () => {
         // Check if there are reviews stored in localStorage
@@ -34,7 +34,7 @@ const ReviewBox = ({country}: journalCountry) => {
     const renderStars = (rating: number) => {
         const maxStars = 5;
 
-        return Array.from({length: maxStars}, (_, index) =>
+        return Array.from({ length: maxStars }, (_, index) =>
             index < rating ? (
                 <FaStar key={index} className={styles.starFilled} aria-label="filled star" />
             ) : (
@@ -47,10 +47,10 @@ const ReviewBox = ({country}: journalCountry) => {
     const makePublic = (id: number) => {
         if (reviews) {
             const updatedReviews = reviews.reviews.map((review) =>
-                review.id === id ? {...review, public: !review.public} : review,
+                review.id === id ? { ...review, public: !review.public } : review,
             );
 
-            setReviews({...reviews, reviews: updatedReviews});
+            setReviews({ ...reviews, reviews: updatedReviews });
         }
     };
 

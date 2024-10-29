@@ -1,6 +1,6 @@
-import {render, screen, fireEvent, within} from "@testing-library/react";
+import { render, screen, fireEvent, within } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {describe, it, expect, vi} from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import ReviewBox from "../ReviewBox";
 
 // Mock data
@@ -32,7 +32,7 @@ vi.mock("../../data/JournalReviews", () => ({
 
 describe("ReviewBox Component", () => {
     it("renders reviews for Japan", () => {
-        const {container} = render(<ReviewBox country="Japan" />);
+        const { container } = render(<ReviewBox country="Japan" />);
 
         // Check if the correct reviews are rendered (those corresponding to Japan)
         expect(screen.getByText("Cherry Blossom Festival")).toBeInTheDocument();
@@ -43,7 +43,7 @@ describe("ReviewBox Component", () => {
     });
 
     it("toggles review public/private state when clicking the checkbox", () => {
-        const {container} = render(<ReviewBox country="Japan" />);
+        const { container } = render(<ReviewBox country="Japan" />);
 
         // Find the review section for the "Amazing Sushi"-entry
         const sushiReviewSection = screen.getByText("Amazing Sushi").closest("section");
@@ -51,7 +51,7 @@ describe("ReviewBox Component", () => {
             throw new Error("Could not find the review section for Amazing Sushi");
         }
 
-        const {getByLabelText} = within(sushiReviewSection);
+        const { getByLabelText } = within(sushiReviewSection);
 
         // Check the initial state of the checkbox (public: false)
         const sushiCheckBox = getByLabelText("Make journey public");
@@ -69,7 +69,7 @@ describe("ReviewBox Component", () => {
     });
 
     it("renders the correct number of stars based on the rating", () => {
-        const {container} = render(<ReviewBox country="Japan" />);
+        const { container } = render(<ReviewBox country="Japan" />);
 
         // Find the review section for the "Amazing Sushi"-entry
         const sushiReviewSection = screen.getByText("Amazing Sushi").closest("section");
@@ -90,7 +90,7 @@ describe("ReviewBox Component", () => {
     });
 
     it("displays a message if no reviews are found for the country", () => {
-        const {container} = render(<ReviewBox country="UnknownCountry" />);
+        const { container } = render(<ReviewBox country="UnknownCountry" />);
 
         // Check if the "No reviews found" message is displayed
         expect(screen.getByText("No reviews found for UnknownCountry")).toBeInTheDocument();

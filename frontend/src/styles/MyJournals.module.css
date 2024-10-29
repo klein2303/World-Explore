@@ -71,6 +71,13 @@
     justify-items: center;
 }
 
+
+.pagination {
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-items: center;
+}
+
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
     .header {

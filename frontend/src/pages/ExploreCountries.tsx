@@ -40,6 +40,7 @@ const ExploreCountries = () => {
     };
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        event
         setCurrentPage({ page: value });
     };
 

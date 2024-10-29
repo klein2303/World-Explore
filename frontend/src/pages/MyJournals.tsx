@@ -8,7 +8,7 @@ import { useRecoilState } from "recoil";
 import { pageAtom } from "../atoms/PageAtom";
 
 const MyJournals = () => {
-    const ITEMS_PER_PAGE = 5;
+    const ITEMS_PER_PAGE = 15;
     const [activeTab, setActiveTab] = useState<"journals" | "unwritten">("journals");
     const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
 

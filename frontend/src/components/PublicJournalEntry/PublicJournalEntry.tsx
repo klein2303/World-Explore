@@ -19,11 +19,31 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
 
     // Resize handler to check for screen size
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        const handleResize = () => {
+            const mobileView = window.innerWidth <= 768;
+            setIsMobile(mobileView);
+
+            // Adjust states based on screen size
+            if (mobileView) {
+                if (showModal) {
+                    // Close modal and expand text when switching to mobile
+                    setShowModal(false);
+                    setIsExpanded(true);
+                }
+            } else {
+                if (isExpanded) {
+                    // Collapse text and show modal when switching to desktop
+                    setIsExpanded(false);
+                    setShowModal(true);
+                }
+            }
+        };
+
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    }, [showModal, isExpanded]);
 
+    // Handle Read More / Read Less button click
     const handleReadMore = () => {
         if (isMobile) {
             setIsExpanded(!isExpanded);
@@ -34,11 +54,7 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
 
     return (
         <>
-            <article 
-                className={styles.reviewCard} 
-                aria-labelledby={`review-title-${review.id}`} 
-                role="region"
-            >
+            <article className={styles.reviewCard} aria-labelledby={`review-title-${review.id}`} role="region">
                 {/* Header with title and date */}
                 <header>
                     <h3 className={styles.reviewTitle} id={`review-title-${review.id}`}>
@@ -48,11 +64,12 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                         {review.date}
                     </p>
                 </header>
-                
+
                 {/* Review Information */}
                 <div className={styles.reviewInfo} aria-label="Review information">
                     <p className={styles.reviewRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
-                        <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />{review.rating}/5
+                        <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
+                        {review.rating}/5
                     </p>
                     <p className={styles.reviewer} aria-label="Reviewer: Ola Nordmann">
                         <CgProfile className={styles.profileIcon} aria-hidden="true" />
@@ -62,22 +79,20 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
 
                 {/* Review Text with "Read More" button */}
                 <div className={styles.reviewInfoBox} aria-label="Review text">
-                    <p 
-                        className={styles.reviewText} 
+                    <p
+                        className={styles.reviewText}
                         aria-expanded={isExpanded || showModal}
-                        id={`review-text-${review.id}`}
-                    >
-                        {isExpanded || showModal ? review.text : truncatedText}
+                        id={`review-text-${review.id}`}>
+                        {isExpanded && isMobile ? review.text : truncatedText}
                     </p>
                     {review.text.length > 100 && (
                         <footer>
-                            <button 
-                                className={styles.readMoreButton} 
+                            <button
+                                className={styles.readMoreButton}
                                 onClick={handleReadMore}
                                 aria-controls={`review-text-${review.id}`}
                                 aria-expanded={isExpanded}
-                                aria-label={isExpanded ? "Collapse review text" : "Expand review text"}
-                            >
+                                aria-label={isExpanded ? "Collapse review text" : "Expand review text"}>
                                 {isExpanded ? "Read Less" : "Read More"}
                             </button>
                         </footer>
@@ -85,9 +100,9 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                 </div>
             </article>
             {showModal && !isMobile && (
-                <PublicJournalEntryModal 
-                    review={review} 
-                    onClose={() => setShowModal(false)} 
+                <PublicJournalEntryModal
+                    review={review}
+                    onClose={() => setShowModal(false)}
                     aria-labelledby={`review-title-${review.id}`}
                     aria-describedby={`review-text-${review.id}`}
                 />

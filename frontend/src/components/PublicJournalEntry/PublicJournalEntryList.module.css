@@ -10,5 +10,6 @@
 @media (max-width: 768px) {
     .entriesGrid {
         gap: 20px;
+        flex-direction: column;
     }
 }

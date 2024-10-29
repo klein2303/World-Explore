@@ -1,9 +1,9 @@
-
 # Backend Setup
 
 ![alt text](public/image.png)
 
 ## Table of content
+
 -   [Setting everything up](#setting-everything-up)
 -   [Updating](#updating)
 -   [Running Docker](#running-docker)
@@ -13,6 +13,7 @@
 #
 
 ## Setting everything up
+
 Fist you need to create two files: `.env` and `.env.local` in the backend folder.
 <br />
 <br />
@@ -23,6 +24,7 @@ DATABASE_URL="postgresql://user:1234@localhost:5432/db?schema=public"
 ```
 
 While in `.env.local` copy in this:
+
 ```
 POSTGRES_USER=user
 POSTGRES_PASSWORD=1234
@@ -32,9 +34,11 @@ POSTGRES_DB=db
 <br />
 
 Now you have to run:
+
 ```
 npm i
 ```
+
 Then you need to download docker desktop. After docker desktop is downloaded, open up the docker desktop app. Then run the command:
 
 ```
@@ -57,7 +61,7 @@ Now to run the Apollo server run the command:
 npm start
 ```
 
-in the terminal. 
+in the terminal.
 
 ## Updating
 
@@ -66,40 +70,49 @@ If you have done any changes to the schema run the command:
 ```
 npm run migrate
 npx prisma db push
-``` 
+```
 
 in the terminal after you have stopped running the server.
 <br/><br/>
 To shut remove the docker comtainer run the command:
+
 ```
 docker compose down --volumes
 ```
+
 in the terminal.
 
 ## Running Docker
+
 To run docker after the initial installation you have to run the command:
 
 ```
 docker compose up -d
-``` 
+```
 
-in the terminal. 
+in the terminal.
 <br /><br />
-To shut down docker you need to run the command: 
+To shut down docker you need to run the command:
 
 ```
 docker compose down
 ```
 
 ## Adding default data into the database
+
 To add the default data into the database run the script fictures.cjs in the terminal like:
+
 ```
 node .\scripts\fixtures.cjs
+node .\scripts\addReviews.cjs
 ```
+
 and remember to update
 
 ## Visualising the database
+
 To visualise the database download the extension PostgreSQL in VSCode. After you have done that click on the PostgreSQL icon in the menu. To add the database for this project click the `+` button. Writhe inn this information:
+
 -   Hostname: localhost
 -   User: user
 -   Password: 1234
@@ -108,4 +121,3 @@ To visualise the database download the extension PostgreSQL in VSCode. After you
 -   Then name the database worldexploreDB
 
 To se any of the information in the databse right click on the database and choose `Select` and then click `Run Select Top 1000`
-

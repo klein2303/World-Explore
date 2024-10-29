@@ -26,18 +26,33 @@ model Country {
 
 model Journal {
   id        Int      @id @default(autoincrement())
-  countryid Int?
-  country   Country? @relation(fields: [countryid], references: [id])
+
+  countryid String
+  country   Country @relation(fields: [countryid], references: [name])
+
+  profileid String
+  profile   Profile @relation(fields: [profileid], references: [email])
+  
   reviews   Review[]
 }
 
 model Review {
   id        Int      @id @default(autoincrement())
-  title     String?
-  date      String?
-  rating    Int?
-  text      String?
-  ispublic  Boolean?
-  journalid Int?
-  journal   Journal? @relation(fields: [journalid], references: [id])
+  title     String
+  date      String
+  rating    Int
+  text      String
+  ispublic  Boolean
+  
+  journalid Int
+  journal   Journal @relation(fields: [journalid], references: [id])
+}
+
+model Profile {
+  id        Int      @id @default(autoincrement())
+  username  String   
+  email     String   @unique
+  password  String
+
+  journal   Journal[]
 }

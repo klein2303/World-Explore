@@ -41,7 +41,7 @@ describe("CountryCardList Tests", () => {
         // Render the component
         const { asFragment } = render(
             <MemoryRouter>
-                <CountryCardList countries={countries} />
+                <CountryCardList />
             </MemoryRouter>,
         );
 

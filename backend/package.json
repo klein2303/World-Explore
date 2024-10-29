@@ -2,7 +2,7 @@
     "name": "backend",
     "type": "module",
     "scripts": {
-        "compile": "tsc",
+        "build": "tsc",
         "start": "npm run compile && node ./dist/index.js",
         "migrate": "npx prisma migrate dev"
     },

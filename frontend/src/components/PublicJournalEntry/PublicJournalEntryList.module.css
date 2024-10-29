@@ -1,8 +1,14 @@
 .entriesGrid {
     display: flex;
     flex-direction: row;
-    gap: 30px 115px;
+    gap: 30px 85px;
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
+}
+
+@media (max-width: 768px) {
+    .entriesGrid {
+        gap: 20px;
+    }
 }

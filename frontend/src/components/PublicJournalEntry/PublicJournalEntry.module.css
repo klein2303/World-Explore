@@ -4,14 +4,14 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
     color: #424242;
-    height: 200px;
+    height: 220px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
     position: relative;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .reviewTitle {
@@ -39,21 +39,21 @@
 .reviewText {
     font-size: 16px;
     line-height: 1.4;
-    height: 70px; /* Limit height to create uniform card size */
     overflow: hidden;
-    -webkit-line-clamp: 3; /* Limit the number of lines */
-    line-clamp: 3; /* Standard property for compatibility */
+    height: 65px; /* Limit height to create uniform card size */
+    -webkit-line-clamp: 2; /* Limit the number of lines */
+    line-clamp: 2; /* Standard property for compatibility */
     -webkit-box-orient: vertical;
 }
 
 .readMoreButton {
     background-color: #424242;
     color: white;
-    padding: 5px 10px;
+    padding: 2px 5px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 5px;
 }
 

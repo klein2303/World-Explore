@@ -38,10 +38,6 @@ const MyJournals = () => {
         setCurrentPage({ page: value });
     };
 
-    const data = {
-        filteredCountriesCount: journalEntries.length, // or visitedCountries.length, based on activeTab
-        // other relevant data
-    };
 
     useEffect(() => {
         const getSubtitle = () => {

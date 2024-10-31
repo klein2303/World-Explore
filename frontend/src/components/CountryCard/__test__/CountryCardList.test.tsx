@@ -6,38 +6,6 @@ import { MemoryRouter } from "react-router-dom";
 
 describe("CountryCardList Tests", () => {
     it("renders the country card list correctly", () => {
-        // Mock data
-        const countries = [
-            {
-                name: "Australia",
-                continent: "Australia",
-                capital: "Cair Paravel",
-                largest_city: "Atlantis Metro",
-                currency: "Elbo",
-                language: "Atlantean",
-                population: 21299617,
-                land_area: 599550.56,
-                agriculture_area: "40%",
-                forest_area: "25%",
-                co2_emissions: 12.15,
-                image: "https://example.com/australia.jpg",
-            },
-            {
-                name: "Brazil",
-                continent: "Africa",
-                capital: "Cair Paravel",
-                largest_city: "Atlantis Metro",
-                currency: "Elbo",
-                language: "Atlantean",
-                population: 21299617,
-                land_area: 599550.56,
-                agriculture_area: "40%",
-                forest_area: "25%",
-                co2_emissions: 12.15,
-                image: "https://example.com/brazil.jpg",
-            },
-        ];
-
         // Render the component
         const { asFragment } = render(
             <MemoryRouter>

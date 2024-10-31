@@ -17,9 +17,10 @@ const MyJournals = () => {
     const visitedCountries = Countries.slice(10);
 
     // Get the appropriate entries for the current page
-    const paginatedEntries = activeTab === "journals"
-    ? journalEntries.slice((currentPage.page - 1) * ITEMS_PER_PAGE, currentPage.page * ITEMS_PER_PAGE)
-    : visitedCountries.slice((currentPage.page - 1) * ITEMS_PER_PAGE, currentPage.page * ITEMS_PER_PAGE);
+    const paginatedEntries =
+        activeTab === "journals"
+            ? journalEntries.slice((currentPage.page - 1) * ITEMS_PER_PAGE, currentPage.page * ITEMS_PER_PAGE)
+            : visitedCountries.slice((currentPage.page - 1) * ITEMS_PER_PAGE, currentPage.page * ITEMS_PER_PAGE);
 
     const getPageTitle = () => (activeTab === "journals" ? "Captured Adventures" : "Places Yet to Journal");
 
@@ -33,11 +34,9 @@ const MyJournals = () => {
               : "You’ve visited, but the story’s still untold. Ready to write?";
     const [subtitleText, setSubtitleText] = useState<string>(initialSubtitle);
 
-    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        event
+    const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
         setCurrentPage({ page: value });
     };
-
 
     useEffect(() => {
         const getSubtitle = () => {
@@ -127,18 +126,20 @@ const MyJournals = () => {
                                 country={entry.name}
                                 date={null} // Pass null if no journal entry
                                 image={entry.image}
-                                
                             />
                         ))}
                 </section>
                 <Pagination
-                            page={currentPage.page}
-                            onChange={handleChange}
-                            count={Math.ceil(Math.ceil(
-                                (activeTab === "journals" ? journalEntries.length : visitedCountries.length) / ITEMS_PER_PAGE
-                            ))}
-                            className={styles.pagination}
-                        />
+                    page={currentPage.page}
+                    onChange={handleChange}
+                    count={Math.ceil(
+                        Math.ceil(
+                            (activeTab === "journals" ? journalEntries.length : visitedCountries.length) /
+                                ITEMS_PER_PAGE,
+                        ),
+                    )}
+                    className={styles.pagination}
+                />
             </main>
         </>
     );

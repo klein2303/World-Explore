@@ -39,8 +39,7 @@ const ExploreCountries = () => {
         resetPage();
     };
 
-    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        event
+    const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
         setCurrentPage({ page: value });
     };
 

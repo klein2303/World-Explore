@@ -13,6 +13,7 @@ ackend, but also support interaction like search, filtering, sorting and scrolli
 - **Scrolling**: The user can scroll through paginated content on the Explore Countries and My Journals pages, allowing seamless navigation between pages.
 
 # Technicalities
+- We have set up reviews in our dev-branch, but we discovered an issue with the backend. Therefore, we have not pushed this part to the virtual machine, in order for the virtual machine to work. However, just to clarify, we have met all the requirements for this iteration, as you can see on the virtual machine. Filtering, sorting, searching and scrolling is implemented with the backend and visible.
 - The My Journals page is not yet connected to the backend, so the data that is presented here is just dummy data.
 - The application does not yet support writing reviews, but you may see how this is planned implemented by pressing the picture of an unwritten journal in My Journals or by visiting a country page and pressing the "Write a journal entry"-button
 - Some characters, such as á and í, are shown as a "?" on our website when looking at the country-pages. For instance, Brazil's capital is shown as "Bras���". This is due to an error in the dataset.

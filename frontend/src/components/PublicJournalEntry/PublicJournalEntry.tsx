@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { reviewType } from "../../types/JournalType";
 import styles from "./PublicJournalEntry.module.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CgProfile } from "react-icons/cg";
 import PublicJournalEntryModal from "./PublicJournalEntryModal";
 
@@ -54,10 +54,10 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
 
     return (
         <>
-            <article className={styles.reviewCard} aria-labelledby={`review-title-${review.id}`} role="region">
+            <article className={styles.reviewCard} aria-labelledby={`review-title-${review.title}`} role="region">
                 {/* Header with title and date */}
                 <header>
-                    <h3 className={styles.reviewTitle} id={`review-title-${review.id}`}>
+                    <h3 className={styles.reviewTitle} id={`review-title-${review.title}`}>
                         {review.title}
                     </h3>
                     <p className={styles.reviewDate} aria-label={`Date range: ${review.date}`}>
@@ -82,7 +82,7 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                     <p
                         className={styles.reviewText}
                         aria-expanded={isExpanded || showModal}
-                        id={`review-text-${review.id}`}>
+                        id={`review-text-${review.title}`}>
                         {isExpanded && isMobile ? review.text : truncatedText}
                     </p>
                     {review.text.length > 100 && (
@@ -90,7 +90,7 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                             <button
                                 className={styles.readMoreButton}
                                 onClick={handleReadMore}
-                                aria-controls={`review-text-${review.id}`}
+                                aria-controls={`review-text-${review.title}`}
                                 aria-expanded={isExpanded}
                                 aria-label={isExpanded ? "Collapse review text" : "Expand review text"}>
                                 {isExpanded ? "Read Less" : "Read More"}
@@ -103,8 +103,8 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                 <PublicJournalEntryModal
                     review={review}
                     onClose={() => setShowModal(false)}
-                    aria-labelledby={`review-title-${review.id}`}
-                    aria-describedby={`review-text-${review.id}`}
+                    aria-labelledby={`review-title-${review.title}`}
+                    aria-describedby={`review-text-${review.title}`}
                 />
             )}
         </>

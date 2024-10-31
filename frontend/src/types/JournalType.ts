@@ -4,7 +4,6 @@ export type JournalType = {
 };
 
 export type reviewType = {
-    id: number;
     title: string;
     date: string;
     rating: number;

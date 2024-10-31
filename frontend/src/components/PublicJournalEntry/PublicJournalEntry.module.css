@@ -1,5 +1,5 @@
 .reviewCard {
-    background-color: #FCF5FF;
+    background-color: #fcf5ff;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -25,7 +25,7 @@
     margin-bottom: 10px;
     opacity: 0.8;
 }
-  
+
 .reviewRating {
     font-size: 16px;
 }
@@ -66,12 +66,12 @@
 }
 
 .reviewInfo {
-    display: flex; /* Enable flexbox layout */
-    justify-content: space-between; /* Space elements to opposite ends (left and right) */
-    align-items: center; /* Vertically align the items if needed */
-    width: 100%; /* Ensure it spans the full width of the container */
-    margin-bottom: 10px; /* Add some space between the elements */
-    color: #424242; /* Set the text color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #424242;
 }
 
 .profileIcon {
@@ -90,7 +90,7 @@
         height: auto;
     }
     .reviewText {
-        height: auto; /* Allow text to expand fully on mobile */
+        height: auto;
         -webkit-line-clamp: unset;
         line-clamp: unset;
     }

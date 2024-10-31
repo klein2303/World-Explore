@@ -67,6 +67,7 @@ const typeDefs = `
         reviews: [Review!]!
 
         publicreviews: [Review!]!
+        filteredpublicreviews(country: String!): [Review!]!
         writtenjournals: [Journal!]!
         unwrittenjournals: [Journal!]!
     }
@@ -132,6 +133,16 @@ const resolvers = {
             return await prisma.review.findMany({
                 where: {
                     ispublic: true,
+                },
+            });
+        },
+        filteredpublicreviews: async (_, { country }) => {
+            return await prisma.review.findMany({
+                where: {
+                    ispublic: true,
+                    journal: {
+                        countryid: country,
+                    },
                 },
             });
         },

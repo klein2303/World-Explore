@@ -14,7 +14,7 @@ import { FaPenNib } from "react-icons/fa"; // Icon for the button
 import JournalEntryModal from "../components/JournalEntryModal/JournalEntryModal";
 
 const Country = () => {
-    const { name } = useParams<{name: string}>();
+    const { name } = useParams<{ name: string }>();
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Modal state
 
     const COUNTRY_AND_JOURNAL_QUERY = gql`
@@ -34,6 +34,7 @@ const Country = () => {
                 image
             }
             filteredpublicreviews(country: "${name}") {
+                id
                 title
                 date
                 rating
@@ -71,7 +72,10 @@ const Country = () => {
             <main role="main">
                 <section className={styles.pagecontainer}>
                     <article className={styles.container}>
-                        <Link to={"/ExploreCountries"} className={styles.return} aria-label="Return to explore countries">
+                        <Link
+                            to={"/ExploreCountries"}
+                            className={styles.return}
+                            aria-label="Return to explore countries">
                             <PiArrowElbowDownLeft className={styles.returnicon} aria-hidden="true" />
                             <p className={styles.returntext}>Return to Explore</p>
                         </Link>
@@ -105,20 +109,23 @@ const Country = () => {
                             />
                         </section>
 
-                        <aside className={styles.infobox} role="complementary" aria-label="Additional country information">
+                        <aside
+                            className={styles.infobox}
+                            role="complementary"
+                            aria-label="Additional country information">
                             <section className={styles.info} role="region" aria-labelledby="about-country-title">
                                 <h2 id="about-country-title" className={styles.infotitle}>
                                     About the Country
                                 </h2>
                                 <p className={styles.infotext}>
                                     The name of the country is {country.name}, and it's in the continent{" "}
-                                    {country.continent}. The language spoken in the country is {country.language},
-                                    and the currency used is {country.currency}. The capital of the country is{" "}
+                                    {country.continent}. The language spoken in the country is {country.language}, and
+                                    the currency used is {country.currency}. The capital of the country is{" "}
                                     {country.capital}, and the largest city is {country.largestcity}. It has a
                                     population of {data.country.population} people, and a land area of{" "}
-                                    {country.landarea} km². The land area contains {country.agriculturearea}{" "}
-                                    agriculture and {country.forestarea} forest. The CO2 emission produced by the
-                                    country is {country.co2emission} tons.
+                                    {country.landarea} km². The land area contains {country.agriculturearea} agriculture
+                                    and {country.forestarea} forest. The CO2 emission produced by the country is{" "}
+                                    {country.co2emission} tons.
                                 </p>
                             </section>
                         </aside>
@@ -128,9 +135,10 @@ const Country = () => {
                 <section className={styles.journalSection}>
                     <div className={styles.journalHeader}>
                         {/* Button to open the journal entry modal */}
-                        <h3 className={styles.journalTitle}>Public Journal Entries for {country.name}</h3><p className={styles.noEntriesMessage}></p>
+                        <h3 className={styles.journalTitle}>Public Journal Entries for {country.name}</h3>
+                        <p className={styles.noEntriesMessage}></p>
                         <button className={styles.addEntryButton} onClick={openModal}>
-                                Write a journal entry <FaPenNib className={styles.penIcon} />
+                            Write a journal entry <FaPenNib className={styles.penIcon} />
                         </button>
                     </div>
                     {/* Horizontal line */}
@@ -140,16 +148,19 @@ const Country = () => {
                     {filteredpublicreviews.length === 0 ? (
                         <p>No public journal entries for this country yet.</p>
                     ) : (
-                    <div className={styles.entriesGrid}>
-                        <PublicJournalEntryList journal={{ country: country.name, reviews: filteredpublicreviews }} />
-                    </div>)}
+                        <div className={styles.entriesGrid}>
+                            <PublicJournalEntryList
+                                journal={{ country: country.name, reviews: filteredpublicreviews }}
+                            />
+                        </div>
+                    )}
                     {/* Modal for writing a journal entry */}
                     <JournalEntryModal
-                            country={country.name}
-                            isOpen={isModalOpen}
-                            onClose={closeModal}
-                            onSubmit={handleJournalSubmit}
-                        />
+                        country={country.name}
+                        isOpen={isModalOpen}
+                        onClose={closeModal}
+                        onSubmit={handleJournalSubmit}
+                    />
                 </section>
             </main>
         </>

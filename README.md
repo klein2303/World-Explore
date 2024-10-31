@@ -11,7 +11,6 @@ it2810-10.idi.ntnu.no/project2
 - [Running tests](#running-tests)
 - [Running eslint](#running-eslint)
 
-
 ## About the project
 
 Welcome to WorldExplore! This is a travel diary website where one can explore different countries, and write journal entries about them based on your own experience. The journals can be made public for other people to view. This project is build based on Typescript and React, and uses HTML to create the website. Styling is done using CSS-modules.

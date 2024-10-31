@@ -109,8 +109,7 @@ Our application uses no videoes to lower data trafic as well as energy usage.In 
 - The box that appears when pressing the profile icon is missing shading and contrast to the rest of the page, which can be confusing.
 - The user experience is the same when logged in or not logged in at the moment. In the future we will slightly differentiate these experiences.
 - When creating a user it is only saved in local storage.
-- When logging in, you will not be sent back to the home-page. You need to navigate to it by pressing on the logo. 
-
+- When logging in, you will not be sent back to the home-page. You need to navigate to it by pressing on the logo.
 
 # Future
 

@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 import ExploreCountries from "./pages/ExploreCountries";
@@ -10,7 +10,7 @@ import Country from "./pages/Country";
 
 const Router = () => {
     return (
-        <BrowserRouter basename="project2">
+        <HashRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route
@@ -28,7 +28,7 @@ const Router = () => {
                 <Route path="/JournalPage/:countryName" element={<JournalPage />} />
                 <Route path="/:name" element={<Country />} />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 };
 

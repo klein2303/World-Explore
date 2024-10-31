@@ -3,7 +3,7 @@ import { RecoilRoot } from "recoil";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-    uri: "http://localhost:3001/",
+    uri: "http://it2810-10.idi.ntnu.no:3001/",
     cache: new InMemoryCache(),
 });
 

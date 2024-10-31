@@ -9,10 +9,10 @@ console.log("Script is starting...");
 
 // Database connection parameters
 const pool = new Pool({
-    user: "user",
-    host: "localhost",
-    database: "db",
-    password: "1234",
+    user: "postgres",
+    host: "it2810-10.idi.ntnu.no",
+    database: "worldexploredb",
+    password: "",
     port: 5432,
 });
 

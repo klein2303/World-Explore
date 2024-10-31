@@ -3,6 +3,7 @@
     "type": "module",
     "scripts": {
         "build": "tsc",
+        "compile": "tsc",
         "start": "npm run compile && node ./dist/index.js",
         "migrate": "npx prisma migrate dev"
     },

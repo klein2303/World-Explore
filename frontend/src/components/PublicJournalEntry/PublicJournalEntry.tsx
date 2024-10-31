@@ -10,9 +10,9 @@ type PublicJournalEntryProps = {
 };
 
 const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
-    const [isExpanded, setIsExpanded] = useState(false);
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-    const [showModal, setShowModal] = useState(false);
+    const [isExpanded, setIsExpanded] = useState<boolean>(false);
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
+    const [showModal, setShowModal] = useState<boolean>(false);
 
     const truncatedText = review.text.length > 100 ? review.text.slice(0, 100) + "..." : review.text;
 
@@ -64,16 +64,13 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                     </p>
                 </header>
 
-                {/* Review Information */}
-                <div className={styles.reviewInfo} aria-label="Review information">
-                    <p className={styles.reviewRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
-                        <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
-                        {review.rating}/5
-                    </p>
-                </div>
+                <p className={styles.reviewRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
+                    <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
+                    {review.rating}/5
+                </p>
 
                 {/* Review Text with "Read More" button */}
-                <div className={styles.reviewInfoBox} aria-label="Review text">
+                <div className={styles.reviewInfoBox} aria-label="Review text" role="contentinfo">
                     <p
                         className={styles.reviewText}
                         aria-expanded={isExpanded || showModal}
@@ -81,16 +78,14 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                         {isExpanded && isMobile ? review.text : truncatedText}
                     </p>
                     {review.text.length > 100 && (
-                        <footer>
-                            <button
-                                className={styles.readMoreButton}
-                                onClick={handleReadMore}
-                                aria-controls={`review-text-${review.title}`}
-                                aria-expanded={isExpanded}
-                                aria-label={isExpanded ? "Collapse review text" : "Expand review text"}>
-                                {isExpanded ? "Read Less" : "Read More"}
-                            </button>
-                        </footer>
+                        <button
+                            className={styles.readMoreButton}
+                            onClick={handleReadMore}
+                            aria-controls={`review-text-${review.title}`}
+                            aria-expanded={isExpanded}
+                            aria-label={isExpanded ? "Collapse review text" : "Expand review text"}>
+                            {isExpanded ? "Read Less" : "Read More"}
+                        </button>
                     )}
                 </div>
             </article>

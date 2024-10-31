@@ -45,7 +45,6 @@ const Country = () => {
     `;
 
     const { data, loading, error } = useQuery(COUNTRY_AND_JOURNAL_QUERY, {
-        variables: { name },
         fetchPolicy: "cache-first", // Used for first execution
         nextFetchPolicy: "cache-first", // Used for subsequent executions
     });
@@ -136,17 +135,17 @@ const Country = () => {
                     <div className={styles.journalHeader}>
                         {/* Button to open the journal entry modal */}
                         <h3 className={styles.journalTitle}>Public Journal Entries for {country.name}</h3>
-                        <p className={styles.noEntriesMessage}></p>
                         <button className={styles.addEntryButton} onClick={openModal}>
                             Write a journal entry <FaPenNib className={styles.penIcon} />
                         </button>
                     </div>
+
                     {/* Horizontal line */}
-                    <div className={styles.horizontalLine}></div>
+                    <hr className={styles.horizontalLine} />
 
                     {/* Render message if there are no journal entries */}
                     {filteredpublicreviews.length === 0 ? (
-                        <p>No public journal entries for this country yet.</p>
+                        <p className={styles.noEntriesMessage}>No public journal entries for this country yet.</p>
                     ) : (
                         <div className={styles.entriesGrid}>
                             <PublicJournalEntryList

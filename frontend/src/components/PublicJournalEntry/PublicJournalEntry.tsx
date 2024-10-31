@@ -3,7 +3,6 @@ import { reviewType } from "../../types/JournalType";
 import styles from "./PublicJournalEntry.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { CgProfile } from "react-icons/cg";
 import PublicJournalEntryModal from "./PublicJournalEntryModal";
 
 type PublicJournalEntryProps = {
@@ -70,10 +69,6 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                     <p className={styles.reviewRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
                         <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
                         {review.rating}/5
-                    </p>
-                    <p className={styles.reviewer} aria-label="Reviewer: Ola Nordmann">
-                        <CgProfile className={styles.profileIcon} aria-hidden="true" />
-                        Ola Nordmann
                     </p>
                 </div>
 

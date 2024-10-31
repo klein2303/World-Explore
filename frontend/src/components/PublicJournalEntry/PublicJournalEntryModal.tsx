@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import styles from "./PublicJournalEntryModal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { CgProfile } from "react-icons/cg";
 import { reviewType } from "../../types/JournalType";
 
 type JournalEntryModalProps = {
@@ -44,7 +43,7 @@ const PublicJournalEntryModal = ({ review, onClose }: JournalEntryModalProps) =>
                     </p>
                 </header>
 
-                {/* Review and reviewer info */}
+                {/* Review info */}
                 <section className={styles.modalInfo} aria-labelledby="modal-rating modal-reviewer">
                     <p
                         id="modal-rating"
@@ -52,10 +51,6 @@ const PublicJournalEntryModal = ({ review, onClose }: JournalEntryModalProps) =>
                         aria-label={`Rating: ${review.rating} out of 5 stars`}>
                         <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
                         {review.rating}/5
-                    </p>
-                    <p id="modal-reviewer" className={styles.modalReviewer} aria-label="Reviewer: Ola Nordmann">
-                        <CgProfile className={styles.profileIcon} aria-hidden="true" />
-                        Ola Nordmann
                     </p>
                 </section>
                 {/* Review text */}

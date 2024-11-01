@@ -33,13 +33,15 @@ To do so, run the following commands in a terminal while inside the mentioned fo
 - `npm install react-icons`
 - `npm install recoil`
 
-Now run `npm run dev` in order to run the project
+Now run `npm run dev` in order to run the project. You don't need to run the backend explicitly when running the project locally, as it is always running on the virtual machine. The localhost is connected to the backend via the virtual machine. However, if you face issues with pages not loading (mainly "Explore Countries"), refer to [this guide](backend/README.md) to set up the backend locally.
 
 ## Running tests
 
 In order to run the tests first navigate to the correct folder as described under "Running the project". Then run the following command in the terminal:
 
 `npm test`
+
+As of iteraion 2, tests will fail (see documentation)
 
 ## Running eslint
 

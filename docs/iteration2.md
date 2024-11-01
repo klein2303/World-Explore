@@ -13,12 +13,12 @@ ackend, but also support interaction like search, filtering, sorting and scrolli
 - **Scrolling**: The user can scroll through paginated content on the Explore Countries and My Journals pages, allowing seamless navigation between pages.
 
 # Technicalities
-- We have set up reviews in our dev-branch, but we discovered an issue with the backend. Therefore, we have not pushed this part to the virtual machine, in order for the virtual machine to work. However, just to clarify, we have met all the requirements for this iteration, as you can see on the virtual machine. Filtering, sorting, searching and scrolling is implemented with the backend and visible.
+- The virtual machine link is one commit behind the main branch. This is due to the group facing some issues when we tried to update the virtual machine with the newest changes. As we were afraid that we would be stuck without the frontend in the virtual machine, we decided to keep the virtual machine as it is. The commit made is possible to see reviews on the country-pages. However, we have met all the requirements for this iteration, as filtering, sorting, searching and scrolling is possible. Moreover, if you wish to see the reviews on the pages, you can clone the repo and run the application locally. Look up Egypt or Japan to see reviews for these countries.
 - The My Journals page is not yet connected to the backend, so the data that is presented here is just dummy data.
 - The application does not yet support writing reviews, but you may see how this is planned implemented by pressing the picture of an unwritten journal in My Journals or by visiting a country page and pressing the "Write a journal entry"-button
 - Some characters, such as á and í, are shown as a "?" on our website when looking at the country-pages. For instance, Brazil's capital is shown as "Bras���". This is due to an error in the dataset.
 
-#Future
+# Future
 There are still some features that need to be implented, and they are listed here.
 
 ## Connect to backend

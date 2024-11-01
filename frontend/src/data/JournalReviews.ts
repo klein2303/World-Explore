@@ -1,4 +1,4 @@
-import {JournalType} from "../types/JournalType";
+import { JournalType } from "../types/JournalType";
 
 export const JournalReviews: JournalType[] = [
     {

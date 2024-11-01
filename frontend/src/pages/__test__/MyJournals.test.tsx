@@ -1,16 +1,16 @@
-import {render, screen, fireEvent} from "@testing-library/react";
-import {BrowserRouter} from "react-router-dom";
-import {expect, it, describe} from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import { expect, it, describe } from "vitest";
 import MyJournals from "../MyJournals";
 import Countries from "../../data/Countries";
 
 describe("MyJournals", () => {
     const renderWithRouter = (ui: React.ReactElement) => {
-        return render(ui, {wrapper: BrowserRouter});
+        return render(ui, { wrapper: BrowserRouter });
     };
 
     it("renders correctly and matches snapshot", () => {
-        const {asFragment} = renderWithRouter(<MyJournals />);
+        const { asFragment } = renderWithRouter(<MyJournals />);
         expect(asFragment()).toMatchSnapshot();
     });
 

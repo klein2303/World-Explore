@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import styles from "./LoginOrRegister.module.css";
 
 interface Profile {
@@ -12,7 +12,7 @@ interface ComponentInterface {
     login: boolean;
 }
 
-const LoginOrRegister = ({login}: ComponentInterface) => {
+const LoginOrRegister = ({ login }: ComponentInterface) => {
     const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
     const [isValidPassword, setIsValidPassword] = useState<boolean>(false);
     const [registerFeedbackMessage, setRegisterFeedbackMessage] = useState<string>(
@@ -27,7 +27,7 @@ const LoginOrRegister = ({login}: ComponentInterface) => {
         password: "",
     });
 
-    const [loginFormValues, setLoginFormValues] = useState<{email: string; password: string}>({
+    const [loginFormValues, setLoginFormValues] = useState<{ email: string; password: string }>({
         email: "",
         password: "",
     });
@@ -39,7 +39,7 @@ const LoginOrRegister = ({login}: ComponentInterface) => {
     };
 
     const handleRegisterInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         setRegisterFormValues({
             ...registerFormValues,
             [name]: value,
@@ -63,7 +63,7 @@ const LoginOrRegister = ({login}: ComponentInterface) => {
     };
 
     const handleLoginInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         setLoginFormValues({
             ...loginFormValues,
             [name]: value,

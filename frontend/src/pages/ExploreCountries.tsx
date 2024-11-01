@@ -1,56 +1,63 @@
 import Navbar from "../components/Navbar/Navbar";
 import CountryCardList from "../components/CountryCard/CountryCardList";
-import Countries from "../data/Countries";
 import Filter from "../components/Filter/Filter";
 import styles from "../styles/ExploreCountries.module.css";
 import Search from "../components/Search/Search";
-import {useEffect, useState} from "react";
-import {filterAtom} from "../atoms/FilterAtom";
-import {useRecoilState} from "recoil";
-import {MdOutlineSort} from "react-icons/md";
-import {FilterType} from "../types/FilterType";
-import {setFilters} from "../utils/FilterStorage";
-import {CountryType} from "../types/CountryTypes";
+import { filterAtom } from "../atoms/FilterAtom";
+import { useRecoilState } from "recoil";
+import { MdOutlineSort } from "react-icons/md";
+import { FilterType } from "../types/FilterType";
+import { gql, useQuery } from "@apollo/client";
+import Pagination from "@mui/material/Pagination";
+import { pageAtom } from "../atoms/PageAtom";
 
 const ExploreCountries = () => {
-    const [countries, setCountries] = useState<CountryType[]>(Countries);
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
+    const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
 
-    // Filter countries based on search, continent filters and sort
-    useEffect(() => {
-        // Filter countries based on the continent and search filters
-        if (!Object.values(filter.continent).includes(true)) {
-            setCountries(Countries);
-            setCountries((prevCountries) =>
-                prevCountries.filter((country) => country.name.toLowerCase().includes(filter.search.toLowerCase())),
-            );
-        } else {
-            setCountries(
-                Countries.filter(
-                    (country) => filter.continent[country.continent as keyof typeof filter.continent] === true,
-                ),
-            );
-            setCountries((prevCountries) =>
-                prevCountries.filter((country) => country.name.toLowerCase().includes(filter.search.toLowerCase())),
-            );
+    const COUNTRIES_COUNT = gql`
+        {
+            filteredcountriescount(name: "${filter.search}", continents: [${
+                Object.entries(filter.continent)
+                    .filter(([continent, value]) => value === true && continent)
+                    .map(([continent]) => `"${continent}"`)
+                    .join(", ") || '"Asia", "Africa", "Europe", "North America", "South America", "Oceania"'
+            }])
         }
+    `;
 
-        // Apply sorting based on A-Z or Z-A selection
-        if (filter.sort === "A-Z") {
-            setCountries((prevCountries) => prevCountries.sort((a, b) => a.name.localeCompare(b.name)));
-        } else {
-            setCountries((prevCountries) => prevCountries.sort((a, b) => b.name.localeCompare(a.name)));
-        }
-
-        setFilters(filter);
-    }, [filter]);
+    const { data, loading, error } = useQuery(COUNTRIES_COUNT, {
+        fetchPolicy: "cache-first", // Used for first execution
+        nextFetchPolicy: "cache-first", // Used for subsequent executions
+    });
 
     const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setFilter((prevFilter) => ({
             ...prevFilter,
             sort: e.target.value,
         }));
+        resetPage();
     };
+
+    const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+        setCurrentPage({ page: value });
+    };
+
+    const resetPage = () => {
+        if (currentPage.page === 1) {
+            return;
+        }
+        setCurrentPage({
+            page: 1,
+        });
+    };
+
+    // useEffect(() => {
+    //     resetPage()
+    // }, [filter]);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
     return (
         <>
@@ -82,7 +89,13 @@ const ExploreCountries = () => {
                                 </select>
                             </div>
                         </div>
-                        <CountryCardList countries={countries} />
+                        <CountryCardList />
+                        <Pagination
+                            page={currentPage.page}
+                            onChange={handleChange}
+                            count={Math.ceil(data.filteredcountriescount / 12)}
+                            className={styles.pagination}
+                        />
                     </div>
                 </div>
             </main>

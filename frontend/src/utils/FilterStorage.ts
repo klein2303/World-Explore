@@ -1,4 +1,4 @@
-import {FilterType} from "../types/FilterType";
+import { FilterType } from "../types/FilterType";
 
 export const setFilters = (filters: FilterType) => {
     sessionStorage.setItem("filters", JSON.stringify(filters));

@@ -1,12 +1,12 @@
-import {render, screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {describe, it, expect} from "vitest";
+import { describe, it, expect } from "vitest";
 import PopularCountries from "../PopularCountries";
 
 describe("PopularCountries Tests", () => {
     it("renders the popular countries section correctly", () => {
         // Render the PopularCountries component
-        const {asFragment} = render(<PopularCountries />);
+        const { asFragment } = render(<PopularCountries />);
 
         // Take a snapshot of the initial render
         expect(asFragment()).toMatchSnapshot();

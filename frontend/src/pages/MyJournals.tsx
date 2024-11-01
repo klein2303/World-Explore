@@ -1,15 +1,26 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import JournalCard from "../components/JournalCard/JournalCard";
 import styles from "../styles/MyJournals.module.css";
 import Countries from "../data/Countries";
+import Pagination from "@mui/material/Pagination";
+import { useRecoilState } from "recoil";
+import { pageAtom } from "../atoms/PageAtom";
 
 const MyJournals = () => {
+    const ITEMS_PER_PAGE = 15;
     const [activeTab, setActiveTab] = useState<"journals" | "unwritten">("journals");
+    const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
 
     // Using mockdata for now, but this would be fetched from the backend
     const journalEntries = Countries.slice(0, 10);
     const visitedCountries = Countries.slice(10);
+
+    // Get the appropriate entries for the current page
+    const paginatedEntries =
+        activeTab === "journals"
+            ? journalEntries.slice((currentPage.page - 1) * ITEMS_PER_PAGE, currentPage.page * ITEMS_PER_PAGE)
+            : visitedCountries.slice((currentPage.page - 1) * ITEMS_PER_PAGE, currentPage.page * ITEMS_PER_PAGE);
 
     const getPageTitle = () => (activeTab === "journals" ? "Captured Adventures" : "Places Yet to Journal");
 
@@ -22,6 +33,10 @@ const MyJournals = () => {
               ? "Your travel stories, captured and cherished forever."
               : "You’ve visited, but the story’s still untold. Ready to write?";
     const [subtitleText, setSubtitleText] = useState<string>(initialSubtitle);
+
+    const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+        setCurrentPage({ page: value });
+    };
 
     useEffect(() => {
         const getSubtitle = () => {
@@ -93,7 +108,7 @@ const MyJournals = () => {
                     className={styles.grid}>
                     {/* Only render journal entries when 'journals' tab is active */}
                     {activeTab === "journals" &&
-                        journalEntries.map((entry) => (
+                        paginatedEntries.map((entry) => (
                             <JournalCard key={entry.name} country={entry.name} date="2023-01-12" image={entry.image} />
                         ))}
                 </section>
@@ -114,6 +129,17 @@ const MyJournals = () => {
                             />
                         ))}
                 </section>
+                <Pagination
+                    page={currentPage.page}
+                    onChange={handleChange}
+                    count={Math.ceil(
+                        Math.ceil(
+                            (activeTab === "journals" ? journalEntries.length : visitedCountries.length) /
+                                ITEMS_PER_PAGE,
+                        ),
+                    )}
+                    className={styles.pagination}
+                />
             </main>
         </>
     );

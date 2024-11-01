@@ -1,13 +1,13 @@
-import {render, screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {describe, it, expect} from "vitest";
-import {RecoilRoot} from "recoil";
+import { describe, it, expect } from "vitest";
+import { RecoilRoot } from "recoil";
 import ExploreCountries from "../ExploreCountries";
-import {MemoryRouter} from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 
 describe("ExploreCountries Component", () => {
     it("renders the ExploreCountries component correctly", () => {
-        const {asFragment} = render(
+        const { asFragment } = render(
             <MemoryRouter>
                 <RecoilRoot>
                     <ExploreCountries />

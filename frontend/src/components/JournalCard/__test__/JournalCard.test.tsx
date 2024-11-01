@@ -1,6 +1,6 @@
-import {render, screen, fireEvent} from "@testing-library/react";
-import {MemoryRouter} from "react-router-dom";
-import {describe, it, expect, vi} from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import { describe, it, expect, vi } from "vitest";
 import JournalCard from "../JournalCard";
 
 // Mock the navigate function from react-router-dom
@@ -26,7 +26,7 @@ describe("JournalCard", () => {
     };
 
     it("renders correctly and matches snapshot", () => {
-        const {asFragment} = render(
+        const { asFragment } = render(
             <MemoryRouter>
                 <JournalCard {...mockProps} />
             </MemoryRouter>,
@@ -53,7 +53,7 @@ describe("JournalCard", () => {
     });
 
     it("renders 'Read Journal' when date is provided", () => {
-        const newProps = {...mockProps, date: "2023-10-10"};
+        const newProps = { ...mockProps, date: "2023-10-10" };
         render(
             <MemoryRouter>
                 <JournalCard {...newProps} />
@@ -86,7 +86,7 @@ describe("JournalCard", () => {
     });
 
     it("navigates when 'Read Journal' is clicked", () => {
-        const newProps = {...mockProps, date: "2023-10-10"};
+        const newProps = { ...mockProps, date: "2023-10-10" };
         render(
             <MemoryRouter>
                 <JournalCard {...newProps} />

@@ -1,0 +1,88 @@
+.reviewCard {
+    background-color: #fcf5ff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    color: #424242;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.reviewTitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.reviewDate {
+    font-size: 16px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.reviewRating {
+    font-size: 16px;
+}
+
+.reviewInfoBox {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.reviewText {
+    font-size: 16px;
+    line-height: 1.4;
+    overflow: hidden;
+    height: 65px; /* Limit height to create uniform card size */
+    -webkit-line-clamp: 2; /* Limit the number of lines */
+    line-clamp: 2; /* Standard property for compatibility */
+    -webkit-box-orient: vertical;
+}
+
+.readMoreButton {
+    background-color: #424242;
+    color: white;
+    padding: 2px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.readMoreButton:hover {
+    background-color: #797979;
+}
+
+.starIcon {
+    margin-right: 10px;
+}
+
+.profileIcon {
+    margin-right: 5px;
+}
+
+.reviewer {
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .reviewCard {
+        max-width: 100%;
+        min-width: 100%;
+        flex-basis: 100%;
+        height: auto;
+    }
+    .reviewText {
+        height: auto;
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
+    }
+}

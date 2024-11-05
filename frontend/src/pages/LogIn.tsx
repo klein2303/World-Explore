@@ -19,7 +19,7 @@ const Login = () => {
                         </Link>
                     </section>
                 </section>
-                <LoginOrRegister login={true} />
+                <LoginOrRegister loginPage={true} />
                 <section className={styles.linkToLogInUnder} aria-label="A link to login">
                     <Link to={"/Register"} className={styles.navlinkUnder} aria-label="link">
                         <p aria-label="Already registered">Create an account</p>

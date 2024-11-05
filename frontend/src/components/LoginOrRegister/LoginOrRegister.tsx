@@ -1,131 +1,94 @@
 import { useState } from "react";
 import styles from "./LoginOrRegister.module.css";
-
-interface Profile {
-    name: string;
-    email: string;
-    password: string;
-}
+import { useNavigate } from "react-router-dom";
+import { gql , useMutation} from "@apollo/client";
 
 interface ComponentInterface {
     //an input to decide whether this component is gonna be used as a login component. Otherwise it is a register component
-    login: boolean;
+    loginPage: boolean;
 }
 
-const LoginOrRegister = ({ login }: ComponentInterface) => {
-    const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
-    const [isValidPassword, setIsValidPassword] = useState<boolean>(false);
-    const [registerFeedbackMessage, setRegisterFeedbackMessage] = useState<string>(
-        "Password must at least be 8 characters",
-    );
-    const [loginFeedbackMessage, setLoginFeedbackMessage] = useState<string>("");
+const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [error, setError] = useState<string>("");
+    const [username, setUsername] = useState<string>("");
+    const navigate = useNavigate();
 
-    //Get the data from the input
-    const [registerFormValues, setRegisterFormValues] = useState<Profile>({
-        name: "",
-        email: "",
-        password: "",
-    });
-
-    const [loginFormValues, setLoginFormValues] = useState<{ email: string; password: string }>({
-        email: "",
-        password: "",
-    });
-
-    // Load existing users from local storage
-    const loadUsers = (): Profile[] => {
-        const storedUsers = localStorage.getItem("userProfiles");
-        return storedUsers ? JSON.parse(storedUsers) : [];
-    };
-
-    const handleRegisterInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target;
-        setRegisterFormValues({
-            ...registerFormValues,
-            [name]: value,
-        });
-        // Email validation: Check if the input email has a "@" character and ".com" at the end
-        if (name == "email") {
-            if (
-                value.includes("@") &&
-                value.split("@")[0].length > 0 &&
-                value.split("@")[1].length > 0 &&
-                value.includes(".") &&
-                value.split(".")[1] == "com"
-            ) {
-                setIsValidEmail(true);
+    const SIGNUP_MUTATION = gql`
+        mutation Signup($username: String!, $email: String!, $password: String!) {
+            signup(username: $username, email: $email, password: $password) {
+            token
+            user {
+                id
+                username
+                email
+            }
             }
         }
-        // Password validation: Check if password has at least 8 characters
-        if (name === "password") {
-            setIsValidPassword(value.length >= 8);
+    `;
+
+    const LOGIN_MUTATION = gql`
+        mutation Login($email: String!, $password: String!) {
+            login(email: $email, password: $password) {
+            token
+            user {
+                id
+                username
+                email
+            }
+            }
+        }
+    `;
+
+    const [login] = useMutation(LOGIN_MUTATION, {
+        onCompleted: async ({login}) => {
+            setError("");
+            localStorage.setItem("auth-token", login.token);
+            navigate("/");
+        },
+        onError: (error) => {
+            setError(error.message);
+        },
+    });
+
+    const [signup] = useMutation(SIGNUP_MUTATION, {
+        onCompleted: async ({signup}) => {
+            setError("");
+            localStorage.setItem("auth-token", signup.token);
+            navigate("/");
+        },
+        onError: (error) => {
+            setError(error.message);
+        },
+    });
+
+    const handleLoginInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        if (name === "email") {
+            setEmail(value);
+        } 
+        else{
+            setPassword(value);
         }
     };
 
-    const handleLoginInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target;
-        setLoginFormValues({
-            ...loginFormValues,
-            [name]: value,
-        });
-    };
-
-    const handleSubmit = () => {
-        const existingUsers = loadUsers();
-        if (
-            registerFormValues.name.length === 0 ||
-            registerFormValues.email.length === 0 ||
-            registerFormValues.password.length === 0
-        ) {
-            setRegisterFeedbackMessage("Please enter all of the fields");
-        } else if (!isValidEmail) {
-            setRegisterFeedbackMessage("Email is not in the correct format");
-        } else if (existingUsers.some((user) => user.email === registerFormValues.email)) {
-            setRegisterFeedbackMessage("Email already exists. Please use a different email");
-        } else if (!isValidPassword) {
-            setRegisterFeedbackMessage("Password is not valid. Password must have 8 characters");
-        } else {
-            existingUsers.push(registerFormValues);
-            localStorage.setItem("userProfiles", JSON.stringify(existingUsers));
-            setRegisterFormValues({
-                name: "",
-                email: "",
-                password: "",
-            });
-            setIsValidPassword(false);
-            setRegisterFeedbackMessage("Account is made successfully");
+    const handleRegisterInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        if (name == "name") {
+            setUsername(value);
         }
-    };
-
-    const handleLogin = () => {
-        const existingUsers = loadUsers();
-
-        // Find user by email
-        const user = existingUsers.find((user) => user.email === loginFormValues.email);
-
-        // Check if user exists
-        if (!user) {
-            setLoginFeedbackMessage("No such email");
-            return;
+        else if (name == "email") {
+            setEmail(value);
         }
-
-        // Check if the password matches
-        if (user.password !== loginFormValues.password) {
-            setLoginFeedbackMessage("Wrong password");
-            return;
+        else {
+            setPassword(value);
         }
-
-        // If everything is correct
-        setLoginFeedbackMessage("Log in successful");
-        setLoginFormValues({
-            email: "",
-            password: "",
-        });
     };
 
     return (
         <section aria-label="Login og register component">
-            {login ? (
+            {loginPage ? (
                 <section className={styles.loginOrRegister} aria-label="Login">
                     {/*Login component*/}
                     <section className={styles.title} aria-label="Title">
@@ -138,7 +101,7 @@ const LoginOrRegister = ({ login }: ComponentInterface) => {
                             className={styles.inputField}
                             type="email"
                             name="email"
-                            value={loginFormValues.email}
+                            value={email}
                             onChange={handleLoginInputChange}
                             placeholder="Email"
                             aria-label="Email input field for login"
@@ -147,13 +110,16 @@ const LoginOrRegister = ({ login }: ComponentInterface) => {
                             className={styles.inputField}
                             type="password"
                             name="password"
-                            value={loginFormValues.password}
+                            value={password}
                             onChange={handleLoginInputChange}
                             placeholder="Password"
                             aria-label="Password input field for login"
                         />
-                        <h5 aria-label={loginFeedbackMessage}> {loginFeedbackMessage}</h5>
-                        <button className={styles.submitButton} onClick={handleLogin} aria-label="Login button">
+                        {error !== "" && (
+                            <h5>{error}</h5>
+                        )}
+                        {/* <h5 aria-label={loginFeedbackMessage}> {loginFeedbackMessage}</h5> */}
+                        <button className={styles.submitButton} onClick={() => login({ variables: { email, password } })} aria-label="Login button">
                             Log in
                         </button>
                     </section>
@@ -170,7 +136,7 @@ const LoginOrRegister = ({ login }: ComponentInterface) => {
                             className={styles.inputField}
                             type="text"
                             name="name"
-                            value={registerFormValues.name}
+                            value={username}
                             onChange={handleRegisterInputChange}
                             placeholder="Please enter your name"
                             aria-label="Name input field"
@@ -179,7 +145,7 @@ const LoginOrRegister = ({ login }: ComponentInterface) => {
                             className={styles.inputField}
                             type="email"
                             name="email"
-                            value={registerFormValues.email}
+                            value={email}
                             onChange={handleRegisterInputChange}
                             placeholder="Please enter your email"
                             aria-label="Email input field"
@@ -188,15 +154,18 @@ const LoginOrRegister = ({ login }: ComponentInterface) => {
                             className={styles.inputField}
                             type="password"
                             name="password"
-                            value={registerFormValues.password}
+                            value={password}
                             onChange={handleRegisterInputChange}
                             placeholder="Please enter a password"
                             aria-label="Password input field"
                         />
-                        <h5 aria-label={registerFeedbackMessage}> {registerFeedbackMessage}</h5>
+                        {error !== "" && (
+                            <h5>{error}</h5>
+                        )}
+                        {/* <h5 aria-label={registerFeedbackMessage}> {registerFeedbackMessage}</h5> */}
                         <button
                             className={styles.submitButton}
-                            onClick={handleSubmit}
+                            onClick={() => signup({ variables: { username, email, password } })}
                             aria-label="Submit to create a new account">
                             Create account
                         </button>

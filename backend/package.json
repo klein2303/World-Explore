@@ -8,6 +8,7 @@
         "migrate": "npx prisma migrate dev"
     },
     "devDependencies": {
+        "@types/jsonwebtoken": "^9.0.7",
         "@types/node": "^22.7.6",
         "prettier": "^3.3.3",
         "prisma": "^5.21.0",
@@ -17,11 +18,14 @@
     "dependencies": {
         "@apollo/server": "^4.11.0",
         "@prisma/client": "^5.21.0",
+        "@types/bcryptjs": "^2.4.6",
         "@types/pg": "^8.11.10",
         "backend": "file:",
+        "bcryptjs": "^2.4.3",
         "csv-parser": "^3.0.0",
         "fast-csv": "^5.0.1",
         "graphql": "^16.9.0",
+        "jsonwebtoken": "^9.0.2",
         "pg": "^8.13.0",
         "yup": "^1.4.0"
     }

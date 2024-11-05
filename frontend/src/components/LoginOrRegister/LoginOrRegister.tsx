@@ -20,8 +20,6 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
             signup(username: $username, email: $email, password: $password) {
             token
             user {
-                id
-                username
                 email
             }
             }
@@ -33,8 +31,6 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
             login(email: $email, password: $password) {
             token
             user {
-                id
-                username
                 email
             }
             }
@@ -44,7 +40,8 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
     const [login] = useMutation(LOGIN_MUTATION, {
         onCompleted: async ({login}) => {
             setError("");
-            localStorage.setItem("auth-token", login.token);
+            sessionStorage.setItem("auth-token", login.token);
+            sessionStorage.setItem("user", JSON.stringify(login.user.email));
             navigate("/");
         },
         onError: (error) => {
@@ -56,6 +53,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
         onCompleted: async ({signup}) => {
             setError("");
             localStorage.setItem("auth-token", signup.token);
+            sessionStorage.setItem("user", JSON.stringify(signup.user.email));
             navigate("/");
         },
         onError: (error) => {
@@ -118,7 +116,6 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                         {error !== "" && (
                             <h5>{error}</h5>
                         )}
-                        {/* <h5 aria-label={loginFeedbackMessage}> {loginFeedbackMessage}</h5> */}
                         <button className={styles.submitButton} onClick={() => login({ variables: { email, password } })} aria-label="Login button">
                             Log in
                         </button>
@@ -162,7 +159,6 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                         {error !== "" && (
                             <h5>{error}</h5>
                         )}
-                        {/* <h5 aria-label={registerFeedbackMessage}> {registerFeedbackMessage}</h5> */}
                         <button
                             className={styles.submitButton}
                             onClick={() => signup({ variables: { username, email, password } })}

@@ -5,12 +5,12 @@ import styles from "../styles/MyJournals.module.css";
 import Countries from "../data/Countries";
 import Pagination from "@mui/material/Pagination";
 import { useRecoilState } from "recoil";
-import { pageAtom } from "../atoms/PageAtom";
+import { myJournalPageAtom } from "../atoms/MyJournalPageAtom";
 
 const MyJournals = () => {
     const ITEMS_PER_PAGE = 15;
     const [activeTab, setActiveTab] = useState<"journals" | "unwritten">("journals");
-    const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
+    const [currentPage, setCurrentPage] = useRecoilState(myJournalPageAtom);
 
     // Using mockdata for now, but this would be fetched from the backend
     const journalEntries = Countries.slice(0, 10);

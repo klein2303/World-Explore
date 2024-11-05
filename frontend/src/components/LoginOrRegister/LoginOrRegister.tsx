@@ -15,6 +15,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
     const [username, setUsername] = useState<string>("");
     const navigate = useNavigate();
 
+    // GraphQL mutation for user signup, requiring username, email, and password as input
     const SIGNUP_MUTATION = gql`
         mutation Signup($username: String!, $email: String!, $password: String!) {
             signup(username: $username, email: $email, password: $password) {
@@ -26,6 +27,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
         }
     `;
 
+    // GraphQL mutation for user login, requiring email and password as input
     const LOGIN_MUTATION = gql`
         mutation Login($email: String!, $password: String!) {
             login(email: $email, password: $password) {
@@ -38,6 +40,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
     `;
 
     const [login] = useMutation(LOGIN_MUTATION, {
+        // On successful login, store token and user email, then navigate to the home page
         onCompleted: async ({ login }) => {
             setError("");
             sessionStorage.setItem("auth-token", login.token);
@@ -50,6 +53,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
     });
 
     const [signup] = useMutation(SIGNUP_MUTATION, {
+        // On successful signup, store token and user email, then navigate to the home page
         onCompleted: async ({ signup }) => {
             setError("");
             localStorage.setItem("auth-token", signup.token);

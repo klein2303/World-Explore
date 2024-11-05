@@ -8,7 +8,7 @@ const { hash, compare } = bcrypt;
 
 const { sign } = pkg;
 const prisma = new PrismaClient();
-const APP_SECRET = 'SECRET';
+const APP_SECRET = "SECRET";
 
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
@@ -218,17 +218,17 @@ const resolvers = {
                 },
             });
             if (userExists) {
-                throw new Error('User already exists');
-            };
+                throw new Error("User already exists");
+            }
 
-            const emailRegex =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
             const valid = emailRegex.test(email.toLowerCase());
             if (!valid) {
-                throw new Error('Invalid email');
+                throw new Error("Invalid email");
             }
 
             const passwordHash = await hash(password, 10);
-            
+
             const user = await prisma.profile.create({
                 data: {
                     username: username,
@@ -252,13 +252,13 @@ const resolvers = {
             });
 
             if (!user) {
-                throw new Error('No such user found');
+                throw new Error("No such user found");
             }
 
             const valid = await compare(password, user.password);
 
             if (!valid) {
-                throw new Error('Invalid password');
+                throw new Error("Invalid password");
             }
 
             const token = sign({ userId: user.id }, APP_SECRET);

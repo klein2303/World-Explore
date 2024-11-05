@@ -15,7 +15,7 @@ const Navbar = () => {
     const handleSignOut = () => {
         sessionStorage.removeItem("auth-token");
         sessionStorage.removeItem("user");
-    }
+    };
 
     return (
         <>
@@ -37,7 +37,10 @@ const Navbar = () => {
                                 <Link to={"/"} className={styles.navlink} aria-label="Home">
                                     <p>Home</p>
                                 </Link>
-                                <Link to={"/ExploreCountries"} className={styles.navlink} aria-label="Explore Countries">
+                                <Link
+                                    to={"/ExploreCountries"}
+                                    className={styles.navlink}
+                                    aria-label="Explore Countries">
                                     <p>Explore Countries</p>
                                 </Link>
                                 <Link to={"/MyJournals"} className={styles.navlink} aria-label="My Journals">
@@ -80,7 +83,11 @@ const Navbar = () => {
 
                             {/* Profile menu when open */}
                             {isProfileOpen && (
-                                <div className={styles.profilemenu} role="dialog" aria-modal="true" aria-label="Profile Menu">
+                                <div
+                                    className={styles.profilemenu}
+                                    role="dialog"
+                                    aria-modal="true"
+                                    aria-label="Profile Menu">
                                     {/* Close button for profile menu */}
                                     <div className={styles.crosspos} role="presentation">
                                         <CgProfile
@@ -90,16 +97,19 @@ const Navbar = () => {
                                         />
                                     </div>
 
-                                    <Link to={"/"} className={styles.signOut} onClick={handleSignOut} aria-label="Sign out">
+                                    <Link
+                                        to={"/"}
+                                        className={styles.signOut}
+                                        onClick={handleSignOut}
+                                        aria-label="Sign out">
                                         <p>Sign out</p>
                                     </Link>
                                 </div>
                             )}
                         </div>
                     </nav>
-                </main>)
-                : 
-                (
+                </main>
+            ) : (
                 <main>
                     <nav className={styles.notLoggedNavbar} role="navigation" aria-label="Main Navigation">
                         <Link to={"/Login"} className={styles.login}>
@@ -107,8 +117,7 @@ const Navbar = () => {
                         </Link>
                     </nav>
                 </main>
-                )
-            }
+            )}
         </>
     );
 };

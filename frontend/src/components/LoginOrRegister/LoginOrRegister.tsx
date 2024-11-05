@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./LoginOrRegister.module.css";
 import { useNavigate } from "react-router-dom";
-import { gql , useMutation} from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 
 interface ComponentInterface {
     //an input to decide whether this component is gonna be used as a login component. Otherwise it is a register component
@@ -18,10 +18,10 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
     const SIGNUP_MUTATION = gql`
         mutation Signup($username: String!, $email: String!, $password: String!) {
             signup(username: $username, email: $email, password: $password) {
-            token
-            user {
-                email
-            }
+                token
+                user {
+                    email
+                }
             }
         }
     `;
@@ -29,16 +29,16 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
     const LOGIN_MUTATION = gql`
         mutation Login($email: String!, $password: String!) {
             login(email: $email, password: $password) {
-            token
-            user {
-                email
-            }
+                token
+                user {
+                    email
+                }
             }
         }
     `;
 
     const [login] = useMutation(LOGIN_MUTATION, {
-        onCompleted: async ({login}) => {
+        onCompleted: async ({ login }) => {
             setError("");
             sessionStorage.setItem("auth-token", login.token);
             sessionStorage.setItem("user", JSON.stringify(login.user.email));
@@ -50,7 +50,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
     });
 
     const [signup] = useMutation(SIGNUP_MUTATION, {
-        onCompleted: async ({signup}) => {
+        onCompleted: async ({ signup }) => {
             setError("");
             localStorage.setItem("auth-token", signup.token);
             sessionStorage.setItem("user", JSON.stringify(signup.user.email));
@@ -65,8 +65,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
         const { name, value } = e.target;
         if (name === "email") {
             setEmail(value);
-        } 
-        else{
+        } else {
             setPassword(value);
         }
     };
@@ -75,11 +74,9 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
         const { name, value } = e.target;
         if (name == "name") {
             setUsername(value);
-        }
-        else if (name == "email") {
+        } else if (name == "email") {
             setEmail(value);
-        }
-        else {
+        } else {
             setPassword(value);
         }
     };
@@ -113,10 +110,11 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             placeholder="Password"
                             aria-label="Password input field for login"
                         />
-                        {error !== "" && (
-                            <h5>{error}</h5>
-                        )}
-                        <button className={styles.submitButton} onClick={() => login({ variables: { email, password } })} aria-label="Login button">
+                        {error !== "" && <h5>{error}</h5>}
+                        <button
+                            className={styles.submitButton}
+                            onClick={() => login({ variables: { email, password } })}
+                            aria-label="Login button">
                             Log in
                         </button>
                     </section>
@@ -156,9 +154,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             placeholder="Please enter a password"
                             aria-label="Password input field"
                         />
-                        {error !== "" && (
-                            <h5>{error}</h5>
-                        )}
+                        {error !== "" && <h5>{error}</h5>}
                         <button
                             className={styles.submitButton}
                             onClick={() => signup({ variables: { username, email, password } })}

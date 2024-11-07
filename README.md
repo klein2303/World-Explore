@@ -47,7 +47,7 @@ To run the E2E test with cypress run the command:
 npx cypress open
 ```
 
-in the terminal. When a site pop up click on the E2E option, and choose your ..... browser. Click on a spesific test to run it
+in the terminal. When a site pop up click on the E2E option, and choose your preferred browser. Click on a spesific test to run it
 
 ## Running eslint
 

@@ -41,13 +41,13 @@ In order to run the component tests first navigate to the correct folder as desc
 
 `npm test`
 
-To run the E2E test with cypress run the command:
+To run the E2E tests with cypress you have to first start the backend and frontend. Then you have to run the command:
 
 ```
 npx cypress open
 ```
 
-in the terminal. When a site pop up click on the E2E option, and choose your preferred browser. Click on a spesific test to run it
+in the terminal. When a site pops up click on the E2E option, and then choose your preferred browser. Click on a spesific test to run it.
 
 ## Running eslint
 

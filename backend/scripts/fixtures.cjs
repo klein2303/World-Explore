@@ -8,13 +8,23 @@ const path = require("path");
 console.log("Script is starting...");
 
 // Database connection parameters
+// Pool for VM
+// const pool = new Pool({
+//     user: "postgres",
+//     host: "it2810-10.idi.ntnu.no",
+//     database: "worldexploredb",
+//     password: "",
+//     port: 5432,
+// });
+
 const pool = new Pool({
-    user: "postgres",
-    host: "it2810-10.idi.ntnu.no",
-    database: "worldexploredb",
-    password: "",
+    user: 'user',
+    host: 'localhost',
+    database: 'db',
+    password: '1234',
     port: 5432,
 });
+
 
 const csvFilePath = path.join(__dirname, "../data/filtered_countries_data.csv"); // write in the csv file path when it exists
 

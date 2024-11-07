@@ -80,7 +80,8 @@ const typeDefs = `
     type Mutation {
       addJournal(countryid: String!, profileid: String!): Journal
       addReview(title: String!, date: String!, rating: Int!, text: String!, ispublic: Boolean!, journalid: Int!): Review
-      
+
+      addProfile(username: String!, email: String!, password: String!): Profile
       login( email: String!, password: String!): AuthPayload
       signup(username: String!, email: String!, password: String!): AuthPayload
     }
@@ -208,6 +209,32 @@ const resolvers = {
                             id: journalid,
                         },
                     },
+                },
+            });
+        },
+        addProfile: async (_, { username, email, password }) => {
+            const userExists = await prisma.profile.findUnique({
+                where: {
+                    email: email.toLowerCase(),
+                },
+            });
+            if (userExists) {
+                throw new Error("User already exists");
+            }
+
+            const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            const valid = emailRegex.test(email.toLowerCase());
+            if (!valid) {
+                throw new Error("Invalid email");
+            }
+
+            const passwordHash = await hash(password, 10);
+
+            return await prisma.profile.create({
+                data: {
+                    username: username,
+                    email: email.toLowerCase(),
+                    password: passwordHash,
                 },
             });
         },

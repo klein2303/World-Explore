@@ -10,6 +10,7 @@ import { FilterType } from "../types/FilterType";
 import { gql, useQuery } from "@apollo/client";
 import Pagination from "@mui/material/Pagination";
 import { pageAtom } from "../atoms/PageAtom";
+import { useEffect } from "react";
 
 const ExploreCountries = () => {
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
@@ -52,9 +53,9 @@ const ExploreCountries = () => {
         });
     };
 
-    // useEffect(() => {
-    //     resetPage()
-    // }, [filter]);
+    useEffect(() => {
+        resetPage()
+    }, [filter.search, filter.continent]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;

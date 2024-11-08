@@ -37,9 +37,17 @@ Now run `npm run dev` in order to run the project
 
 ## Running tests
 
-In order to run the tests first navigate to the correct folder as described under "Running the project". Then run the following command in the terminal:
+In order to run the component tests first navigate to the correct folder as described under "Running the project". Then run the following command in the terminal:
 
 `npm test`
+
+To run the E2E tests with cypress you have to first start the backend and frontend. Then you have to run the command:
+
+```
+npx cypress open
+```
+
+in the terminal. When a site pops up click on the E2E option, and then choose your preferred browser. Click on a spesific test to run it.
 
 ## Running eslint
 

@@ -10,11 +10,12 @@ import { FilterType } from "../types/FilterType";
 import { gql, useQuery } from "@apollo/client";
 import Pagination from "@mui/material/Pagination";
 import { pageAtom } from "../atoms/PageAtom";
-import { useEffect, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const ExploreCountries = () => {
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
     const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
+    const [noResults, setNoResults] = useState<boolean>(false)
 
     const COUNTRIES_COUNT = gql`
         {
@@ -30,6 +31,13 @@ const ExploreCountries = () => {
     const { data, loading, error } = useQuery(COUNTRIES_COUNT, {
         fetchPolicy: "cache-first", // Used for first execution
         nextFetchPolicy: "cache-first", // Used for subsequent executions
+        onCompleted: (data) => {
+            if (data.filteredcountriescount === 0) {
+                setNoResults(true);
+            } else {
+                setNoResults(false);
+            }
+        },
     });
 
     const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -43,7 +51,7 @@ const ExploreCountries = () => {
     const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
         setCurrentPage({ page: value });
     };
-    
+
     const resetPage = useCallback(() => {
         setCurrentPage({ page: 1 });
     }, [setCurrentPage]);
@@ -86,12 +94,18 @@ const ExploreCountries = () => {
                             </div>
                         </div>
                         <CountryCardList />
-                        <Pagination
-                            page={currentPage.page}
-                            onChange={handleChange}
-                            count={Math.ceil(data.filteredcountriescount / 12)}
-                            className={styles.pagination}
-                        />
+                        {noResults ? (
+                            <p className={styles.noResultsMessage}> No results found for the selcted filter and search options.</p>
+                        ): (
+                            <>
+                                <Pagination
+                                    page={currentPage.page}
+                                    onChange={handleChange}
+                                    count={Math.ceil(data.filteredcountriescount / 12)}
+                                    className={styles.pagination}
+                                />
+                            </>
+                        )}
                     </div>
                 </div>
             </main>

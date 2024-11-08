@@ -95,7 +95,7 @@ const ExploreCountries = () => {
                         </div>
                         <CountryCardList />
                         {noResults ? (
-                            <p className={styles.noResultsMessage}> No results found for the selcted filter and search options.</p>
+                            <p className={styles.noResultsMessage}> No results found for the selected filter and search options.</p>
                         ): (
                             <>
                                 <Pagination

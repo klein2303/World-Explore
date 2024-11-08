@@ -15,7 +15,7 @@ import { useEffect, useState, useCallback } from "react";
 const ExploreCountries = () => {
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
     const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
-    const [noResults, setNoResults] = useState<boolean>(false)
+    const [noResults, setNoResults] = useState<boolean>(false);
 
     const COUNTRIES_COUNT = gql`
         {
@@ -57,7 +57,7 @@ const ExploreCountries = () => {
     }, [setCurrentPage]);
 
     useEffect(() => {
-        resetPage()
+        resetPage();
     }, [filter.search, filter.continent, resetPage]);
 
     if (loading) return <p>Loading...</p>;
@@ -95,8 +95,10 @@ const ExploreCountries = () => {
                         </div>
                         <CountryCardList />
                         {noResults ? (
-                            <p className={styles.noResultsMessage}> No results found for the selected filter and search options.</p>
-                        ): (
+                            <p className={styles.noResultsMessage}>
+                                No results found for the selected filter and search options.
+                            </p>
+                        ) : (
                             <>
                                 <Pagination
                                     page={currentPage.page}

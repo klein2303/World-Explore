@@ -36,6 +36,10 @@
     align-items: center;
 }
 
+.noResultsMessage {
+   text-align: center;
+}
+
 .filters {
     margin-bottom: 10px;
     display: flex;

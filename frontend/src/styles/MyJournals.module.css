@@ -5,6 +5,18 @@
     padding: 20px;
 }
 
+.noResultsMessage {
+    height: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 /* Header section containing the title and tabs */
 .header {
     display: flex;

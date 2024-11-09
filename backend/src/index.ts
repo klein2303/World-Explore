@@ -36,6 +36,7 @@ const typeDefs = `
         id: ID!
 
         countryid: String!
+        countryimage: String!
         profileid: String!
 
         reviews: [Review!]!
@@ -73,12 +74,13 @@ const typeDefs = `
 
         publicreviews: [Review!]!
         filteredpublicreviews(country: String!): [Review!]!
-        writtenjournals: [Journal!]!
-        unwrittenjournals: [Journal!]!
+
+        writtenjournals(skip: Int, profileid: String!): [Journal!]!
+        writtenjournal(countryid: String!, profileid: String!): Journal
     }
 
     type Mutation {
-      addJournal(countryid: String!, profileid: String!): Journal
+      addJournal(countryid: String!, countryimage: String!, profileid: String!): Journal
       addReview(title: String!, date: String!, rating: Int!, text: String!, ispublic: Boolean!, journalid: Int!): Review
 
       addProfile(username: String!, email: String!, password: String!): Profile
@@ -159,40 +161,35 @@ const resolvers = {
                 },
             });
         },
-        writtenjournals: async () => {
+        writtenjournals: async (_, {skip, profileid }) => {
             return await prisma.journal.findMany({
+                skip: skip,
+                take: 15,
                 where: {
+                    profileid: profileid,
                     reviews: {
                         some: {},
                     },
                 },
             });
         },
-        unwrittenjournals: async () => {
-            return await prisma.journal.findMany({
+        writtenjournal: async (_, { countryid, profileid }) => {
+            return await prisma.journal.findFirst({
                 where: {
-                    reviews: {
-                        none: {},
-                    },
+                    countryid: countryid,
+                    profileid: profileid,
                 },
             });
         },
     },
 
     Mutation: {
-        addJournal: async (_, { countryid, profileid }) => {
+        addJournal: async (_, { countryid, profileid, countryimage }) => {
             return await prisma.journal.create({
                 data: {
-                    country: {
-                        connect: {
-                            name: countryid,
-                        },
-                    },
-                    profile: {
-                        connect: {
-                            email: profileid,
-                        },
-                    },
+                    countryid: countryid,
+                    countryimage: countryimage,
+                    profileid: profileid,
                 },
             });
         },

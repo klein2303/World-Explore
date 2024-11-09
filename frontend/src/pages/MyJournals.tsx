@@ -14,8 +14,8 @@ const MyJournals = () => {
 
     const initialSubtitle =
         window.innerWidth <= 768
-                ? "Tap the images to dive into your adventures!"
-                : "Your travel stories, captured and cherished forever."
+            ? "Tap the images to dive into your adventures!"
+            : "Your travel stories, captured and cherished forever.";
     const [subtitleText, setSubtitleText] = useState<string>(initialSubtitle);
 
     const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
@@ -31,10 +31,10 @@ const MyJournals = () => {
                 setSubtitleText("Your travel stories, captured and cherished forever.");
             }
         };
-    
-        window.addEventListener('resize', handleResize);
+
+        window.addEventListener("resize", handleResize);
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
 
@@ -60,43 +60,44 @@ const MyJournals = () => {
 
     return (
         <>
-        <Navbar />
+            <Navbar />
             <main className={styles.container}>
                 {/* Title and Tabs in the same row */}
                 <header className={styles.header}>
                     <h1 className={styles.pageTitle}>{"Captured Adventures"}</h1>
                 </header>
-                {
-                    data.writtenjournals.length === 0 ? 
-                    (   
-                        <>
+                {data.writtenjournals.length === 0 ? (
+                    <>
                         <p className={styles.noResultsMessage}>
                             You haven´t written any journal entries yet. Explore all the countries in the world here:
-                            <Link to={"/ExploreCountries"}>
-                                Explore Countries Page
-                            </Link>
+                            <Link to={"/ExploreCountries"}>Explore Countries Page</Link>
                         </p>
-                        </>
-                    ) : (
-                        <>
-                            <h2 className={styles.subtitle}>{subtitleText}</h2>
-                            <section
-                                id="journals-panel"
-                                role="tabpanel"
-                                aria-labelledby="journals-tab"
-                                className={styles.grid}>
-                                {data.writtenjournals.map((journal: {countryid: string, image: string}) => (<JournalCard key={journal.countryid} country={journal.countryid} date={"2022-01-01"} image={journal.image} />))}     
-                            </section>
-                            <Pagination
-                                page={currentPage.page}
-                                onChange={handleChange}
-                                count={Math.ceil(data.writtenjournals.length/ITEMS_PER_PAGE)
-                                }
-                                className={styles.pagination}
-                            />
-                        </>
-                    )
-                }
+                    </>
+                ) : (
+                    <>
+                        <h2 className={styles.subtitle}>{subtitleText}</h2>
+                        <section
+                            id="journals-panel"
+                            role="tabpanel"
+                            aria-labelledby="journals-tab"
+                            className={styles.grid}>
+                            {data.writtenjournals.map((journal: { countryid: string; image: string }) => (
+                                <JournalCard
+                                    key={journal.countryid}
+                                    country={journal.countryid}
+                                    date={"2022-01-01"}
+                                    image={journal.image}
+                                />
+                            ))}
+                        </section>
+                        <Pagination
+                            page={currentPage.page}
+                            onChange={handleChange}
+                            count={Math.ceil(data.writtenjournals.length / ITEMS_PER_PAGE)}
+                            className={styles.pagination}
+                        />
+                    </>
+                )}
             </main>
         </>
     );

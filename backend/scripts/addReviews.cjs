@@ -32,39 +32,39 @@ async function addJournals() {
                 where: { name: countryName },
                 select: { image: true },
             });
-          
+
             if (!country || !country.image) {
                 throw new Error(`Country ${countryName} not found or has no image`);
             }
-          
+
             const journalData = {
-              // Connect to Country by name
+                // Connect to Country by name
                 country: {
                     connect: {
-                    name: countryName,
+                        name: countryName,
                     },
                 },
                 // Connect to Country by image
                 countryByImage: {
                     connect: {
-                    image: country.image,
+                        image: country.image,
                     },
                 },
                 // Connect to Profile by email
                 profile: {
                     connect: {
-                    email: "john@gmail.com",
+                        email: "john@gmail.com",
                     },
                 },
             };
-          
+
             // Insert Journal
             const createdJournal = await prisma.journal.create({
-              data: journalData,
+                data: journalData,
             });
-          
+
             console.log(`Journal created for country: ${countryName}`);
-          }
+        }
     } catch (error) {
         console.error("Error inserting journals:", error);
     } finally {

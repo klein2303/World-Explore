@@ -161,7 +161,7 @@ const resolvers = {
                 },
             });
         },
-        writtenjournals: async (_, {skip, profileid }) => {
+        writtenjournals: async (_, { skip, profileid }) => {
             return await prisma.journal.findMany({
                 skip: skip,
                 take: 15,

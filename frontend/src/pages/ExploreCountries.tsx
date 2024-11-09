@@ -88,8 +88,8 @@ const ExploreCountries = () => {
                                     onChange={handleSort}
                                     value={filter.sort}
                                     aria-label="Sort countries alphabetically">
-                                    <option value="A-Z">A-Z</option>
-                                    <option value="Z-A">Z-A</option>
+                                    <option value="A-Z" aria-label="Sort" aria-description="Sort countries from A to Z">A-Z</option>
+                                    <option value="Z-A" aria-label="Sort" aria-description="Sort countries from Z to A">Z-A</option>
                                 </select>
                             </div>
                         </div>

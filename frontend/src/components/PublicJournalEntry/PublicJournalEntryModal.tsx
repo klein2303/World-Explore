@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import styles from "./PublicJournalEntryModal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { reviewType } from "../../types/JournalType";
+import { readReviewType } from "../../types/JournalType";
 import { FaUserPen } from "react-icons/fa6";
 
 type JournalEntryModalProps = {
-    review: reviewType;
+    review: readReviewType;
     onClose: () => void;
 };
 

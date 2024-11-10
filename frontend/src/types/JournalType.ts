@@ -1,10 +1,14 @@
-export type JournalType = {
+export type JournalTypeRead = {
     country: string;
-    reviews: reviewType[];
+    reviews: readReviewType[];
 };
 
-export type reviewType = {
-    id: number;
+export type JournalTypeWrite = {
+    country: string;
+    reviews: writeReviewType[];
+};
+
+export type readReviewType = {
     title: string;
     date: string;
     rating: number;
@@ -16,3 +20,16 @@ export type reviewType = {
         };
     };
 };
+
+export type writeReviewType = {
+    title: string;
+    date: string;
+    rating: number;
+    text: string;
+    public: boolean;
+    journal: {
+        profile: {
+            email: string;
+        };
+    };
+}

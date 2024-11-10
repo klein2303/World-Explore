@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { reviewType } from "../../types/JournalType";
+import { readReviewType } from "../../types/JournalType";
 import styles from "./PublicJournalEntry.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +7,7 @@ import PublicJournalEntryModal from "./PublicJournalEntryModal";
 import { FaUserPen } from "react-icons/fa6";
 
 type PublicJournalEntryProps = {
-    review: reviewType;
+    review: readReviewType;
 };
 
 const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {

@@ -3,8 +3,7 @@
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 350px;
+    width: 350px;
     color: #424242;
     height: 220px;
     display: flex;
@@ -75,6 +74,15 @@
     background-color: #797979;
 }
 
+.readMoreButton:focus {
+    background-color: #424242; /* Match the default background color */
+    outline: none; /* Remove the default focus outline */
+}
+
+.readMoreButton:active {
+    background-color: #797979; /* Match the hover background color */
+}
+
 .starIcon {
     margin-right: 6px;
 }
@@ -89,6 +97,7 @@
 
 @media (max-width: 768px) {
     .reviewCard {
+        width: 100%;
         max-width: 100%;
         min-width: 100%;
         flex-basis: 100%;

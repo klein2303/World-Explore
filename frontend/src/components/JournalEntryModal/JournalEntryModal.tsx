@@ -1,25 +1,51 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./JournalEntryModal.module.css";
 import { FaStar } from "react-icons/fa";
-import { JournalType } from "../../types/JournalType";
+import { removeQuotes } from "../../utils/utils";
+import {gql, useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 
 interface JournalEntryModalProps {
     country: string;
     isOpen: boolean;
     onClose: () => void;
-    onSubmit: (entry: JournalType) => void;
 }
 
-const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryModalProps) => {
+const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps) => {
     const [title, setTitle] = useState<string>("");
     const [date, setDate] = useState<string>("");
     const [rating, setRating] = useState<number>(0);
     const [text, setText] = useState<string>("");
     const [isPublic, setIsPublic] = useState<boolean>(false);
+    const [error, setError] = useState<string>("");
 
     const modalRef = useRef<HTMLDivElement>(null);
+    const user = removeQuotes(sessionStorage.getItem("user")!)
+    const navigate = useNavigate();
 
-    useEffect(() => {
+    const CREATE_REVIEW = gql`
+        mutation addReview($title: String!, $date: String!, $rating: Int!, $text: String!, $ispublic: Boolean!, $profileid: String!, $countryid: String!) {
+            addReview(title: $title, date: $date, rating: $rating, text: $text, ispublic: $ispublic, profileid: $profileid, countryid: $countryid) {
+                ispublic
+            }
+        }
+    `;
+
+    const [addReview] = useMutation(CREATE_REVIEW, {
+        onCompleted: async () => {
+            console.log("Review added successfully");
+            setError("");
+            onClose();
+            navigate(0)
+        },
+        onError: (error) => {
+            console.error("Error adding review:", error);
+            setError(error.message);
+        },
+    });
+
+
+    useEffect(() => {   
         const focusableElements = modalRef.current?.querySelectorAll(
             'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
         );
@@ -41,29 +67,36 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
         if (isOpen) {
             firstElement?.focus();
             document.addEventListener("keydown", trapFocus);
+            document.body.classList.add("no-scroll"); // Add the class to disable scrolling
+        } else {
+            document.body.classList.remove("no-scroll"); // Remove the class to enable scrolling
         }
 
         return () => {
             document.removeEventListener("keydown", trapFocus);
+            document.body.classList.remove("no-scroll"); // Clean up by removing the class
         };
     }, [isOpen]);
 
     const handleSubmit = () => {
-        onSubmit({
-            country,
-            reviews: [
-                {
-                    id: Math.floor(Math.random() * 1000), // Temporary ID
-                    title,
-                    date: date,
-                    rating,
-                    text,
-                    public: isPublic,
-                },
-            ],
+        addReview({
+            variables: {
+              title: title,
+              date: date,
+              rating: rating,
+              text: text,
+              ispublic: isPublic,
+              profileid: user,
+              countryid: country,
+            },
         });
-        onClose();
     };
+
+    useEffect(() => {
+        if (user) {
+            console.log(user.toLowerCase());
+        }
+    }, [])
 
     return isOpen ? (
         <div
@@ -129,6 +162,7 @@ const JournalEntryModal = ({ country, isOpen, onClose, onSubmit }: JournalEntryM
                         />
                         Public
                     </label>
+                    {error !== "" && <h5>{error}</h5>}
                     <button onClick={handleSubmit} className={styles.submitButton} aria-label="Submit journal entry">
                         Save your journal entry
                     </button>

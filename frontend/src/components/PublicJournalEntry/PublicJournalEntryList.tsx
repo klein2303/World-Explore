@@ -1,9 +1,9 @@
-import { JournalType } from "../../types/JournalType";
+import { JournalTypeRead } from "../../types/JournalType";
 import PublicJournalEntry from "./PublicJournalEntry";
 import styles from "./PublicJournalEntryList.module.css";
 
 type PublicJournalEntriesProps = {
-    journal: JournalType;
+    journal: JournalTypeRead;
 };
 
 const PublicJournalEntryList = ({ journal }: PublicJournalEntriesProps) => {

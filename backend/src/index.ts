@@ -39,6 +39,8 @@ const typeDefs = `
         countryimage: String!
         profileid: String!
 
+        profile: Profile!
+
         reviews: [Review!]!
     }
     
@@ -51,6 +53,7 @@ const typeDefs = `
         ispublic: Boolean!
 
         journalid: Int!
+        journal: Journal!
     }
     
     type Profile {
@@ -157,6 +160,17 @@ const resolvers = {
                     ispublic: true,
                     journal: {
                         countryid: country,
+                    },
+                },
+                include: {
+                    journal: {
+                        include: {
+                            profile: {
+                                select: {
+                                    username: true,
+                                },
+                            },
+                        },
                     },
                 },
             });

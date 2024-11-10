@@ -40,6 +40,11 @@ const Country = () => {
                 rating
                 text
                 ispublic
+                journal {
+                    profile {
+                        username
+                    }
+                }
             }
         }
     `;

@@ -10,4 +10,9 @@ export type reviewType = {
     rating: number;
     text: string;
     public: boolean;
+    journal: {
+        profile: {
+            username: string;
+        };
+    };
 };

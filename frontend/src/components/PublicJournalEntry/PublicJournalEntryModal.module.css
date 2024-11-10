@@ -11,6 +11,12 @@
     z-index: 1000;
 }
 
+.user {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .modalContent {
     background: #fcf5ff;
     border-radius: 8px;
@@ -51,12 +57,14 @@
     gap: 20px;
     align-items: center;
     margin-bottom: 15px;
+    justify-content: space-between;
 }
 
 .modalRating,
 .modalReviewer {
     display: flex;
     align-items: center;
+    gap: 6px;
 }
 
 .modalText {

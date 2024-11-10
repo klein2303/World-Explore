@@ -4,6 +4,7 @@ import styles from "./PublicJournalEntry.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import PublicJournalEntryModal from "./PublicJournalEntryModal";
+import { FaUserPen } from "react-icons/fa6";
 
 type PublicJournalEntryProps = {
     review: reviewType;
@@ -63,11 +64,17 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                         {review.date}
                     </p>
                 </header>
-
-                <p className={styles.reviewRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
-                    <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
-                    {review.rating}/5
-                </p>
+                
+                <div className={styles.reviewInfo}>
+                    <p className={styles.reviewRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
+                        <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
+                        {review.rating}/5
+                    </p>
+                    <p className={styles.user}>
+                        <FaUserPen aria-hidden="true" />
+                        {review.journal.profile.username}
+                    </p>
+                </div>
 
                 {/* Review Text with "Read More" button */}
                 <div className={styles.reviewInfoBox} aria-label="Review text" role="contentinfo">

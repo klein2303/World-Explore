@@ -7,6 +7,7 @@ import { useRecoilState } from "recoil";
 import { myJournalPageAtom } from "../atoms/MyJournalPageAtom";
 import { gql, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
+import { removeQuotes } from "../utils/utils";
 
 const MyJournals = () => {
     const ITEMS_PER_PAGE = 15;
@@ -38,7 +39,7 @@ const MyJournals = () => {
         };
     }, []);
 
-    const profileid = sessionStorage.getItem("user");
+    const profileid = removeQuotes(sessionStorage.getItem("user")!);
 
     const WRITTEN_JOURNALS = gql`
         query GetWrittenJournals($skip: Int, $profileid: String!) {

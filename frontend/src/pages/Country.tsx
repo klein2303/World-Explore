@@ -9,7 +9,7 @@ import { TbMoneybag } from "react-icons/tb";
 import { PiPlant } from "react-icons/pi";
 import { gql, useQuery } from "@apollo/client";
 import PublicJournalEntryList from "../components/PublicJournalEntry/PublicJournalEntryList";
-import { JournalType } from "../types/JournalType"; // Import JournalType for the journal data
+import { JournalTypeWrite } from "../types/JournalType"; // Import JournalType for the journal data
 import { FaPenNib } from "react-icons/fa"; // Icon for the button
 import JournalEntryModal from "../components/JournalEntryModal/JournalEntryModal";
 
@@ -59,7 +59,7 @@ const Country = () => {
     const closeModal = () => setIsModalOpen(false);
 
     // Function to handle journal entry submission
-    const handleJournalSubmit = (entry: JournalType) => {
+    const handleJournalSubmit = (entry: JournalTypeWrite) => {
         console.log("New journal entry submitted:", entry);
         // Handle saving the journal entry here
         closeModal(); // Close the modal

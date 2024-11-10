@@ -85,19 +85,27 @@ const Country = () => {
                             <div className={styles.funfactbox} role="group" aria-label="Country fun facts information">
                                 <section className={styles.funfact} role="region" aria-label="Capital information">
                                     <LuMapPin className={styles.icon} aria-hidden="true" />
-                                    <p className={styles.funfacttext}>Capital: {country.capital}</p>
+                                    <p className={styles.funfacttext}>
+                                        Capital: {country.capital === null ? "Unavailable" : country.capital}
+                                    </p>
                                 </section>
                                 <section className={styles.funfact} role="region" aria-label="Language information">
                                     <GrLanguage className={styles.icon} aria-hidden="true" />
-                                    <p className={styles.funfacttext}>Language: {country.language}</p>
+                                    <p className={styles.funfacttext}>
+                                        Language: {country.language === null ? "Unavailable" : country.language}
+                                    </p>
                                 </section>
                                 <section className={styles.funfact} role="region" aria-label="Currency information">
                                     <TbMoneybag className={styles.icon} aria-hidden="true" />
-                                    <p className={styles.funfacttext}>Currency: {country.currency}</p>
+                                    <p className={styles.funfacttext}>
+                                        Currency: {country.currency === null ? "Unavailable" : country.currency}
+                                    </p>
                                 </section>
                                 <section className={styles.funfact} role="region" aria-label="Forest area information">
                                     <PiPlant className={styles.icon} aria-hidden="true" />
-                                    <p className={styles.funfacttext}>Forest Area: {country.forestarea}</p>
+                                    <p className={styles.funfacttext}>
+                                        Forest Area: {country.forestarea === null ? "Unavailable" : country.forestarea}
+                                    </p>
                                 </section>
                             </div>
                             <img
@@ -118,13 +126,37 @@ const Country = () => {
                                 </h2>
                                 <p className={styles.infotext}>
                                     The name of the country is {country.name}, and it's in the continent{" "}
-                                    {country.continent}. The language spoken in the country is {country.language}, and
-                                    the currency used is {country.currency}. The capital of the country is{" "}
-                                    {country.capital}, and the largest city is {country.largestcity}. It has a
-                                    population of {data.country.population} people, and a land area of{" "}
-                                    {country.landarea} km². The land area contains {country.agriculturearea} agriculture
-                                    and {country.forestarea} forest. The CO2 emission produced by the country is{" "}
-                                    {country.co2emission} tons.
+                                    {country.continent || <em>unavailable</em>}. The language spoken in the country is{" "}
+                                    {country.language || <em>unavailable</em>}, and the currency used is{" "}
+                                    {country.currency || <em>unavailable</em>}. The capital of the country is{" "}
+                                    {country.capital || <em>unavailable</em>}, and the largest city is{" "}
+                                    {country.largestcity || <em>unavailable</em>}. The population is{" "}
+                                    {data.country.population ? (
+                                        `${data.country.population} people`
+                                    ) : (
+                                        <em>not available for this country</em>
+                                    )}
+                                    , and the land area is{" "}
+                                    {country.landarea ? `${country.landarea} km²` : <em>unknown for this country</em>}.
+                                    The agriculture area is{" "}
+                                    {country.agriculturearea ? (
+                                        `${country.agriculturearea} of the landarea`
+                                    ) : (
+                                        <em>unknown for this country</em>
+                                    )}{" "}
+                                    and the forest area is{" "}
+                                    {country.forestarea ? (
+                                        `${country.forestarea} of the landarea`
+                                    ) : (
+                                        <em>unknown for this country</em>
+                                    )}
+                                    . The CO2 emission produced by the country is{" "}
+                                    {country.co2emission ? (
+                                        `${country.co2emission} tons`
+                                    ) : (
+                                        <em>unknown for this country</em>
+                                    )}
+                                    .
                                 </p>
                             </section>
                         </aside>

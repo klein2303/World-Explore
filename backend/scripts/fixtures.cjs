@@ -25,7 +25,7 @@ const pool = new Pool({
     port: 5432,
 });
 
-const csvFilePath = path.join(__dirname, "../data/filtered_countries_data.csv"); // write in the csv file path when it exists
+const csvFilePath = path.join(__dirname, "../data/final_version_countries_data.csv"); // write in the csv file path when it exists
 
 // Function to insert data into the database
 async function insertData(row) {
@@ -57,7 +57,7 @@ async function insertData(row) {
     const population = row.population === "" ? null : parseFloat(row.population.replace(/,/g, ""));
     const landArea = row.landarea === "" ? null : parseFloat(row.landarea.replace(/,/g, ""));
     const agricultureArea = row.agriculturearea === "" ? null : row.agriculturearea;
-    const forestArea = row.forestArea === "" ? null : row.forestarea;
+    const forestArea = row.forestarea === "" ? null : row.forestarea;
     const co2Emission = row.co2emissions == "" ? null : parseFloat(row.co2emissions.toString().replace(/,/g, ""));
     const image = row.image === "" ? null : row.image;
 

@@ -27,12 +27,30 @@ async function addJournals() {
         countries = ["Japan", "Italy", "Spain", "France", "Australia"];
 
         for (const countryName of countries) {
+            // Fetch the country's image from the Country model
+            const country = await prisma.country.findUnique({
+                where: { name: countryName },
+                select: { image: true },
+            });
+
+            if (!country || !country.image) {
+                throw new Error(`Country ${countryName} not found or has no image`);
+            }
+
             const journalData = {
+                // Connect to Country by name
                 country: {
                     connect: {
                         name: countryName,
                     },
                 },
+                // Connect to Country by image
+                countryByImage: {
+                    connect: {
+                        image: country.image,
+                    },
+                },
+                // Connect to Profile by email
                 profile: {
                     connect: {
                         email: "john@gmail.com",
@@ -45,7 +63,7 @@ async function addJournals() {
                 data: journalData,
             });
 
-            console.log("Inserted journal:", createdJournal);
+            console.log(`Journal created for country: ${countryName}`);
         }
     } catch (error) {
         console.error("Error inserting journals:", error);

@@ -15,20 +15,25 @@ model Country {
   currency        String?
   language        String?
   population      Float?
-  image           String?
+  image           String? @unique 
   agriculturearea String?
   co2emission     Float?
   forestarea      String?
   landarea        Float?
   largestcity     String?
-  journal         Journal[]
+
+  journalsByName  Journal[] @relation(name: "CountryByName")
+  journalsByImage Journal[] @relation(name: "CountryByImage")
 }
 
 model Journal {
   id        Int      @id @default(autoincrement())
 
   countryid String
-  country   Country @relation(fields: [countryid], references: [name])
+  country   Country @relation(name: "CountryByName", fields: [countryid], references: [name])
+
+  countryimage   String
+  countryByImage Country @relation(name: "CountryByImage", fields: [countryimage], references: [image])
 
   profileid String
   profile   Profile @relation(fields: [profileid], references: [email])

@@ -53,9 +53,9 @@ const JournalPage = () => {
                     <p className={styles.title} aria-label="Title">
                         My {countryName} journals
                     </p>
-                    <button className={styles.addButton} aria-label="Add new journal entry" onClick={openModal}>
+                    {/* <button className={styles.addButton} aria-label="Add new journal entry" onClick={openModal}>
                         Add new journal entry <SlPencil />
-                    </button>
+                    </button> */}
                 </section>
                 <ReviewBox country={country} />
                 {/* Render the JournalEntryModal */}

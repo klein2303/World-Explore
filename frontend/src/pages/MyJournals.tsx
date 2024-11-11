@@ -86,7 +86,6 @@ const MyJournals = () => {
                                 <JournalCard
                                     key={journal.countryid}
                                     country={journal.countryid}
-                                    date={"2022-01-01"}
                                     image={journal.countryimage}
                                 />
                             ))}

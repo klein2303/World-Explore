@@ -193,6 +193,9 @@ const resolvers = {
                     countryid: countryid,
                     profileid: profileid.toLowerCase(),
                 },
+                include: {
+                    reviews: true,
+                },
             });
         },
     },

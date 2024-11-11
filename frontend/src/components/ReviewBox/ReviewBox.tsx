@@ -1,34 +1,38 @@
-import { useEffect, useState } from "react";
-import { JournalType } from "../../types/JournalType";
+import { useEffect } from "react";
 import styles from "./ReviewBox.module.css";
 import { MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox } from "react-icons/md";
-import JournalReviews from "../../data/JournalReviews";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { gql, useQuery } from "@apollo/client";
+import { removeQuotes } from "../../utils/utils";
 
 interface journalCountry {
     country: string;
 }
 
 const ReviewBox = ({ country }: journalCountry) => {
-    // Find the journal reviews for the given country, return null if no match is found
-    const getReview = () => {
-        // Check if there are reviews stored in localStorage
-        const storedReviews = localStorage.getItem(`reviews_${country}`);
-        if (storedReviews) {
-            return JSON.parse(storedReviews);
-        }
-        return JournalReviews.find((journal) => journal.country === country) || null;
-    };
+    const user = removeQuotes(sessionStorage.getItem("user")!);
 
-    // Initialize the state with the result of the getReview function
-    const [reviews, setReviews] = useState<JournalType | null>(getReview());
-
-    // Effect to store reviews in localStorage whenever they change
-    useEffect(() => {
-        if (reviews) {
-            localStorage.setItem(`reviews_${country}`, JSON.stringify(reviews));
+    const JOURNAL = gql`
+        query GetJournal($countryid: String!, $profileid: String!) {
+            writtenjournal(countryid: $countryid, profileid: $profileid) {
+                id
+                reviews {
+                    id
+                    title
+                    date
+                    text
+                    rating
+                    ispublic
+                }
+            }
         }
-    }, [reviews, country]);
+    `;
+
+    const { data, loading, error } = useQuery(JOURNAL, {
+        variables: { countryid: country, profileid: user },
+        fetchPolicy: "cache-first", // Used for first execution
+        nextFetchPolicy: "cache-first", // Used for subsequent executions
+    });
 
     // Render 5 stars based on a given rating
     const renderStars = (rating: number) => {
@@ -43,55 +47,74 @@ const ReviewBox = ({ country }: journalCountry) => {
         );
     };
 
-    //Change the privacy of a review
-    const makePublic = (id: number) => {
-        if (reviews) {
-            const updatedReviews = reviews.reviews.map((review) =>
-                review.id === id ? { ...review, public: !review.public } : review,
-            );
+    // Change the privacy of a review
+    // const makePublic = (id: number) => {
+    //     if (reviews) {
+    //         const updatedReviews = reviews.reviews.map((review) =>
+    //             review.id === id ? { ...review, public: !review.public } : review,
+    //         );
 
-            setReviews({ ...reviews, reviews: updatedReviews });
-        }
-    };
+    //         setReviews({ ...reviews, reviews: updatedReviews });
+    //     }
+    // };
+
+    useEffect(() => {
+        console.log("Country:", country);
+        console.log(country == "Brunei");
+        console.log("User:", user);
+        console.log("Data:", data);
+    }, [data]);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
     return (
         <main>
-            {reviews ? (
-                reviews.reviews.map((review) => (
-                    <section
-                        key={review.id}
-                        className={styles.reviewBox}
-                        aria-label="Section containing the journal entry">
-                        <p className={styles.reviewTitle}>{review.title}</p>
-                        <p className={styles.date}>{review.date}</p>
-                        <article className={styles.reviewText}>{review.text} </article>
+            {data.writtenjournal ? (
+                data.writtenjournal.reviews.map(
+                    (review: {
+                        id: number;
+                        title: string;
+                        date: string;
+                        text: string;
+                        rating: number;
+                        ispublic: boolean;
+                    }) => (
                         <section
-                            className={styles.starsContainer}
-                            aria-label="Shows rating of a trip, illustrated as stars">
-                            {/* Render stars based on rating */}
-                            {renderStars(review.rating)}
+                            key={review.id}
+                            className={styles.reviewBox}
+                            aria-label="Section containing the journal entry">
+                            <p className={styles.reviewTitle}>{review.title}</p>
+                            <p className={styles.date}>{review.date}</p>
+                            <article className={styles.reviewText}>{review.text} </article>
+                            <section
+                                className={styles.starsContainer}
+                                aria-label="Shows rating of a trip, illustrated as stars">
+                                {/* Render stars based on rating */}
+                                {renderStars(review.rating)}
+                            </section>
+                            <section className={styles.publicContainer} aria-label="Change the privacy of your journal">
+                                <p>Make this journal entry public</p>
+                                {/* Render the correct box based on the journal entry privacy */}
+                                {review.ispublic ? (
+                                    <MdOutlineCheckBox
+                                        className={styles.checkBox}
+                                        // onClick={() => makePublic(review.id)}
+                                        aria-label="Make journey private"
+                                        role="button"
+                                    />
+                                ) : (
+                                    <MdOutlineCheckBoxOutlineBlank
+                                        className={styles.checkBox}
+                                        // onClick={() => makePublic(review.id)}
+                                        aria-label="Make journey public"
+                                        role="button"
+                                    />
+                                )}
+                            </section>
                         </section>
-                        <section className={styles.publicContainer} aria-label="Change the privacy of your journal">
-                            <p>Make this journal entry public</p>
-                            {/* Render the correct box based on the journal entry privacy */}
-                            {review.public ? (
-                                <MdOutlineCheckBox
-                                    className={styles.checkBox}
-                                    onClick={() => makePublic(review.id)}
-                                    aria-label="Make journey private"
-                                    role="button"
-                                />
-                            ) : (
-                                <MdOutlineCheckBoxOutlineBlank
-                                    className={styles.checkBox}
-                                    onClick={() => makePublic(review.id)}
-                                    aria-label="Make journey public"
-                                    role="button"
-                                />
-                            )}
-                        </section>
-                    </section>
-                ))
+                    ),
+                )
             ) : (
                 <p className={styles.noJournal}>No reviews found for {country}</p>
             )}

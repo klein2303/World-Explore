@@ -6,7 +6,7 @@ import ReviewBox from "../components/ReviewBox/ReviewBox";
 import { SlPencil } from "react-icons/sl";
 import { useEffect, useState } from "react";
 import JournalEntryModal from "../components/JournalEntryModal/JournalEntryModal"; // Import the modal component
-import { JournalType } from "../types/JournalType"; // Import your JournalType
+import { JournalTypeWrite } from "../types/JournalType"; // Import your JournalType
 
 const JournalPage = () => {
     // Get countryName from the URL
@@ -29,7 +29,7 @@ const JournalPage = () => {
     };
 
     // Handle submission of journal entry
-    const handleJournalSubmit = (entry: JournalType) => {
+    const handleJournalSubmit = (entry: JournalTypeWrite) => {
         console.log("New journal entry submitted:", entry);
         // Add your logic here to save the journal entry
         // Then close the modal

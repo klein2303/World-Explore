@@ -64,7 +64,7 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                         {review.date}
                     </p>
                 </header>
-                
+
                 <div className={styles.reviewInfo}>
                     <p className={styles.reviewRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
                         <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />

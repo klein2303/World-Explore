@@ -23,22 +23,6 @@ const MyJournals = () => {
         setCurrentPage({ page: value });
     };
 
-    // Keep this effect to update the subtitle based on window width
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth <= 768) {
-                setSubtitleText("Tap the images to dive into your adventures!");
-            } else {
-                setSubtitleText("Your travel stories, captured and cherished forever.");
-            }
-        };
-
-        window.addEventListener("resize", handleResize);
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
     const profileid = removeQuotes(sessionStorage.getItem("user")!);
 
     const WRITTEN_JOURNALS = gql`
@@ -55,6 +39,22 @@ const MyJournals = () => {
         fetchPolicy: "cache-first", // Used for first execution
         nextFetchPolicy: "cache-first", // Used for subsequent executions
     });
+
+    // Keep this effect to update the subtitle based on window width
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 768) {
+                setSubtitleText("Tap the images to dive into your adventures!");
+            } else {
+                setSubtitleText("Your travel stories, captured and cherished forever.");
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -82,12 +82,12 @@ const MyJournals = () => {
                             role="tabpanel"
                             aria-labelledby="journals-tab"
                             className={styles.grid}>
-                            {data.writtenjournals.map((journal: { countryid: string; image: string }) => (
+                            {data.writtenjournals.map((journal: { countryid: string; countryimage: string }) => (
                                 <JournalCard
                                     key={journal.countryid}
                                     country={journal.countryid}
                                     date={"2022-01-01"}
-                                    image={journal.image}
+                                    image={journal.countryimage}
                                 />
                             ))}
                         </section>

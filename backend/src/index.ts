@@ -204,7 +204,6 @@ const resolvers = {
                     countryid: countryid,
                     countryimage: countryimage,
                     profileid: profileid.toLowerCase(),
-    
                 },
             });
         },
@@ -217,17 +216,13 @@ const resolvers = {
                 throw new Error("Invalid date");
             }
 
-            console.log("Profile ID provided:", profileid.toLowerCase());
-            console.log("Type of profileid:", typeof profileid);
-
             const profileExists = await prisma.profile.findUnique({
-                where: { 
-                    email: profileid,
-                }
+                where: {
+                    email: profileid.toLowerCase(),
+                },
             });
-              
+
             if (!profileExists.email) {
-                console.log(profileExists);
                 throw new Error("Profile with the given ID does not exist.");
             }
 
@@ -240,14 +235,11 @@ const resolvers = {
                     id: true,
                 },
             });
-            
+
             if (!journal) {
                 const countryimage = await prisma.country.findFirst({
                     where: {
                         name: countryid,
-                    },
-                    select: {
-                        image: true,
                     },
                 });
 
@@ -255,7 +247,7 @@ const resolvers = {
                     data: {
                         countryid: countryid,
                         countryimage: countryimage.image,
-                        profileid: "alicezheng888@gmail.com",
+                        profileid: profileid.toLowerCase(),
                     },
                     select: { id: true }, // Select the `id` field to use in the next step
                 });
@@ -270,7 +262,7 @@ const resolvers = {
                     ispublic: ispublic,
                     journal: {
                         connect: {
-                            id: await journal.id,
+                            id: journal.id,
                         },
                     },
                 },

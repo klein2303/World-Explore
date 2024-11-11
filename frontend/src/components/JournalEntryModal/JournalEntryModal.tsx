@@ -2,13 +2,15 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./JournalEntryModal.module.css";
 import { FaStar } from "react-icons/fa";
 import { removeQuotes } from "../../utils/utils";
-import {gql, useMutation } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
+import { JournalTypeWrite } from "../../types/JournalType";
 
 interface JournalEntryModalProps {
     country: string;
     isOpen: boolean;
     onClose: () => void;
+    onSubmit: (entry: JournalTypeWrite) => void;
 }
 
 const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps) => {
@@ -20,12 +22,28 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     const [error, setError] = useState<string>("");
 
     const modalRef = useRef<HTMLDivElement>(null);
-    const user = removeQuotes(sessionStorage.getItem("user")!)
+    const user = removeQuotes(sessionStorage.getItem("user")!);
     const navigate = useNavigate();
 
     const CREATE_REVIEW = gql`
-        mutation addReview($title: String!, $date: String!, $rating: Int!, $text: String!, $ispublic: Boolean!, $profileid: String!, $countryid: String!) {
-            addReview(title: $title, date: $date, rating: $rating, text: $text, ispublic: $ispublic, profileid: $profileid, countryid: $countryid) {
+        mutation addReview(
+            $title: String!
+            $date: String!
+            $rating: Int!
+            $text: String!
+            $ispublic: Boolean!
+            $profileid: String!
+            $countryid: String!
+        ) {
+            addReview(
+                title: $title
+                date: $date
+                rating: $rating
+                text: $text
+                ispublic: $ispublic
+                profileid: $profileid
+                countryid: $countryid
+            ) {
                 ispublic
             }
         }
@@ -33,19 +51,16 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
 
     const [addReview] = useMutation(CREATE_REVIEW, {
         onCompleted: async () => {
-            console.log("Review added successfully");
             setError("");
             onClose();
-            navigate(0)
+            navigate(0);
         },
         onError: (error) => {
-            console.error("Error adding review:", error);
             setError(error.message);
         },
     });
 
-
-    useEffect(() => {   
+    useEffect(() => {
         const focusableElements = modalRef.current?.querySelectorAll(
             'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
         );
@@ -81,22 +96,16 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     const handleSubmit = () => {
         addReview({
             variables: {
-              title: title,
-              date: date,
-              rating: rating,
-              text: text,
-              ispublic: isPublic,
-              profileid: user,
-              countryid: country,
+                title: title,
+                date: date,
+                rating: rating,
+                text: text,
+                ispublic: isPublic,
+                profileid: user,
+                countryid: country,
             },
         });
     };
-
-    useEffect(() => {
-        if (user) {
-            console.log(user.toLowerCase());
-        }
-    }, [])
 
     return isOpen ? (
         <div

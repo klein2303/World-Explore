@@ -32,4 +32,4 @@ export type writeReviewType = {
             email: string;
         };
     };
-}
+};

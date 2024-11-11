@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./JournalCard.module.css";
 import { Link, useNavigate } from "react-router-dom"; // Importing useNavigate to manually navigate programmatically
-import { JournalType } from "../../types/JournalType";
+import { JournalTypeWrite } from "../../types/JournalType";
 import JournalEntryModal from "../JournalEntryModal/JournalEntryModal";
 
 interface JournalCardProps {
@@ -28,10 +28,14 @@ const JournalCard = ({ country, date, image }: JournalCardProps) => {
     };
 
     // Handle journal submission and close the modal afterward
-    const handleJournalSubmit = (entry: JournalType) => {
+    const handleJournalSubmit = (entry: JournalTypeWrite) => {
         console.log("New Journal Entry:", entry);
         handleCloseModal();
     };
+
+    useEffect(() => {
+        console.log(image);
+    }, []);
 
     return (
         <article className={styles.cardWrapper} aria-label={`Journal card wrapper for ${country}`}>

@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar/Navbar";
 import { PiArrowElbowDownLeft } from "react-icons/pi";
 import styles from "../styles/JournalPage.module.css";
 import ReviewBox from "../components/ReviewBox/ReviewBox";
-import { SlPencil } from "react-icons/sl";
 import { useEffect, useState } from "react";
 import JournalEntryModal from "../components/JournalEntryModal/JournalEntryModal"; // Import the modal component
 import { JournalTypeWrite } from "../types/JournalType"; // Import your JournalType
@@ -19,9 +18,9 @@ const JournalPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Function to open the modal
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
+    // const openModal = () => {
+    //     setIsModalOpen(true);
+    // };
 
     // Function to close the modal
     const closeModal = () => {

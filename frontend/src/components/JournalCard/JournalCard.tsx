@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./JournalCard.module.css";
 import { Link, useNavigate } from "react-router-dom"; // Importing useNavigate to manually navigate programmatically
 import { JournalTypeWrite } from "../../types/JournalType";
@@ -28,10 +28,6 @@ const JournalCard = ({ country, image }: JournalCardProps) => {
         console.log("New Journal Entry:", entry);
         handleCloseModal();
     };
-
-    useEffect(() => {
-        console.log(image);
-    }, []);
 
     return (
         <article className={styles.cardWrapper} aria-label={`Journal card wrapper for ${country}`}>

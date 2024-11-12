@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import styles from "./ReviewBox.module.css";
 import { MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox } from "react-icons/md";
 import { FaRegStar, FaStar } from "react-icons/fa";
@@ -57,13 +56,6 @@ const ReviewBox = ({ country }: journalCountry) => {
     //         setReviews({ ...reviews, reviews: updatedReviews });
     //     }
     // };
-
-    useEffect(() => {
-        console.log("Country:", country);
-        console.log(country == "Brunei");
-        console.log("User:", user);
-        console.log("Data:", data);
-    }, [data]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;

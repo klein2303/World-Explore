@@ -1,12 +1,16 @@
 const { PrismaClient } = require("@prisma/client");
+const { hash } = require("bcryptjs");
+
 const prisma = new PrismaClient();
 
 async function addProfile() {
     try {
+        const password = await hash("password", 10);
+
         const profileData = {
             username: "John3",
             email: "john@gmail.com",
-            password: "password",
+            password: password,
         };
 
         // Insert Profile

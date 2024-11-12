@@ -39,6 +39,8 @@ const typeDefs = `
         countryimage: String!
         profileid: String!
 
+        profile: Profile!
+
         reviews: [Review!]!
     }
     
@@ -51,6 +53,7 @@ const typeDefs = `
         ispublic: Boolean!
 
         journalid: Int!
+        journal: Journal!
     }
     
     type Profile {
@@ -81,7 +84,7 @@ const typeDefs = `
 
     type Mutation {
       addJournal(countryid: String!, countryimage: String!, profileid: String!): Journal
-      addReview(title: String!, date: String!, rating: Int!, text: String!, ispublic: Boolean!, journalid: Int!): Review
+      addReview(title: String!, date: String!, rating: Int!, text: String!, ispublic: Boolean!, profileid: String!, countryid: String!): Review
 
       addProfile(username: String!, email: String!, password: String!): Profile
       login( email: String!, password: String!): AuthPayload
@@ -159,6 +162,17 @@ const resolvers = {
                         countryid: country,
                     },
                 },
+                include: {
+                    journal: {
+                        include: {
+                            profile: {
+                                select: {
+                                    username: true,
+                                },
+                            },
+                        },
+                    },
+                },
             });
         },
         writtenjournals: async (_, { skip, profileid }) => {
@@ -166,7 +180,7 @@ const resolvers = {
                 skip: skip,
                 take: 15,
                 where: {
-                    profileid: profileid,
+                    profileid: profileid.toLowerCase(),
                     reviews: {
                         some: {},
                     },
@@ -177,7 +191,10 @@ const resolvers = {
             return await prisma.journal.findFirst({
                 where: {
                     countryid: countryid,
-                    profileid: profileid,
+                    profileid: profileid.toLowerCase(),
+                },
+                include: {
+                    reviews: true,
                 },
             });
         },
@@ -189,11 +206,56 @@ const resolvers = {
                 data: {
                     countryid: countryid,
                     countryimage: countryimage,
-                    profileid: profileid,
+                    profileid: profileid.toLowerCase(),
                 },
             });
         },
-        addReview: async (_, { title, date, rating, text, ispublic, journalid }) => {
+        addReview: async (_, { title, date, rating, text, ispublic, profileid, countryid }) => {
+            if (date === "" || title === "" || text === "" || rating === "" || ispublic === "") {
+                throw new Error("Please fill out all fields");
+            }
+
+            if (date > new Date().toISOString().split("T")[0]) {
+                throw new Error("Invalid date");
+            }
+
+            const profileExists = await prisma.profile.findUnique({
+                where: {
+                    email: profileid.toLowerCase(),
+                },
+            });
+
+            if (!profileExists.email) {
+                throw new Error("Profile with the given ID does not exist.");
+            }
+
+            let journal = await prisma.journal.findFirst({
+                where: {
+                    profileid: await profileid.toLowerCase(),
+                    countryid: countryid,
+                },
+                select: {
+                    id: true,
+                },
+            });
+
+            if (!journal) {
+                const countryimage = await prisma.country.findFirst({
+                    where: {
+                        name: countryid,
+                    },
+                });
+
+                journal = await prisma.journal.create({
+                    data: {
+                        countryid: countryid,
+                        countryimage: countryimage.image,
+                        profileid: profileid.toLowerCase(),
+                    },
+                    select: { id: true }, // Select the `id` field to use in the next step
+                });
+            }
+
             return await prisma.review.create({
                 data: {
                     title: title,
@@ -203,7 +265,7 @@ const resolvers = {
                     ispublic: ispublic,
                     journal: {
                         connect: {
-                            id: journalid,
+                            id: journal.id,
                         },
                     },
                 },
@@ -236,11 +298,28 @@ const resolvers = {
             });
         },
         signup: async (_, { username, email, password }) => {
+            if (username === "" || email === "" || password === "") {
+                throw new Error("Please fill out all fields");
+            }
+
+            if (password.length < 8) {
+                throw new Error("Password must be at least 8 characters");
+            }
+
+            if (username.length < 3) {
+                throw new Error("Username must be at least 3 characters");
+            }
+
+            if (username.length > 20) {
+                throw new Error("Username must be less than 20 characters");
+            }
+
             const userExists = await prisma.profile.findUnique({
                 where: {
                     email: email.toLowerCase(),
                 },
             });
+
             if (userExists) {
                 throw new Error("User already exists");
             }

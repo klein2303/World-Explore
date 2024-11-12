@@ -7,6 +7,7 @@ import { useRecoilState } from "recoil";
 import { myJournalPageAtom } from "../atoms/MyJournalPageAtom";
 import { gql, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
+import { removeQuotes } from "../utils/utils";
 
 const MyJournals = () => {
     const ITEMS_PER_PAGE = 15;
@@ -21,6 +22,23 @@ const MyJournals = () => {
     const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
         setCurrentPage({ page: value });
     };
+
+    const profileid = removeQuotes(sessionStorage.getItem("user")!);
+
+    const WRITTEN_JOURNALS = gql`
+        query GetWrittenJournals($skip: Int, $profileid: String!) {
+            writtenjournals(skip: $skip, profileid: $profileid) {
+                countryid
+                countryimage
+            }
+        }
+    `;
+
+    const { data, loading, error } = useQuery(WRITTEN_JOURNALS, {
+        variables: { skip: currentPage.page > 0 ? (currentPage.page - 1) * 12 : 0, profileid: profileid },
+        fetchPolicy: "cache-first", // Used for first execution
+        nextFetchPolicy: "cache-first", // Used for subsequent executions
+    });
 
     // Keep this effect to update the subtitle based on window width
     useEffect(() => {
@@ -37,23 +55,6 @@ const MyJournals = () => {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
-
-    const profileid = sessionStorage.getItem("user");
-
-    const WRITTEN_JOURNALS = gql`
-        query GetWrittenJournals($skip: Int, $profileid: String!) {
-            writtenjournals(skip: $skip, profileid: $profileid) {
-                countryid
-                countryimage
-            }
-        }
-    `;
-
-    const { data, loading, error } = useQuery(WRITTEN_JOURNALS, {
-        variables: { skip: currentPage.page > 0 ? (currentPage.page - 1) * 12 : 0, profileid: profileid },
-        fetchPolicy: "cache-first", // Used for first execution
-        nextFetchPolicy: "cache-first", // Used for subsequent executions
-    });
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -81,12 +82,11 @@ const MyJournals = () => {
                             role="tabpanel"
                             aria-labelledby="journals-tab"
                             className={styles.grid}>
-                            {data.writtenjournals.map((journal: { countryid: string; image: string }) => (
+                            {data.writtenjournals.map((journal: { countryid: string; countryimage: string }) => (
                                 <JournalCard
                                     key={journal.countryid}
                                     country={journal.countryid}
-                                    date={"2022-01-01"}
-                                    image={journal.image}
+                                    image={journal.countryimage}
                                 />
                             ))}
                         </section>

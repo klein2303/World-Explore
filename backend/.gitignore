@@ -8,5 +8,8 @@ prisma/migrations/
 .env
 .env.local
 
+# Editor directories and files
+.DS_Store
+
 # package-lock json
 package-lock.json

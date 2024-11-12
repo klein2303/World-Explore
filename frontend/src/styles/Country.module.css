@@ -215,6 +215,14 @@
     }
 }
 
+@media (max-width: 768px) {
+    .entriesGrid {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+}
+
 @media (max-width: 620px) {
     .container {
         width: 380px;

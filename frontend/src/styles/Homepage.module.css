@@ -2,11 +2,11 @@
 .page {
     display: grid;
     place-items: center;
-    margin: 0;
+    margin-top: 4.5%;
 }
 
 .imageArticle {
-    width: 100%;
+    width: 95%;
     height: 450px;
     position: relative;
     display: flex;
@@ -14,13 +14,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
-
-.popularCountriesSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /*Display specific CSS below */
@@ -32,63 +26,66 @@
         position: absolute;
         width: fit-content;
         height: fit-content;
-        top: 10%;
-        left: 50%;
         transform: translate(-50%, -50%);
         color: #eeeeee;
         font-size: 30px;
         font-style: italic;
         text-align: center;
+        top: 32%;
     }
 
     .bottomText {
         position: absolute;
-        top: 34%;
-        left: 50%;
+        width: fit-content;
+        height: fit-content;
         transform: translate(-50%, -50%);
         color: #ffffff;
-        font-size: 54px;
+        font-size: 50px;
         font-style: italic;
         text-align: center;
+        top: 55%;
     }
 
     .image {
         max-height: auto;
-        max-width: 90vw;
-        border-radius: 15px;
         position: relative;
         filter: opacity(0.8);
         filter: contrast(80%);
         object-fit: cover;
     }
+
+
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1280px) {
     /*Tablet */
 
+    .imageArticle{
+        height: 350px;
+    }
     .topText {
         position: absolute;
         width: 90%;
         height: fit-content;
-        top: 16%;
-        left: 50%;
         transform: translate(-50%, -50%);
         color: #ffffff;
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 30px;
+        font-weight: 300;
         font-style: italic;
         text-align: center;
+        top: 35%;
+        
     }
 
     .bottomText {
         position: absolute;
-        width: 90%;
+        width: 75%;
         height: fit-content;
-        top: 32%;
+        top: 55%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: #f7f7f7;
-        font-size: 36px;
+        font-size: 40px;
         font-style: italic;
         text-align: center;
     }
@@ -96,7 +93,6 @@
     .image {
         max-height: auto;
         max-width: 90vw;
-        border-radius: 15px;
         position: relative;
         filter: opacity(0.8);
         filter: contrast(80%);
@@ -104,54 +100,31 @@
     }
 }
 
-@media (max-width: 650px) {
-    /*Phone */
-    .imageArticle {
-        width: 100%;
-        height: 400px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+@media (max-width: 770px){
+
+    .imageArticle{
+        margin-bottom: 0px;
     }
 
-    .topText {
-        position: absolute;
-        width: 280px;
-        height: fit-content;
-        top: 32%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #ffffff;
+    .topText{
+        font-size: 15px;
+        top: 42%;
+    }
+
+    .bottomText{
         font-size: 20px;
-        font-weight: bold;
-        font-style: italic;
-        text-align: center;
-    }
-
-    .bottomText {
-        position: absolute;
-        width: 280px;
-        height: fit-content;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #ffffff;
-        font-size: 26px;
-        font-weight: bold;
-        font-style: italic;
-        text-align: center;
-    }
-
-    .image {
-        height: 400px;
-        max-width: 100%;
-        border-radius: 0px;
-        position: relative;
-        filter: opacity(0.8);
-        filter: contrast(80%);
-        object-fit: cover;
+        top: 55%;
     }
 }
+
+@media (max-width: 500px){
+    .page{
+        margin-top: 0.5%;
+    }
+}
+
+
+
+
+
+

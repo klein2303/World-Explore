@@ -127,7 +127,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                 <section className={styles.loginOrRegister} aria-label="Register a new account">
                     {/*Register component*/}
                     <section className={styles.title} aria-label="Title">
-                        <h3 aria-label="Create a new account">Create an account</h3>
+                        <h5 aria-label="Create a new account">Create an account</h5>
                     </section>
                     <hr className={styles.line} />
                     <section className={styles.inputSections} aria-label="Input fields">

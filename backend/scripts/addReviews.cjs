@@ -111,9 +111,9 @@ async function addReviews() {
                     ispublic: true,
                     journal: {
                         connect: {
-                            id: journalId
-                        }
-                    }
+                            id: journalId,
+                        },
+                    },
                 },
                 {
                     title: "Beautiful country",
@@ -135,9 +135,9 @@ async function addReviews() {
                     ispublic: true,
                     journal: {
                         connect: {
-                            id: journalId
-                        }
-                    }
+                            id: journalId,
+                        },
+                    },
                 },
                 {
                     title: "Interesting country",
@@ -160,9 +160,9 @@ async function addReviews() {
                     journal: {
                         connect: {
                             id: journalId,
-                        }
-                    }
-                }, 
+                        },
+                    },
+                },
                 {
                     title: "A Culinary Adventure",
                     date: `200${journalId}-08-13`,
@@ -171,9 +171,9 @@ async function addReviews() {
                     ispublic: true,
                     journal: {
                         connect: {
-                            id: journalId
-                        }
-                    }
+                            id: journalId,
+                        },
+                    },
                 },
                 {
                     title: "Rich in History and Tradition",
@@ -183,10 +183,10 @@ async function addReviews() {
                     ispublic: true,
                     journal: {
                         connect: {
-                            id: journalId
-                        }
-                    }
-                }
+                            id: journalId,
+                        },
+                    },
+                },
             ];
 
             // Insert Reviews

@@ -83,10 +83,12 @@
 
 /* Grid layout for journal cards */
 .grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    gap: 30px;
     justify-items: center;
+    justify-content: center;
 }
 
 .pagination {

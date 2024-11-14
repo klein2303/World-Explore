@@ -56,7 +56,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
         // On successful signup, store token and user email, then navigate to the home page
         onCompleted: async ({ signup }) => {
             setError("");
-            localStorage.setItem("auth-token", signup.token);
+            sessionStorage.setItem("auth-token", signup.token);
             sessionStorage.setItem("user", JSON.stringify(signup.user.email));
             navigate("/");
         },

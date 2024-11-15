@@ -1,6 +1,7 @@
 import Router from "./Router";
 import { RecoilRoot } from "recoil";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { ThemeProvider } from "./context/ThemeContext";  // Import ThemeProvider
 
 // change uri to if we want to get anything from the vm http://it2810-10.idi.ntnu.no:3001/
 const client = new ApolloClient({
@@ -12,7 +13,9 @@ function App() {
     return (
         <ApolloProvider client={client}>
             <RecoilRoot>
-                <Router />
+                <ThemeProvider>  {/* Wrap your app with ThemeProvider */}
+                    <Router />
+                </ThemeProvider>
             </RecoilRoot>
         </ApolloProvider>
     );

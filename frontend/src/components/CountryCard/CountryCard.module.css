@@ -10,8 +10,20 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark mode Card Container */
+body[data-theme='dark'] .cardcontainer {
+    background-color: #8A86A4; 
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+}
+
 .cardcontainer:hover{
     background-color: #ddd9e3;
+}
+
+/* Dark mode hover effect */
+body[data-theme='dark'] .cardcontainer:hover {
+    background-color: #827f7f; 
 }
 
 .cardimage {
@@ -31,6 +43,11 @@
     color: #424242;
 }
 
+/* Dark mode information section */
+body[data-theme='dark'] .information {
+    color: white; 
+}
+
 .icon {
     cursor: pointer;
     font-size: 22px;
@@ -39,6 +56,11 @@
 .icon:hover{
     fill:#424242;
     font-size: 25px;
+}
+
+/* Dark mode icon hover effect */
+body[data-theme='dark'] .icon:hover {
+    fill: white; 
 }
 
 .name {

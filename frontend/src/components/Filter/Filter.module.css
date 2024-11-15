@@ -1,35 +1,61 @@
+/* General Filter Styles */
 .filtercontainer {
     background-color: #e4e1f7;
     height: fit-content;
     width: 180px;
-
     display: flex;
     justify-content: center;
     padding: 20px;
     border-radius: 10px;
 }
 
+/* Dark mode Filter Container */
+body[data-theme='dark'] .filtercontainer {
+    background-color: #8A86A4;
+    color: white;
+}
+
+/* Information Box */
 .informationbox {
     height: fit-content;
     width: 100%;
 }
 
+/* Title Styling */
 .title {
     color: #424242;
     font-size: 22px;
 }
 
+/* Dark mode title styling */
+body[data-theme='dark'] .title {
+    color: white;
+}
+
+/* Description Styling */
 .decription {
     color: #424242;
     font-size: 17px;
     margin-top: 10px;
 }
 
+/* Dark mode description styling */
+body[data-theme='dark'] .decription {
+    color: white;
+}
+
+/* Filter List */
 .filterlist {
     font-size: 15px;
     gap: 14px;
 }
 
+/* Dark mode filter list styling */
+body[data-theme='dark'] .filterlist {
+    color: white;
+}
+
+/* Filter Item */
 .filteritem {
     display: flex;
     align-items: center;
@@ -37,10 +63,17 @@
     color: #424242;
 }
 
+/* Dark mode filter item styling */
+body[data-theme='dark'] .filteritem {
+    color: white;
+}
+
+/* Checkbox Hidden */
 .checkbox {
     display: none;
 }
 
+/* Custom Checkbox */
 .customCheckbox {
     cursor: pointer;
     display: flex;
@@ -51,6 +84,16 @@
     color: #424242;
 }
 
+.checkboxVisual:hover {
+    background-color: #424242;
+}
+
+/* Dark mode custom checkbox styling */
+body[data-theme='dark'] .customCheckbox {
+    color: white;
+}
+
+/* Checkbox Visual */
 .checkboxVisual {
     height: 12px;
     width: 12px;
@@ -61,27 +104,39 @@
     align-items: center;
 }
 
+/* Dark mode checkbox visual styling */
+body[data-theme='dark'] .checkboxVisual {
+    border: 1px solid #ffffff;
+}
+
+/* Checked checkbox styling */
 .checkbox:checked + label .checkboxVisual {
     background-color: #424242;
 }
 
+/* Dark mode checked checkbox styling */
+body[data-theme='dark'] .checkbox:checked + label .checkboxVisual {
+    background-color: #ffffff;
+}
+
+body[data-theme='dark'] .checkboxVisual:hover {
+    background-color: white;
+}
+
+/* Mobile and Tablet adjustments for dark mode */
 @media (max-width: 750px) {
-    .title {
-        display: none;
-    }
-
-    .decription {
-        display: none;
-    }
-
     .filtercontainer {
         background-color: white;
         height: fit-content;
         width: 410px;
-
         display: flex;
         justify-content: center;
         margin-left: 10px;
+    }
+
+    /* Dark mode mobile filter container */
+    body[data-theme='dark'] .filtercontainer {
+        background-color: #424242;
     }
 
     .informationbox {
@@ -92,49 +147,58 @@
     .filterlist {
         font-size: 13px;
         gap: 14px;
-
         display: flex;
         flex-direction: row;
-
         overflow-x: auto;
         white-space: nowrap;
     }
 
+    /* Mobile filter checkbox styles */
     .checkboxVisual {
         display: none;
+    }
+
+    .checkboxVisual:hover {
+        fill: #424242;
     }
 
     .customCheckbox {
         height: fit-content;
         width: fit-content;
         padding: 5px;
-
         border-radius: 10px;
         border: 2px solid #e4e1f7;
     }
 
+    /* Dark mode mobile custom checkbox */
+    body[data-theme='dark'] .customCheckbox {
+        border: 2px solid #8A86A4;
+    }
+
     .checkbox:checked + .customCheckbox {
         background-color: #e4e1f7;
+    }
+
+    /* Dark mode checked custom checkbox */
+    body[data-theme='dark'] .checkbox:checked + .customCheckbox {
+        background-color: #8A86A4;
     }
 }
 
 @media (max-width: 620px) {
-    .title {
-        display: none;
-    }
-
-    .decription {
-        display: none;
-    }
-
     .filtercontainer {
         background-color: white;
         height: fit-content;
         width: 340px;
-
         display: flex;
         justify-content: center;
         margin-left: 10px;
+    }
+
+    /* Dark mode filter container */
+    body[data-theme='dark'] .filtercontainer {
+        background-color: #424242;
+        color: white;
     }
 
     .informationbox {
@@ -145,14 +209,13 @@
     .filterlist {
         font-size: 13px;
         gap: 14px;
-
         display: flex;
         flex-direction: row;
-
         overflow-x: auto;
         white-space: nowrap;
     }
 
+    /* Dark mode mobile filter checkbox styles */
     .checkboxVisual {
         display: none;
     }
@@ -161,12 +224,21 @@
         height: fit-content;
         width: fit-content;
         padding: 5px;
-
         border-radius: 10px;
-        border: 2px solid #e4e1f7;
+        border: 2px solid #8A86A4;
+    }
+
+    /* Dark mode custom checkbox */
+    body[data-theme='dark'] .customCheckbox {
+        border: 2px solid #8A86A4;
     }
 
     .checkbox:checked + .customCheckbox {
-        background-color: #e4e1f7;
+        background-color: #ffffff;
+    }
+
+    /* Dark mode checked custom checkbox */
+    body[data-theme='dark'] .checkbox:checked + .customCheckbox {
+        background-color: #8A86A4;
     }
 }

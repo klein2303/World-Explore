@@ -5,10 +5,12 @@ import { useState } from "react";
 import { CgProfile } from "react-icons/cg";
 import { GoSearch } from "react-icons/go";
 import { LuMapPin } from "react-icons/lu";
+import { useTheme } from "../../context/ThemeContext";  // Import useTheme hook
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
+    const { theme, toggleTheme } = useTheme(); // Access the current theme and toggle function
 
     const token = sessionStorage.getItem("auth-token");
 
@@ -22,7 +24,7 @@ const Navbar = () => {
             {token ? (
                 <main>
                     {/* Main navigation section of the page */}
-                    <nav className={styles.navbar} role="navigation" aria-label="Main Navigation">
+                    <nav className={`${styles.navbar} ${theme === 'dark' ? styles.dark : styles.light}`} role="navigation" aria-label="Main Navigation">
                         {isOpen && (
                             <div className={styles.mobilemenu} role="dialog" aria-label="Mobile Navigation Menu">
                                 {/* Close button for mobile menu */}
@@ -107,6 +109,14 @@ const Navbar = () => {
                                 </div>
                             )}
                         </div>
+                        {/* Theme Toggle Button */}
+                        <button
+                            className={styles.themeToggle}
+                            onClick={toggleTheme} // Call toggleTheme when clicked
+                            aria-label="Toggle Theme"
+                        >
+                            {theme === 'dark' ? '🌙' : '🌞'} {/* Icon for dark/light mode */}
+                        </button>
                     </nav>
                 </main>
             ) : (

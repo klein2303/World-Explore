@@ -45,8 +45,8 @@
     font-family: "Poppins", sans-serif;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #e4e1f7; /* Light purple background for input fields */
-    color: #424242; /* Gray text */
+    background-color: #e4e1f7; 
+    color: #424242; 
 }
 
 .no-scroll {
@@ -142,6 +142,7 @@ input[type="checkbox"] {
     color: #424242; /* Title color */
     text-align: center; /* Center the title */
     font-size: 1.2rem; /* Larger font size */
+    font-weight: 500;
     margin-top: 15px; /* Adjusted margin to prevent overlap with close button */
     margin-bottom: 10px; /* Ensure the title has enough space from the content below */
 }

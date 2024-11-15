@@ -1,22 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
-import { GoSearch } from "react-icons/go";
 import { LuMapPin } from "react-icons/lu";
+import { LiaGlobeSolid } from "react-icons/lia";
 import { useTheme } from "../../context/ThemeContext";  // Import useTheme hook
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false);
+    const [activeLink, setActiveLink] = useState<string>("/");    
     const { theme, toggleTheme } = useTheme(); // Access the current theme and toggle function
 
     const token = sessionStorage.getItem("auth-token");
+    const location = useLocation(); // Get the current location
+
+    // Effect to set active link based on the current path
+    useEffect(() => {
+        setActiveLink(location.pathname); // Update active link on location change
+    }, [location]);
 
     const handleSignOut = () => {
         sessionStorage.removeItem("auth-token");
         sessionStorage.removeItem("user");
+    };
+
+    const handleLinkClick = (link: string) => {
+        setActiveLink(link); // Immediately set the clicked link as active
+        setIsOpen(false); // Close the mobile menu if it's open
     };
 
     return (
@@ -36,18 +48,27 @@ const Navbar = () => {
                                     />
                                 </div>
 
-                                <Link to={"/"} className={styles.navlink} aria-label="Home">
+                                <Link 
+                                    to="/" 
+                                    className={`${styles.navlink} ${activeLink === '/' ? styles.active : ''}`} 
+                                    onClick={() => handleLinkClick('/')} 
+                                    aria-label="Home">
                                     <p>Home</p>
                                 </Link>
-                                <Link
-                                    to={"/ExploreCountries"}
-                                    className={styles.navlink}
-                                    aria-label="Explore Countries">
-                                    <p>Explore Countries</p>
-                                </Link>
-                                <Link to={"/MyJournals"} className={styles.navlink} aria-label="My Journals">
-                                    <p>My Journals</p>
-                                </Link>
+                                <Link 
+                            to="/ExploreCountries" 
+                            className={`${styles.navlink} ${activeLink === '/ExploreCountries' ? styles.active : ''}`}  
+                            onClick={() => handleLinkClick('/ExploreCountries')} 
+                            aria-label="Explore Countries">
+                            <p>Explore Countries</p>
+                        </Link>
+                        <Link 
+                            to="/MyJournals" 
+                            className={`${styles.navlink} ${activeLink === '/MyJournals' ? styles.active : ''}`} 
+                            onClick={() => handleLinkClick('/MyJournals')} 
+                            aria-label="My Journals">
+                            <p>My Journals</p>
+                        </Link>
 
                                 <Link to={"/"} className={styles.signOut} onClick={handleSignOut} aria-label="Sign out">
                                     <p>Sign Out</p>
@@ -68,46 +89,21 @@ const Navbar = () => {
 
                         <div className={styles.navlinks} role="group" aria-label="Navigation Links">
                             <Link to={"/ExploreCountries"} className={styles.navlink}>
-                                <GoSearch className={styles.search} aria-hidden="true" />
+                                <LiaGlobeSolid className={styles.search} aria-hidden="true" />
                                 <p>Explore Countries</p>
                             </Link>
                             <Link to={"/MyJournals"} className={styles.navlink}>
                                 <LuMapPin className={styles.pin} aria-hidden="true" />
                                 <p>My Journals</p>
                             </Link>
-
-                            {/* Profile button to open profile menu */}
-                            <CgProfile
-                                className={styles.profile}
-                                onClick={() => setIsProfileOpen(true)}
-                                aria-label="Open Profile Menu"
-                            />
-
-                            {/* Profile menu when open */}
-                            {isProfileOpen && (
-                                <div
-                                    className={styles.profilemenu}
-                                    role="dialog"
-                                    aria-modal="true"
-                                    aria-label="Profile Menu">
-                                    {/* Close button for profile menu */}
-                                    <div className={styles.crosspos} role="presentation">
-                                        <CgProfile
-                                            className={styles.profile}
-                                            onClick={() => setIsProfileOpen(false)}
-                                            aria-label="Close Profile Menu"
-                                        />
-                                    </div>
-
-                                    <Link
-                                        to={"/"}
-                                        className={styles.signOut}
-                                        onClick={handleSignOut}
-                                        aria-label="Sign out">
-                                        <p>Sign out</p>
-                                    </Link>
-                                </div>
-                            )}
+                            <Link to={"/Login"} className={styles.navlink}>
+                                <CgProfile
+                                    className={styles.profile}
+                                    onClick={() => setIsProfileOpen(true)}
+                                    aria-label="Open Profile Menu"
+                                />
+                                <p>Sign Out</p>
+                            </Link>
                         </div>
                         {/* Theme Toggle Button */}
                         <button

@@ -1,8 +1,31 @@
-.registerPage {
+.registerPage,
+.loginPage {
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
     background-color: #e4e1f7;
+    overflow: hidden;
+}
+
+.inputSection {
+    width: 45%;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.image {
+    height: 100%;
+    width: 55%;
+}
+
+.loginOrRegisterComponent {
+    height: auto;
+    width: auto;
+    padding: 10%;
 }
 
 .logoLink {
@@ -12,76 +35,86 @@
 
 .logo {
     height: max-content;
-    width: 35vw;
-    margin-left: 10px;
+    width: 70%;
     text-decoration: none;
     color: #424242;
-    font-size: 30px;
+    font-size: 20px;
+    margin-top: 22.5px;
+
+}
+
+.linkToLogIn{
+    width: 30%;
+    text-align: end;
 }
 
 .linkToLogIn a {
     color: #000000;
     font-weight: 300;
     font-size: 15px;
+    text-decoration: none;
 }
 
-.headerRegisterPage {
+.linkToLogIn a:hover{
+    text-decoration:underline;
+    color: #351939;
+}
+
+.header {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    height: 60px;
 }
 
-.navlinkUnder {
+.navlinkUnder,
+.arrowLink {
     display: none;
 }
-.inputSection {
-    width: 50%;
-    padding: 20px;
-    justify-content: center;
-    height: 100%;
-}
-.inputSection,
-.image {
-    height: 100%;
-    flex-grow: 1; /* Make both sections take up available space */
-}
 
-.image {
-    height: 100vh;
-    width: 50vw;
+.navlinkOver p{
+    margin-top: 30px;
+    font-size: 12px;
 }
 
 .imageimage {
     width: 100%;
     object-fit: cover;
+    height: 100%;
 }
 
-@media (max-width: 1140px) {
-    .image {
+@media (max-width: 1020px) {
+
+    .image,
+    .imageimage,
+    .logoLink,
+    .navlinkOver {
         display: none;
     }
 
-    .imageimage {
-        display: none;
-    }
-
-    .registerPage {
+    .registerPage,
+    .loginPage {
         justify-content: center;
-        width: 100vw;
-        height: 100%;
+        align-content: center;
     }
 
     .inputSection {
-        width: 70vw;
-        padding: 0px;
-        justify-content: center;
+        width: 90vw;
+        height: 100vh;
     }
 
-    .navlinkUnder {
+    .navlinkUnder,
+    .arrowLink {
         display: contents;
     }
 
-    .navlinkOver {
-        display: none;
+
+    .arrow {
+        font-size: 20px;
+        color: #000;
+        margin-left: 8%;
+        margin-top: 15%;
+        color: #424242;
     }
 
     .linkToLogInUnder a {
@@ -101,13 +134,4 @@
         align-items: center;
     }
 
-    .logo {
-        height: max-content;
-        width: fit-content;
-        margin-top: 30px;
-        text-decoration: none;
-        text-align: center;
-        color: #424242;
-        font-size: 32px;
-    }
 }

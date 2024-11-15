@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import styles from "./CountryCard.module.css";
-import { LuMapPin } from "react-icons/lu";
+import { SlPencil } from "react-icons/sl";
 import { Link } from "react-router-dom";
 
 interface CountryCardProps {
@@ -9,25 +8,6 @@ interface CountryCardProps {
 }
 
 const CountryCard = ({ name, image }: CountryCardProps) => {
-    const [isFilled, setIsFilled] = useState<boolean>(false);
-
-    const fillMapPin = () => {
-        setIsFilled(!isFilled);
-
-        if (isFilled) {
-            localStorage.removeItem(name);
-        } else {
-            localStorage.setItem(name, "filled");
-        }
-    };
-
-    useEffect(() => {
-        const filled = localStorage.getItem(name);
-        if (filled) {
-            setIsFilled(true);
-        }
-    }, [name]);
-
     return (
         <main className={styles.cardcontainer} role="region" aria-labelledby={`country-name-${name}`}>
             <Link to={`/${name}`}>
@@ -37,24 +17,10 @@ const CountryCard = ({ name, image }: CountryCardProps) => {
                 <p id={`country-name-${name}`} className={styles.name}>
                     {name}
                 </p>
-                {/* Conditionally render the map pin icon based on whether it's filled */}
-                {isFilled ? (
-                    <LuMapPin
-                        onClick={fillMapPin}
-                        className={styles.filled}
-                        role="button"
-                        aria-pressed={isFilled}
-                        aria-label={`Unmark ${name} from visited`}
-                    />
-                ) : (
-                    <LuMapPin
-                        onClick={fillMapPin}
-                        className={styles.icon}
-                        role="button"
-                        aria-pressed={isFilled}
-                        aria-label={`Mark ${name} as visited`}
-                    />
-                )}
+                <SlPencil 
+                    className={styles.icon}
+                    role="button"
+                    aria-label={`Write review from ${name}`}/>
             </div>
         </main>
     );

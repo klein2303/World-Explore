@@ -3,19 +3,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 60px;
 }
 
 .countryLabel {
     flex-direction: row;
     padding: 10px 20px;
     margin: 20px;
-    font-size: 20px;
+    font-size: 14px;
     background-color: #ffffff;
     color: #333;
     transition:
         background-color 0.3s,
         color 0.3s;
+    cursor: pointer; 
+    border-radius: 10px;
+}
+
+.countryLabel:hover {
+    background-color: #e4e1f7;
+}
+
+.popularTitle {
+    margin: 20px;
+    font-weight: 400;
+    color: #424242;
+    margin-bottom: 15px;
+
 }
 
 /*Display specific CSS below*/
@@ -23,7 +38,7 @@
 @media (min-width: 1025px) {
     /*Display */
     .popularTitle {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .labelContainer {
@@ -32,26 +47,39 @@
         justify-content: center;
         max-width: 1000px;
     }
+
+    .popularCountriesSection {
+        margin-top: 15px;
+    }
 }
 
 @media (max-width: 1024px) {
     /*Tablet */
     .popularTitle {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .labelContainer {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        max-width: 700px;
+        max-width: 80%;
+        margin-bottom: 10%;
+    }
+
+    .countryLabel{
+        margin: 5px;
+    }
+
+    .popularCountriesSection {
+        margin-top: 0px;
     }
 }
 
 @media (max-width: 500px) {
     /* Phone*/
     .popularTitle {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .labelContainer {
@@ -64,7 +92,7 @@
     .countryLabel {
         flex-direction: row;
         padding: 10px 12px;
-        margin: 12px;
+        margin: 7px;
         font-size: 14px;
         border-radius: 10px;
         border: 2px solid #d3d3d3;

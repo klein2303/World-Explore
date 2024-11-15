@@ -1,15 +1,14 @@
-.navbar {
+.navbar,
+.notLoggedNavbar {
     background-color: white;
     width: 100%;
-    height: 65px;
+    height: 70px;
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid #e0e0e0; 
-    padding-bottom: 10px; 
-
 }
 
 .navTitle,
@@ -23,6 +22,7 @@
     font-size: 30px;
 }
 
+.login,
 .signOut {
     margin-top: 40px;
     background-color: #e4e1f7;
@@ -52,18 +52,6 @@
     justify-content: space-between;
     margin: 10px;
     font-size: 18px;
-}
-
-.notLoggedNavbar {
-    background-color: white;
-    width: 100%;
-    height: 120px;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 20px;
 }
 
 .profile {
@@ -103,11 +91,9 @@
     border-radius: 10px;
     color: #000000;
     text-decoration: none;
-}
-
-.login:hover{
-    cursor:pointer;
-    background-color: #e4e1f7;
+    background-color: white;
+    font-weight: 300;
+    margin-left: 15px;
 }
 
 .crosspos {
@@ -125,6 +111,10 @@
 }
 
 @media (max-width: 800px) {
+    .notLoggedNavbar{
+        justify-content: start;
+    }
+
     .hamburgmenu {
         display: flex;
         justify-content: start;
@@ -150,6 +140,7 @@
         width: 100%;
         padding-top: 22px;
         padding-bottom: 20px;
+        padding-left: 10px;
     }
 
     .cross {

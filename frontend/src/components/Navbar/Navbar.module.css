@@ -124,6 +124,68 @@
     cursor: pointer;
 }
 
+/* Dark Mode Styles */
+body[data-theme='dark'] .navbar {
+    background-color: #424242; /* Dark background for navbar in dark mode */
+}
+
+body[data-theme='dark'] .navTitle,
+body[data-theme='dark'] .navlink {
+    color: white; /* White text for navbar and nav links in dark mode */
+}
+
+body[data-theme='dark'] .signOut {
+    background-color: #8A86A4; /* Darker background for sign-out button */
+    color: white; /* White text in dark mode */
+}
+
+body[data-theme='dark'] .navlink {
+    color: white; /* White text for nav links in dark mode */
+}
+
+body[data-theme='dark'] .navlink:hover,
+body[data-theme='dark'] .navlink:focus {
+    text-decoration: underline;
+}
+
+body[data-theme='dark'] .search {
+    color: white; /* White color for search icon in dark mode */
+}
+
+body[data-theme='dark'] .profile {
+    color: white; /* White profile icon in dark mode */
+}
+
+body[data-theme='dark'] .login {
+    color: white; /* White text for login button in dark mode */
+    background-color: #424242; /* Darker background in dark mode */
+}
+
+body[data-theme='dark'] .login:hover {
+    background-color: #555; /* Darker background on hover in dark mode */
+}
+
+body[data-theme='dark'] .hamburgmenu {
+    color: white; /* White hamburger icon in dark mode */
+}
+
+body[data-theme='dark'] .profilemenu {
+    background-color: #424242; /* Darker background for profile menu in dark mode */
+}
+
+body[data-theme='dark'] .cross {
+    color: white; /* White cross button in dark mode */
+}
+
+body[data-theme='dark'] .pin {
+    color: white; /* White cross button in dark mode */
+}
+
+body[data-theme='dark'] .mobilemenu {
+    background-color: #424242; /* Darker background for mobile menu in dark mode */
+    border: 1px solid #555; /* Darker border in dark mode */
+}
+
 @media (max-width: 800px) {
     .hamburgmenu {
         display: flex;
@@ -134,6 +196,10 @@
         width: 65px;
         cursor: pointer;
         padding-left: 10px;
+    }
+
+    body[data-theme='dark'] .hamburgmenu {
+        color: white; /* White color for hamburger icon in dark mode */
     }
 
     .navTitle {
@@ -180,6 +246,10 @@
         justify-content: flex-start;
     }
 
+    body[data-theme='dark'] .navbar {
+        background-color: #424242; /* Dark background for navbar on mobile */
+    }
+
     .mobilemenu {
         background-color: white;
         display: flex;
@@ -201,5 +271,10 @@
 
         padding-bottom: 10px;
         padding-right: 10px;
+    }
+
+    body[data-theme='dark'] .mobilemenu {
+        background-color: #333; /* Dark background for mobile menu */
+        border: 1px solid #555; /* Darker border in dark mode */
     }
 }

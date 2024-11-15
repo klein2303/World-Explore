@@ -22,7 +22,7 @@ body {
 
 /* Dark mode styles */
 body[data-theme='dark'] {
-    background-color: #333;
+    background-color: #424242;
     color: white;
 }
   

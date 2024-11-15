@@ -18,8 +18,8 @@ const Country = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Modal state
 
     const COUNTRY_AND_JOURNAL_QUERY = gql`
-        {
-            country(name: "${name}") {
+        query GetCountryAndReviews($name: String!) {
+            country(name: $name) {
                 name
                 continent
                 capital
@@ -33,7 +33,7 @@ const Country = () => {
                 co2emission
                 image
             }
-            filteredpublicreviews(country: "${name}") {
+            filteredpublicreviews(country: $name) {
                 id
                 title
                 date
@@ -50,9 +50,10 @@ const Country = () => {
     `;
 
     const { data, loading, error } = useQuery(COUNTRY_AND_JOURNAL_QUERY, {
-        fetchPolicy: "cache-first", // Used for first execution
-        nextFetchPolicy: "cache-first", // Used for subsequent executions
+        variables: { name },
+        fetchPolicy: "cache-and-network",
     });
+
 
     // Function to handle modal open/close
     const openModal = () => setIsModalOpen(true);
@@ -61,7 +62,6 @@ const Country = () => {
     // Function to handle journal entry submission
     const handleJournalSubmit = (entry: JournalTypeWrite) => {
         console.log("New journal entry submitted:", entry);
-        // Handle saving the journal entry here
         closeModal(); // Close the modal
     };
 

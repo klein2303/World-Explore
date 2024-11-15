@@ -68,14 +68,14 @@ const ExploreCountries = () => {
             <Navbar />
             <main className={styles.maincontainer} role="main" aria-label="Explore Countries">
                 <div className={styles.container}>
-                    <Filter aria-label="Filter based on continents" />
-                    <div className={styles.maincontent} role="region" aria-labelledby="country-list">
+                    <Filter aria-label="Filter based on continents"/>
+                    <div className={styles.maincontent} role="region" aria-describedby="country-list">
                         <p id="country-list" className={styles.title}>
                             Discover your dream vacations
                         </p>
-                        <div className={styles.filters} role="region" aria-labelledby="filter-section">
+                        <div className={styles.filters} role="region" aria-label="search and sort">
                             <Search aria-label="Search countries" />
-                            <div className={styles.sort} role="region" aria-labelledby="sort-section">
+                            <div className={styles.sort} role="region" aria-label="sort-section">
                                 <MdOutlineSort className={styles.sorticon} aria-hidden="true" />
                                 <label htmlFor="sort-dropdown" className={styles.sorttext}>
                                     Sort after:
@@ -93,7 +93,7 @@ const ExploreCountries = () => {
                                 </select>
                             </div>
                         </div>
-                        <CountryCardList />
+                        <CountryCardList aria-description = "Listview of countries"/>
                         {noResults ? (
                             <p className={styles.noResultsMessage}>
                                 No results found for the selected filter and search options.
@@ -105,6 +105,7 @@ const ExploreCountries = () => {
                                     onChange={handleChange}
                                     count={Math.ceil(data.filteredcountriescount / 12)}
                                     className={styles.pagination}
+                                    aria-label= "browse pages"
                                 />
                             </>
                         )}

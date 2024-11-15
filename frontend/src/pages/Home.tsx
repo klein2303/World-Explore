@@ -9,7 +9,7 @@ const Home = () => {
             <Navbar />
             {/*Homepage showing an image and some text on the image */}
             <main className={styles.page} role="main" aria-label="Homepage">
-                <article className={styles.imageArticle} aria-label="Homepage image">
+                <article className={styles.imageArticle} >
                     <img src={homepage} alt="The ocean in a tropical landscape" className={styles.image} />
                     <section className={styles.text}>
                         <p className={styles.topText}>All your special travels at one place</p>

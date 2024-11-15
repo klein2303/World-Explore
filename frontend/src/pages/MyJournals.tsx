@@ -80,7 +80,6 @@ const MyJournals = () => {
                         <section
                             id="journals-panel"
                             role="tabpanel"
-                            aria-labelledby="journals-tab"
                             className={styles.grid}>
                             {data.writtenjournals.map((journal: { countryid: string; countryimage: string }) => (
                                 <JournalCard

@@ -49,7 +49,7 @@ const PublicJournalEntryModal = ({ review, onClose }: JournalEntryModalProps) =>
                     <p
                         id="modal-rating"
                         className={styles.modalRating}
-                        aria-label={`Rating: ${review.rating} out of 5 stars`}>
+                        aria-description={`Rating: ${review.rating} out of 5 stars`}>
                         <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
                         {review.rating}/5
                     </p>

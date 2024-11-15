@@ -1,4 +1,5 @@
 import styles from "./ReviewBox.module.css";
+import { MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox } from "react-icons/md";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { gql, useQuery } from "@apollo/client";
 import { removeQuotes } from "../../utils/utils";
@@ -84,10 +85,24 @@ const ReviewBox = ({ country }: journalCountry) => {
                                 {/* Render stars based on rating */}
                                 {renderStars(review.rating)}
                             </section>
-                            <section className={styles.publicContainer} aria-label="The privacy level of this journal entry">
-                                <p className={styles.publicInfoText}>
-                                    This journal entry is {review.ispublic ? "public" : "private"}
-                                </p>
+                            <section className={styles.publicContainer} aria-label="Change the privacy of your journal">
+                                <p>Make this journal entry public</p>
+                                {/* Render the correct box based on the journal entry privacy */}
+                                {review.ispublic ? (
+                                    <MdOutlineCheckBox
+                                        className={styles.checkBox}
+                                        // onClick={() => makePublic(review.id)}
+                                        aria-label="Make journey private"
+                                        role="button"
+                                    />
+                                ) : (
+                                    <MdOutlineCheckBoxOutlineBlank
+                                        className={styles.checkBox}
+                                        // onClick={() => makePublic(review.id)}
+                                        aria-label="Make journey public"
+                                        role="button"
+                                    />
+                                )}
                             </section>
                         </section>
                     ),

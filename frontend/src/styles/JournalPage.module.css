@@ -2,7 +2,8 @@
     .page {
         display: flex;
         flex-direction: column;
-        margin-top: 10px;
+        margin-top: 60px;
+        margin-bottom:60px;
         margin-left: 150px;
         margin-right: 150px;
     }
@@ -26,19 +27,22 @@
 
     .title {
         margin-top: 20px;
-        font-size: 36px;
+        color: #424242;
+        font-size: 30px;
+        font-weight: 400;
+        margin-bottom: 15px;
     }
 
     .addButton {
-        border: 1px solid #d3d3d3;
-        font-size: 18px;
+        /*border: 1px solid #d3d3d3;*/
+        font-size: 17px;
         background-color: #fcf5ff;
         color: #333;
         transition:
             background-color 0.3s,
             color 0.3s;
         border-radius: 5px;
-        padding: 5px;
+        padding: 10px;
     }
 
     .addButton:hover {

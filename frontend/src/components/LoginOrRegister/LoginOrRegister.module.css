@@ -1,8 +1,6 @@
 .loginOrRegister {
-    margin: 100px auto;
-    width: 500px;
+    width: auto;
     height: auto;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,19 +8,28 @@
 
 .title h3 {
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     color: #333;
     font-weight: 300;
     margin-bottom: 10px;
 }
 
-.title h4 {
+.title h4  {
+    text-align: center;
     font-weight: 200;
+    font-size: 16px;
+}
+
+.title h5 {
+    text-align: center;
+    font-weight: 300; 
+    font-size: 20px;  
+    color: #333;
 }
 
 .line {
     border: 1px solid #ccc;
-    width: 100%;
+    width: 80%;
     margin: 20px 0;
 }
 
@@ -36,13 +43,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     align-items: center;
     text-align: center;
 }
 
 .inputField {
-    width: 100%;
+    width: 90%;
+    height: 35px;
     max-width: 300px;
     padding: 10px;
     box-sizing: border-box;
@@ -57,15 +65,14 @@
 }
 
 .submitButton {
-    width: 100%;
+    width: 90%;
+    height: 35px;
     max-width: 300px;
-    padding: 10px 20px;
     background-color: #424242;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
-    color: #e4e1f7;
+    font-size: 15px;
     color: #e4e1f7;
 }
 
@@ -73,34 +80,20 @@
     background-color: #351939;
 }
 
-@media (max-width: 1030px) {
+@media (max-width: 1020px) {
     .loginOrRegister {
         width: 85%;
         max-width: none;
         padding: 5vw;
-        height: 100%;
+    }
+
+    .line{
+        width: 110%;
     }
 
     .inputField,
     .submitButton {
         width: 90%;
         max-width: none;
-        /* Ensure fields also scale with the container */
-    }
-}
-
-@media (width: 1024px) {
-    .loginOrRegister {
-        width: 85%;
-        max-width: none;
-        /* Remove the fixed max-width for better scaling */
-        padding: 5vw;
-    }
-
-    .inputField,
-    .submitButton {
-        width: 90%;
-        max-width: none;
-        /* Ensure fields also scale with the container */
     }
 }

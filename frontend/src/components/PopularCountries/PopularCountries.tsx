@@ -2,11 +2,11 @@ import styles from "./PopularCountries.module.css";
 
 const PopularCountries = () => {
     return (
-        <section className={styles.popularCountriesSection} aria-label="Buttons with 10 most popular countries">
+        <section className={styles.popularCountriesSection} aria-description="Buttons with 10 most popular countries">
             <p className={styles.popularTitle} aria-label="Title">
                 Popular countries
             </p>
-            <section className={styles.labelContainer} aria-label="Labels for each country">
+            <section className={styles.labelContainer}>
                 {[
                     "Norway",
                     "USA",
@@ -19,7 +19,7 @@ const PopularCountries = () => {
                     "Japan",
                     "Thailand",
                 ].map((country, index) => (
-                    <label key={index} className={styles.countryLabel} aria-label="label for country">
+                    <label key={index} className={styles.countryLabel}>
                         {country}
                     </label>
                 ))}

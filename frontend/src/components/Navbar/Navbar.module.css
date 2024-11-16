@@ -1,15 +1,14 @@
-.navbar {
+.navbar,
+.notLoggedNavbar {
     background-color: white;
     width: 100%;
-    height: 65px;
+    height: 70px;
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #e0e0e0; 
-    padding-bottom: 10px; 
-
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .navTitle,
@@ -23,6 +22,7 @@
     font-size: 30px;
 }
 
+.login,
 .signOut {
     margin-top: 40px;
     background-color: #e4e1f7;
@@ -54,39 +54,27 @@
     font-size: 18px;
 }
 
-.notLoggedNavbar {
-    background-color: white;
-    width: 100%;
-    height: 120px;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 20px;
-}
-
 .profile {
     font-size: 40px;
     gap: 7px;
 }
 
-.navlink:hover p{
+.navlink:hover p {
     text-decoration: underline;
 }
 
-.active{
-    text-decoration: underline; 
+.active {
+    text-decoration: underline;
 }
 
-.search{
+.search {
     font-size: 21px;
     font-weight: lighter;
     color: #424242;
     margin-right: 6px;
-} 
-.pin, 
-.profile{
+}
+.pin,
+.profile {
     font-size: 17px;
     font-weight: lighter;
     color: #424242;
@@ -103,11 +91,9 @@
     border-radius: 10px;
     color: #000000;
     text-decoration: none;
-}
-
-.login:hover{
-    cursor:pointer;
-    background-color: #e4e1f7;
+    background-color: white;
+    font-weight: 300;
+    margin-left: 15px;
 }
 
 .crosspos {
@@ -187,6 +173,10 @@ body[data-theme='dark'] .mobilemenu {
 }
 
 @media (max-width: 800px) {
+    .notLoggedNavbar {
+        justify-content: start;
+    }
+
     .hamburgmenu {
         display: flex;
         justify-content: start;
@@ -216,6 +206,7 @@ body[data-theme='dark'] .mobilemenu {
         width: 100%;
         padding-top: 22px;
         padding-bottom: 20px;
+        padding-left: 10px;
     }
 
     .cross {

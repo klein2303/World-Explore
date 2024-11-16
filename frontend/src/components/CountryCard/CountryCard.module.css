@@ -53,8 +53,8 @@ body[data-theme='dark'] .information {
     font-size: 22px;
 }
 
-.icon:hover{
-    fill:#424242;
+.icon:hover {
+    fill: #424242;
     font-size: 25px;
 }
 
@@ -68,7 +68,7 @@ body[data-theme='dark'] .icon:hover {
 }
 
 @media (max-width: 810px) {
-    .cardcontainer{
+    .cardcontainer {
         margin: 12px;
     }
 }

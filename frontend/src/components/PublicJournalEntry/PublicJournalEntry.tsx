@@ -60,13 +60,11 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                     <h3 className={styles.reviewTitle} id={`review-title-${review.title}`}>
                         {review.title}
                     </h3>
-                    <p className={styles.reviewDate} aria-label={`Date range: ${review.date}`}>
-                        {review.date}
-                    </p>
+                    <p className={styles.reviewDate}>{review.date}</p>
                 </header>
 
                 <div className={styles.reviewInfo}>
-                    <p className={styles.reviewRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
+                    <p className={styles.reviewRating} aria-description={`Rating: ${review.rating} out of 5 stars`}>
                         <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
                         {review.rating}/5
                     </p>

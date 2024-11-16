@@ -3,8 +3,8 @@ import styles from "./JournalEntryModal.module.css";
 import { FaStar } from "react-icons/fa";
 import { removeQuotes } from "../../utils/utils";
 import { gql, useMutation } from "@apollo/client";
-import { useNavigate } from "react-router-dom";
 import { JournalTypeWrite } from "../../types/JournalType";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface JournalEntryModalProps {
     country: string;
@@ -24,6 +24,10 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     const modalRef = useRef<HTMLDivElement>(null);
     const user = removeQuotes(sessionStorage.getItem("user")!);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    // Check if the link matches the exact URL
+    const isTargetLink = location.pathname === "/ExploreCountries";
 
     const CREATE_REVIEW = gql`
         mutation addReview(
@@ -53,7 +57,8 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
         onCompleted: async () => {
             setError("");
             onClose();
-            navigate(0);
+
+            if (!isTargetLink) navigate(0);
         },
         onError: (error) => {
             setError(error.message);
@@ -108,14 +113,8 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     };
 
     return isOpen ? (
-        <div
-            className={styles.overlay}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-            aria-describedby="modal-description"
-            ref={modalRef}>
-            <aside className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="journalModalTitle">
+        <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="modal-title" ref={modalRef}>
+            <aside className={styles.modal} role="dialog" aria-modal="true" aria-label="journalModalTitle">
                 <button onClick={onClose} className={styles.closeButton} aria-label="Close modal">
                     &times;
                 </button>
@@ -142,7 +141,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
                         value={text}
                         onChange={(e) => setText(e.target.value)}
                         className={styles.textArea}
-                        aria-label="Journal entry text area"
+                        aria-label="Text area"
                     />
                     {/* Star Rating System */}
                     <div className={styles.rating}>
@@ -172,7 +171,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
                         Public
                     </label>
                     {error !== "" && <h5>{error}</h5>}
-                    <button onClick={handleSubmit} className={styles.submitButton} aria-label="Submit journal entry">
+                    <button onClick={handleSubmit} className={styles.submitButton}>
                         Save your journal entry
                     </button>
                 </div>

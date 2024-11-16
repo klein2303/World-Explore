@@ -13,8 +13,6 @@
     height: fit-content;
     justify-content: center;
     align-items: center;
-    margin-left: 2%;
-    margin-right: 2%;
 }
 
 .image {
@@ -29,42 +27,55 @@
 }
 
 .logoLink {
-    color: #000000;
+    height: max-content;
+    width: 100%;
     text-decoration: none;
+    color: #424242;
+    font-size: 30px;
 }
 
 .logo {
-    height: max-content;
-    width: 70%;
-    text-decoration: none;
-    color: #424242;
-    font-size: 20px;
-    margin-top: 22.5px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 30%;
+    margin-left: 40px;
 }
 
-.linkToLogIn{
-    width: 30%;
+.linkToLogIn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+    width: 85%;
+    justify-content: end;
+    align-items: center;
     text-align: end;
 }
 
 .linkToLogIn a {
-    color: #000000;
+    color: #424242;
     font-weight: 300;
     font-size: 15px;
     text-decoration: none;
+    margin-right: 40px;
 }
 
-.linkToLogIn a:hover{
-    text-decoration:underline;
+.linkToLogIn a:hover {
+    text-decoration: underline;
     color: #351939;
 }
 
 .header {
+    width: 100%;
+    height: 70px;
+    position: relative;
     display: flex;
     flex-direction: row;
-    width: 100%;
-    height: 60px;
+    align-items: center;
+    justify-content: center;
 }
 
 .navlinkUnder,
@@ -72,9 +83,18 @@
     display: none;
 }
 
-.navlinkOver p{
-    margin-top: 30px;
-    font-size: 12px;
+.navlinkOver p {
+    font-size: 13px;
+}
+
+.navlinkOver {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin: 20px;
+    font-size: 18px;
 }
 
 .imageimage {
@@ -84,7 +104,6 @@
 }
 
 @media (max-width: 1020px) {
-
     .image,
     .imageimage,
     .logoLink,
@@ -107,7 +126,6 @@
     .arrowLink {
         display: contents;
     }
-
 
     .arrow {
         font-size: 20px;
@@ -134,4 +152,8 @@
         align-items: center;
     }
 
+    .logo {
+        margin-left: 0px;
+        justify-content: start;
+    }
 }

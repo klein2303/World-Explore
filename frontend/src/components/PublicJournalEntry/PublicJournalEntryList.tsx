@@ -12,7 +12,10 @@ const PublicJournalEntryList = ({ journal }: PublicJournalEntriesProps) => {
     return (
         <>
             {/* Grid for journal entries */}
-            <article className={styles.entriesGrid} role="list" aria-label={`Public journal entries for ${country}`}>
+            <article
+                className={styles.entriesGrid}
+                role="list"
+                aria-description={`Public journal entries for ${country}`}>
                 {reviews.map((review) => (
                     <div key={review.title} role="listitem">
                         <PublicJournalEntry review={review} />

@@ -53,14 +53,12 @@
         filter: contrast(80%);
         object-fit: cover;
     }
-
-
 }
 
 @media (max-width: 1280px) {
     /*Tablet */
 
-    .imageArticle{
+    .imageArticle {
         height: 350px;
     }
     .topText {
@@ -74,7 +72,6 @@
         font-style: italic;
         text-align: center;
         top: 35%;
-        
     }
 
     .bottomText {
@@ -100,31 +97,24 @@
     }
 }
 
-@media (max-width: 770px){
-
-    .imageArticle{
+@media (max-width: 770px) {
+    .imageArticle {
         margin-bottom: 0px;
     }
 
-    .topText{
+    .topText {
         font-size: 15px;
         top: 42%;
     }
 
-    .bottomText{
+    .bottomText {
         font-size: 20px;
         top: 55%;
     }
 }
 
-@media (max-width: 500px){
-    .page{
+@media (max-width: 500px) {
+    .page {
         margin-top: 0.5%;
     }
 }
-
-
-
-
-
-

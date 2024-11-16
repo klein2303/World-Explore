@@ -57,7 +57,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
         onCompleted: async () => {
             setError("");
             onClose();
-       
+
             if (!isTargetLink) navigate(0);
         },
         onError: (error) => {

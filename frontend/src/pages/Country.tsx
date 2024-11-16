@@ -54,7 +54,6 @@ const Country = () => {
         fetchPolicy: "cache-and-network",
     });
 
-
     // Function to handle modal open/close
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);

@@ -3,8 +3,8 @@ import styles from "./JournalEntryModal.module.css";
 import { FaStar } from "react-icons/fa";
 import { removeQuotes } from "../../utils/utils";
 import { gql, useMutation } from "@apollo/client";
-import { useNavigate } from "react-router-dom";
 import { JournalTypeWrite } from "../../types/JournalType";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface JournalEntryModalProps {
     country: string;
@@ -24,6 +24,10 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     const modalRef = useRef<HTMLDivElement>(null);
     const user = removeQuotes(sessionStorage.getItem("user")!);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    // Check if the link matches the exact URL
+    const isTargetLink = location.pathname === "/ExploreCountries";
 
     const CREATE_REVIEW = gql`
         mutation addReview(
@@ -53,7 +57,8 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
         onCompleted: async () => {
             setError("");
             onClose();
-            navigate(0);
+       
+            if (!isTargetLink) navigate(0);
         },
         onError: (error) => {
             setError(error.message);

@@ -1,6 +1,9 @@
+import { useState } from "react";
 import styles from "./CountryCard.module.css";
 import { SlPencil } from "react-icons/sl";
 import { Link } from "react-router-dom";
+import { JournalTypeWrite } from "../../types/JournalType";
+import JournalEntryModal from "../JournalEntryModal/JournalEntryModal";
 
 interface CountryCardProps {
     name: string;
@@ -8,6 +11,18 @@ interface CountryCardProps {
 }
 
 const CountryCard = ({ name, image }: CountryCardProps) => {
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Modal state
+
+    // Function to handle modal open/close
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
+    // Function to handle journal entry submission
+    const handleJournalSubmit = async (entry: JournalTypeWrite) => {
+        console.log("New journal entry submitted:", entry);
+        closeModal(); // Close the modal
+    };
+    
     return (
         <main className={styles.cardcontainer} role="region" aria-labelledby={`country-name-${name}`}>
             <Link to={`/${name}`}>
@@ -20,7 +35,15 @@ const CountryCard = ({ name, image }: CountryCardProps) => {
                 <SlPencil 
                     className={styles.icon}
                     role="button"
-                    aria-label={`Write review from ${name}`}/>
+                    onClick={openModal}
+                    aria-label={`Write review from ${name}`}
+                />
+                <JournalEntryModal
+                        country={name}
+                        isOpen={isModalOpen}
+                        onClose={closeModal}
+                        onSubmit={handleJournalSubmit}
+                />
             </div>
         </main>
     );

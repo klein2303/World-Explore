@@ -41,14 +41,23 @@ describe("Run the country page on desttop", () => {
         });
 
         // Intercept the GraphQL request and mock the response
-        cy.intercept('POST', 'http://it2810-10.idi.ntnu.no:3001/', (req) => {
-        if (req.body.operationName === 'GetCountryAndReviews') {
-            req.reply({ body: mockNorwayData });
-        }
-        }).as('GetCountryAndReviews');
+        cy.intercept("POST", "http://it2810-10.idi.ntnu.no:3001/", (req) => {
+            if (req.body.operationName === "GetCountryAndReviews") {
+                req.reply({ body: mockNorwayData });
+            }
+            if (req.body.operationName === "addReview") {
+                req.reply({
+                    data: {
+                        addReview: {
+                            ispublic: req.body.variables.ispublic,
+                        },
+                    },
+                });
+            }
+        }).as("GraphQL");
 
         cy.visit('http://localhost:5173/project2#/Norway'); 
-        cy.wait('@GetCountryAndReviews', { timeout: 10000 });
+        cy.wait("@GraphQL", { timeout: 10000 });
     });
 
     afterEach(() => {
@@ -58,7 +67,7 @@ describe("Run the country page on desttop", () => {
         });
     })
 
-    it('should display all country information correctly', () => {
+    it('Checks if all country information is correctly displayed', () => {
         cy.get('h1').contains('Norway');
         cy.contains('Continent: Europe');
     
@@ -75,7 +84,7 @@ describe("Run the country page on desttop", () => {
         cy.contains('The CO2 emission produced by the country is 44.3 tons.');
     });
     
-    it('should display public journal entries for the country', () => {
+    it('Check if it displays all the public entries for a countrie', () => {
         cy.get('h3').contains('Public Journal Entries for Norway');
         cy.contains('My trip to Norway');
         cy.contains('It was a fantastic experience with breathtaking views.');
@@ -84,7 +93,7 @@ describe("Run the country page on desttop", () => {
         cy.contains('2023-01-15'); 
     });
 
-    it('should allow the user to open and close the journal entry modal', () => {
+    it('Checks if a journal entry modal can be opened and closed', () => {
         cy.contains('Write a journal entry').click();
         cy.get('[role="dialog"]').should('be.visible'); 
     
@@ -92,7 +101,35 @@ describe("Run the country page on desttop", () => {
         cy.get('[role="dialog"]').should('not.exist');
     });
 
-    it('should navigate back to Explore Countries when clicking the return button', () => {
+    it("Checks if a journal entry can be written and submited", () => {
+        cy.contains("Write a journal entry").click();
+        cy.get('[role="dialog"]').should("be.visible");
+
+        cy.get('input[aria-label="Title input"]').type("Norway Adventure");
+        cy.get('input[aria-label="Date input"]').type("2023-11-16");
+        cy.get('textarea[aria-label="Text area"]').type("Norway was beautiful with amazing fjords!");
+        cy.get('[aria-label="Rate 5 stars"]').click();
+        cy.get('input[aria-label="Public checkbox"]').check();
+
+        cy.contains("Save your journal entry").click();
+
+        cy.wait("@GraphQL").then((interception) => {
+            expect(interception.request.body.operationName).to.equal("addReview");
+            expect(interception.request.body.variables).to.deep.include({
+                title: "Norway Adventure",
+                date: "2023-11-16",
+                rating: 5,
+                text: "Norway was beautiful with amazing fjords!",
+                ispublic: true,
+                profileid: "test-user",
+                countryid: "Norway",
+            });
+        });
+
+        cy.get('[role="dialog"]').should("not.exist");
+    });
+
+    it('Checks if the navigate button maps to the right place', () => {
         cy.contains('Return to Explore').click();
         cy.url().should('include', '/ExploreCountries');
     });
@@ -141,14 +178,23 @@ describe("Run the country page on mobile", () => {
         });
     
         // Intercept the GraphQL request and mock the response
-        cy.intercept('POST', 'http://it2810-10.idi.ntnu.no:3001/', (req) => {
-            if (req.body.operationName === 'GetCountryAndReviews') {
+        cy.intercept("POST", "http://it2810-10.idi.ntnu.no:3001/", (req) => {
+            if (req.body.operationName === "GetCountryAndReviews") {
                 req.reply({ body: mockJapanData });
             }
-        }).as('GetCountryAndReviews');
-    
-        cy.visit('http://localhost:5173/project2#/Japan'); // Update route to match the country's name
-        cy.wait('@GetCountryAndReviews', { timeout: 10000 });
+            if (req.body.operationName === "addReview") {
+                req.reply({
+                    data: {
+                        addReview: {
+                            ispublic: req.body.variables.ispublic,
+                        },
+                    },
+                });
+            }
+        }).as("GraphQL");
+
+        cy.visit("http://localhost:5173/project2#/Japan");
+        cy.wait("@GraphQL", { timeout: 10000 });
     });
     
     afterEach(() => {
@@ -158,7 +204,7 @@ describe("Run the country page on mobile", () => {
         });
     });
     
-    it('should display all country information correctly', () => {
+    it('Checks if all country information is correctly displayed', () => {
         cy.get('h1').contains('Japan');
         cy.contains('Continent: Asia');
     
@@ -175,7 +221,7 @@ describe("Run the country page on mobile", () => {
         cy.contains('The CO2 emission produced by the country is 1009 tons.');
     });
     
-    it('should display public journal entries for the country', () => {
+    it('Check if it displays all the public entries for a countrie', () => {
         cy.get('h3').contains('Public Journal Entries for Japan');
         cy.contains('Cherry blossoms in Japan');
         cy.contains('The cherry blossoms were stunning, and the culture was fascinating.');
@@ -184,15 +230,43 @@ describe("Run the country page on mobile", () => {
         cy.contains('2023-03-20');
     });
     
-    it('should allow the user to open and close the journal entry modal', () => {
+    it('Checks if a journal entry modal can be opened and closed', () => {
         cy.contains('Write a journal entry').click();
         cy.get('[role="dialog"]').should('be.visible');
     
         cy.get('[aria-label="Close modal"]').click();
         cy.get('[role="dialog"]').should('not.exist');
     });
+
+    it("Checks if a journal entry can be written and submited", () => {
+        cy.contains("Write a journal entry").click();
+        cy.get('[role="dialog"]').should("be.visible");
+
+        cy.get('input[aria-label="Title input"]').type("Cherry Blossoms in Japan");
+        cy.get('input[aria-label="Date input"]').type("2023-11-20");
+        cy.get('textarea[aria-label="Text area"]').type("Japan was breathtaking with its cherry blossoms!");
+        cy.get('[aria-label="Rate 4 stars"]').click();
+        cy.get('input[aria-label="Public checkbox"]').check();
+
+        cy.contains("Save your journal entry").click();
+
+        cy.wait("@GraphQL").then((interception) => {
+            expect(interception.request.body.operationName).to.equal("addReview");
+            expect(interception.request.body.variables).to.deep.include({
+                title: "Cherry Blossoms in Japan",
+                date: "2023-11-20",
+                rating: 4,
+                text: "Japan was breathtaking with its cherry blossoms!",
+                ispublic: true,
+                profileid: "test-user",
+                countryid: "Japan",
+            });
+        });
+
+        cy.get('[role="dialog"]').should("not.exist");
+    });
     
-    it('should navigate back to Explore Countries when clicking the return button', () => {
+    it('Checks if the navigate button maps to the right place', () => {
         cy.contains('Return to Explore').click();
         cy.url().should('include', '/ExploreCountries');
     });    

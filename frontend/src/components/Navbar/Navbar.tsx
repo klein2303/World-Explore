@@ -56,7 +56,7 @@ const Navbar = () => {
                                     <RxCross1
                                         className={styles.cross}
                                         onClick={() => setIsOpen(false)}
-                                        aria-label="Close Mobile Menu"
+                                        aria-description="Close Mobile Menu"
                                     />
                                 </div>
 
@@ -64,15 +64,15 @@ const Navbar = () => {
                                     to="/"
                                     className={`${styles.navlink} ${activeLink === "/" ? styles.active : ""}`}
                                     onClick={() => handleLinkClick("/")}
-                                    aria-label="Home">
+                                    aria-labelledby="Home">
                                     <p>Home</p>
                                 </Link>
                                 <Link
                                     to="/ExploreCountries"
                                     className={`${styles.navlink} ${activeLink === "/ExploreCountries" ? styles.active : ""}`}
                                     onClick={() => handleLinkClick("/ExploreCountries")}
-                                    aria-label="Explore Countries">
-                                    <p>Explore Countries</p>
+                                    aria-labelledby="journals">
+                                    <p id="journals">Explore Countries</p>
                                 </Link>
                                 <Link
                                     to="/MyJournals"
@@ -82,11 +82,7 @@ const Navbar = () => {
                                     <p>My Journals</p>
                                 </Link>
 
-                                <Link
-                                    to={"/Home"}
-                                    className={styles.signOut}
-                                    onClick={handleSignOut}
-                                    aria-label="Sign out">
+                                <Link to={"/Home"} className={styles.signOut} onClick={handleSignOut}>
                                     <p>Sign Out</p>
                                 </Link>
                             </div>
@@ -96,7 +92,7 @@ const Navbar = () => {
                         <RxHamburgerMenu
                             className={styles.hamburgmenu}
                             onClick={() => setIsOpen(true)}
-                            aria-label="Open Mobile Menu"
+                            aria-description="Open Mobile Menu"
                         />
 
                         <Link to={"/"} className={styles.navTitle}>

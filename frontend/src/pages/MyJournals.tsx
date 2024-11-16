@@ -77,11 +77,7 @@ const MyJournals = () => {
                 ) : (
                     <>
                         <h2 className={styles.subtitle}>{subtitleText}</h2>
-                        <section
-                            id="journals-panel"
-                            role="tabpanel"
-                            aria-labelledby="journals-tab"
-                            className={styles.grid}>
+                        <section id="journals-panel" role="tabpanel" className={styles.grid}>
                             {data.writtenjournals.map((journal: { countryid: string; countryimage: string }) => (
                                 <JournalCard
                                     key={journal.countryid}

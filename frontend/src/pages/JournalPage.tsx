@@ -43,13 +43,13 @@ const JournalPage = () => {
     return (
         <>
             <Navbar />
-            <main className={styles.page} aria-label="Page for reading your journals">
-                <Link to={"/MyJournals"} className={styles.returnLink} aria-label="Return to all journals">
+            <main className={styles.page} aria-description="Page for reading your journals">
+                <Link to={"/MyJournals"} className={styles.returnLink}>
                     {" "}
                     <PiArrowElbowDownLeft /> Return to all journals
                 </Link>
                 <section className={styles.upperSection}>
-                    <p className={styles.title} aria-label="Title">
+                    <p className={styles.title} aria-label="journals">
                         My {countryName} journals
                     </p>
                     {/* <button className={styles.addButton} aria-label="Add new journal entry" onClick={openModal}>

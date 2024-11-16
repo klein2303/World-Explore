@@ -113,14 +113,8 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     };
 
     return isOpen ? (
-        <div
-            className={styles.overlay}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-            aria-describedby="modal-description"
-            ref={modalRef}>
-            <aside className={styles.modal} role="dialog" aria-modal="true" aria-labelledby="journalModalTitle">
+        <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="modal-title" ref={modalRef}>
+            <aside className={styles.modal} role="dialog" aria-modal="true" aria-label="journalModalTitle">
                 <button onClick={onClose} className={styles.closeButton} aria-label="Close modal">
                     &times;
                 </button>
@@ -147,7 +141,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
                         value={text}
                         onChange={(e) => setText(e.target.value)}
                         className={styles.textArea}
-                        aria-label="Journal entry text area"
+                        aria-label="Text area"
                     />
                     {/* Star Rating System */}
                     <div className={styles.rating}>
@@ -177,7 +171,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
                         Public
                     </label>
                     {error !== "" && <h5>{error}</h5>}
-                    <button onClick={handleSubmit} className={styles.submitButton} aria-label="Submit journal entry">
+                    <button onClick={handleSubmit} className={styles.submitButton}>
                         Save your journal entry
                     </button>
                 </div>

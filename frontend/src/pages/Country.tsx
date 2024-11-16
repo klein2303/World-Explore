@@ -73,20 +73,17 @@ const Country = () => {
         <>
             <Navbar />
             <main role="main">
-                <section className={styles.pagecontainer}>
+                <section className={styles.pagecontainer} aria-label="Information about country">
                     <article className={styles.container}>
-                        <Link
-                            to={"/ExploreCountries"}
-                            className={styles.return}
-                            aria-label="Return to explore countries">
+                        <Link to={"/ExploreCountries"} className={styles.return}>
                             <PiArrowElbowDownLeft className={styles.returnicon} aria-hidden="true" />
                             <p className={styles.returntext}>Return to Explore</p>
                         </Link>
                         <h1 className={styles.countryname}>{country.name}</h1>
                         <p className={styles.countrycontinent}>Continent: {country.continent}</p>
 
-                        <section className={styles.funfacts} aria-label="Country fun facts">
-                            <div className={styles.funfactbox} role="group" aria-label="Country fun facts information">
+                        <section className={styles.funfacts} aria-label="Country quick facts">
+                            <div className={styles.funfactbox} role="group">
                                 <section className={styles.funfact} role="region" aria-label="Capital information">
                                     <LuMapPin className={styles.icon} aria-hidden="true" />
                                     <p className={styles.funfacttext}>
@@ -124,7 +121,7 @@ const Country = () => {
                             className={styles.infobox}
                             role="complementary"
                             aria-label="Additional country information">
-                            <section className={styles.info} role="region" aria-labelledby="about-country-title">
+                            <section className={styles.info} role="region">
                                 <h2 id="about-country-title" className={styles.infotitle}>
                                     About the Country
                                 </h2>
@@ -167,10 +164,12 @@ const Country = () => {
                     </article>
                 </section>
                 {/* Seperate journal section */}
-                <section className={styles.journalSection}>
+                <section className={styles.journalSection} aria-labelledby="journal-entries">
                     <div className={styles.journalHeader}>
                         {/* Button to open the journal entry modal */}
-                        <h3 className={styles.journalTitle}>Public Journal Entries for {country.name}</h3>
+                        <h3 id="journal-entries" className={styles.journalTitle}>
+                            Public Journal Entries for {country.name}
+                        </h3>
                         <button className={styles.addEntryButton} onClick={openModal}>
                             Write a journal entry <FaPenNib className={styles.penIcon} />
                         </button>

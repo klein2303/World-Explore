@@ -85,14 +85,24 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
         }
     };
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+            if (loginPage) {
+                login({ variables: { email, password } });
+            } else {
+                signup({ variables: { username, email, password } });
+            }
+        }
+    };
+
     return (
         <section aria-label="Login og register component">
             {loginPage ? (
                 <section className={styles.loginOrRegister} aria-label="Login">
                     {/*Login component*/}
-                    <section className={styles.title} aria-label="Title">
-                        <h3 aria-label="Login page">Log in</h3>
-                        <h4 aria-label="Enter account details">Enter your WorldExplore account details</h4>
+                    <section className={styles.title} aria-labelledby="log-in">
+                        <h3 id="log-in">Log in</h3>
+                        <h4>Enter your WorldExplore account details</h4>
                     </section>
                     <hr className={styles.line} />
                     <section className={styles.inputSections} aria-label="Input fields">
@@ -102,8 +112,9 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             name="email"
                             value={email}
                             onChange={handleLoginInputChange}
+                            onKeyDown={handleKeyDown}
                             placeholder="Email"
-                            aria-label="Email input field for login"
+                            aria-description="Email input field for login"
                         />
                         <input
                             className={styles.inputField}
@@ -111,14 +122,14 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             name="password"
                             value={password}
                             onChange={handleLoginInputChange}
+                            onKeyDown={handleKeyDown}
                             placeholder="Password"
-                            aria-label="Password input field for login"
+                            aria-description="Password input field for login"
                         />
                         {error !== "" && <h5>{error}</h5>}
                         <button
                             className={styles.submitButton}
-                            onClick={() => login({ variables: { email, password } })}
-                            aria-label="Login button">
+                            onClick={() => login({ variables: { email, password } })}>
                             Log in
                         </button>
                     </section>
@@ -126,8 +137,8 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
             ) : (
                 <section className={styles.loginOrRegister} aria-label="Register a new account">
                     {/*Register component*/}
-                    <section className={styles.title} aria-label="Title">
-                        <h5 aria-label="Create a new account">Create an account</h5>
+                    <section className={styles.title} aria-labelledby="create-account">
+                        <h5 id="create-account">Create an account</h5>
                     </section>
                     <hr className={styles.line} />
                     <section className={styles.inputSections} aria-label="Input fields">
@@ -137,8 +148,9 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             name="name"
                             value={username}
                             onChange={handleRegisterInputChange}
+                            onKeyDown={handleKeyDown}
                             placeholder="Please enter your name"
-                            aria-label="Name input field"
+                            aria-description="Name input field"
                         />
                         <input
                             className={styles.inputField}
@@ -146,8 +158,9 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             name="email"
                             value={email}
                             onChange={handleRegisterInputChange}
+                            onKeyDown={handleKeyDown}
                             placeholder="Please enter your email"
-                            aria-label="Email input field"
+                            aria-description="Email input field"
                         />
                         <input
                             className={styles.inputField}
@@ -155,14 +168,14 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             name="password"
                             value={password}
                             onChange={handleRegisterInputChange}
+                            onKeyDown={handleKeyDown}
                             placeholder="Please enter a password"
-                            aria-label="Password input field"
+                            aria-description="Password input field"
                         />
                         {error !== "" && <h5>{error}</h5>}
                         <button
                             className={styles.submitButton}
-                            onClick={() => signup({ variables: { username, email, password } })}
-                            aria-label="Submit to create a new account">
+                            onClick={() => signup({ variables: { username, email, password } })}>
                             Create account
                         </button>
                     </section>

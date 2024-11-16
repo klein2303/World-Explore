@@ -93,7 +93,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                 signup({ variables: { username, email, password } });
             }
         }
-    };    
+    };
 
     return (
         <section aria-label="Login og register component">
@@ -102,7 +102,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                     {/*Login component*/}
                     <section className={styles.title} aria-labelledby="log-in">
                         <h3 id="log-in">Log in</h3>
-                        <h4 >Enter your WorldExplore account details</h4>
+                        <h4>Enter your WorldExplore account details</h4>
                     </section>
                     <hr className={styles.line} />
                     <section className={styles.inputSections} aria-label="Input fields">

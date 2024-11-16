@@ -71,19 +71,17 @@ const ReviewBox = ({ country }: journalCountry) => {
                             <p className={styles.reviewTitle}>{review.title}</p>
                             <p className={styles.date}>{review.date}</p>
                             <article className={styles.reviewText}>{review.text} </article>
-                            <section
-                                className={styles.starsContainer}
-                                aria-label="rating">
-                                 {/* Render stars based on rating */}
-                                 {renderStars(review.rating)}
-                             </section>
-                             <section className={styles.publicContainer}>
-                                 <p className={styles.publicInfoText}>
-                                     This journal entry is {review.ispublic ? "public" : "private"}
-                                 </p>
-                             </section>
-                         </section>
-                     ),
+                            <section className={styles.starsContainer} aria-label="rating">
+                                {/* Render stars based on rating */}
+                                {renderStars(review.rating)}
+                            </section>
+                            <section className={styles.publicContainer}>
+                                <p className={styles.publicInfoText}>
+                                    This journal entry is {review.ispublic ? "public" : "private"}
+                                </p>
+                            </section>
+                        </section>
+                    ),
                 )
             ) : (
                 <p className={styles.noJournal}>No reviews found for {country}</p>

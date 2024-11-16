@@ -57,7 +57,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
         onCompleted: async () => {
             setError("");
             onClose();
-       
+
             if (!isTargetLink) navigate(0);
         },
         onError: (error) => {
@@ -113,12 +113,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     };
 
     return isOpen ? (
-        <div
-            className={styles.overlay}
-            role="dialog"
-            aria-modal="true"
-            aria-label="modal-title"
-            ref={modalRef}>
+        <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="modal-title" ref={modalRef}>
             <aside className={styles.modal} role="dialog" aria-modal="true" aria-label="journalModalTitle">
                 <button onClick={onClose} className={styles.closeButton} aria-label="Close modal">
                     &times;
@@ -176,7 +171,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
                         Public
                     </label>
                     {error !== "" && <h5>{error}</h5>}
-                    <button onClick={handleSubmit} className={styles.submitButton} >
+                    <button onClick={handleSubmit} className={styles.submitButton}>
                         Save your journal entry
                     </button>
                 </div>

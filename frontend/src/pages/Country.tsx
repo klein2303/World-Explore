@@ -54,7 +54,6 @@ const Country = () => {
         fetchPolicy: "cache-and-network",
     });
 
-
     // Function to handle modal open/close
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
@@ -74,11 +73,9 @@ const Country = () => {
         <>
             <Navbar />
             <main role="main">
-                <section className={styles.pagecontainer} aria-label= "Information about country">
+                <section className={styles.pagecontainer} aria-label="Information about country">
                     <article className={styles.container}>
-                        <Link
-                            to={"/ExploreCountries"}
-                            className={styles.return}>
+                        <Link to={"/ExploreCountries"} className={styles.return}>
                             <PiArrowElbowDownLeft className={styles.returnicon} aria-hidden="true" />
                             <p className={styles.returntext}>Return to Explore</p>
                         </Link>
@@ -167,10 +164,12 @@ const Country = () => {
                     </article>
                 </section>
                 {/* Seperate journal section */}
-                <section className={styles.journalSection} aria-labelledby= "journal-entries">
+                <section className={styles.journalSection} aria-labelledby="journal-entries">
                     <div className={styles.journalHeader}>
                         {/* Button to open the journal entry modal */}
-                        <h3 id = "journal-entries" className={styles.journalTitle}>Public Journal Entries for {country.name}</h3>
+                        <h3 id="journal-entries" className={styles.journalTitle}>
+                            Public Journal Entries for {country.name}
+                        </h3>
                         <button className={styles.addEntryButton} onClick={openModal}>
                             Write a journal entry <FaPenNib className={styles.penIcon} />
                         </button>

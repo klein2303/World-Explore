@@ -22,7 +22,7 @@ const CountryCard = ({ name, image }: CountryCardProps) => {
         console.log("New journal entry submitted:", entry);
         closeModal(); // Close the modal
     };
-    
+
     return (
         <main className={styles.cardcontainer} role="region" aria-label={`country-name-${name}`}>
             <Link to={`/${name}`}>
@@ -32,7 +32,7 @@ const CountryCard = ({ name, image }: CountryCardProps) => {
                 <p id={`country-name-${name}`} className={styles.name}>
                     {name}
                 </p>
-                <SlPencil 
+                <SlPencil
                     className={styles.icon}
                     role="button"
                     onClick={openModal}
@@ -40,10 +40,10 @@ const CountryCard = ({ name, image }: CountryCardProps) => {
                     tabIndex={0}
                 />
                 <JournalEntryModal
-                        country={name}
-                        isOpen={isModalOpen}
-                        onClose={closeModal}
-                        onSubmit={handleJournalSubmit}
+                    country={name}
+                    isOpen={isModalOpen}
+                    onClose={closeModal}
+                    onSubmit={handleJournalSubmit}
                 />
             </div>
         </main>

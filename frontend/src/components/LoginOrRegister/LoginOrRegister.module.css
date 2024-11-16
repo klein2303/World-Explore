@@ -14,7 +14,7 @@
     margin-bottom: 10px;
 }
 
-.title h4  {
+.title h4 {
     text-align: center;
     font-weight: 200;
     font-size: 16px;
@@ -22,8 +22,8 @@
 
 .title h5 {
     text-align: center;
-    font-weight: 300; 
-    font-size: 20px;  
+    font-weight: 300;
+    font-size: 20px;
     color: #333;
 }
 
@@ -87,7 +87,7 @@
         padding: 5vw;
     }
 
-    .line{
+    .line {
         width: 110%;
     }
 

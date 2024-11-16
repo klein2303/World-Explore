@@ -44,7 +44,7 @@ const JournalPage = () => {
         <>
             <Navbar />
             <main className={styles.page} aria-description="Page for reading your journals">
-                <Link to={"/MyJournals"} className={styles.returnLink} >
+                <Link to={"/MyJournals"} className={styles.returnLink}>
                     {" "}
                     <PiArrowElbowDownLeft /> Return to all journals
                 </Link>

@@ -60,9 +60,7 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                     <h3 className={styles.reviewTitle} id={`review-title-${review.title}`}>
                         {review.title}
                     </h3>
-                    <p className={styles.reviewDate} >
-                        {review.date}
-                    </p>
+                    <p className={styles.reviewDate}>{review.date}</p>
                 </header>
 
                 <div className={styles.reviewInfo}>

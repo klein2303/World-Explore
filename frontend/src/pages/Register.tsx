@@ -8,7 +8,6 @@ const Register = () => {
     return (
         <main className={styles.registerPage} aria-label="Register page">
             <section className={styles.inputSection} aria-description="A section for inputs">
-
                 <section className={styles.header} aria-label="Header of register page">
                     <section className={styles.logo} aria-label="Logo">
                         <Link to={"/ExploreCountries"} className={styles.logoLink} aria-description="link to home page">
@@ -20,7 +19,7 @@ const Register = () => {
                     </section>
                     <section className={styles.linkToLogIn}>
                         <Link to={"/LogIn"} className={styles.navlinkOver} aria-describedby="registered">
-                            <p id = "registered"> Already registered?</p>
+                            <p id="registered"> Already registered?</p>
                         </Link>
                     </section>
                 </section>
@@ -29,12 +28,12 @@ const Register = () => {
                 </section>
                 <section className={styles.linkToLogInUnder}>
                     <Link to={"/LogIn"} className={styles.navlinkUnder} aria-describedby="registered-mobile">
-                        <p id = "registered">Already registered?</p>
+                        <p id="registered">Already registered?</p>
                     </Link>
                 </section>
             </section>
 
-            <section className={styles.image} >
+            <section className={styles.image}>
                 <img
                     src={loginImage}
                     className={styles.imageimage}

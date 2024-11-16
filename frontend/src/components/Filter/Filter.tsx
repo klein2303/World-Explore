@@ -24,10 +24,10 @@ const Filter = () => {
         if (e.key === "Enter") {
             const label = e.target as HTMLLabelElement;
             const associatedCheckbox = document.getElementById(label.htmlFor) as HTMLInputElement;
-    
+
             if (associatedCheckbox) {
                 associatedCheckbox.checked = !associatedCheckbox.checked;
-    
+
                 setIsClicked((prevState) => ({
                     ...prevState,
                     continent: {
@@ -38,7 +38,6 @@ const Filter = () => {
             }
         }
     };
-    
 
     useEffect(() => {
         setFilters(isClicked);
@@ -54,7 +53,7 @@ const Filter = () => {
                     Continents
                 </p>
                 <div className={styles.filterlist} role="group" aria-label="continents">
-                    <section className={styles.filteritem} >
+                    <section className={styles.filteritem}>
                         <input
                             type="checkbox"
                             id="Africa"
@@ -65,9 +64,14 @@ const Filter = () => {
                             checked={isClicked.continent["Africa"]}
                             className={styles.checkbox}
                             aria-label="label-africa"
-                            tabIndex={0}  
+                            tabIndex={0}
                         />
-                        <label htmlFor="Africa" id="label-africa" className={styles.customCheckbox} tabIndex={0} onKeyDown={handleKeyDown}>
+                        <label
+                            htmlFor="Africa"
+                            id="label-africa"
+                            className={styles.customCheckbox}
+                            tabIndex={0}
+                            onKeyDown={handleKeyDown}>
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             Africa
                         </label>
@@ -83,9 +87,14 @@ const Filter = () => {
                             checked={isClicked.continent["Asia"]}
                             className={styles.checkbox}
                             aria-label="label-asia"
-                            tabIndex={0}  
+                            tabIndex={0}
                         />
-                        <label htmlFor="Asia" id="label-asia" className={styles.customCheckbox} tabIndex={0} onKeyDown={handleKeyDown}>
+                        <label
+                            htmlFor="Asia"
+                            id="label-asia"
+                            className={styles.customCheckbox}
+                            tabIndex={0}
+                            onKeyDown={handleKeyDown}>
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             Asia
                         </label>
@@ -101,9 +110,14 @@ const Filter = () => {
                             checked={isClicked.continent["Europe"]}
                             className={styles.checkbox}
                             aria-label="label-europe"
-                            tabIndex={0}  
+                            tabIndex={0}
                         />
-                        <label htmlFor="Europe" id="label-europe" className={styles.customCheckbox} tabIndex={0} onKeyDown={handleKeyDown}>
+                        <label
+                            htmlFor="Europe"
+                            id="label-europe"
+                            className={styles.customCheckbox}
+                            tabIndex={0}
+                            onKeyDown={handleKeyDown}>
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             Europe
                         </label>
@@ -119,9 +133,14 @@ const Filter = () => {
                             checked={isClicked.continent["North America"]}
                             className={styles.checkbox}
                             aria-label="label-north-america"
-                            tabIndex={0}  
+                            tabIndex={0}
                         />
-                        <label htmlFor="North America" id="label-north-america" className={styles.customCheckbox} tabIndex={0} onKeyDown={handleKeyDown}>
+                        <label
+                            htmlFor="North America"
+                            id="label-north-america"
+                            className={styles.customCheckbox}
+                            tabIndex={0}
+                            onKeyDown={handleKeyDown}>
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             North America
                         </label>
@@ -137,9 +156,14 @@ const Filter = () => {
                             checked={isClicked.continent["Oceania"]}
                             className={styles.checkbox}
                             aria-label="label-oceania"
-                            tabIndex={0}  
+                            tabIndex={0}
                         />
-                        <label htmlFor="Oceania" id="label-oceania" className={styles.customCheckbox} tabIndex={0} onKeyDown={handleKeyDown}>
+                        <label
+                            htmlFor="Oceania"
+                            id="label-oceania"
+                            className={styles.customCheckbox}
+                            tabIndex={0}
+                            onKeyDown={handleKeyDown}>
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             Oceania
                         </label>
@@ -155,9 +179,14 @@ const Filter = () => {
                             checked={isClicked.continent["South America"]}
                             className={styles.checkbox}
                             aria-label="label-south-america"
-                            tabIndex={0} 
+                            tabIndex={0}
                         />
-                        <label htmlFor="South America" id="label-south-america" className={styles.customCheckbox} tabIndex={0} onKeyDown={handleKeyDown}>
+                        <label
+                            htmlFor="South America"
+                            id="label-south-america"
+                            className={styles.customCheckbox}
+                            tabIndex={0}
+                            onKeyDown={handleKeyDown}>
                             <span className={styles.checkboxVisual} role="presentation"></span>
                             South America
                         </label>

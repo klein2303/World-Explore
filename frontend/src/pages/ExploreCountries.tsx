@@ -11,8 +11,11 @@ import { gql, useQuery } from "@apollo/client";
 import Pagination from "@mui/material/Pagination";
 import { pageAtom } from "../atoms/PageAtom";
 import { useEffect, useState, useCallback } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const ExploreCountries = () => {
+    const { theme } = useTheme();
+
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
     const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
     const [noResults, setNoResults] = useState<boolean>(false);
@@ -105,6 +108,21 @@ const ExploreCountries = () => {
                                     onChange={handleChange}
                                     count={Math.ceil(data.filteredcountriescount / 12)}
                                     className={styles.pagination}
+                                    sx={
+                                        theme === 'dark'
+                                        ? {
+        
+                                        ".MuiPaginationItem-root": {
+                                            color: "white",
+                                        },
+                                        ".MuiButtonBase-root:hover, .MuiPaginationItem-root.Mui-selected:hover": {
+                                            backgroundColor: "#333",
+                                        },
+                                        ".MuiPaginationItem-root.Mui-selected": {
+                                            backgroundColor: "#666262",
+                                        },
+                                    }
+                                    :{}}
                                 />
                             </>
                         )}

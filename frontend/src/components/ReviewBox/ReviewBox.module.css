@@ -41,6 +41,10 @@
         padding-bottom: 60px;
     }
 
+    body[data-theme='dark'] .reviewBox {
+        background-color: #8A86A4;
+    }
+
     .reviewText {
         margin-top: 10px;
         background-color: #fcf5ff;
@@ -50,6 +54,10 @@
         overflow-y: scroll;
         white-space: pre-wrap;
         line-height: 2;
+    }
+
+    body[data-theme='dark'] .reviewText {
+        background-color: #8A86A4;
     }
 
     .starsContainer {
@@ -102,6 +110,10 @@
         padding-bottom: 60px;
     }
 
+    body[data-theme='dark'] .reviewBox {
+        background-color: #8A86A4;
+    }
+
     .reviewText {
         margin-top: 10px;
         background-color: #fcf5ff;
@@ -110,6 +122,10 @@
         overflow-y: scroll;
         white-space: pre-wrap;
         line-height: 2;
+    }
+
+    body[data-theme='dark'] .reviewText {
+        background-color: #8A86A4;
     }
 
     .starsContainer {

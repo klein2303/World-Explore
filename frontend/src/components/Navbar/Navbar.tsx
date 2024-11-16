@@ -66,8 +66,7 @@ const Navbar = () => {
                             <p id="journals">My Journals</p>
                         </Link>
 
-                                <Link to={"/Home"} className={styles.signOut} onClick={handleSignOut} aria-label="Sign out">
-                                <Link to={"/"} className={styles.signOut} onClick={handleSignOut}>
+                                <Link to={"/Home"} className={styles.signOut} onClick={handleSignOut}>
                                     <p>Sign Out</p>
                                 </Link>
                             </div>

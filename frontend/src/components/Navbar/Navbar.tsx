@@ -1,4 +1,4 @@
-import { Link, useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 import { useState, useEffect } from "react";
@@ -27,6 +27,22 @@ const Navbar = () => {
         setIsOpen(false); // Close the mobile menu if it's open
     };
 
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 800px)");
+
+        const handleMediaQueryChange = (e: MediaQueryListEvent) => {
+            if (!e.matches && isOpen) {
+                setIsOpen(false);
+            }
+        };
+
+        mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+        return () => {
+            mediaQuery.removeEventListener("change", handleMediaQueryChange);
+        };
+    }, [isOpen]);
+
     return (
         <>
             {token ? (
@@ -44,29 +60,33 @@ const Navbar = () => {
                                     />
                                 </div>
 
-                                <Link 
-                                    to="/" 
-                                    className={`${styles.navlink} ${activeLink === '/' ? styles.active : ''}`} 
-                                    onClick={() => handleLinkClick('/')} 
+                                <Link
+                                    to="/"
+                                    className={`${styles.navlink} ${activeLink === "/" ? styles.active : ""}`}
+                                    onClick={() => handleLinkClick("/")}
                                     aria-label="Home">
                                     <p>Home</p>
                                 </Link>
-                                <Link 
-                            to="/ExploreCountries" 
-                            className={`${styles.navlink} ${activeLink === '/ExploreCountries' ? styles.active : ''}`}  
-                            onClick={() => handleLinkClick('/ExploreCountries')} 
-                            aria-label="Explore Countries">
-                            <p>Explore Countries</p>
-                        </Link>
-                        <Link 
-                            to="/MyJournals" 
-                            className={`${styles.navlink} ${activeLink === '/MyJournals' ? styles.active : ''}`} 
-                            onClick={() => handleLinkClick('/MyJournals')} 
-                            aria-label="My Journals">
-                            <p>My Journals</p>
-                        </Link>
+                                <Link
+                                    to="/ExploreCountries"
+                                    className={`${styles.navlink} ${activeLink === "/ExploreCountries" ? styles.active : ""}`}
+                                    onClick={() => handleLinkClick("/ExploreCountries")}
+                                    aria-label="Explore Countries">
+                                    <p>Explore Countries</p>
+                                </Link>
+                                <Link
+                                    to="/MyJournals"
+                                    className={`${styles.navlink} ${activeLink === "/MyJournals" ? styles.active : ""}`}
+                                    onClick={() => handleLinkClick("/MyJournals")}
+                                    aria-label="My Journals">
+                                    <p>My Journals</p>
+                                </Link>
 
-                                <Link to={"/Home"} className={styles.signOut} onClick={handleSignOut} aria-label="Sign out">
+                                <Link
+                                    to={"/Home"}
+                                    className={styles.signOut}
+                                    onClick={handleSignOut}
+                                    aria-label="Sign out">
                                     <p>Sign Out</p>
                                 </Link>
                             </div>
@@ -102,7 +122,7 @@ const Navbar = () => {
             ) : (
                 <main>
                     <nav className={styles.notLoggedNavbar} role="navigation" aria-label="Main Navigation">
-                    {isOpen && (
+                        {isOpen && (
                             <div className={styles.mobilemenu} role="dialog" aria-label="Mobile Navigation Menu">
                                 {/* Close button for mobile menu */}
                                 <div className={styles.crosspos} role="presentation">
@@ -112,7 +132,11 @@ const Navbar = () => {
                                         aria-label="Close Mobile Menu"
                                     />
                                 </div>
-                                <Link to={"/LogIn"} className={styles.login} onClick={handleSignOut} aria-label="Log in">
+                                <Link
+                                    to={"/LogIn"}
+                                    className={styles.login}
+                                    onClick={handleSignOut}
+                                    aria-label="Log in">
                                     <p>Log in</p>
                                 </Link>
                             </div>
@@ -131,10 +155,7 @@ const Navbar = () => {
 
                         <div className={styles.navlinks} role="group" aria-label="Navigation Links">
                             <Link to={"/Login"} className={styles.navlink}>
-                                <CgProfile
-                                    className={styles.profile}
-                                    aria-label="Open Profile Menu"
-                                />
+                                <CgProfile className={styles.profile} aria-label="Open Profile Menu" />
                                 <p>Log in</p>
                             </Link>
                         </div>

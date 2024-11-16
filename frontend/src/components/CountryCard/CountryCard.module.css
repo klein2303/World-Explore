@@ -10,7 +10,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.cardcontainer:hover{
+.cardcontainer:hover {
     background-color: #ddd9e3;
 }
 
@@ -36,8 +36,8 @@
     font-size: 22px;
 }
 
-.icon:hover{
-    fill:#424242;
+.icon:hover {
+    fill: #424242;
     font-size: 25px;
 }
 
@@ -46,7 +46,7 @@
 }
 
 @media (max-width: 810px) {
-    .cardcontainer{
+    .cardcontainer {
         margin: 12px;
     }
 }

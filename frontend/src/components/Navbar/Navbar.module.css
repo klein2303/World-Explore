@@ -8,7 +8,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #e0e0e0; 
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .navTitle,
@@ -59,22 +59,22 @@
     gap: 7px;
 }
 
-.navlink:hover p{
+.navlink:hover p {
     text-decoration: underline;
 }
 
-.active{
-    text-decoration: underline; 
+.active {
+    text-decoration: underline;
 }
 
-.search{
+.search {
     font-size: 21px;
     font-weight: lighter;
     color: #424242;
     margin-right: 6px;
-} 
-.pin, 
-.profile{
+}
+.pin,
+.profile {
     font-size: 17px;
     font-weight: lighter;
     color: #424242;
@@ -111,7 +111,7 @@
 }
 
 @media (max-width: 800px) {
-    .notLoggedNavbar{
+    .notLoggedNavbar {
         justify-content: start;
     }
 

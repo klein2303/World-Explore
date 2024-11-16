@@ -27,6 +27,22 @@ const Navbar = () => {
         setIsOpen(false); // Close the mobile menu if it's open
     };
 
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 800px)");
+
+        const handleMediaQueryChange = (e: MediaQueryListEvent) => {
+            if (!e.matches && isOpen) {
+                setIsOpen(false);
+            }
+        };
+
+        mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+        return () => {
+            mediaQuery.removeEventListener("change", handleMediaQueryChange);
+        };
+    }, [isOpen]);
+
     return (
         <>
             {token ? (
@@ -48,22 +64,22 @@ const Navbar = () => {
                                     to="/"
                                     className={`${styles.navlink} ${activeLink === "/" ? styles.active : ""}`}
                                     onClick={() => handleLinkClick("/")}
-                                    aria-labelledby="home">
-                                    <p id="home">Home</p>
+                                    aria-labelledby="Home">
+                                    <p>Home</p>
                                 </Link>
                                 <Link
                                     to="/ExploreCountries"
                                     className={`${styles.navlink} ${activeLink === "/ExploreCountries" ? styles.active : ""}`}
                                     onClick={() => handleLinkClick("/ExploreCountries")}
-                                    aria-labelledby="explore">
-                                    <p id="explore">Explore Countries</p>
+                                    aria-labelledby="journals">
+                                    <p id="journals">Explore Countries</p>
                                 </Link>
                                 <Link
                                     to="/MyJournals"
                                     className={`${styles.navlink} ${activeLink === "/MyJournals" ? styles.active : ""}`}
                                     onClick={() => handleLinkClick("/MyJournals")}
-                                    aria-labelledby="journals">
-                                    <p id="journals">My Journals</p>
+                                    aria-label="My Journals">
+                                    <p>My Journals</p>
                                 </Link>
 
                                 <Link to={"/Home"} className={styles.signOut} onClick={handleSignOut}>

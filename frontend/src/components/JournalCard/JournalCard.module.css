@@ -12,20 +12,28 @@
     width: 150px;
     height: 200px;
     background-color: #e4e1f7;
-    border-radius: 12px;
+    border-radius: 3px 8px 8px 3px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     cursor: pointer;
 }
 
+body[data-theme='dark'] .card {
+    background-color: #8A86A4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
 .verticalStrip {
     position: absolute;
     top: 0;
-    right: 25px;
-    width: 6px;
+    width: 8px;
     height: 100%;
     background-color: #424242;
     z-index: 1;
+}
+
+body[data-theme='dark'] .verticalStrip {
+    background-color: #bebebe;
 }
 
 .cardImage {
@@ -44,6 +52,10 @@
     font-size: 18px;
     font-weight: 400;
     color: #424242;
+}
+
+body[data-theme='dark'] .cardTitle {
+    color: white;
 }
 
 .cardDate {

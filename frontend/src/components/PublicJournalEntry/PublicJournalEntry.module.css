@@ -13,6 +13,11 @@
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
+body[data-theme='dark'] .reviewCard {
+    background-color: #424242;
+    color: white;
+}
+
 .reviewTitle {
     font-size: 16px;
     font-weight: bold;
@@ -68,6 +73,10 @@
     cursor: pointer;
     font-size: 12px;
     margin-top: 10px;
+}
+
+body[data-theme='dark'] .readMoreButton {
+    background-color: #8A86A4;
 }
 
 .readMoreButton:hover {

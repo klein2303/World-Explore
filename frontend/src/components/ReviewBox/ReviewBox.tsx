@@ -26,8 +26,7 @@ const ReviewBox = ({ country }: journalCountry) => {
     `;
     const { data, loading, error } = useQuery(JOURNAL, {
         variables: { countryid: country, profileid: user },
-        fetchPolicy: "cache-first", // Used for first execution
-        nextFetchPolicy: "cache-first", // Used for subsequent executions
+        fetchPolicy: "cache-and-network",
     });
     // Render 5 stars based on a given rating
     const renderStars = (rating: number) => {

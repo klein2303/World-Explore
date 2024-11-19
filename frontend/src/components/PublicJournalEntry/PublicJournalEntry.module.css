@@ -41,12 +41,6 @@
     gap: 6px;
 }
 
-.reviewInfoBox {
-    flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .reviewText {
     font-size: 16px;
     line-height: 1.4;

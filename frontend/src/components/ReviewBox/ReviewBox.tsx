@@ -40,52 +40,40 @@ const ReviewBox = ({ country }: journalCountry) => {
             ),
         );
     };
-    // Change the privacy of a review
-    // const makePublic = (id: number) => {
-    //     if (reviews) {
-    //         const updatedReviews = reviews.reviews.map((review) =>
-    //             review.id === id ? { ...review, public: !review.public } : review,
-    //         );
-    //         setReviews({ ...reviews, reviews: updatedReviews });
-    //     }
-    // };
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
     return (
         <main className="main">
-            {data.writtenjournal ? (
-                data.writtenjournal.reviews.map(
-                    (review: {
-                        id: number;
-                        title: string;
-                        date: string;
-                        text: string;
-                        rating: number;
-                        ispublic: boolean;
-                    }) => (
-                        <section
-                            key={review.id}
-                            className={styles.reviewBox}
-                            aria-description="Section containing the journal entry"
-                            tabIndex={0}>
-                            <p className={styles.reviewTitle}>{review.title}</p>
-                            <p className={styles.date}>{review.date}</p>
-                            <article className={styles.reviewText}>{review.text} </article>
-                            <section className={styles.starsContainer} aria-label="rating">
-                                {/* Render stars based on rating */}
-                                {renderStars(review.rating)}
-                            </section>
-                            <section className={styles.publicContainer}>
-                                <p className={styles.publicInfoText}>
-                                    This journal entry is {review.ispublic ? "public" : "private"}
-                                </p>
-                            </section>
-                        </section>
-                    ),
-                )
-            ) : (
-                <p className={styles.noJournal}>No reviews found for {country}</p>
-            )}
+            {data.writtenjournal
+                ? data.writtenjournal.reviews.map(
+                      (review: {
+                          id: number;
+                          title: string;
+                          date: string;
+                          text: string;
+                          rating: number;
+                          ispublic: boolean;
+                      }) => (
+                          <section
+                              key={review.id}
+                              className={styles.reviewBox}
+                              aria-description="Section containing the journal entry"
+                              tabIndex={0}>
+                              <p className={styles.reviewTitle}>{review.title}</p>
+                              <p className={styles.date}>{review.date}</p>
+                              <article className={styles.reviewText}>{review.text} </article>
+                              <section className={styles.starsContainer} aria-label="rating">
+                                  {/* Render stars based on rating */}
+                                  {renderStars(review.rating)}
+                              </section>
+                              <p className={styles.publicInfoText}>
+                                  This journal entry is {review.ispublic ? "public" : "private"}
+                              </p>
+                          </section>
+                      ),
+                  )
+                : null}
         </main>
     );
 };

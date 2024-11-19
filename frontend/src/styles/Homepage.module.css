@@ -1,120 +1,323 @@
 /* General CSS here */
+
+@keyframes arrow-move {
+    /* Used for animation on arrow */
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(25px);
+    }
+}
+
 .page {
     display: grid;
     place-items: center;
-    margin-top: 4.5%;
+    margin-top: 2%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.imageArticle {
-    width: 95%;
-    height: 450px;
+.upperSection {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    margin-bottom: 10px;
+    width: 100%;
+    height: 40vw;
 }
 
-/*Display specific CSS below */
+.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: opacity(0.8) contrast(80%);
+    object-fit: cover;
+    z-index: -1;
+}
 
-@media (min-width: 1081px) {
-    /*Display */
+.contentOnPicture {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
 
-    .topText {
-        position: absolute;
-        width: fit-content;
-        height: fit-content;
-        transform: translate(-50%, -50%);
-        color: #eeeeee;
-        font-size: 30px;
-        font-style: italic;
-        text-align: center;
-        top: 32%;
-    }
+.welcome {
+    color: #ffff;
+    font-size: 3vw;
+    font-style: italic;
+    text-align: center;
+}
 
-    .bottomText {
-        position: absolute;
-        width: fit-content;
-        height: fit-content;
-        transform: translate(-50%, -50%);
-        color: #ffffff;
-        font-size: 50px;
-        font-style: italic;
-        text-align: center;
-        top: 55%;
-    }
+.topText {
+    color: #ffff;
+    font-size: 2vw;
+    font-style: italic;
+    text-align: center;
+}
 
-    .image {
-        max-height: auto;
+.bottomText {
+    color: #ffff;
+    font-size: 2vw;
+    font-style: italic;
+    text-align: center;
+}
+
+.arrow {
+    color: #424242;
+    margin-top: 20px;
+    font-size: 5vw;
+    animation: arrow-move 2s infinite;
+}
+
+.aboutDiv {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.paragraphSection {
+    display: flex;
+    flex-direction: row;
+    background-color: #f6f6f6;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.infoTextSection {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.infoTextHeader {
+    font-size: 2vw;
+    font-weight: 200;
+}
+
+.infoText {
+    padding: 30px;
+    color: #424242;
+    text-align: center;
+    font-size: 1.2vw;
+    font-weight: 300;
+}
+
+.lastParagraphSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoImagesRight {
+    height: 400px;
+    width: 500px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.infoImagesLeft {
+    height: 400px;
+    width: 500px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.lastInfoText {
+    color: #424242;
+    font-size: 2vw;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logInButton {
+    padding: 10px;
+    font-size: 2vw;
+    font-weight: 200;
+    background-color: #e4e1f7;
+    color: #424242;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: fit-content;
+}
+
+.logInButton:hover {
+    background-color: #d1cdf5; /* Slightly darker purple on hover */
+}
+
+/* Display specific CSS below */
+
+@media (max-width: 1081px) {
+    /* Tablet */
+
+    .upperSection {
         position: relative;
-        filter: opacity(0.8);
-        filter: contrast(80%);
-        object-fit: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50vw;
     }
-}
 
-@media (max-width: 1280px) {
-    /*Tablet */
-
-    .imageArticle {
-        height: 350px;
-    }
-    .topText {
-        position: absolute;
-        width: 90%;
-        height: fit-content;
-        transform: translate(-50%, -50%);
-        color: #ffffff;
-        font-size: 30px;
+    .infoText {
+        padding: 10px 20px 10px 20px;
+        color: #424242;
+        text-align: center;
+        font-size: 1.5vw;
         font-weight: 300;
-        font-style: italic;
-        text-align: center;
-        top: 35%;
     }
 
-    .bottomText {
-        position: absolute;
-        width: 75%;
-        height: fit-content;
-        top: 55%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #f7f7f7;
-        font-size: 40px;
-        font-style: italic;
-        text-align: center;
+    .infoImagesRight {
+        height: 100%;
+        width: 100%;
+        border-radius: 0px 10px 10px 0px;
     }
 
-    .image {
-        max-height: auto;
-        max-width: 90vw;
+    .infoImagesLeft {
+        height: 300px;
+        width: 400px;
+        border-radius: 10px 0px 0px 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    /* Smaller tablet */
+
+    .upperSection {
         position: relative;
-        filter: opacity(0.8);
-        filter: contrast(80%);
-        object-fit: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50vw;
+    }
+
+    .infoText {
+        padding: 10px 20px 10px 20px;
+        color: #424242;
+        text-align: center;
+        font-size: 1.5vw;
+        font-weight: 300;
+    }
+
+    .infoImagesRight {
+        height: 100%;
+        width: 300px;
+        border-radius: 0px 10px 10px 0px;
+    }
+
+    .infoImagesLeft {
+        height: 250px;
+        width: 300px;
+        border-radius: 10px 0px 0px 10px;
     }
 }
 
-@media (max-width: 770px) {
-    .imageArticle {
-        margin-bottom: 0px;
+@media (max-width: 700px) {
+    /* Mobile */
+    @keyframes arrow-move {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(15px); /* Adjust the distance as needed */
+        }
     }
 
-    .topText {
-        font-size: 15px;
-        top: 42%;
-    }
-
-    .bottomText {
-        font-size: 20px;
-        top: 55%;
-    }
-}
-
-@media (max-width: 500px) {
     .page {
         margin-top: 0.5%;
+    }
+
+    .upperSection {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50vw;
+    }
+
+    .welcome {
+        color: #ffff;
+        font-size: 4vw;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .topText {
+        color: #ffff;
+        font-size: 3vw;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .bottomText {
+        color: #ffff;
+        font-size: 3vw;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .arrow {
+        color: #424242;
+        margin-top: 10px;
+        font-size: 5vw;
+        animation: arrow-move 2s infinite;
+    }
+
+    .aboutDiv {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .paragraphSection {
+        display: flex;
+        flex-direction: row;
+        background-color: #f6f6f6;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .infoTextSection {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .infoTextHeader {
+        font-size: 2.5vw;
+        font-weight: 200;
+    }
+
+    .infoText {
+        padding: 10px;
+        color: #424242;
+        text-align: center;
+        font-size: 1.5vw;
+        font-weight: 300;
+    }
+
+    .infoImagesRight {
+        display: none;
+    }
+
+    .infoImagesLeft {
+        display: none;
     }
 }

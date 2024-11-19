@@ -1,4 +1,4 @@
-describe ("Run the home page on desktop", () => {
+describe("Run the home page on desktop", () => {
     beforeEach(() => {
         cy.viewport(1280, 720);
         cy.visit("http://localhost:5173/project2#/");
@@ -24,7 +24,11 @@ describe ("Run the home page on desktop", () => {
         cy.get("p").contains("Write your own journals!").should("be.visible");
         cy.get('[alt="Switzerland nature"]').should("be.visible");
 
-        cy.get("p").contains("Create an account to start your exploration, create unforgettable memories, and let your journal entries bring the world to life.").should("be.visible");
+        cy.get("p")
+            .contains(
+                "Create an account to start your exploration, create unforgettable memories, and let your journal entries bring the world to life.",
+            )
+            .should("be.visible");
         cy.get("button").contains("Start now").should("be.visible");
     });
 
@@ -32,7 +36,7 @@ describe ("Run the home page on desktop", () => {
         cy.get("button").contains("Start now").click();
         cy.url().should("include", "/Register");
     });
-})
+});
 
 describe("Run the home page on mobile", () => {
     beforeEach(() => {
@@ -60,7 +64,11 @@ describe("Run the home page on mobile", () => {
         cy.get("p").contains("Write your own journals!").should("be.visible");
         cy.get('[alt="Switzerland nature"]').should("not.be.visible");
 
-        cy.get("p").contains("Create an account to start your exploration, create unforgettable memories, and let your journal entries bring the world to life.").should("be.visible");
+        cy.get("p")
+            .contains(
+                "Create an account to start your exploration, create unforgettable memories, and let your journal entries bring the world to life.",
+            )
+            .should("be.visible");
         cy.get("button").contains("Start now").should("be.visible");
     });
 

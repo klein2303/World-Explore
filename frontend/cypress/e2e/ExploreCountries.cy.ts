@@ -4,15 +4,15 @@ describe("Run the explore page on desktop", () => {
         cy.visit("http://localhost:5173/project2#/ExploreCountries");
 
         cy.window().then((win) => {
-            win.sessionStorage.setItem('auth-token', 'test-token');
-            win.sessionStorage.setItem('user', 'test-user');
+            win.sessionStorage.setItem("auth-token", "test-token");
+            win.sessionStorage.setItem("user", "test-user");
         });
     });
 
     afterEach(() => {
         cy.window().then((win) => {
-            win.sessionStorage.removeItem('auth-token');
-            win.sessionStorage.removeItem('user');
+            win.sessionStorage.removeItem("auth-token");
+            win.sessionStorage.removeItem("user");
         });
     });
 
@@ -25,7 +25,7 @@ describe("Run the explore page on desktop", () => {
         cy.get('[aria-labelledby="filters-title"]').should("be.visible");
         cy.get('[aria-label="sort-section"]').should("be.visible");
 
-        cy.get('[role="list"]').should('be.visible');
+        cy.get('[role="list"]').should("be.visible");
         cy.get('[role="list"]').should("have.length.greaterThan", 0);
 
         cy.get(".MuiPagination-root").should("be.visible");
@@ -124,15 +124,15 @@ describe("Run the explore page on mobile", () => {
         cy.visit("http://localhost:5173/project2#/ExploreCountries");
 
         cy.window().then((win) => {
-            win.sessionStorage.setItem('auth-token', 'test-token');
-            win.sessionStorage.setItem('user', 'test-user');
+            win.sessionStorage.setItem("auth-token", "test-token");
+            win.sessionStorage.setItem("user", "test-user");
         });
     });
 
     afterEach(() => {
         cy.window().then((win) => {
-            win.sessionStorage.removeItem('auth-token');
-            win.sessionStorage.removeItem('user');
+            win.sessionStorage.removeItem("auth-token");
+            win.sessionStorage.removeItem("user");
         });
     });
 
@@ -145,7 +145,7 @@ describe("Run the explore page on mobile", () => {
         cy.get('[aria-labelledby="filters-title"]').should("be.visible");
         cy.get('[aria-label="sort-section"]').should("be.visible");
 
-        cy.get('[role="list"]').should('be.visible');
+        cy.get('[role="list"]').should("be.visible");
         cy.get('[role="list"]').should("have.length.greaterThan", 0);
 
         cy.get(".MuiPagination-root").should("be.visible");

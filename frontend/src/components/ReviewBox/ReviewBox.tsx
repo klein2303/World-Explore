@@ -77,7 +77,7 @@ const ReviewBox = ({ country }: journalCountry) => {
                                 {renderStars(review.rating)}
                             </section>
                             <p className={styles.publicInfoText}>
-                                    This journal entry is {review.ispublic ? "public" : "private"}
+                                This journal entry is {review.ispublic ? "public" : "private"}
                             </p>
                         </section>
                     ),

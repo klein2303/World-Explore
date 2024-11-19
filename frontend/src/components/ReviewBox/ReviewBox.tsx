@@ -40,6 +40,7 @@ const ReviewBox = ({ country }: journalCountry) => {
             ),
         );
     };
+
     // Change the privacy of a review
     // const makePublic = (id: number) => {
     //     if (reviews) {
@@ -75,11 +76,9 @@ const ReviewBox = ({ country }: journalCountry) => {
                                 {/* Render stars based on rating */}
                                 {renderStars(review.rating)}
                             </section>
-                            <section className={styles.publicContainer}>
-                                <p className={styles.publicInfoText}>
+                            <p className={styles.publicInfoText}>
                                     This journal entry is {review.ispublic ? "public" : "private"}
-                                </p>
-                            </section>
+                            </p>
                         </section>
                     ),
                 )

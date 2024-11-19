@@ -9,8 +9,9 @@
     }
 
     .returnLink {
+        max-width: fit-content;
         font-size: 18px;
-        text-decoration: none;
+        /*text-decoration: none;*/
         color: #424242;
     }
 

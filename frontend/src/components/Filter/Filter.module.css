@@ -50,11 +50,6 @@ body[data-theme='dark'] .decription {
     gap: 14px;
 }
 
-/* Dark mode filter list styling */
-body[data-theme='dark'] .filterlist {
-    color: white;
-}
-
 /* Filter Item */
 .filteritem {
     display: flex;
@@ -83,14 +78,13 @@ body[data-theme='dark'] .filteritem {
     align-items: center;
     color: #424242;
 }
-
-.checkboxVisual:hover {
-    background-color: #424242;
-}
-
 /* Dark mode custom checkbox styling */
 body[data-theme='dark'] .customCheckbox {
     color: white;
+}
+
+.checkboxVisual:hover {
+    background-color: #424242;
 }
 
 /* Checkbox Visual */
@@ -125,6 +119,14 @@ body[data-theme='dark'] .checkboxVisual:hover {
 
 /* Mobile and Tablet adjustments for dark mode */
 @media (max-width: 750px) {
+    .title {
+        display: none;
+    }
+
+    .decription {
+        display: none;
+    }
+
     .filtercontainer {
         background-color: white;
         height: fit-content;
@@ -175,6 +177,14 @@ body[data-theme='dark'] .checkboxVisual:hover {
         border: 2px solid #8A86A4;
     }
 
+    .customCheckbox:hover {
+        background-color: #e4e1f7;
+    }
+
+    body[data-theme='dark'] .customCheckbox:hover {
+        background-color: #8A86A4;
+    }
+
     .checkbox:checked + .customCheckbox {
         background-color: #e4e1f7;
     }
@@ -186,6 +196,14 @@ body[data-theme='dark'] .checkboxVisual:hover {
 }
 
 @media (max-width: 620px) {
+    .title {
+        display: none;
+    }
+
+    .decription {
+        display: none;
+    }
+
     .filtercontainer {
         background-color: white;
         height: fit-content;
@@ -225,7 +243,7 @@ body[data-theme='dark'] .checkboxVisual:hover {
         width: fit-content;
         padding: 5px;
         border-radius: 10px;
-        border: 2px solid #8A86A4;
+        border: 2px solid #e4e1f7;
     }
 
     /* Dark mode custom checkbox */
@@ -233,8 +251,16 @@ body[data-theme='dark'] .checkboxVisual:hover {
         border: 2px solid #8A86A4;
     }
 
+    .customCheckbox:hover {
+        background-color: #e4e1f7;
+    }
+
+    body[data-theme='dark'] .customCheckbox:hover {
+        background-color: #8A86A4;
+    }
+
     .checkbox:checked + .customCheckbox {
-        background-color: #ffffff;
+        background-color: #e4e1f7;
     }
 
     /* Dark mode checked custom checkbox */

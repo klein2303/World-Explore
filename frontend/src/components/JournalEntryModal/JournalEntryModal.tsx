@@ -166,6 +166,11 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
                             type="checkbox"
                             checked={isPublic}
                             onChange={() => setIsPublic(!isPublic)}
+                            onKeyDown={(event) => {
+                                if (event.key === "Enter") {
+                                    setIsPublic(!isPublic);
+                                }
+                            }}
                             aria-label="Public checkbox"
                         />
                         Public

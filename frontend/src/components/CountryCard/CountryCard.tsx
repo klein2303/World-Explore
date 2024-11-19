@@ -23,6 +23,15 @@ const CountryCard = ({ name, image }: CountryCardProps) => {
         closeModal(); // Close the modal
     };
 
+    // Handle keydown event to check for Enter key
+    const handleKeyDown = (event: React.KeyboardEvent) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            console.log("funker");
+            openModal();
+        }
+    };
+
     return (
         <main className={styles.cardcontainer} role="region" aria-label={`country-name-${name}`}>
             <Link to={`/${name}`}>
@@ -36,6 +45,7 @@ const CountryCard = ({ name, image }: CountryCardProps) => {
                     className={styles.icon}
                     role="button"
                     onClick={openModal}
+                    onKeyDown={handleKeyDown}
                     aria-description={`Write review for ${name}`}
                     tabIndex={0}
                 />

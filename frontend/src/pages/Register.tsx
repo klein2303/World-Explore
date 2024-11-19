@@ -10,7 +10,7 @@ const Register = () => {
             <section className={styles.inputSection} aria-description="A section for inputs">
                 <section className={styles.header} aria-label="Header of register page">
                     <section className={styles.logo} aria-label="Logo">
-                        <Link to={"/ExploreCountries"} className={styles.logoLink} aria-description="link to home page">
+                        <Link to={"/"} className={styles.logoLink} aria-description="link to home page">
                             <p aria-label="World explore">WorldExplore</p>
                         </Link>
                         <Link to={"/"} className={styles.arrowLink} aria-label="link to home page">

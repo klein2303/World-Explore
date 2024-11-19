@@ -107,7 +107,7 @@ body[data-theme='dark'] .submitButton {
 }
 
 body[data-theme='dark'] .submitButton:hover {
-    background-color: #827f7f;
+    background-color: #7A7694;
 }
 
 @media (max-width: 1020px) {

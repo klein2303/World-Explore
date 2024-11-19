@@ -67,6 +67,10 @@ describe("Run the country page on desktop", () => {
         });
     })
 
+    it("Checks if the navbar is loaded", () => {
+        cy.get("nav").should("be.visible");
+    });
+
     it('Checks if all country information is correctly displayed', () => {
         cy.get('h1').contains('Norway');
         cy.contains('Continent: Europe');
@@ -84,7 +88,7 @@ describe("Run the country page on desktop", () => {
         cy.contains('The CO2 emission produced by the country is 44.3 tons.');
     });
     
-    it('Check if it displays all the public entries for a countrie', () => {
+    it('Check if it displays all the public entries for a country', () => {
         cy.get('h3').contains('Public Journal Entries for Norway');
         cy.contains('My trip to Norway');
         cy.contains('It was a fantastic experience with breathtaking views.');
@@ -203,6 +207,10 @@ describe("Run the country page on mobile", () => {
             win.sessionStorage.removeItem('user');
         });
     });
+
+    it("Checks if the navbar is loaded", () => {
+        cy.get("nav").should("be.visible");
+    });
     
     it('Checks if all country information is correctly displayed', () => {
         cy.get('h1').contains('Japan');
@@ -221,7 +229,7 @@ describe("Run the country page on mobile", () => {
         cy.contains('The CO2 emission produced by the country is 1009 tons.');
     });
     
-    it('Check if it displays all the public entries for a countrie', () => {
+    it('Check if it displays all the public entries for a country', () => {
         cy.get('h3').contains('Public Journal Entries for Japan');
         cy.contains('Cherry blossoms in Japan');
         cy.contains('The cherry blossoms were stunning, and the culture was fascinating.');

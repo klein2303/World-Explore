@@ -1,4 +1,4 @@
-describe("Run the country page on desttop", () => {
+describe("Run the country page on desktop", () => {
     const mockNorwayData = {
         data: {
             country: {

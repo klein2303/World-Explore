@@ -154,6 +154,15 @@ const Navbar = () => {
                                         aria-label="Close Mobile Menu"
                                     />
                                 </div>
+                                <DarkModeSwitch
+                                    style={{ marginLeft: "10px", marginTop: "10px" }}
+                                    checked={theme === "dark"}
+                                    onChange={toggleTheme}
+                                    size={25}
+                                    sunColor="#424242"
+                                    moonColor="white" 
+                                    aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                                />
                                 <Link
                                     to={"/LogIn"}
                                     className={styles.login}

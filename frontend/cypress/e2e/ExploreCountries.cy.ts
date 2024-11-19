@@ -63,9 +63,7 @@ describe("Run the explore page on desktop", () => {
 
     it("Checks if the sort functionality works", () => {
         // Checks if the original order of the list is A-z and then Z-A after clicking on the dropdown
-        cy.get('[role="list"] [role="listitem"]').then((items) => {
-            const originalOrder = [...items].map((item) => item.textContent);
-
+        cy.get('[role="list"] [role="listitem"]').then(() => {
             cy.get('[aria-label="Sort countries alphabetically"]').select("A-Z");
 
             // Verify that the list is sorted in ascending order (A-Z)
@@ -102,7 +100,7 @@ describe("Run the explore page on desktop", () => {
         cy.get('[aria-label="Sort countries alphabetically"]').select("Z-A");
 
         // Capture the sorted list order after filtering
-        cy.get('[role="list"] [role="listitem"]').then((itemsAfterFilterAndSort) => {
+        cy.get('[role="list"] [role="listitem"]').then(() => {
             cy.get('[role="list"] [role="listitem"]').then((sortedItemsZtoA) => {
                 const sortedOrderZtoA = [...sortedItemsZtoA].map((item) => item.textContent);
                 expect(sortedOrderZtoA).to.deep.equal([...sortedOrderZtoA].sort().reverse());
@@ -177,9 +175,7 @@ describe("Run the explore page on mobile", () => {
 
     it("Checks if the sort functionality works", () => {
         // Checks if the original order of the list is A-z and then Z-A after clicking on the dropdown
-        cy.get('[role="list"] [role="listitem"]').then((items) => {
-            const originalOrder = [...items].map((item) => item.textContent);
-
+        cy.get('[role="list"] [role="listitem"]').then(() => {
             cy.get('[aria-label="Sort countries alphabetically"]').select("A-Z");
 
             // Verify that the list is sorted in ascending order (A-Z)
@@ -216,7 +212,7 @@ describe("Run the explore page on mobile", () => {
         cy.get('[aria-label="Sort countries alphabetically"]').select("Z-A");
 
         // Capture the sorted list order after filtering
-        cy.get('[role="list"] [role="listitem"]').then((itemsAfterFilterAndSort) => {
+        cy.get('[role="list"] [role="listitem"]').then(() => {
             cy.get('[role="list"] [role="listitem"]').then((sortedItemsZtoA) => {
                 const sortedOrderZtoA = [...sortedItemsZtoA].map((item) => item.textContent);
                 expect(sortedOrderZtoA).to.deep.equal([...sortedOrderZtoA].sort().reverse());

@@ -11,6 +11,7 @@ describe("Run the home page on desktop", () => {
     it("Checks if all the right information is loaded", () => {
         cy.get('[alt="Pink Purple Sunset"]').should("be.visible");
 
+        cy.get("p").contains("Welcome to World Explore!");
         cy.get("p").contains("All your special travels at one place").should("be.visible");
         cy.get("p").contains("Explore and write to your heart's content").should("be.visible");
 
@@ -50,6 +51,7 @@ describe("Run the home page on mobile", () => {
     it("Checks if all the right information is loaded", () => {
         cy.get('[alt="Pink Purple Sunset"]').should("be.visible");
 
+        cy.get("p").contains("Welcome to World Explore!");
         cy.get("p").contains("All your special travels at one place").should("be.visible");
         cy.get("p").contains("Explore and write to your heart's content").should("be.visible");
 

@@ -1,6 +1,6 @@
 describe("Run Login page on desktop", () => {
     beforeEach(() => {
-        cy.viewport(1024, 720);
+        cy.viewport(1280, 720);
         cy.visit("http://localhost:5173/project2#/Login");
     });
 

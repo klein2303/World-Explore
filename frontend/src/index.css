@@ -25,9 +25,3 @@ body[data-theme='dark'] {
     background-color: #424242;
     color: white;
 }
-  
-/* Light mode styles */
-body[data-theme='light'] {
-    background-color: white;
-    color: #424242;
-}

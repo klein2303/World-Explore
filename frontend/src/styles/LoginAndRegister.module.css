@@ -8,6 +8,10 @@
     overflow: hidden;
 }
 
+body[data-theme='dark'] .registerPage, body[data-theme='dark'] .loginPage {
+    background-color: #424242;
+}
+
 .inputSection {
     width: 45%;
     height: fit-content;
@@ -32,6 +36,10 @@
     text-decoration: none;
     color: #424242;
     font-size: 30px;
+}
+
+body[data-theme='dark'] .logoLink {
+    color: white;
 }
 
 .logo {
@@ -63,9 +71,17 @@
     margin-right: 40px;
 }
 
+body[data-theme='dark'] .linkToLogIn a {
+    color: white;
+}
+
 .linkToLogIn a:hover {
     text-decoration: underline;
     color: #351939;
+}
+
+body[data-theme='dark'] .linkToLogIn a:hover {
+    text-decoration: underline;
 }
 
 .header {
@@ -135,10 +151,18 @@
         color: #424242;
     }
 
+    body[data-theme='dark'] .arrow {
+        color: white;
+    }
+
     .linkToLogInUnder a {
         color: #000000;
         font-weight: 300;
         font-size: 15px;
+    }
+
+    body[data-theme='dark'] .linkToLogInUnder a {
+        color: white;
     }
 
     .linkToLogInUnder {

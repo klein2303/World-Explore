@@ -2,6 +2,18 @@ describe("Run the explore page on desktop", () => {
     beforeEach(() => {
         cy.viewport(1280, 720);
         cy.visit("http://localhost:5173/project2#/ExploreCountries");
+
+        cy.window().then((win) => {
+            win.sessionStorage.setItem("auth-token", "test-token");
+            win.sessionStorage.setItem("user", "test-user");
+        });
+    });
+
+    afterEach(() => {
+        cy.window().then((win) => {
+            win.sessionStorage.removeItem("auth-token");
+            win.sessionStorage.removeItem("user");
+        });
     });
 
     it("Checks if the navbar is loaded", () => {
@@ -10,10 +22,10 @@ describe("Run the explore page on desktop", () => {
 
     it("Checks if everything is being displayed", () => {
         cy.get('[aria-label="Search countries"]').should("be.visible");
-        cy.get('[aria-label="Filter based on continents"]').should("be.visible");
-        cy.get('[aria-label="Sort countries alphabetically"]').should("be.visible");
+        cy.get('[aria-labelledby="filters-title"]').should("be.visible");
+        cy.get('[aria-label="sort-section"]').should("be.visible");
 
-        cy.get('[role="region"][aria-labelledby="country-list"]').should("be.visible");
+        cy.get('[role="list"]').should("be.visible");
         cy.get('[role="list"]').should("have.length.greaterThan", 0);
 
         cy.get(".MuiPagination-root").should("be.visible");
@@ -29,7 +41,7 @@ describe("Run the explore page on desktop", () => {
         cy.get('[role="list"]').then((initialList) => {
             const initialCount = initialList.children().length;
 
-            cy.get('[aria-label="Filter based on continents"]').contains("Europe").click();
+            cy.get('[aria-description="Filter based on continents"]').contains("Europe").click();
 
             // Check if the count has descreased after applying "Europe" filter first and then increased after applying "Asia" filter too
             cy.get('[role="list"]')
@@ -40,7 +52,7 @@ describe("Run the explore page on desktop", () => {
                 .then((updatedListAfterEurope) => {
                     const updatedCountAfterEurope = updatedListAfterEurope.children().length;
 
-                    cy.get('[aria-label="Filter based on continents"]').contains("Asia").click();
+                    cy.get('[aria-description="Filter based on continents"]').contains("Asia").click();
                     cy.get('[role="list"]').should((updatedListAfterAsia) => {
                         const updatedCountAfterAsia = updatedListAfterAsia.children().length;
                         expect(updatedCountAfterAsia).to.be.greaterThan(updatedCountAfterEurope);
@@ -81,7 +93,7 @@ describe("Run the explore page on desktop", () => {
 
     it("Checks if the search, filter and sort functionaliity work together", () => {
         // Step 1: Apply the filter (e.g., continent filter for "Europe")
-        cy.get('[aria-label="Filter based on continents"]').contains("Europe").click();
+        cy.get('[aria-description="Filter based on continents"]').contains("Europe").click();
 
         // Verify that the filter is applied (check if at least one country is displayed)
         cy.get('[role="list"]').children().should("have.length.greaterThan", 0);
@@ -99,7 +111,7 @@ describe("Run the explore page on desktop", () => {
             cy.get('[aria-label="Search countries"]').type("India");
             cy.get('[role="list"]').children().should("have.length", 0);
 
-            cy.get('[aria-label="Filter based on continents"]').contains("Asia").click();
+            cy.get('[aria-description="Filter based on continents"]').contains("Asia").click();
             cy.get('[role="list"]').contains("India").should("be.visible");
             cy.get('[role="list"]').children().should("have.length", 1);
         });
@@ -110,6 +122,18 @@ describe("Run the explore page on mobile", () => {
     beforeEach(() => {
         cy.viewport(375, 667);
         cy.visit("http://localhost:5173/project2#/ExploreCountries");
+
+        cy.window().then((win) => {
+            win.sessionStorage.setItem("auth-token", "test-token");
+            win.sessionStorage.setItem("user", "test-user");
+        });
+    });
+
+    afterEach(() => {
+        cy.window().then((win) => {
+            win.sessionStorage.removeItem("auth-token");
+            win.sessionStorage.removeItem("user");
+        });
     });
 
     it("Checks if the navbar is loaded", () => {
@@ -118,10 +142,10 @@ describe("Run the explore page on mobile", () => {
 
     it("Checks if everything is being displayed", () => {
         cy.get('[aria-label="Search countries"]').should("be.visible");
-        cy.get('[aria-label="Filter based on continents"]').should("be.visible");
-        cy.get('[aria-label="Sort countries alphabetically"]').should("be.visible");
+        cy.get('[aria-labelledby="filters-title"]').should("be.visible");
+        cy.get('[aria-label="sort-section"]').should("be.visible");
 
-        cy.get('[role="region"][aria-labelledby="country-list"]').should("be.visible");
+        cy.get('[role="list"]').should("be.visible");
         cy.get('[role="list"]').should("have.length.greaterThan", 0);
 
         cy.get(".MuiPagination-root").should("be.visible");
@@ -131,7 +155,7 @@ describe("Run the explore page on mobile", () => {
         cy.get('[role="list"]').then((initialList) => {
             const initialCount = initialList.children().length;
 
-            cy.get('[aria-label="Filter based on continents"]').contains("Africa").click();
+            cy.get('[aria-description="Filter based on continents"]').contains("Africa").click();
 
             // Check if the count has descreased after applying "Europe" filter first and then increased after applying "Asia" filter too
             cy.get('[role="list"]')
@@ -142,7 +166,7 @@ describe("Run the explore page on mobile", () => {
                 .then((updatedListAfterAfrica) => {
                     const updatedCountAfterAfrica = updatedListAfterAfrica.children().length;
 
-                    cy.get('[aria-label="Filter based on continents"]').contains("Oceania").click();
+                    cy.get('[aria-description="Filter based on continents"]').contains("Oceania").click();
                     cy.get('[role="list"]').should((updatedListAfterAsia) => {
                         const updatedCountAfterOceania = updatedListAfterAsia.children().length;
                         expect(updatedCountAfterOceania).to.be.greaterThan(updatedCountAfterAfrica);
@@ -183,7 +207,7 @@ describe("Run the explore page on mobile", () => {
 
     it("Checks if the search, filter and sort functionaliity work together", () => {
         // Step 1: Apply the filter (e.g., continent filter for "Europe")
-        cy.get('[aria-label="Filter based on continents"]').contains("Europe").click();
+        cy.get('[aria-description="Filter based on continents"]').contains("Europe").click();
 
         // Verify that the filter is applied (check if at least one country is displayed)
         cy.get('[role="list"]').children().should("have.length.greaterThan", 0);
@@ -201,7 +225,7 @@ describe("Run the explore page on mobile", () => {
             cy.get('[aria-label="Search countries"]').type("Japan");
             cy.get('[role="list"]').children().should("have.length", 0);
 
-            cy.get('[aria-label="Filter based on continents"]').contains("Asia").click();
+            cy.get('[aria-description="Filter based on continents"]').contains("Asia").click();
             cy.get('[role="list"]').contains("Japan").should("be.visible");
             cy.get('[role="list"]').children().should("have.length", 1);
         });

@@ -32,6 +32,10 @@ describe("Run My Journals page on desktop", () => {
         });
     });
 
+    it("Checks if the navbar is loaded", () => {
+        cy.get("nav").should("be.visible");
+    });
+
     it("Checks if the right information is displayed", () => {
         cy.get('h2').contains('Your travel stories, captured and cherished forever.').should('be.visible'); 
 
@@ -78,6 +82,10 @@ describe("Run My Journals page on mobile", () => {
             win.sessionStorage.removeItem('auth-token');
             win.sessionStorage.removeItem('user');
         });
+    });
+
+    it("Checks if the navbar is loaded", () => {
+        cy.get("nav").should("be.visible");
     });
 
     it("Checks if the right information is displayed", () => {

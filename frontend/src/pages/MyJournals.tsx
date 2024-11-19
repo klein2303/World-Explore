@@ -36,8 +36,7 @@ const MyJournals = () => {
 
     const { data, loading, error } = useQuery(WRITTEN_JOURNALS, {
         variables: { skip: currentPage.page > 0 ? (currentPage.page - 1) * 12 : 0, profileid: profileid },
-        fetchPolicy: "cache-first", // Used for first execution
-        nextFetchPolicy: "cache-first", // Used for subsequent executions
+        fetchPolicy: "cache-and-network",
     });
 
     // Keep this effect to update the subtitle based on window width

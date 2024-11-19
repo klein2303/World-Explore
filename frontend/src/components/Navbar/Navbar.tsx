@@ -5,12 +5,13 @@ import { useState, useEffect } from "react";
 import { CgProfile } from "react-icons/cg";
 import { LuMapPin } from "react-icons/lu";
 import { LiaGlobeSolid } from "react-icons/lia";
-import { useTheme } from "../../context/ThemeContext";  // Import useTheme hook
+import { useTheme } from "../../context/ThemeContext";
+import { DarkModeSwitch } from "react-toggle-dark-mode"; 
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [activeLink, setActiveLink] = useState<string>("/");    
-    const { theme, toggleTheme } = useTheme(); // Access the current theme and toggle function
+    const [activeLink, setActiveLink] = useState<string>("/");
+    const { theme, toggleTheme } = useTheme();
 
     const token = sessionStorage.getItem("auth-token");
     const location = useLocation(); // Get the current location
@@ -51,7 +52,10 @@ const Navbar = () => {
             {token ? (
                 <main>
                     {/* Main navigation section of the page */}
-                    <nav className={`${styles.navbar} ${theme === 'dark' ? styles.dark : styles.light}`} role="navigation" aria-label="Main Navigation">
+                    <nav
+                        className={`${styles.navbar} ${theme === "dark" ? styles.dark : styles.light}`}
+                        role="navigation"
+                        aria-label="Main Navigation">
                         {isOpen && (
                             <div className={styles.mobilemenu} role="dialog" aria-label="Mobile Navigation Menu">
                                 {/* Close button for mobile menu */}
@@ -85,6 +89,16 @@ const Navbar = () => {
                                     <p>My Journals</p>
                                 </Link>
 
+                                <DarkModeSwitch
+                                    style={{ marginLeft: "10px" }}
+                                    checked={theme === "dark"}
+                                    onChange={toggleTheme}
+                                    size={25}
+                                    sunColor="#424242"
+                                    moonColor="white" 
+                                    aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                                />
+
                                 <Link to={"/Home"} className={styles.signOut} onClick={handleSignOut}>
                                     <p>Sign Out</p>
                                 </Link>
@@ -115,15 +129,16 @@ const Navbar = () => {
                                 <CgProfile className={styles.profile} aria-hidden="true" />
                                 <p>Sign Out</p>
                             </Link>
+                            <DarkModeSwitch
+                                style={{ marginLeft: "10px" }}
+                                checked={theme === "dark"}
+                                onChange={toggleTheme}
+                                size={25}
+                                sunColor="#424242" 
+                                moonColor="white"
+                                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                            />
                         </div>
-                        {/* Theme Toggle Button */}
-                        <button
-                            className={styles.themeToggle}
-                            onClick={toggleTheme} // Call toggleTheme when clicked
-                            aria-label="Toggle Theme"
-                        >
-                            {theme === 'dark' ? '🌙' : '🌞'} {/* Icon for dark/light mode */}
-                        </button>
                     </nav>
                 </main>
             ) : (
@@ -165,6 +180,15 @@ const Navbar = () => {
                                 <CgProfile className={styles.profile} aria-label="Open Profile Menu" />
                                 <p>Log in</p>
                             </Link>
+                            <DarkModeSwitch
+                                style={{ marginLeft: "10px" }}
+                                checked={theme === "dark"}
+                                onChange={toggleTheme}
+                                size={25}
+                                sunColor="#424242"
+                                moonColor="white" 
+                                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                            />
                         </div>
                     </nav>
                 </main>

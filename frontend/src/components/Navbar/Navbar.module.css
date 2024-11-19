@@ -73,6 +73,7 @@
     color: #424242;
     margin-right: 6px;
 }
+
 .pin,
 .profile {
     font-size: 17px;
@@ -91,9 +92,12 @@
     border-radius: 10px;
     color: #000000;
     text-decoration: none;
-    background-color: white;
     font-weight: 300;
     margin-left: 15px;
+}
+
+.login:hover, .signOut:hover {
+    background-color: #E2DAEB;
 }
 
 .crosspos {
@@ -111,22 +115,22 @@
 }
 
 /* Dark Mode Styles */
-body[data-theme='dark'] .navbar {
-    background-color: #424242; /* Dark background for navbar in dark mode */
+body[data-theme='dark'] .navbar, body[data-theme='dark'] .notLoggedNavbar {
+    background-color: #424242; 
 }
 
 body[data-theme='dark'] .navTitle,
 body[data-theme='dark'] .navlink {
-    color: white; /* White text for navbar and nav links in dark mode */
+    color: white; 
 }
 
 body[data-theme='dark'] .signOut {
-    background-color: #8A86A4; /* Darker background for sign-out button */
-    color: white; /* White text in dark mode */
+    background-color: #8A86A4; 
+    color: white;
 }
 
 body[data-theme='dark'] .navlink {
-    color: white; /* White text for nav links in dark mode */
+    color: white;
 }
 
 body[data-theme='dark'] .navlink:hover,
@@ -135,41 +139,41 @@ body[data-theme='dark'] .navlink:focus {
 }
 
 body[data-theme='dark'] .search {
-    color: white; /* White color for search icon in dark mode */
+    color: white;
 }
 
 body[data-theme='dark'] .profile {
-    color: white; /* White profile icon in dark mode */
+    color: white; 
 }
 
 body[data-theme='dark'] .login {
-    color: white; /* White text for login button in dark mode */
-    background-color: #424242; /* Darker background in dark mode */
+    color: white; 
+    background-color: #424242;
 }
 
 body[data-theme='dark'] .login:hover {
-    background-color: #555; /* Darker background on hover in dark mode */
+    background-color: #555; 
 }
 
 body[data-theme='dark'] .hamburgmenu {
-    color: white; /* White hamburger icon in dark mode */
+    color: white;
 }
 
 body[data-theme='dark'] .profilemenu {
-    background-color: #424242; /* Darker background for profile menu in dark mode */
+    background-color: #424242; 
 }
 
 body[data-theme='dark'] .cross {
-    color: white; /* White cross button in dark mode */
+    color: white; 
 }
 
 body[data-theme='dark'] .pin {
-    color: white; /* White cross button in dark mode */
+    color: white;
 }
 
 body[data-theme='dark'] .mobilemenu {
-    background-color: #424242; /* Darker background for mobile menu in dark mode */
-    border: 1px solid #555; /* Darker border in dark mode */
+    background-color: #424242; 
+    border: 1px solid #555; 
 }
 
 @media (max-width: 800px) {
@@ -189,7 +193,7 @@ body[data-theme='dark'] .mobilemenu {
     }
 
     body[data-theme='dark'] .hamburgmenu {
-        color: white; /* White color for hamburger icon in dark mode */
+        color: white;
     }
 
     .navTitle {
@@ -238,7 +242,7 @@ body[data-theme='dark'] .mobilemenu {
     }
 
     body[data-theme='dark'] .navbar {
-        background-color: #424242; /* Dark background for navbar on mobile */
+        background-color: #424242; 
     }
 
     .mobilemenu {
@@ -265,7 +269,7 @@ body[data-theme='dark'] .mobilemenu {
     }
 
     body[data-theme='dark'] .mobilemenu {
-        background-color: #333; /* Dark background for mobile menu */
-        border: 1px solid #555; /* Darker border in dark mode */
+        background-color: #424242;
+        border: 1px solid #555; 
     }
 }

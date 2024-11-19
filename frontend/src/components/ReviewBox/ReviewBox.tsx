@@ -41,15 +41,6 @@ const ReviewBox = ({ country }: journalCountry) => {
         );
     };
 
-    // Change the privacy of a review
-    // const makePublic = (id: number) => {
-    //     if (reviews) {
-    //         const updatedReviews = reviews.reviews.map((review) =>
-    //             review.id === id ? { ...review, public: !review.public } : review,
-    //         );
-    //         setReviews({ ...reviews, reviews: updatedReviews });
-    //     }
-    // };
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
     return (
@@ -82,9 +73,7 @@ const ReviewBox = ({ country }: journalCountry) => {
                         </section>
                     ),
                 )
-            ) : (
-                <p className={styles.noJournal}>No reviews found for {country}</p>
-            )}
+            ) : null}
         </main>
     );
 };

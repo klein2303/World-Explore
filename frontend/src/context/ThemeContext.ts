@@ -1,20 +1,18 @@
-// src/context/ThemeContext.ts
-
 import { createContext, useContext } from "react";
 
-// Define possible theme types
+// Define the possible theme values
 export type Theme = "light" | "dark";
 
-// Define the structure of the context value
+// Define the shape of the theme context
 export interface ThemeContextProps {
     theme: Theme;
     toggleTheme: () => void;
 }
 
-// Create the Theme context with a default value of undefined
+// Create the ThemeContext with an undefined default value
 export const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
-// Custom hook to access the theme and toggle function
+// Custom hook to use the ThemeContext
 export const useTheme = (): ThemeContextProps => {
     const context = useContext(ThemeContext);
     if (!context) {

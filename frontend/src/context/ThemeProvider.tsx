@@ -1,18 +1,12 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+// src/context/ThemeProvider.tsx
 
-type Theme = 'light' | 'dark';
-
-interface ThemeContextProps {
-  theme: Theme;
-  toggleTheme: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+import React, { useState, useEffect } from 'react';
+import { ThemeContext, Theme } from './ThemeContext';  // Import the context and types
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>('light');
 
-  // Load the theme from localStorage
+  // Load theme from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as Theme;
     if (savedTheme) {
@@ -20,7 +14,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   }, []);
 
-  // Apply the theme to the body element
+  // Apply theme to the body element
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme); // Save theme to localStorage for persistence
@@ -35,12 +29,4 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       {children}
     </ThemeContext.Provider>
   );
-};
-
-export const useTheme = (): ThemeContextProps => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
 };

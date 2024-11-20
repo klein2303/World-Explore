@@ -29,6 +29,10 @@
     position: relative;
 }
 
+body[data-theme="dark"] .modalContent {
+    background: #8a86a4;
+}
+
 .closeButton {
     position: absolute;
     top: 10px;
@@ -38,6 +42,10 @@
     font-size: 24px;
     color: #333;
     cursor: pointer;
+}
+
+body[data-theme="dark"] .closeButton {
+    color: white;
 }
 
 .modalTitle {
@@ -50,6 +58,10 @@
     font-size: 14px;
     color: #777;
     margin-bottom: 10px;
+}
+
+body[data-theme="dark"] .modalDate {
+    color: #dfdfdf;
 }
 
 .modalInfo {
@@ -72,4 +84,8 @@
     line-height: 1.5;
     color: #333;
     margin-top: 10px;
+}
+
+body[data-theme="dark"] .modalText {
+    color: white;
 }

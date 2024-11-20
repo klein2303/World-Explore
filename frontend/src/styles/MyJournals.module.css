@@ -37,38 +37,14 @@
     margin-bottom: 10px;
 }
 
+body[data-theme="dark"] .pageTitle {
+    color: white;
+}
+
 /* Tabs container */
 .tabs {
     display: flex;
     justify-content: flex-end;
-}
-
-/* Individual tab button styling */
-.tabButton {
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: 400;
-    margin-left: 8px;
-    border-radius: 10px 10px 0px 0px;
-    border: none;
-    cursor: pointer;
-    background-color: #f2f0f5;
-    color: #8c8c8c;
-    transition:
-        background-color 0.3s,
-        color 0.3s;
-}
-
-/* Tab button hover effect */
-.tabButton:hover {
-    background-color: #ddd9e3;
-}
-
-/* Active tab button styling */
-.active {
-    background-color: #e4e1f7;
-    color: #424242;
-    font-weight: 500;
 }
 
 /* Subtitle styling */
@@ -78,6 +54,10 @@
     margin-bottom: 50px;
     text-align: center;
     font-weight: normal;
+}
+
+body[data-theme="dark"] .subtitle {
+    color: #bebebe;
 }
 
 /* Grid layout for journal cards */

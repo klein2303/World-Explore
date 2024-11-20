@@ -91,6 +91,10 @@
     border-radius: 10px;
 }
 
+body[data-theme="dark"] .paragraphSection {
+    background-color: #666262;
+}
+
 .infoTextSection {
     display: flex;
     flex-direction: column;
@@ -108,6 +112,10 @@
     text-align: center;
     font-size: 1.2vw;
     font-weight: 300;
+}
+
+body[data-theme="dark"] .infoText {
+    color: #ffff;
 }
 
 .lastParagraphSection {
@@ -136,6 +144,10 @@
     margin-bottom: 20px;
 }
 
+body[data-theme="dark"] .lastInfoText {
+    color: #ffff;
+}
+
 .logInButton {
     padding: 10px;
     font-size: 2vw;
@@ -148,8 +160,17 @@
     max-width: fit-content;
 }
 
+body[data-theme="dark"] .logInButton {
+    background-color: #8a86a4;
+    color: #ffff;
+}
+
 .logInButton:hover {
     background-color: #d1cdf5; /* Slightly darker purple on hover */
+}
+
+body[data-theme="dark"] .logInButton:hover {
+    background-color: #7a7694;
 }
 
 /* Display specific CSS below */

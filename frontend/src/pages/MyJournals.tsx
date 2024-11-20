@@ -8,8 +8,11 @@ import { myJournalPageAtom } from "../atoms/MyJournalPageAtom";
 import { gql, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { removeQuotes } from "../utils/utils";
+import { useTheme } from "../context/ThemeContext";
 
 const MyJournals = () => {
+    const { theme } = useTheme();
+
     const ITEMS_PER_PAGE = 15;
     const [currentPage, setCurrentPage] = useRecoilState(myJournalPageAtom);
 
@@ -90,6 +93,21 @@ const MyJournals = () => {
                             onChange={handleChange}
                             count={Math.ceil(data.writtenjournals.length / ITEMS_PER_PAGE)}
                             className={styles.pagination}
+                            sx={
+                                theme === "dark"
+                                    ? {
+                                          ".MuiPaginationItem-root": {
+                                              color: "white",
+                                          },
+                                          ".MuiButtonBase-root:hover, .MuiPaginationItem-root.Mui-selected:hover": {
+                                              backgroundColor: "#333",
+                                          },
+                                          ".MuiPaginationItem-root.Mui-selected": {
+                                              backgroundColor: "#666262",
+                                          },
+                                      }
+                                    : {}
+                            }
                         />
                     </>
                 )}

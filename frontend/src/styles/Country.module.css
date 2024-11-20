@@ -84,6 +84,11 @@
     box-sizing: border-box;
 }
 
+body[data-theme="dark"] .funfactbox {
+    background-color: #8a86a4;
+    color: white;
+}
+
 .funfact {
     width: fit-content;
     height: fit-content;
@@ -139,6 +144,11 @@
     gap: 18px;
 }
 
+body[data-theme="dark"] .info {
+    background-color: #8a86a4;
+    color: white;
+}
+
 /* Journal Section */
 .journalSection {
     margin-top: 50px;
@@ -146,6 +156,11 @@
     background-color: #e4e1f7;
     min-height: 100px; /* Ensures the section is visible even if empty */
     color: #424242;
+}
+
+body[data-theme="dark"] .journalSection {
+    background-color: #8a86a4;
+    color: white;
 }
 
 .noEntriesMessage {
@@ -173,8 +188,16 @@
         border-color 0.3s ease;
 }
 
+body[data-theme="dark"] .addEntryButton {
+    background-color: #424242;
+}
+
 .addEntryButton:hover {
     background-color: #ddd9e3;
+}
+
+body[data-theme="dark"] .addEntryButton:hover {
+    background-color: #827f7f;
 }
 
 .journalHeader {
@@ -186,6 +209,7 @@
 
 .journalTitle {
     font-size: 20px;
+    font-weight: 500;
 }
 
 .horizontalLine {
@@ -193,6 +217,22 @@
     margin-top: 10px;
     margin-bottom: 10px;
     color: #424242;
+}
+
+body[data-theme="dark"] .horizontalLine {
+    border-top: 1px solid white;
+    color: white;
+}
+
+body[data-theme="dark"] .returnicon,
+body[data-theme="dark"] .returntext,
+body[data-theme="dark"] .countryname,
+body[data-theme="dark"] .countrycontinent,
+body[data-theme="dark"] .funfacttext,
+body[data-theme="dark"] .icon,
+body[data-theme="dark"] .infotitle,
+body[data-theme="dark"] .infotext {
+    color: white; /* Ensure all texts are white in dark mode */
 }
 
 @media (max-width: 900px) {

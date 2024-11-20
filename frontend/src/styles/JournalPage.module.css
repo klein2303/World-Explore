@@ -9,9 +9,14 @@
     }
 
     .returnLink {
+        max-width: fit-content;
         font-size: 18px;
         text-decoration: none;
         color: #424242;
+    }
+
+    .returnLink:hover {
+        text-decoration: underline;
     }
 
     body[data-theme="dark"] .returnLink {

@@ -61,6 +61,7 @@ const Navbar = () => {
                                 {/* Close button for mobile menu */}
                                 <div className={styles.crosspos} role="presentation">
                                     <RxCross1
+                                        id="Close-Mobile-Menu"
                                         className={styles.cross}
                                         onClick={() => setIsOpen(false)}
                                         aria-description="Close Mobile Menu"
@@ -175,6 +176,7 @@ const Navbar = () => {
 
                         {/* Button to open mobile menu */}
                         <RxHamburgerMenu
+                            id="mobile-menu-button"
                             className={styles.hamburgmenu}
                             onClick={() => setIsOpen(true)}
                             aria-label="Open Mobile Menu"

@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PublicJournalEntryList Component > renders correctly and matches snapshot 1`] = `
+<DocumentFragment>
+  <article
+    aria-description="Public journal entries for Wonderland"
+    class="_entriesGrid_bf4d47"
+    role="list"
+  >
+    <div
+      role="listitem"
+    >
+      <div
+        data-testid="mock-public-journal-entry"
+      >
+        Mock Entry
+      </div>
+    </div>
+    <div
+      role="listitem"
+    >
+      <div
+        data-testid="mock-public-journal-entry"
+      >
+        Mock Entry
+      </div>
+    </div>
+  </article>
+</DocumentFragment>
+`;

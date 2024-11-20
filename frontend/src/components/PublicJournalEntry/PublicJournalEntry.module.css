@@ -5,10 +5,9 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 350px;
     color: #424242;
-    height: 220px;
+    height: 230px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
@@ -26,7 +25,6 @@ body[data-theme="dark"] .reviewCard {
 
 .reviewDate {
     font-size: 16px;
-    margin-bottom: 10px;
     opacity: 0.8;
 }
 
@@ -38,7 +36,6 @@ body[data-theme="dark"] .reviewCard {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 5px;
     font-weight: 500;
 }
 
@@ -48,20 +45,15 @@ body[data-theme="dark"] .reviewCard {
     gap: 6px;
 }
 
-.reviewInfoBox {
-    flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .reviewText {
     font-size: 16px;
     line-height: 1.4;
     overflow: hidden;
-    height: 65px; /* Limit height to create uniform card size */
-    -webkit-line-clamp: 2; /* Limit the number of lines */
+    height: 100%; /* Limit height to create uniform card size */
+    -webkit-line-clamp: 3; /* Limit the number of lines */
     line-clamp: 2; /* Standard property for compatibility */
     -webkit-box-orient: vertical;
+    padding-bottom: 2px;
 }
 
 .readMoreButton {
@@ -72,7 +64,7 @@ body[data-theme="dark"] .reviewCard {
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
-    margin-top: 10px;
+    width: fit-content;
 }
 
 body[data-theme="dark"] .readMoreButton {
@@ -85,7 +77,6 @@ body[data-theme="dark"] .readMoreButton {
 
 .readMoreButton:focus {
     background-color: #424242; /* Match the default background color */
-    outline: none; /* Remove the default focus outline */
 }
 
 .readMoreButton:active {

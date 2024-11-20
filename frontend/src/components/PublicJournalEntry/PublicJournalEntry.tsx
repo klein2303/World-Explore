@@ -75,24 +75,23 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                 </div>
 
                 {/* Review Text with "Read More" button */}
-                <div className={styles.reviewInfoBox} aria-label="Review text" role="contentinfo">
-                    <p
-                        className={styles.reviewText}
-                        aria-expanded={isExpanded || showModal}
-                        id={`review-text-${review.title}`}>
-                        {isExpanded && isMobile ? review.text : truncatedText}
-                    </p>
-                    {review.text.length > 100 && (
-                        <button
-                            className={styles.readMoreButton}
-                            onClick={handleReadMore}
-                            aria-controls={`review-text-${review.title}`}
-                            aria-expanded={isExpanded}
-                            aria-label={isExpanded ? "Collapse review text" : "Expand review text"}>
-                            {isExpanded ? "Read Less" : "Read More"}
-                        </button>
-                    )}
-                </div>
+
+                <p
+                    className={styles.reviewText}
+                    aria-expanded={isExpanded || showModal}
+                    id={`review-text-${review.title}`}>
+                    {isExpanded && isMobile ? review.text : truncatedText}
+                </p>
+                {review.text.length > 100 && (
+                    <button
+                        className={styles.readMoreButton}
+                        onClick={handleReadMore}
+                        aria-controls={`review-text-${review.title}`}
+                        aria-expanded={isExpanded}
+                        aria-label={isExpanded ? "Collapse review text" : "Expand review text"}>
+                        {isExpanded ? "Read less" : "Read more"}
+                    </button>
+                )}
             </article>
             {showModal && !isMobile && (
                 <PublicJournalEntryModal

@@ -1,12 +1,14 @@
 #  IT2810: Project 2 iteration 3
 ## Table of content 
-- [Decisions](#decisions)
-- [Developments](#developments)
-- [Accessability](#accessibility)
-- [Sustainability](#sustainability)
-- [Technicalities](#technicalities)
-- [Future](#future)
-- [Usage of AI](#usage-of-ai)
+- [IT2810: Project 2 iteration 3](#it2810-project-2-iteration-3)
+  - [Table of content](#table-of-content)
+  - [Decisions](#decisions)
+  - [Developments](#developments)
+  - [Accessibility](#accessibility)
+  - [Sustainability](#sustainability)
+  - [Technicalities](#technicalities)
+  - [Future](#future)
+  - [Usage of AI](#usage-of-ai)
 
 
 ## Decisions
@@ -51,7 +53,7 @@ Another solution added for increasing the sustainability of the website, is by a
 Some technicalities we have after this iteration are: 
 1. It is not possible to remain in the dark mode of the website when refreshing the website
 2. The reviewboxes in the Country pages cuts off the review-text when the review has a long title
-3. The navbar is not tested yet, because of some errors in the test we didn1t have time to fix. We removed the test for now, but intend to put implement it.
+3. The navbar is not tested yet, because of some errors in the test we didn't have time to fix. We removed the test for now, but intend to put implement it in the future.
 
 ## Future 
 Some improvements we intend to fix for the next iterations are: 

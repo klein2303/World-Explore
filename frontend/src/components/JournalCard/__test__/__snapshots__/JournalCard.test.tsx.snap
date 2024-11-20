@@ -26,7 +26,7 @@ exports[`JournalCard > renders correctly and matches snapshot 1`] = `
           class="_overlayText_be814f"
           role="text"
         >
-          Write Journal
+          Read Journal
         </div>
       </section>
     </a>

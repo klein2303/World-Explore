@@ -3,7 +3,7 @@
 exports[`Filter Component Tests (Desktop) > renders the filter component correctly 1`] = `
 <DocumentFragment>
   <main
-    aria-label="Filter based on continents"
+    aria-description="Filter based on continents"
     class="_filtercontainer_435ebf"
   >
     <div
@@ -24,7 +24,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
         Continents
       </p>
       <div
-        aria-labelledby="continent-filter"
+        aria-label="continents"
         class="_filterlist_435ebf"
         role="group"
       >
@@ -32,10 +32,11 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-africa"
+            aria-label="label-africa"
             class="_checkbox_435ebf"
             id="Africa"
             name="Africa"
+            tabindex="0"
             type="checkbox"
             value="Africa"
           />
@@ -43,6 +44,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             class="_customCheckbox_435ebf"
             for="Africa"
             id="label-africa"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -55,10 +57,11 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-asia"
+            aria-label="label-asia"
             class="_checkbox_435ebf"
             id="Asia"
             name="Asia"
+            tabindex="0"
             type="checkbox"
             value="Asia"
           />
@@ -66,6 +69,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             class="_customCheckbox_435ebf"
             for="Asia"
             id="label-asia"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -78,10 +82,11 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-europe"
+            aria-label="label-europe"
             class="_checkbox_435ebf"
             id="Europe"
             name="Europe"
+            tabindex="0"
             type="checkbox"
             value="Europe"
           />
@@ -89,6 +94,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             class="_customCheckbox_435ebf"
             for="Europe"
             id="label-europe"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -101,10 +107,11 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-north-america"
+            aria-label="label-north-america"
             class="_checkbox_435ebf"
             id="North America"
             name="North America"
+            tabindex="0"
             type="checkbox"
             value="North America"
           />
@@ -112,6 +119,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             class="_customCheckbox_435ebf"
             for="North America"
             id="label-north-america"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -124,10 +132,11 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-oceania"
+            aria-label="label-oceania"
             class="_checkbox_435ebf"
             id="Oceania"
             name="Oceania"
+            tabindex="0"
             type="checkbox"
             value="Oceania"
           />
@@ -135,6 +144,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             class="_customCheckbox_435ebf"
             for="Oceania"
             id="label-oceania"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -147,10 +157,11 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-south-america"
+            aria-label="label-south-america"
             class="_checkbox_435ebf"
             id="South America"
             name="South America"
+            tabindex="0"
             type="checkbox"
             value="South America"
           />
@@ -158,6 +169,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
             class="_customCheckbox_435ebf"
             for="South America"
             id="label-south-america"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -175,7 +187,7 @@ exports[`Filter Component Tests (Desktop) > renders the filter component correct
 exports[`Filter Component Tests (Mobile) > renders the filter component correctly in mobile view 1`] = `
 <DocumentFragment>
   <main
-    aria-label="Filter based on continents"
+    aria-description="Filter based on continents"
     class="_filtercontainer_435ebf"
   >
     <div
@@ -196,7 +208,7 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
         Continents
       </p>
       <div
-        aria-labelledby="continent-filter"
+        aria-label="continents"
         class="_filterlist_435ebf"
         role="group"
       >
@@ -204,10 +216,11 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-africa"
+            aria-label="label-africa"
             class="_checkbox_435ebf"
             id="Africa"
             name="Africa"
+            tabindex="0"
             type="checkbox"
             value="Africa"
           />
@@ -215,6 +228,7 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             class="_customCheckbox_435ebf"
             for="Africa"
             id="label-africa"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -227,10 +241,11 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-asia"
+            aria-label="label-asia"
             class="_checkbox_435ebf"
             id="Asia"
             name="Asia"
+            tabindex="0"
             type="checkbox"
             value="Asia"
           />
@@ -238,6 +253,7 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             class="_customCheckbox_435ebf"
             for="Asia"
             id="label-asia"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -250,10 +266,11 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-europe"
+            aria-label="label-europe"
             class="_checkbox_435ebf"
             id="Europe"
             name="Europe"
+            tabindex="0"
             type="checkbox"
             value="Europe"
           />
@@ -261,6 +278,7 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             class="_customCheckbox_435ebf"
             for="Europe"
             id="label-europe"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -273,10 +291,11 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-north-america"
+            aria-label="label-north-america"
             class="_checkbox_435ebf"
             id="North America"
             name="North America"
+            tabindex="0"
             type="checkbox"
             value="North America"
           />
@@ -284,6 +303,7 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             class="_customCheckbox_435ebf"
             for="North America"
             id="label-north-america"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -296,10 +316,11 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-oceania"
+            aria-label="label-oceania"
             class="_checkbox_435ebf"
             id="Oceania"
             name="Oceania"
+            tabindex="0"
             type="checkbox"
             value="Oceania"
           />
@@ -307,6 +328,7 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             class="_customCheckbox_435ebf"
             for="Oceania"
             id="label-oceania"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"
@@ -319,10 +341,11 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
           class="_filteritem_435ebf"
         >
           <input
-            aria-labelledby="label-south-america"
+            aria-label="label-south-america"
             class="_checkbox_435ebf"
             id="South America"
             name="South America"
+            tabindex="0"
             type="checkbox"
             value="South America"
           />
@@ -330,6 +353,7 @@ exports[`Filter Component Tests (Mobile) > renders the filter component correctl
             class="_customCheckbox_435ebf"
             for="South America"
             id="label-south-america"
+            tabindex="0"
           >
             <span
               class="_checkboxVisual_435ebf"

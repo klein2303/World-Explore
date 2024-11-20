@@ -1,101 +1,211 @@
-import { render, screen, fireEvent, within } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import { describe, it, expect, vi } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { MockedProvider } from "@apollo/client/testing";
+import gql from "graphql-tag"; // Import gql separately if not from Apollo Client
 import ReviewBox from "../ReviewBox";
 
-// Mock data
-vi.mock("../../data/JournalReviews", () => ({
-    JournalReviews: [
-        {
-            country: "Japan",
-            reviews: [
-                {
-                    id: 3,
-                    title: "Cherry Blossom Festival",
-                    date: "2024.04.05",
-                    rating: 5,
-                    text: "Attending the cherry blossom festival was one of the most serene experiences ever.",
-                    public: true,
-                },
-                {
-                    id: 4,
-                    title: "Amazing Sushi",
-                    date: "2023.11.10",
-                    rating: 4,
-                    text: "The sushi in Japan is unparalleled! Highly recommend visiting Tsukiji Market.",
-                    public: false,
-                },
-            ],
-        },
-    ],
+vi.mock("../../utils/utils", () => ({
+    removeQuotes: (value: string) => value,
 }));
 
-describe("ReviewBox Component", () => {
-    it("renders reviews for Japan", () => {
-        const { container } = render(<ReviewBox country="Japan" />);
-
-        // Check if the correct reviews are rendered (those corresponding to Japan)
-        expect(screen.getByText("Cherry Blossom Festival")).toBeInTheDocument();
-        expect(screen.getByText("Amazing Sushi")).toBeInTheDocument();
-
-        // Snapshot the rendered component
-        expect(container).toMatchSnapshot();
-    });
-
-    it("toggles review public/private state when clicking the checkbox", () => {
-        const { container } = render(<ReviewBox country="Japan" />);
-
-        // Find the review section for the "Amazing Sushi"-entry
-        const sushiReviewSection = screen.getByText("Amazing Sushi").closest("section");
-        if (!sushiReviewSection) {
-            throw new Error("Could not find the review section for Amazing Sushi");
+const JOURNAL = gql`
+    query GetJournal($countryid: String!, $profileid: String!) {
+        writtenjournal(countryid: $countryid, profileid: $profileid) {
+            id
+            reviews {
+                id
+                title
+                date
+                text
+                rating
+                ispublic
+            }
         }
+    }
+`;
 
-        const { getByLabelText } = within(sushiReviewSection);
+describe("ReviewBox", () => {
+    const mockUser = "mockUserId";
+    const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 
-        // Check the initial state of the checkbox (public: false)
-        const sushiCheckBox = getByLabelText("Make journey public");
-        expect(sushiCheckBox).toBeInTheDocument();
-
-        // Click the checkbox to make the review public
-        fireEvent.click(sushiCheckBox);
-
-        // After click, the aria-label should change to 'Make journey private'
-        const updatedCheckBox = getByLabelText("Make journey private");
-        expect(updatedCheckBox).toBeInTheDocument();
-
-        // Snapshot after the checkbox click
-        expect(container).toMatchSnapshot();
+    beforeEach(() => {
+        sessionStorage.setItem("user", mockUser);
     });
 
-    it("renders the correct number of stars based on the rating", () => {
-        const { container } = render(<ReviewBox country="Japan" />);
-
-        // Find the review section for the "Amazing Sushi"-entry
-        const sushiReviewSection = screen.getByText("Amazing Sushi").closest("section");
-        if (!sushiReviewSection) {
-            throw new Error("Could not find the review section for Amazing Sushi");
-        }
-
-        // Query for the filled stars within the "Amazing Sushi" review
-        const filledStars = within(sushiReviewSection).getAllByLabelText("filled star");
-        expect(filledStars).toHaveLength(4); // Sushi review has a rating of 4
-
-        // Query for the empty stars within the "Amazing Sushi" review
-        const emptyStars = within(sushiReviewSection).getAllByLabelText("empty star");
-        expect(emptyStars).toHaveLength(1); // 1 out of 5 stars should be empty star
-
-        // Snapshot the star rendering
-        expect(container).toMatchSnapshot();
+    afterEach(() => {
+        consoleErrorSpy.mockRestore(); // Restore console.error after each test
     });
 
-    it("displays a message if no reviews are found for the country", () => {
-        const { container } = render(<ReviewBox country="UnknownCountry" />);
+    const baseMock = {
+        request: {
+            query: JOURNAL,
+            variables: { countryid: "France", profileid: mockUser },
+        },
+    };
 
-        // Check if the "No reviews found" message is displayed
-        expect(screen.getByText("No reviews found for UnknownCountry")).toBeInTheDocument();
+    it("renders loading state initially", () => {
+        const mocks = [
+            {
+                ...baseMock,
+                result: {
+                    data: null, // Simulate loading by not resolving immediately
+                },
+            },
+        ];
 
-        // Snapshot the no reviews state
-        expect(container).toMatchSnapshot();
+        render(
+            <MockedProvider mocks={mocks} addTypename={false}>
+                <ReviewBox country="France" />
+            </MockedProvider>,
+        );
+
+        expect(screen.getByText(/loading.../i)).toBeInTheDocument();
+    });
+
+    it("renders error state when query fails", async () => {
+        const mocks = [
+            {
+                request: {
+                    query: JOURNAL,
+                    variables: { countryid: "France", profileid: mockUser },
+                },
+                result: {
+                    errors: [
+                        {
+                            message: "Query failed",
+                            locations: [{ line: 2, column: 3 }],
+                            path: ["writtenjournal"],
+                        },
+                    ],
+                },
+            },
+        ];
+
+        render(
+            <MockedProvider mocks={mocks} addTypename={false}>
+                <ReviewBox country="France" />
+            </MockedProvider>,
+        );
+
+        await waitFor(() => expect(screen.getByText(/error: query failed/i)).toBeInTheDocument());
+    });
+
+    it("renders reviews correctly when data is fetched", async () => {
+        const mocks = [
+            {
+                ...baseMock,
+                result: {
+                    data: {
+                        writtenjournal: {
+                            id: "1",
+                            reviews: [
+                                {
+                                    id: "101",
+                                    title: "Amazing trip",
+                                    date: "2024-11-20",
+                                    text: "Loved the Eiffel Tower and the food!",
+                                    rating: 5,
+                                    ispublic: true,
+                                },
+                                {
+                                    id: "102",
+                                    title: "Relaxing vacation",
+                                    date: "2024-11-15",
+                                    text: "The countryside was peaceful and refreshing.",
+                                    rating: 4,
+                                    ispublic: false,
+                                },
+                            ],
+                        },
+                    },
+                },
+            },
+        ];
+
+        render(
+            <MockedProvider mocks={mocks} addTypename={false}>
+                <ReviewBox country="France" />
+            </MockedProvider>,
+        );
+
+        // Wait for the reviews to load
+        await waitFor(() => expect(screen.getByText("Amazing trip")).toBeInTheDocument());
+
+        // Verify the first review
+        expect(screen.getByText("Amazing trip")).toBeInTheDocument();
+        expect(screen.getByText("2024-11-20")).toBeInTheDocument();
+        expect(screen.getByText("Loved the Eiffel Tower and the food!")).toBeInTheDocument();
+
+        // Verify the second review
+        expect(screen.getByText("Relaxing vacation")).toBeInTheDocument();
+        expect(screen.getByText("2024-11-15")).toBeInTheDocument();
+        expect(screen.getByText("The countryside was peaceful and refreshing.")).toBeInTheDocument();
+    });
+
+    it("renders no content if there are no reviews", async () => {
+        const mocks = [
+            {
+                ...baseMock,
+                result: {
+                    data: {
+                        writtenjournal: {
+                            id: "1",
+                            reviews: [],
+                        },
+                    },
+                },
+            },
+        ];
+
+        render(
+            <MockedProvider mocks={mocks} addTypename={false}>
+                <ReviewBox country="France" />
+            </MockedProvider>,
+        );
+
+        await waitFor(() => expect(screen.queryByText("Amazing trip")).not.toBeInTheDocument());
+        expect(screen.queryByText(/relaxing vacation/i)).not.toBeInTheDocument();
+    });
+
+    it("renders stars correctly for different ratings", async () => {
+        const mocks = [
+            {
+                ...baseMock,
+                result: {
+                    data: {
+                        writtenjournal: {
+                            id: "1",
+                            reviews: [
+                                {
+                                    id: "103",
+                                    title: "Mixed experience",
+                                    date: "2024-10-10",
+                                    text: "Some great moments, but also some issues.",
+                                    rating: 3,
+                                    ispublic: false,
+                                },
+                            ],
+                        },
+                    },
+                },
+            },
+        ];
+
+        render(
+            <MockedProvider mocks={mocks} addTypename={false}>
+                <ReviewBox country="France" />
+            </MockedProvider>,
+        );
+
+        // Wait for the data to load
+        await waitFor(() => expect(screen.getByText("Mixed experience")).toBeInTheDocument());
+
+        // Verify the star rendering for a 3-star review
+        const ratingSection = screen.getByLabelText("rating");
+        const stars = Array.from(ratingSection.childNodes);
+        expect(stars).toHaveLength(5);
+
+        const filledStars = stars.filter((star) => (star as Element).getAttribute("aria-label") === "filled star");
+        expect(filledStars).toHaveLength(3); // 3 filled stars for the 3-star review
     });
 });

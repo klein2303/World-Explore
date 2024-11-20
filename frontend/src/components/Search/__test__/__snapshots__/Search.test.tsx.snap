@@ -13,7 +13,7 @@ exports[`Search Component Tests > renders the search input and icon correctly 1`
       value=""
     />
     <svg
-      aria-label="Click to search"
+      aria-description="Click to search"
       class="_searchicon_a9d8a5"
       fill="currentColor"
       height="1em"

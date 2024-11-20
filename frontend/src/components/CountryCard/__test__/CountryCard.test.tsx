@@ -1,57 +1,55 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import { describe, it, expect } from "vitest";
+import { describe, it, vi, expect } from "vitest";
+import { BrowserRouter as Router } from "react-router-dom";
 import CountryCard from "../CountryCard";
-import { MemoryRouter } from "react-router-dom";
 
-describe("CountryCard Tests", () => {
-    it("renders the country card correctly", () => {
-        // Render the component
+// Mock the JournalEntryModal component
+vi.mock("../../JournalEntryModal/JournalEntryModal", () => ({
+    __esModule: true,
+    default: vi.fn(({ isOpen }: { isOpen: boolean }) => {
+        return isOpen ? <div data-testid="journal-entry-modal">Journal Entry Modal</div> : null;
+    }),
+}));
+
+describe("CountryCard", () => {
+    const mockProps = {
+        name: "France",
+        image: "https://via.placeholder.com/150",
+    };
+
+    it("renders correctly with the given props", () => {
         const { asFragment } = render(
-            <MemoryRouter>
-                <CountryCard name="Australia" image="https://example.com/australia.jpg" />,
-            </MemoryRouter>,
+            <Router>
+                <CountryCard {...mockProps} />
+            </Router>,
         );
 
-        // Take a snapshot of the initial render
+        // Check that the main elements are rendered correctly
+        expect(screen.getByRole("region", { name: /country-name-france/i })).toBeInTheDocument();
+        expect(screen.getByAltText(/image of the country france/i)).toHaveAttribute("src", mockProps.image);
+        expect(screen.getByText(mockProps.name)).toBeInTheDocument();
+
+        // Verify that the JournalEntryModal is not visible by default
+        expect(screen.queryByTestId("journal-entry-modal")).not.toBeInTheDocument();
+
+        // Take a snapshot of the rendered output
         expect(asFragment()).toMatchSnapshot();
-
-        // Check if the country name is in the document
-        expect(screen.getByText("Australia")).toBeInTheDocument();
-
-        // Check if the image is in the document
-        const countryImage = screen.getByAltText("image of the country Australia");
-        expect(countryImage).toBeInTheDocument();
-        expect(countryImage).toHaveAttribute("src", "https://example.com/australia.jpg");
-
-        // Check if the map pin icon is in the document
-        const mapPinIcon = screen.getByLabelText("Mark Australia as visited");
-        expect(mapPinIcon).toBeInTheDocument();
     });
 
-    it("toggles the map pin icon when clicked", () => {
-        render(
-            <MemoryRouter>
-                <CountryCard name="Australia" image="https://example.com/australia.jpg" />,
-            </MemoryRouter>,
+    it("opens the modal when the pencil icon is clicked", () => {
+        const { asFragment } = render(
+            <Router>
+                <CountryCard {...mockProps} />
+            </Router>,
         );
 
-        // Check if the map pin icon is in the document
-        const mapPinIcon = screen.getByLabelText("Mark Australia as visited");
-        expect(mapPinIcon).toBeInTheDocument();
+        const pencilIcon = screen.getByRole("button");
+        fireEvent.click(pencilIcon);
 
-        // Fire event to mark the map pin icon
-        fireEvent.click(mapPinIcon);
+        // Check if the modal is rendered after the click
+        expect(screen.getByTestId("journal-entry-modal")).toBeInTheDocument();
 
-        // Check if the map pin icon is toggled
-        const filledMapPinIcon = screen.getByLabelText("Unmark Australia from visited");
-        expect(filledMapPinIcon).toBeInTheDocument();
-
-        // Fire event to unmark the map pin icon
-        fireEvent.click(filledMapPinIcon);
-
-        // Check if the map pin icon is toggled back
-        const unfilledMapPinIcon = screen.getByLabelText("Mark Australia as visited");
-        expect(unfilledMapPinIcon).toBeInTheDocument();
+        // Take a snapshot after the modal is opened
+        expect(asFragment()).toMatchSnapshot();
     });
 });

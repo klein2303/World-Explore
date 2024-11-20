@@ -11,19 +11,19 @@
 }
 
 /* Dark mode Card Container */
-body[data-theme='dark'] .cardcontainer {
-    background-color: #8A86A4; 
+body[data-theme="dark"] .cardcontainer {
+    background-color: #8a86a4;
     color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-.cardcontainer:hover{
+.cardcontainer:hover {
     background-color: #ddd9e3;
 }
 
 /* Dark mode hover effect */
-body[data-theme='dark'] .cardcontainer:hover {
-    background-color: #827f7f; 
+body[data-theme="dark"] .cardcontainer:hover {
+    background-color: #827f7f;
 }
 
 .cardimage {
@@ -44,8 +44,8 @@ body[data-theme='dark'] .cardcontainer:hover {
 }
 
 /* Dark mode information section */
-body[data-theme='dark'] .information {
-    color: white; 
+body[data-theme="dark"] .information {
+    color: white;
 }
 
 .icon {
@@ -59,8 +59,8 @@ body[data-theme='dark'] .information {
 }
 
 /* Dark mode icon hover effect */
-body[data-theme='dark'] .icon:hover {
-    fill: white; 
+body[data-theme="dark"] .icon:hover {
+    fill: white;
 }
 
 .name {

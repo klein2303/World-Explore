@@ -10,10 +10,10 @@
     width: 100%;
     max-width: 400px;
     z-index: 1001;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
-body[data-theme='dark'] .modal {
+body[data-theme="dark"] .modal {
     background-color: #424242;
 }
 
@@ -23,7 +23,7 @@ body[data-theme='dark'] .modal {
     flex-direction: column;
     gap: 15px;
     max-height: 90vh;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
 .checkbox {
@@ -34,7 +34,7 @@ body[data-theme='dark'] .modal {
 
 .closeButton {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 10px;
     background: none;
     border: none;
@@ -53,8 +53,8 @@ body[data-theme='dark'] .modal {
     color: #424242;
 }
 
-body[data-theme='dark'] .input {
-    background-color: #8A86A4;
+body[data-theme="dark"] .input {
+    background-color: #8a86a4;
     color: white;
 }
 
@@ -84,9 +84,9 @@ body[data-theme='dark'] .input {
     resize: none; /* Prevent user from resizing the textarea */
 }
 
-body[data-theme='dark'] .textArea {
-    background-color: #8A86A4;
-    color: white; 
+body[data-theme="dark"] .textArea {
+    background-color: #8a86a4;
+    color: white;
 }
 
 .rating {
@@ -100,8 +100,8 @@ body[data-theme='dark'] .textArea {
     margin-right: 10px;
 }
 
-body[data-theme='dark'] .ratingLabel {
-    color: white; 
+body[data-theme="dark"] .ratingLabel {
+    color: white;
 }
 
 .star {
@@ -116,8 +116,8 @@ body[data-theme='dark'] .ratingLabel {
         transform 0.2s ease; /* Smooth transition for fill */
 }
 
-body[data-theme='dark'] .star {
-    stroke: white; 
+body[data-theme="dark"] .star {
+    stroke: white;
 }
 
 .starActive {
@@ -128,8 +128,8 @@ body[data-theme='dark'] .star {
     stroke-width: 15px; /* Thicker gray outline */
 }
 
-body[data-theme='dark'] .starActive {
-    color: #8A86A4; 
+body[data-theme="dark"] .starActive {
+    color: #8a86a4;
     stroke: white;
 }
 
@@ -139,10 +139,10 @@ body[data-theme='dark'] .starActive {
     fill: #e4e1f7; /* Stars turn purple on hover */
 }
 
-body[data-theme='dark'] .star:hover,
-body[data-theme='dark'] .starActive:hover {
-    stroke: white; 
-    fill: #8A86A4; 
+body[data-theme="dark"] .star:hover,
+body[data-theme="dark"] .starActive:hover {
+    stroke: white;
+    fill: #8a86a4;
 }
 
 .submitButton {
@@ -157,17 +157,17 @@ body[data-theme='dark'] .starActive:hover {
     font-weight: 500; /* Slightly bolder text */
 }
 
-body[data-theme='dark'] .submitButton {
-    background-color: #8A86A4; 
-    color: white; 
+body[data-theme="dark"] .submitButton {
+    background-color: #8a86a4;
+    color: white;
 }
 
 .submitButton:hover {
     background-color: #d1cdf5; /* Slightly darker purple on hover */
 }
 
-body[data-theme='dark'] .submitButton:hover {
-    background-color: #827f7f; 
+body[data-theme="dark"] .submitButton:hover {
+    background-color: #827f7f;
 }
 
 label {
@@ -175,8 +175,8 @@ label {
     color: #424242;
 }
 
-body[data-theme='dark'] label {
-    color: white; 
+body[data-theme="dark"] label {
+    color: white;
 }
 
 input[type="checkbox"] {
@@ -184,8 +184,8 @@ input[type="checkbox"] {
     accent-color: #d1cdf5; /* Purple checkbox when checked */
 }
 
-body[data-theme='dark'] input[type="checkbox"] {
-    accent-color: #8A86A4; 
+body[data-theme="dark"] input[type="checkbox"] {
+    accent-color: #8a86a4;
 }
 
 .journalEntryTitle {
@@ -197,11 +197,11 @@ body[data-theme='dark'] input[type="checkbox"] {
     margin-bottom: 10px; /* Ensure the title has enough space from the content below */
 }
 
-body[data-theme='dark'] .journalEntryTitle {
-    color: white; 
+body[data-theme="dark"] .journalEntryTitle {
+    color: white;
 }
 
-body[data-theme='dark'] ::placeholder {
+body[data-theme="dark"] ::placeholder {
     color: white;
     opacity: 0.7;
 }

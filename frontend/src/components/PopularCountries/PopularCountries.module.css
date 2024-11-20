@@ -18,31 +18,34 @@
     transition:
         background-color 0.3s,
         color 0.3s;
-    cursor: pointer; 
+    cursor: pointer;
     border-radius: 10px;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    transition:
+        background-color 0.3s,
+        color 0.3s,
+        border-color 0.3s;
     cursor: pointer;
 }
 
 /* Light mode hover effect */
 .countryLabel:hover {
-    background-color: #e4e1f7; 
-    border-color: transparent; 
-    color: #424242; 
+    background-color: #e4e1f7;
+    border-color: transparent;
+    color: #424242;
 }
 
 /* Dark mode styles */
-body[data-theme='dark'] .countryLabel {
-    background-color: #424242;  
-    color: white;  
-    border: 2px solid #8A86A4; 
+body[data-theme="dark"] .countryLabel {
+    background-color: #424242;
+    color: white;
+    border: 2px solid #8a86a4;
 }
 
 /* Dark mode hover effect */
-body[data-theme='dark'] .countryLabel:hover {
-    background-color: #8A86A4;  
-    border-color: transparent;  
-    color: #424242;  
+body[data-theme="dark"] .countryLabel:hover {
+    background-color: #8a86a4;
+    border-color: transparent;
+    color: #424242;
 }
 
 .popularTitle {
@@ -53,8 +56,8 @@ body[data-theme='dark'] .countryLabel:hover {
 }
 
 /* Dark mode title styling */
-body[data-theme='dark'] .popularTitle {
-    color: white;  
+body[data-theme="dark"] .popularTitle {
+    color: white;
 }
 
 @media (min-width: 1025px) {
@@ -88,7 +91,7 @@ body[data-theme='dark'] .popularTitle {
         max-width: 80%;
         margin-bottom: 10%;
     }
-    
+
     .countryLabel {
         margin: 5px;
     }
@@ -120,18 +123,21 @@ body[data-theme='dark'] .popularTitle {
         border: 2px solid #d3d3d3;
         background-color: #ffffff;
         color: #333;
-        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        transition:
+            background-color 0.3s,
+            color 0.3s,
+            border-color 0.3s;
     }
 
     /* Dark mode phone styles */
-    body[data-theme='dark'] .countryLabel {
+    body[data-theme="dark"] .countryLabel {
         background-color: #424242;
         color: white;
-        border: 2px solid #8A86A4; 
+        border: 2px solid #8a86a4;
     }
 
-    body[data-theme='dark'] .countryLabel:hover {
-        background-color: #8A86A4;  
-        border-color: transparent; 
+    body[data-theme="dark"] .countryLabel:hover {
+        background-color: #8a86a4;
+        border-color: transparent;
     }
 }

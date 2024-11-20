@@ -18,8 +18,8 @@
     cursor: pointer;
 }
 
-body[data-theme='dark'] .card {
-    background-color: #8A86A4;
+body[data-theme="dark"] .card {
+    background-color: #8a86a4;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -32,7 +32,7 @@ body[data-theme='dark'] .card {
     z-index: 1;
 }
 
-body[data-theme='dark'] .verticalStrip {
+body[data-theme="dark"] .verticalStrip {
     background-color: #bebebe;
 }
 
@@ -54,7 +54,7 @@ body[data-theme='dark'] .verticalStrip {
     color: #424242;
 }
 
-body[data-theme='dark'] .cardTitle {
+body[data-theme="dark"] .cardTitle {
     color: white;
 }
 

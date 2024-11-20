@@ -29,8 +29,8 @@
     position: relative;
 }
 
-body[data-theme='dark'] .modalContent {
-    background: #8A86A4;
+body[data-theme="dark"] .modalContent {
+    background: #8a86a4;
 }
 
 .closeButton {
@@ -44,7 +44,7 @@ body[data-theme='dark'] .modalContent {
     cursor: pointer;
 }
 
-body[data-theme='dark'] .closeButton {
+body[data-theme="dark"] .closeButton {
     color: white;
 }
 
@@ -60,7 +60,7 @@ body[data-theme='dark'] .closeButton {
     margin-bottom: 10px;
 }
 
-body[data-theme='dark'] .modalDate {
+body[data-theme="dark"] .modalDate {
     color: #dfdfdf;
 }
 
@@ -86,6 +86,6 @@ body[data-theme='dark'] .modalDate {
     margin-top: 10px;
 }
 
-body[data-theme='dark'] .modalText {
+body[data-theme="dark"] .modalText {
     color: white;
 }

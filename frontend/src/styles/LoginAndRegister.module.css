@@ -8,7 +8,8 @@
     overflow: hidden;
 }
 
-body[data-theme='dark'] .registerPage, body[data-theme='dark'] .loginPage {
+body[data-theme="dark"] .registerPage,
+body[data-theme="dark"] .loginPage {
     background-color: #424242;
 }
 
@@ -38,7 +39,7 @@ body[data-theme='dark'] .registerPage, body[data-theme='dark'] .loginPage {
     font-size: 30px;
 }
 
-body[data-theme='dark'] .logoLink {
+body[data-theme="dark"] .logoLink {
     color: white;
 }
 
@@ -71,7 +72,7 @@ body[data-theme='dark'] .logoLink {
     margin-right: 40px;
 }
 
-body[data-theme='dark'] .linkToLogIn a {
+body[data-theme="dark"] .linkToLogIn a {
     color: white;
 }
 
@@ -80,7 +81,7 @@ body[data-theme='dark'] .linkToLogIn a {
     color: #351939;
 }
 
-body[data-theme='dark'] .linkToLogIn a:hover {
+body[data-theme="dark"] .linkToLogIn a:hover {
     text-decoration: underline;
 }
 
@@ -151,7 +152,7 @@ body[data-theme='dark'] .linkToLogIn a:hover {
         color: #424242;
     }
 
-    body[data-theme='dark'] .arrow {
+    body[data-theme="dark"] .arrow {
         color: white;
     }
 
@@ -161,7 +162,7 @@ body[data-theme='dark'] .linkToLogIn a:hover {
         font-size: 15px;
     }
 
-    body[data-theme='dark'] .linkToLogInUnder a {
+    body[data-theme="dark"] .linkToLogInUnder a {
         color: white;
     }
 

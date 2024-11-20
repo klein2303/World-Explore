@@ -10,8 +10,8 @@
 }
 
 /* Dark mode Filter Container */
-body[data-theme='dark'] .filtercontainer {
-    background-color: #8A86A4;
+body[data-theme="dark"] .filtercontainer {
+    background-color: #8a86a4;
     color: white;
 }
 
@@ -28,7 +28,7 @@ body[data-theme='dark'] .filtercontainer {
 }
 
 /* Dark mode title styling */
-body[data-theme='dark'] .title {
+body[data-theme="dark"] .title {
     color: white;
 }
 
@@ -40,7 +40,7 @@ body[data-theme='dark'] .title {
 }
 
 /* Dark mode description styling */
-body[data-theme='dark'] .decription {
+body[data-theme="dark"] .decription {
     color: white;
 }
 
@@ -59,7 +59,7 @@ body[data-theme='dark'] .decription {
 }
 
 /* Dark mode filter item styling */
-body[data-theme='dark'] .filteritem {
+body[data-theme="dark"] .filteritem {
     color: white;
 }
 
@@ -79,7 +79,7 @@ body[data-theme='dark'] .filteritem {
     color: #424242;
 }
 /* Dark mode custom checkbox styling */
-body[data-theme='dark'] .customCheckbox {
+body[data-theme="dark"] .customCheckbox {
     color: white;
 }
 
@@ -99,7 +99,7 @@ body[data-theme='dark'] .customCheckbox {
 }
 
 /* Dark mode checkbox visual styling */
-body[data-theme='dark'] .checkboxVisual {
+body[data-theme="dark"] .checkboxVisual {
     border: 1px solid #ffffff;
 }
 
@@ -109,11 +109,11 @@ body[data-theme='dark'] .checkboxVisual {
 }
 
 /* Dark mode checked checkbox styling */
-body[data-theme='dark'] .checkbox:checked + label .checkboxVisual {
+body[data-theme="dark"] .checkbox:checked + label .checkboxVisual {
     background-color: #ffffff;
 }
 
-body[data-theme='dark'] .checkboxVisual:hover {
+body[data-theme="dark"] .checkboxVisual:hover {
     background-color: white;
 }
 
@@ -137,7 +137,7 @@ body[data-theme='dark'] .checkboxVisual:hover {
     }
 
     /* Dark mode mobile filter container */
-    body[data-theme='dark'] .filtercontainer {
+    body[data-theme="dark"] .filtercontainer {
         background-color: #424242;
     }
 
@@ -173,16 +173,16 @@ body[data-theme='dark'] .checkboxVisual:hover {
     }
 
     /* Dark mode mobile custom checkbox */
-    body[data-theme='dark'] .customCheckbox {
-        border: 2px solid #8A86A4;
+    body[data-theme="dark"] .customCheckbox {
+        border: 2px solid #8a86a4;
     }
 
     .customCheckbox:hover {
         background-color: #e4e1f7;
     }
 
-    body[data-theme='dark'] .customCheckbox:hover {
-        background-color: #8A86A4;
+    body[data-theme="dark"] .customCheckbox:hover {
+        background-color: #8a86a4;
     }
 
     .checkbox:checked + .customCheckbox {
@@ -190,8 +190,8 @@ body[data-theme='dark'] .checkboxVisual:hover {
     }
 
     /* Dark mode checked custom checkbox */
-    body[data-theme='dark'] .checkbox:checked + .customCheckbox {
-        background-color: #8A86A4;
+    body[data-theme="dark"] .checkbox:checked + .customCheckbox {
+        background-color: #8a86a4;
     }
 }
 
@@ -214,7 +214,7 @@ body[data-theme='dark'] .checkboxVisual:hover {
     }
 
     /* Dark mode filter container */
-    body[data-theme='dark'] .filtercontainer {
+    body[data-theme="dark"] .filtercontainer {
         background-color: #424242;
         color: white;
     }
@@ -247,16 +247,16 @@ body[data-theme='dark'] .checkboxVisual:hover {
     }
 
     /* Dark mode custom checkbox */
-    body[data-theme='dark'] .customCheckbox {
-        border: 2px solid #8A86A4;
+    body[data-theme="dark"] .customCheckbox {
+        border: 2px solid #8a86a4;
     }
 
     .customCheckbox:hover {
         background-color: #e4e1f7;
     }
 
-    body[data-theme='dark'] .customCheckbox:hover {
-        background-color: #8A86A4;
+    body[data-theme="dark"] .customCheckbox:hover {
+        background-color: #8a86a4;
     }
 
     .checkbox:checked + .customCheckbox {
@@ -264,7 +264,7 @@ body[data-theme='dark'] .checkboxVisual:hover {
     }
 
     /* Dark mode checked custom checkbox */
-    body[data-theme='dark'] .checkbox:checked + .customCheckbox {
-        background-color: #8A86A4;
+    body[data-theme="dark"] .checkbox:checked + .customCheckbox {
+        background-color: #8a86a4;
     }
 }

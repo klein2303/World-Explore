@@ -17,11 +17,13 @@ button {
 
 body {
     font-family: "Poppins", sans-serif;
-    transition: background-color 0.1s, color 0.1s;
+    transition:
+        background-color 0.1s,
+        color 0.1s;
 }
 
 /* Dark mode styles */
-body[data-theme='dark'] {
+body[data-theme="dark"] {
     background-color: #424242;
     color: white;
 }

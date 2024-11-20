@@ -161,7 +161,7 @@ body[data-theme="dark"] .lastInfoText {
 }
 
 body[data-theme="dark"] .logInButton {
-    background-color:#8A86A4;
+    background-color: #8a86a4;
     color: #ffff;
 }
 
@@ -170,7 +170,7 @@ body[data-theme="dark"] .logInButton {
 }
 
 body[data-theme="dark"] .logInButton:hover {
-    background-color: #7A7694;
+    background-color: #7a7694;
 }
 
 /* Display specific CSS below */

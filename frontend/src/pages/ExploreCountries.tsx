@@ -114,20 +114,21 @@ const ExploreCountries = () => {
                                     className={styles.pagination}
                                     aria-label="browse pages"
                                     sx={
-                                        theme === 'dark'
-                                        ? {
-        
-                                        ".MuiPaginationItem-root": {
-                                            color: "white",
-                                        },
-                                        ".MuiButtonBase-root:hover, .MuiPaginationItem-root.Mui-selected:hover": {
-                                            backgroundColor: "#333",
-                                        },
-                                        ".MuiPaginationItem-root.Mui-selected": {
-                                            backgroundColor: "#666262",
-                                        },
+                                        theme === "dark"
+                                            ? {
+                                                  ".MuiPaginationItem-root": {
+                                                      color: "white",
+                                                  },
+                                                  ".MuiButtonBase-root:hover, .MuiPaginationItem-root.Mui-selected:hover":
+                                                      {
+                                                          backgroundColor: "#333",
+                                                      },
+                                                  ".MuiPaginationItem-root.Mui-selected": {
+                                                      backgroundColor: "#666262",
+                                                  },
+                                              }
+                                            : {}
                                     }
-                                    :{}}
                                 />
                             </>
                         )}

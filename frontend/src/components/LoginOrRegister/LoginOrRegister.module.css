@@ -14,7 +14,7 @@
     margin-bottom: 10px;
 }
 
-body[data-theme='dark'] .title h3 {
+body[data-theme="dark"] .title h3 {
     color: white;
 }
 
@@ -31,7 +31,7 @@ body[data-theme='dark'] .title h3 {
     color: #333;
 }
 
-body[data-theme='dark'] .title h5 {
+body[data-theme="dark"] .title h5 {
     color: white;
 }
 
@@ -41,7 +41,7 @@ body[data-theme='dark'] .title h5 {
     margin: 20px 0;
 }
 
-body[data-theme='dark'] .line {
+body[data-theme="dark"] .line {
     border: 1px solid white;
 }
 
@@ -50,7 +50,7 @@ body[data-theme='dark'] .line {
     font-weight: 300;
 }
 
-body[data-theme='dark'] .inputSections h5 {
+body[data-theme="dark"] .inputSections h5 {
     color: white;
 }
 
@@ -75,7 +75,7 @@ body[data-theme='dark'] .inputSections h5 {
     font-size: 16px;
 }
 
-body[data-theme='dark'] .inputField {
+body[data-theme="dark"] .inputField {
     color: white;
     background-color: #666262;
     border: 1px solid white;
@@ -97,8 +97,8 @@ body[data-theme='dark'] .inputField {
     color: #e4e1f7;
 }
 
-body[data-theme='dark'] .submitButton {
-    background-color: #8A86A4;
+body[data-theme="dark"] .submitButton {
+    background-color: #8a86a4;
     color: white;
 }
 
@@ -106,8 +106,8 @@ body[data-theme='dark'] .submitButton {
     background-color: #351939;
 }
 
-body[data-theme='dark'] .submitButton:hover {
-    background-color: #7A7694;
+body[data-theme="dark"] .submitButton:hover {
+    background-color: #7a7694;
 }
 
 @media (max-width: 1020px) {

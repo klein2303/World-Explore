@@ -6,7 +6,7 @@ import { CgProfile } from "react-icons/cg";
 import { LuMapPin } from "react-icons/lu";
 import { LiaGlobeSolid } from "react-icons/lia";
 import { useTheme } from "../../context/ThemeContext";
-import { DarkModeSwitch } from "react-toggle-dark-mode"; 
+import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -95,7 +95,7 @@ const Navbar = () => {
                                     onChange={toggleTheme}
                                     size={25}
                                     sunColor="#424242"
-                                    moonColor="white" 
+                                    moonColor="white"
                                     aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                                 />
 
@@ -134,7 +134,7 @@ const Navbar = () => {
                                 checked={theme === "dark"}
                                 onChange={toggleTheme}
                                 size={25}
-                                sunColor="#424242" 
+                                sunColor="#424242"
                                 moonColor="white"
                                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                             />
@@ -160,7 +160,7 @@ const Navbar = () => {
                                     onChange={toggleTheme}
                                     size={25}
                                     sunColor="#424242"
-                                    moonColor="white" 
+                                    moonColor="white"
                                     aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                                 />
                                 <Link
@@ -195,7 +195,7 @@ const Navbar = () => {
                                 onChange={toggleTheme}
                                 size={25}
                                 sunColor="#424242"
-                                moonColor="white" 
+                                moonColor="white"
                                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                             />
                         </div>

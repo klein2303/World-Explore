@@ -13,7 +13,7 @@
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-body[data-theme='dark'] .reviewCard {
+body[data-theme="dark"] .reviewCard {
     background-color: #424242;
     color: white;
 }
@@ -75,8 +75,8 @@ body[data-theme='dark'] .reviewCard {
     margin-top: 10px;
 }
 
-body[data-theme='dark'] .readMoreButton {
-    background-color: #8A86A4;
+body[data-theme="dark"] .readMoreButton {
+    background-color: #8a86a4;
 }
 
 .readMoreButton:hover {

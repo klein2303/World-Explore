@@ -15,7 +15,7 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 768);
     const [showModal, setShowModal] = useState<boolean>(false);
 
-    const truncatedText = review.text.length > 200 ? review.text.slice(0, 110) + "..." : review.text;
+    const truncatedText = review.text.length > 100 ? review.text.slice(0, 100) + "..." : review.text;
 
     // Resize handler to check for screen size
     useEffect(() => {

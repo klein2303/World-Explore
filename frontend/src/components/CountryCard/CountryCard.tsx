@@ -27,7 +27,6 @@ const CountryCard = ({ name, image }: CountryCardProps) => {
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === "Enter") {
             event.preventDefault();
-            console.log("funker");
             openModal();
         }
     };

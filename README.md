@@ -50,7 +50,7 @@ POSTGRES_DB=worldexploredb
 
 <br />
 
-This will run the project via the backend on the virtual machine
+This will run the project via the backend on the virtual machine. You can also run the project locally through a local backend. If so, refer to [this guide](backend/README.md)
 
 Now you need to install some npm components.
 To do so, run the following commands in a terminal while inside the mentioned folder:

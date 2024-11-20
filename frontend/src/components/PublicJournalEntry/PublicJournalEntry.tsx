@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { reviewType } from "../../types/JournalType";
+import { readReviewType } from "../../types/JournalType";
 import styles from "./PublicJournalEntry.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import PublicJournalEntryModal from "./PublicJournalEntryModal";
+import { FaUserPen } from "react-icons/fa6";
 
 type PublicJournalEntryProps = {
-    review: reviewType;
+    review: readReviewType;
 };
 
 const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
@@ -59,35 +60,38 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                     <h3 className={styles.reviewTitle} id={`review-title-${review.title}`}>
                         {review.title}
                     </h3>
-                    <p className={styles.reviewDate} aria-label={`Date range: ${review.date}`}>
-                        {review.date}
-                    </p>
+                    <p className={styles.reviewDate}>{review.date}</p>
                 </header>
 
-                <p className={styles.reviewRating} aria-label={`Rating: ${review.rating} out of 5 stars`}>
-                    <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
-                    {review.rating}/5
-                </p>
+                <div className={styles.reviewInfo}>
+                    <p className={styles.reviewRating} aria-description={`Rating: ${review.rating} out of 5 stars`}>
+                        <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
+                        {review.rating}/5
+                    </p>
+                    <p className={styles.user}>
+                        <FaUserPen aria-hidden="true" />
+                        {review.journal.profile.username}
+                    </p>
+                </div>
 
                 {/* Review Text with "Read More" button */}
-                <div className={styles.reviewInfoBox} aria-label="Review text" role="contentinfo">
-                    <p
-                        className={styles.reviewText}
-                        aria-expanded={isExpanded || showModal}
-                        id={`review-text-${review.title}`}>
-                        {isExpanded && isMobile ? review.text : truncatedText}
-                    </p>
-                    {review.text.length > 100 && (
-                        <button
-                            className={styles.readMoreButton}
-                            onClick={handleReadMore}
-                            aria-controls={`review-text-${review.title}`}
-                            aria-expanded={isExpanded}
-                            aria-label={isExpanded ? "Collapse review text" : "Expand review text"}>
-                            {isExpanded ? "Read Less" : "Read More"}
-                        </button>
-                    )}
-                </div>
+
+                <p
+                    className={styles.reviewText}
+                    aria-expanded={isExpanded || showModal}
+                    id={`review-text-${review.title}`}>
+                    {isExpanded && isMobile ? review.text : truncatedText}
+                </p>
+                {review.text.length > 100 && (
+                    <button
+                        className={styles.readMoreButton}
+                        onClick={handleReadMore}
+                        aria-controls={`review-text-${review.title}`}
+                        aria-expanded={isExpanded}
+                        aria-label={isExpanded ? "Collapse review text" : "Expand review text"}>
+                        {isExpanded ? "Read less" : "Read more"}
+                    </button>
+                )}
             </article>
             {showModal && !isMobile && (
                 <PublicJournalEntryModal

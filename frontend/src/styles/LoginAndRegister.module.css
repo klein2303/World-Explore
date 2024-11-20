@@ -1,93 +1,169 @@
-.registerPage {
+.registerPage,
+.loginPage {
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
     background-color: #e4e1f7;
+    overflow: hidden;
+}
+
+body[data-theme="dark"] .registerPage,
+body[data-theme="dark"] .loginPage {
+    background-color: #424242;
+}
+
+.inputSection {
+    width: 45%;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    height: 100%;
+    width: 55%;
+}
+
+.loginOrRegisterComponent {
+    height: auto;
+    width: auto;
+    padding: 10%;
 }
 
 .logoLink {
-    color: #000000;
-    text-decoration: none;
-}
-
-.logo {
     height: max-content;
-    width: 35vw;
-    margin-left: 10px;
+    width: 100%;
     text-decoration: none;
     color: #424242;
     font-size: 30px;
 }
 
-.linkToLogIn a {
-    color: #000000;
-    font-weight: 300;
-    font-size: 15px;
+body[data-theme="dark"] .logoLink {
+    color: white;
 }
 
-.headerRegisterPage {
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 30%;
+    margin-left: 40px;
+}
+
+.linkToLogIn {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+    width: 85%;
+    justify-content: end;
+    align-items: center;
+    text-align: end;
 }
 
-.navlinkUnder {
+.linkToLogIn a {
+    color: #424242;
+    font-weight: 300;
+    font-size: 15px;
+    text-decoration: none;
+    margin-right: 40px;
+}
+
+body[data-theme="dark"] .linkToLogIn a {
+    color: white;
+}
+
+.linkToLogIn a:hover {
+    text-decoration: underline;
+    color: #351939;
+}
+
+body[data-theme="dark"] .linkToLogIn a:hover {
+    text-decoration: underline;
+}
+
+.header {
+    width: 100%;
+    height: 70px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.navlinkUnder,
+.arrowLink {
     display: none;
 }
-.inputSection {
-    width: 50%;
-    padding: 20px;
-    justify-content: center;
-    height: 100%;
-}
-.inputSection,
-.image {
-    height: 100%;
-    flex-grow: 1; /* Make both sections take up available space */
+
+.navlinkOver p {
+    font-size: 13px;
 }
 
-.image {
-    height: 100vh;
-    width: 50vw;
+.navlinkOver {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin: 20px;
+    font-size: 18px;
 }
 
 .imageimage {
     width: 100%;
     object-fit: cover;
+    height: 100%;
 }
 
-@media (max-width: 1140px) {
-    .image {
+@media (max-width: 1020px) {
+    .image,
+    .imageimage,
+    .logoLink,
+    .navlinkOver {
         display: none;
     }
 
-    .imageimage {
-        display: none;
-    }
-
-    .registerPage {
+    .registerPage,
+    .loginPage {
         justify-content: center;
-        width: 100vw;
-        height: 100%;
+        align-content: center;
     }
 
     .inputSection {
-        width: 70vw;
-        padding: 0px;
-        justify-content: center;
+        width: 90vw;
+        height: 100vh;
     }
 
-    .navlinkUnder {
+    .navlinkUnder,
+    .arrowLink {
         display: contents;
     }
 
-    .navlinkOver {
-        display: none;
+    .arrow {
+        font-size: 20px;
+        color: #000;
+        margin-left: 8%;
+        margin-top: 15%;
+        color: #424242;
+    }
+
+    body[data-theme="dark"] .arrow {
+        color: white;
     }
 
     .linkToLogInUnder a {
         color: #000000;
         font-weight: 300;
         font-size: 15px;
+    }
+
+    body[data-theme="dark"] .linkToLogInUnder a {
+        color: white;
     }
 
     .linkToLogInUnder {
@@ -102,12 +178,7 @@
     }
 
     .logo {
-        height: max-content;
-        width: fit-content;
-        margin-top: 30px;
-        text-decoration: none;
-        text-align: center;
-        color: #424242;
-        font-size: 32px;
+        margin-left: 0px;
+        justify-content: start;
     }
 }

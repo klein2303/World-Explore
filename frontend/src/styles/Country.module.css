@@ -1,6 +1,6 @@
 .pagecontainer {
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 
     width: 100%;
     height: fit-content;
@@ -15,16 +15,19 @@
 }
 
 .return {
-    width: 100%;
+    width: fit-content;
     height: 50px;
-
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-
+    margin-bottom: 30px;
     text-decoration: none;
     color: #424242;
+}
+
+.return:hover {
+    text-decoration: underline;
 }
 
 .returnicon {
@@ -36,9 +39,10 @@
 }
 
 .countryname {
-    font-size: 40px;
     margin-top: 10px;
+    font-weight: 400;
     color: #424242;
+    font-size: 30px;
 }
 
 .countrycontinent {
@@ -47,7 +51,7 @@
 }
 
 .countryimage {
-    width: 40%;
+    width: 45%;
     height: 300px;
 
     border-radius: 10px;
@@ -84,6 +88,11 @@
     box-sizing: border-box;
 }
 
+body[data-theme="dark"] .funfactbox {
+    background-color: #8a86a4;
+    color: white;
+}
+
 .funfact {
     width: fit-content;
     height: fit-content;
@@ -112,11 +121,13 @@
 
 .infotitle {
     font-size: 24px;
+    font-weight: 400;
 }
 
 .infotext {
     font-size: 16px;
     line-height: 2;
+    text-align: center;
 }
 
 .info {
@@ -137,6 +148,11 @@
     gap: 18px;
 }
 
+body[data-theme="dark"] .info {
+    background-color: #8a86a4;
+    color: white;
+}
+
 /* Journal Section */
 .journalSection {
     margin-top: 50px;
@@ -144,6 +160,11 @@
     background-color: #e4e1f7;
     min-height: 100px; /* Ensures the section is visible even if empty */
     color: #424242;
+}
+
+body[data-theme="dark"] .journalSection {
+    background-color: #8a86a4;
+    color: white;
 }
 
 .noEntriesMessage {
@@ -171,8 +192,16 @@
         border-color 0.3s ease;
 }
 
+body[data-theme="dark"] .addEntryButton {
+    background-color: #424242;
+}
+
 .addEntryButton:hover {
     background-color: #ddd9e3;
+}
+
+body[data-theme="dark"] .addEntryButton:hover {
+    background-color: #827f7f;
 }
 
 .journalHeader {
@@ -184,6 +213,7 @@
 
 .journalTitle {
     font-size: 20px;
+    font-weight: 500;
 }
 
 .horizontalLine {
@@ -191,6 +221,22 @@
     margin-top: 10px;
     margin-bottom: 10px;
     color: #424242;
+}
+
+body[data-theme="dark"] .horizontalLine {
+    border-top: 1px solid white;
+    color: white;
+}
+
+body[data-theme="dark"] .returnicon,
+body[data-theme="dark"] .returntext,
+body[data-theme="dark"] .countryname,
+body[data-theme="dark"] .countrycontinent,
+body[data-theme="dark"] .funfacttext,
+body[data-theme="dark"] .icon,
+body[data-theme="dark"] .infotitle,
+body[data-theme="dark"] .infotext {
+    color: white; /* Ensure all texts are white in dark mode */
 }
 
 @media (max-width: 900px) {

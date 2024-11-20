@@ -10,10 +10,15 @@ import { FilterType } from "../types/FilterType";
 import { gql, useQuery } from "@apollo/client";
 import Pagination from "@mui/material/Pagination";
 import { pageAtom } from "../atoms/PageAtom";
+import { useEffect, useState, useCallback } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const ExploreCountries = () => {
+    const { theme } = useTheme();
+
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
     const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
+    const [noResults, setNoResults] = useState<boolean>(false);
 
     const COUNTRIES_COUNT = gql`
         {
@@ -29,6 +34,13 @@ const ExploreCountries = () => {
     const { data, loading, error } = useQuery(COUNTRIES_COUNT, {
         fetchPolicy: "cache-first", // Used for first execution
         nextFetchPolicy: "cache-first", // Used for subsequent executions
+        onCompleted: (data) => {
+            if (data.filteredcountriescount === 0) {
+                setNoResults(true);
+            } else {
+                setNoResults(false);
+            }
+        },
     });
 
     const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -43,18 +55,13 @@ const ExploreCountries = () => {
         setCurrentPage({ page: value });
     };
 
-    const resetPage = () => {
-        if (currentPage.page === 1) {
-            return;
-        }
-        setCurrentPage({
-            page: 1,
-        });
-    };
+    const resetPage = useCallback(() => {
+        setCurrentPage({ page: 1 });
+    }, [setCurrentPage]);
 
-    // useEffect(() => {
-    //     resetPage()
-    // }, [filter]);
+    useEffect(() => {
+        resetPage();
+    }, [filter.search, filter.continent, resetPage]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -65,13 +72,13 @@ const ExploreCountries = () => {
             <main className={styles.maincontainer} role="main" aria-label="Explore Countries">
                 <div className={styles.container}>
                     <Filter aria-label="Filter based on continents" />
-                    <div className={styles.maincontent} role="region" aria-labelledby="country-list">
+                    <div className={styles.maincontent} role="region" aria-describedby="country-list">
                         <p id="country-list" className={styles.title}>
                             Discover your dream vacations
                         </p>
-                        <div className={styles.filters} role="region" aria-labelledby="filter-section">
+                        <div className={styles.filters} role="region" aria-label="search and sort">
                             <Search aria-label="Search countries" />
-                            <div className={styles.sort} role="region" aria-labelledby="sort-section">
+                            <div className={styles.sort} role="region" aria-label="sort-section">
                                 <MdOutlineSort className={styles.sorticon} aria-hidden="true" />
                                 <label htmlFor="sort-dropdown" className={styles.sorttext}>
                                     Sort after:
@@ -84,18 +91,47 @@ const ExploreCountries = () => {
                                     onChange={handleSort}
                                     value={filter.sort}
                                     aria-label="Sort countries alphabetically">
-                                    <option value="A-Z">A-Z</option>
-                                    <option value="Z-A">Z-A</option>
+                                    <option value="A-Z" aria-label="Sort" aria-description="Sort countries from A to Z">
+                                        A-Z
+                                    </option>
+                                    <option value="Z-A" aria-label="Sort" aria-description="Sort countries from Z to A">
+                                        Z-A
+                                    </option>
                                 </select>
                             </div>
                         </div>
-                        <CountryCardList />
-                        <Pagination
-                            page={currentPage.page}
-                            onChange={handleChange}
-                            count={Math.ceil(data.filteredcountriescount / 12)}
-                            className={styles.pagination}
-                        />
+                        <CountryCardList aria-description="Listview of countries" />
+                        {noResults ? (
+                            <p className={styles.noResultsMessage}>
+                                No results found for the selected filter and search options.
+                            </p>
+                        ) : (
+                            <>
+                                <Pagination
+                                    page={currentPage.page}
+                                    onChange={handleChange}
+                                    count={Math.ceil(data.filteredcountriescount / 12)}
+                                    className={styles.pagination}
+                                    aria-label="browse pages"
+                                    sx={
+                                        theme === "dark"
+                                            ? {
+                                                  ".MuiPaginationItem-root": {
+                                                      color: "white",
+                                                  },
+                                                  ".MuiButtonBase-root:hover, .MuiPaginationItem-root.Mui-selected:hover":
+                                                      {
+                                                          backgroundColor: "#333",
+                                                      },
+                                                  ".MuiPaginationItem-root.Mui-selected": {
+                                                      backgroundColor: "#666262",
+                                                  },
+                                              }
+                                            : {}
+                                    }
+                                />
+                            </>
+                        )}
                     </div>
                 </div>
             </main>

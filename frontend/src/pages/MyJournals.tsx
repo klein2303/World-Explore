@@ -2,68 +2,64 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import JournalCard from "../components/JournalCard/JournalCard";
 import styles from "../styles/MyJournals.module.css";
-import Countries from "../data/Countries";
 import Pagination from "@mui/material/Pagination";
 import { useRecoilState } from "recoil";
-import { pageAtom } from "../atoms/PageAtom";
+import { myJournalPageAtom } from "../atoms/MyJournalPageAtom";
+import { gql, useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
+import { removeQuotes } from "../utils/utils";
+import { useTheme } from "../context/ThemeContext";
 
 const MyJournals = () => {
+    const { theme } = useTheme();
+
     const ITEMS_PER_PAGE = 15;
-    const [activeTab, setActiveTab] = useState<"journals" | "unwritten">("journals");
-    const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
-
-    // Using mockdata for now, but this would be fetched from the backend
-    const journalEntries = Countries.slice(0, 10);
-    const visitedCountries = Countries.slice(10);
-
-    // Get the appropriate entries for the current page
-    const paginatedEntries =
-        activeTab === "journals"
-            ? journalEntries.slice((currentPage.page - 1) * ITEMS_PER_PAGE, currentPage.page * ITEMS_PER_PAGE)
-            : visitedCountries.slice((currentPage.page - 1) * ITEMS_PER_PAGE, currentPage.page * ITEMS_PER_PAGE);
-
-    const getPageTitle = () => (activeTab === "journals" ? "Captured Adventures" : "Places Yet to Journal");
+    const [currentPage, setCurrentPage] = useRecoilState(myJournalPageAtom);
 
     const initialSubtitle =
         window.innerWidth <= 768
-            ? activeTab === "journals"
-                ? "Tap the images to dive into your adventures!"
-                : "Tap the images to start writing your stories!"
-            : activeTab === "journals"
-              ? "Your travel stories, captured and cherished forever."
-              : "You’ve visited, but the story’s still untold. Ready to write?";
+            ? "Tap the images to dive into your adventures!"
+            : "Your travel stories, captured and cherished forever.";
     const [subtitleText, setSubtitleText] = useState<string>(initialSubtitle);
 
     const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
         setCurrentPage({ page: value });
     };
 
+    const profileid = removeQuotes(sessionStorage.getItem("user")!);
+
+    const WRITTEN_JOURNALS = gql`
+        query GetWrittenJournals($skip: Int, $profileid: String!) {
+            writtenjournals(skip: $skip, profileid: $profileid) {
+                countryid
+                countryimage
+            }
+        }
+    `;
+
+    const { data, loading, error } = useQuery(WRITTEN_JOURNALS, {
+        variables: { skip: currentPage.page > 0 ? (currentPage.page - 1) * 12 : 0, profileid: profileid },
+        fetchPolicy: "cache-and-network",
+    });
+
+    // Keep this effect to update the subtitle based on window width
     useEffect(() => {
-        const getSubtitle = () => {
-            return activeTab === "journals"
-                ? "Your travel stories, captured and cherished forever."
-                : "You’ve visited, but the story’s still untold. Ready to write?";
-        };
-
-        const getMobileSubtitle = () => {
-            return activeTab === "journals"
-                ? "Tap the images to read about your adventures!"
-                : "Tap the images to start writing about your adventures!";
-        };
-
         const handleResize = () => {
             if (window.innerWidth <= 768) {
-                setSubtitleText(getMobileSubtitle());
+                setSubtitleText("Tap the images to dive into your adventures!");
             } else {
-                setSubtitleText(getSubtitle());
+                setSubtitleText("Your travel stories, captured and cherished forever.");
             }
         };
 
         window.addEventListener("resize", handleResize);
-        handleResize(); // Call handler right away so state gets updated with initial window size
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
-        return () => window.removeEventListener("resize", handleResize);
-    }, [activeTab]);
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error.message}</p>;
 
     return (
         <>
@@ -71,75 +67,50 @@ const MyJournals = () => {
             <main className={styles.container}>
                 {/* Title and Tabs in the same row */}
                 <header className={styles.header}>
-                    <h1 className={styles.pageTitle}>{getPageTitle()}</h1>
-                    <div className={styles.tabs} role="tablist" aria-label="Journal Tabs">
-                        <button
-                            className={`${styles.tabButton} ${activeTab === "journals" ? styles.active : ""}`}
-                            onClick={() => setActiveTab("journals")}
-                            role="tab"
-                            aria-selected={activeTab === "journals"}
-                            aria-controls="journals-panel"
-                            id="journals-tab"
-                            aria-label="Journal Entries Tab">
-                            Journal Entries
-                        </button>
-                        <button
-                            className={`${styles.tabButton} ${activeTab === "unwritten" ? styles.active : ""}`}
-                            onClick={() => setActiveTab("unwritten")}
-                            role="tab"
-                            aria-selected={activeTab === "unwritten"}
-                            aria-controls="unwritten-panel"
-                            id="unwritten-tab"
-                            aria-label="Unwritten Adventures Tab">
-                            Unwritten Adventures
-                        </button>
-                    </div>
+                    <h1 className={styles.pageTitle}>{"Captured Adventures"}</h1>
                 </header>
-
-                {/* Catchy subtitle based on active tab */}
-                <h2 className={styles.subtitle}>{subtitleText}</h2>
-
-                {/* Content based on active tab */}
-                <section
-                    id="journals-panel"
-                    role="tabpanel"
-                    aria-labelledby="journals-tab"
-                    hidden={activeTab !== "journals"}
-                    className={styles.grid}>
-                    {/* Only render journal entries when 'journals' tab is active */}
-                    {activeTab === "journals" &&
-                        paginatedEntries.map((entry) => (
-                            <JournalCard key={entry.name} country={entry.name} date="2023-01-12" image={entry.image} />
-                        ))}
-                </section>
-                <section
-                    id="unwritten-panel"
-                    role="tabpanel"
-                    aria-labelledby="unwritten-tab"
-                    hidden={activeTab !== "unwritten"}
-                    className={styles.grid}>
-                    {/* Only render visited countries when 'unwritten' tab is active */}
-                    {activeTab === "unwritten" &&
-                        visitedCountries.map((entry) => (
-                            <JournalCard
-                                key={entry.name}
-                                country={entry.name}
-                                date={null} // Pass null if no journal entry
-                                image={entry.image}
-                            />
-                        ))}
-                </section>
-                <Pagination
-                    page={currentPage.page}
-                    onChange={handleChange}
-                    count={Math.ceil(
-                        Math.ceil(
-                            (activeTab === "journals" ? journalEntries.length : visitedCountries.length) /
-                                ITEMS_PER_PAGE,
-                        ),
-                    )}
-                    className={styles.pagination}
-                />
+                {data.writtenjournals.length === 0 ? (
+                    <>
+                        <p className={styles.noResultsMessage}>
+                            You haven´t written any journal entries yet. Explore all the countries in the world here:
+                            <Link to={"/ExploreCountries"}>Explore Countries Page</Link>
+                        </p>
+                    </>
+                ) : (
+                    <>
+                        <h2 className={styles.subtitle}>{subtitleText}</h2>
+                        <section id="journals-panel" role="tabpanel" className={styles.grid}>
+                            {data.writtenjournals.map((journal: { countryid: string; countryimage: string }) => (
+                                <JournalCard
+                                    key={journal.countryid}
+                                    country={journal.countryid}
+                                    image={journal.countryimage}
+                                />
+                            ))}
+                        </section>
+                        <Pagination
+                            page={currentPage.page}
+                            onChange={handleChange}
+                            count={Math.ceil(data.writtenjournals.length / ITEMS_PER_PAGE)}
+                            className={styles.pagination}
+                            sx={
+                                theme === "dark"
+                                    ? {
+                                          ".MuiPaginationItem-root": {
+                                              color: "white",
+                                          },
+                                          ".MuiButtonBase-root:hover, .MuiPaginationItem-root.Mui-selected:hover": {
+                                              backgroundColor: "#333",
+                                          },
+                                          ".MuiPaginationItem-root.Mui-selected": {
+                                              backgroundColor: "#666262",
+                                          },
+                                      }
+                                    : {}
+                            }
+                        />
+                    </>
+                )}
             </main>
         </>
     );

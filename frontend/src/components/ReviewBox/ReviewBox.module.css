@@ -1,144 +1,122 @@
-@media (min-width: 601px) {
-    .reviewBox {
-        position: relative;
-        background-color: #fcf5ff;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        max-width: 100%;
-        height: 290px;
-        border: none;
-        border-radius: 10px;
-        resize: none;
-        padding: 20px;
-        padding-bottom: 60px;
-    }
-
-    .reviewTitle {
-        font-size: 25px;
-        width: fit-content;
-    }
-
-    .date {
-        font-size: 15px;
-        width: fit-content;
-    }
-
-    .reviewText {
-        margin-top: 10px;
-        position: absolute;
-        background-color: #fcf5ff;
-        width: 97%;
-        height: 180px;
-        font-size: 16px;
-        overflow-y: scroll;
-        white-space: pre-wrap;
-        line-height: 2;
-    }
-
-    .starsContainer {
-        position: absolute;
-        left: 10px;
-        bottom: 55px;
-        display: flex;
-        gap: 10px;
-        width: fit-content;
-        font-size: 35px;
-        color: #f5d103;
-    }
-
-    .publicContainer {
-        position: absolute;
-        display: flex;
-        flex-direction: row;
-        bottom: 20px;
-        gap: 10px;
-        width: fit-content;
-    }
-
-    .checkBox {
-        font-size: 25px;
-    }
-
-    .checkBox:hover {
-        cursor: pointer;
-    }
-
-    .noJournal {
-        font-size: 32px;
-        font-style: italic;
-        margin-top: 50px;
-        text-align: center;
-    }
+.reviewTitle {
+    font-size: 25px;
 }
 
-@media (max-width: 500px) {
+.date {
+    font-size: 15px;
+    width: fit-content;
+}
+
+.checkBox {
+    font-size: 25px;
+}
+
+.checkBox:hover {
+    cursor: pointer;
+}
+
+.publicInfoText {
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.main {
+    width: 100%;
+}
+
+.reviewBox {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #fcf5ff;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    /*padding-bottom: 60px;*/
+}
+
+body[data-theme="dark"] .reviewBox {
+    background-color: #8a86a4;
+}
+
+.reviewText {
+    margin-top: 10px;
+    background-color: #fcf5ff;
+    width: 100%;
+    height: 200px;
+    font-size: 16px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    line-height: 2;
+}
+
+body[data-theme="dark"] .reviewText {
+    background-color: #8a86a4;
+}
+
+.starsContainer {
+    display: flex;
+    font-size: 2.5vw;
+    color: #f5d103;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@media (max-width: 600px) {
     /*Phone */
-    .reviewBox {
-        position: relative;
-        background-color: #fcf5ff;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        max-width: 100%;
-        height: 320px;
-        border: none;
-        border-radius: 10px;
-        resize: none;
-        padding: 20px;
-        padding-bottom: 60px;
-    }
-    .reviewTitle {
-        font-size: 25px;
-        width: fit-content;
+    .main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    .date {
-        font-size: 15px;
-        width: fit-content;
+    .reviewBox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: #fcf5ff;
+        margin: 30px;
+        height: 100%;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    body[data-theme="dark"] .reviewBox {
+        background-color: #8a86a4;
     }
 
     .reviewText {
         margin-top: 10px;
-        width: 100%;
         background-color: #fcf5ff;
-        height: 180px;
         font-size: 16px;
-        overflow-y: scroll;
+        overflow-y: auto;
         white-space: pre-wrap;
         line-height: 2;
     }
 
+    body[data-theme="dark"] .reviewText {
+        background-color: #8a86a4;
+    }
+
     .starsContainer {
-        position: absolute;
-        left: 10px;
-        bottom: 55px;
         display: flex;
-        gap: 10px;
-        width: fit-content;
-        font-size: 35px;
+        font-size: 7vw;
         color: #f5d103;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
-    .publicContainer {
-        position: absolute;
-        display: flex;
-        flex-direction: row;
-        bottom: 20px;
-        gap: 10px;
-        width: fit-content;
-    }
-
-    .checkBox {
+    .reviewTitle {
         font-size: 25px;
-    }
-
-    .checkBox:hover {
-        cursor: pointer;
-    }
-
-    .noJournal {
-        font-size: 24px;
-        font-style: italic;
-        margin-top: 70px;
         text-align: center;
+        padding: 5px;
     }
 }

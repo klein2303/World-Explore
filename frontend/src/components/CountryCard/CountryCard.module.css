@@ -1,26 +1,41 @@
 .cardcontainer {
     background-color: #e4e1f7;
-    height: 180px;
-    width: 180px;
+    height: 250px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
-    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode Card Container */
+body[data-theme="dark"] .cardcontainer {
+    background-color: #8a86a4;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.cardcontainer:hover {
+    background-color: #ddd9e3;
+}
+
+/* Dark mode hover effect */
+body[data-theme="dark"] .cardcontainer:hover {
+    background-color: #827f7f;
 }
 
 .cardimage {
-    margin-top: 10px;
-    height: 130px;
-    width: 170px;
-    border-radius: 10px;
+    height: 200px;
+    width: 250px;
+    border-radius: 10px 10px 0px 0px;
     overflow: hidden;
 }
 
 .information {
-    width: 170px;
-    height: 30px;
+    width: 220px;
+    height: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -28,10 +43,9 @@
     color: #424242;
 }
 
-.filled {
-    fill: #fcf5ff;
-    cursor: pointer;
-    font-size: 24px;
+/* Dark mode information section */
+body[data-theme="dark"] .information {
+    color: white;
 }
 
 .icon {
@@ -39,6 +53,22 @@
     font-size: 22px;
 }
 
+.icon:hover {
+    fill: #424242;
+    font-size: 25px;
+}
+
+/* Dark mode icon hover effect */
+body[data-theme="dark"] .icon:hover {
+    fill: white;
+}
+
 .name {
     font-size: 15px;
+}
+
+@media (max-width: 810px) {
+    .cardcontainer {
+        margin: 12px;
+    }
 }

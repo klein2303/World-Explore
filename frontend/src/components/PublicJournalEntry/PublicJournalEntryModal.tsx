@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import styles from "./PublicJournalEntryModal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { reviewType } from "../../types/JournalType";
+import { readReviewType } from "../../types/JournalType";
+import { FaUserPen } from "react-icons/fa6";
 
 type JournalEntryModalProps = {
-    review: reviewType;
+    review: readReviewType;
     onClose: () => void;
 };
 
@@ -48,9 +49,13 @@ const PublicJournalEntryModal = ({ review, onClose }: JournalEntryModalProps) =>
                     <p
                         id="modal-rating"
                         className={styles.modalRating}
-                        aria-label={`Rating: ${review.rating} out of 5 stars`}>
+                        aria-description={`Rating: ${review.rating} out of 5 stars`}>
                         <FontAwesomeIcon icon={faStar} className={styles.starIcon} aria-hidden="true" />
                         {review.rating}/5
+                    </p>
+                    <p className={styles.user}>
+                        <FaUserPen aria-hidden="true" />
+                        {review.journal.profile.username}
                     </p>
                 </section>
                 {/* Review text */}

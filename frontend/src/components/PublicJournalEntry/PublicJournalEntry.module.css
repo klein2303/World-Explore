@@ -3,15 +3,18 @@
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 350px;
+    width: 350px;
     color: #424242;
-    height: 220px;
+    height: 230px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+body[data-theme="dark"] .reviewCard {
+    background-color: #424242;
+    color: white;
 }
 
 .reviewTitle {
@@ -22,7 +25,6 @@
 
 .reviewDate {
     font-size: 16px;
-    margin-bottom: 10px;
     opacity: 0.8;
 }
 
@@ -30,20 +32,28 @@
     font-size: 16px;
 }
 
-.reviewInfoBox {
-    flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.reviewInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .reviewText {
     font-size: 16px;
     line-height: 1.4;
     overflow: hidden;
-    height: 65px; /* Limit height to create uniform card size */
-    -webkit-line-clamp: 2; /* Limit the number of lines */
+    height: 100%; /* Limit height to create uniform card size */
+    -webkit-line-clamp: 3; /* Limit the number of lines */
     line-clamp: 2; /* Standard property for compatibility */
     -webkit-box-orient: vertical;
+    padding-bottom: 2px;
 }
 
 .readMoreButton {
@@ -54,15 +64,27 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 12px;
-    margin-top: 10px;
+    width: fit-content;
+}
+
+body[data-theme="dark"] .readMoreButton {
+    background-color: #8a86a4;
 }
 
 .readMoreButton:hover {
     background-color: #797979;
 }
 
+.readMoreButton:focus {
+    background-color: #424242; /* Match the default background color */
+}
+
+.readMoreButton:active {
+    background-color: #797979; /* Match the hover background color */
+}
+
 .starIcon {
-    margin-right: 10px;
+    margin-right: 6px;
 }
 
 .profileIcon {
@@ -75,6 +97,7 @@
 
 @media (max-width: 768px) {
     .reviewCard {
+        width: 100%;
         max-width: 100%;
         min-width: 100%;
         flex-basis: 100%;

@@ -11,6 +11,12 @@
     z-index: 1000;
 }
 
+.user {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .modalContent {
     background: #fcf5ff;
     border-radius: 8px;
@@ -23,6 +29,10 @@
     position: relative;
 }
 
+body[data-theme="dark"] .modalContent {
+    background: #8a86a4;
+}
+
 .closeButton {
     position: absolute;
     top: 10px;
@@ -32,6 +42,10 @@
     font-size: 24px;
     color: #333;
     cursor: pointer;
+}
+
+body[data-theme="dark"] .closeButton {
+    color: white;
 }
 
 .modalTitle {
@@ -46,17 +60,23 @@
     margin-bottom: 10px;
 }
 
+body[data-theme="dark"] .modalDate {
+    color: #dfdfdf;
+}
+
 .modalInfo {
     display: flex;
     gap: 20px;
     align-items: center;
     margin-bottom: 15px;
+    justify-content: space-between;
 }
 
 .modalRating,
 .modalReviewer {
     display: flex;
     align-items: center;
+    gap: 6px;
 }
 
 .modalText {
@@ -64,4 +84,8 @@
     line-height: 1.5;
     color: #333;
     margin-top: 10px;
+}
+
+body[data-theme="dark"] .modalText {
+    color: white;
 }

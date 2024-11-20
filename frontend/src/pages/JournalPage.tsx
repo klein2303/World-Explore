@@ -3,10 +3,9 @@ import Navbar from "../components/Navbar/Navbar";
 import { PiArrowElbowDownLeft } from "react-icons/pi";
 import styles from "../styles/JournalPage.module.css";
 import ReviewBox from "../components/ReviewBox/ReviewBox";
-import { SlPencil } from "react-icons/sl";
 import { useEffect, useState } from "react";
 import JournalEntryModal from "../components/JournalEntryModal/JournalEntryModal"; // Import the modal component
-import { JournalType } from "../types/JournalType"; // Import your JournalType
+import { JournalTypeWrite } from "../types/JournalType"; // Import your JournalType
 
 const JournalPage = () => {
     // Get countryName from the URL
@@ -19,9 +18,9 @@ const JournalPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Function to open the modal
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
+    // const openModal = () => {
+    //     setIsModalOpen(true);
+    // };
 
     // Function to close the modal
     const closeModal = () => {
@@ -29,7 +28,7 @@ const JournalPage = () => {
     };
 
     // Handle submission of journal entry
-    const handleJournalSubmit = (entry: JournalType) => {
+    const handleJournalSubmit = (entry: JournalTypeWrite) => {
         console.log("New journal entry submitted:", entry);
         // Add your logic here to save the journal entry
         // Then close the modal
@@ -44,18 +43,18 @@ const JournalPage = () => {
     return (
         <>
             <Navbar />
-            <main className={styles.page} aria-label="Page for reading your journals">
-                <Link to={"/MyJournals"} className={styles.returnLink} aria-label="Return to all journals">
+            <main className={styles.page} aria-description="Page for reading your journals">
+                <Link to={"/MyJournals"} className={styles.returnLink}>
                     {" "}
                     <PiArrowElbowDownLeft /> Return to all journals
                 </Link>
                 <section className={styles.upperSection}>
-                    <p className={styles.title} aria-label="Title">
+                    <p className={styles.title} aria-label="journals">
                         My {countryName} journals
                     </p>
-                    <button className={styles.addButton} aria-label="Add new journal entry" onClick={openModal}>
+                    {/* <button className={styles.addButton} aria-label="Add new journal entry" onClick={openModal}>
                         Add new journal entry <SlPencil />
-                    </button>
+                    </button> */}
                 </section>
                 <ReviewBox country={country} />
                 {/* Render the JournalEntryModal */}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback} from "react";
 import Navbar from "../components/Navbar/Navbar";
 import JournalCard from "../components/JournalCard/JournalCard";
 import styles from "../styles/MyJournals.module.css";
@@ -6,12 +6,16 @@ import Pagination from "@mui/material/Pagination";
 import { useRecoilState } from "recoil";
 import { myJournalPageAtom } from "../atoms/MyJournalPageAtom";
 import { gql, useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
 import { removeQuotes } from "../utils/utils";
 import { useTheme } from "../context/ThemeContext";
+import JournalSearch from "../components/JournalSearch/JournalSearch";
+import { journalSearchAtom } from "../atoms/JournalSearchAtom";
+import { JournalSearchType } from "../types/FilterType";
 
 const MyJournals = () => {
     const { theme } = useTheme();
+
+    const [search] = useRecoilState<JournalSearchType>(journalSearchAtom);
 
     const ITEMS_PER_PAGE = 15;
     const [currentPage, setCurrentPage] = useRecoilState(myJournalPageAtom);
@@ -29,16 +33,24 @@ const MyJournals = () => {
     const profileid = removeQuotes(sessionStorage.getItem("user")!);
 
     const WRITTEN_JOURNALS = gql`
-        query GetWrittenJournals($skip: Int, $profileid: String!) {
-            writtenjournals(skip: $skip, profileid: $profileid) {
+        query GetWrittenJournals($skip: Int, $profileid: String!, $information: String) {
+            writtenjournals(skip: $skip, profileid: $profileid, information: $information) {
                 countryid
                 countryimage
             }
         }
     `;
 
+    const resetPage = useCallback(() => {
+        setCurrentPage({ page: 1 });
+    }, [setCurrentPage]);
+
+    useEffect(() => {
+        resetPage();
+    }, [search.search, resetPage]);
+
     const { data, loading, error } = useQuery(WRITTEN_JOURNALS, {
-        variables: { skip: currentPage.page > 0 ? (currentPage.page - 1) * 12 : 0, profileid: profileid },
+        variables: { skip: currentPage.page > 0 ? (currentPage.page - 1) * 12 : 0, profileid: profileid, information: search.search },
         fetchPolicy: "cache-and-network",
     });
 
@@ -69,11 +81,13 @@ const MyJournals = () => {
                 <header className={styles.header}>
                     <h1 className={styles.pageTitle}>{"Captured Adventures"}</h1>
                 </header>
-                {data.writtenjournals.length === 0 ? (
+                <section className={styles.journalSearch}>
+                    <JournalSearch />
+                </section>
+                {data.writtenjournals.length === 0 ? (                    
                     <>
                         <p className={styles.noResultsMessage}>
-                            You haven´t written any journal entries yet. Explore all the countries in the world here:
-                            <Link to={"/ExploreCountries"}>Explore Countries Page</Link>
+                            You haven´t written any journal entries for this search yet. Try another search or explore all the countries in the world in the Explore Countries Page
                         </p>
                     </>
                 ) : (

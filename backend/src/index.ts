@@ -78,7 +78,7 @@ const typeDefs = `
         publicreviews: [Review!]!
         filteredpublicreviews(country: String!): [Review!]!
 
-        writtenjournals(skip: Int, profileid: String!): [Journal!]!
+        writtenjournals(skip: Int, profileid: String!, information: String): [Journal!]!
         writtenjournal(countryid: String!, profileid: String!): Journal
     }
 
@@ -175,7 +175,7 @@ const resolvers = {
                 },
             });
         },
-        writtenjournals: async (_, { skip, profileid }) => {
+        writtenjournals: async (_, { skip, profileid, information }) => {
             return await prisma.journal.findMany({
                 skip: skip,
                 take: 15,
@@ -184,6 +184,10 @@ const resolvers = {
                     reviews: {
                         some: {},
                     },
+                    countryid: {
+                        contains: information.toLowerCase(),
+                        mode: "insensitive",
+                    }
                 },
             });
         },

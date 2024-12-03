@@ -3,7 +3,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { gql, useQuery } from "@apollo/client";
 import { removeQuotes } from "../../utils/utils";
 import { PiArrowElbowDownLeft } from "react-icons/pi";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface journalCountry {
     country: string;

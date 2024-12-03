@@ -86,8 +86,8 @@ const ReviewBox = ({ country }: journalCountry) => {
 
     return (
         <main className="main">
-            {data.writtenjournal ?
-                (<>
+            {data.writtenjournal ? (
+                <>
                     <section>
                         <Link to={"/MyJournals"} className={styles.returnLink}>
                             {" "}
@@ -131,16 +131,16 @@ const ReviewBox = ({ country }: journalCountry) => {
                                     This journal entry is {review.ispublic ? "public" : "private"}
                                 </p>
                             </section>
-                        ))}
-                    </>
-                    ) : (
-                    <main className={styles.noCountry} role="main" aria-describedby="not-found">
-                        <h1 id="not-found" aria-label="Error 404: Page not found">
-                            404
-                        </h1>
-                    </main>
-                )
-            }
+                        ),
+                    )}
+                </>
+            ) : (
+                <main className={styles.noCountry} role="main" aria-describedby="not-found">
+                    <h1 id="not-found" aria-label="Error 404: Page not found">
+                        404
+                    </h1>
+                </main>
+            )}
         </main>
     );
 };

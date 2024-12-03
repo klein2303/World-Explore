@@ -26,6 +26,20 @@ body[data-theme="dark"] .returnLink {
     text-decoration: none;
 }
 
+.iconcontainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    padding-bottom: 10px;
+}
+
+.deleteIcon {
+    font-size: 27px;
+    cursor: pointer;    
+}
+
 .upperSection {
     display: flex;
     flex-direction: row;
@@ -122,6 +136,10 @@ body[data-theme="dark"] .reviewText {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .deleteIcon {
+        font-size: 24px;    
     }
 
     .reviewBox {

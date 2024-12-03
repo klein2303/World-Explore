@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback} from "react";
+import { useState, useEffect, useCallback } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import JournalCard from "../components/JournalCard/JournalCard";
 import styles from "../styles/MyJournals.module.css";
@@ -50,7 +50,11 @@ const MyJournals = () => {
     }, [search.search, resetPage]);
 
     const { data, loading, error } = useQuery(WRITTEN_JOURNALS, {
-        variables: { skip: currentPage.page > 0 ? (currentPage.page - 1) * 12 : 0, profileid: profileid, information: search.search },
+        variables: {
+            skip: currentPage.page > 0 ? (currentPage.page - 1) * 12 : 0,
+            profileid: profileid,
+            information: search.search,
+        },
         fetchPolicy: "cache-and-network",
     });
 
@@ -84,10 +88,11 @@ const MyJournals = () => {
                 <section className={styles.journalSearch}>
                     <JournalSearch />
                 </section>
-                {data.writtenjournals.length === 0 ? (                    
+                {data.writtenjournals.length === 0 ? (
                     <>
                         <p className={styles.noResultsMessage}>
-                            You haven´t written any journal entries for this search yet. Try another search or explore all the countries in the world in the Explore Countries Page.
+                            You haven´t written any journal entries for this search yet. Try another search or explore
+                            all the countries in the world in the Explore Countries Page.
                         </p>
                     </>
                 ) : (

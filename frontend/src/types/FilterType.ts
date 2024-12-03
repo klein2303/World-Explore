@@ -15,4 +15,4 @@ type ContinentType = {
 
 export type JournalSearchType = {
     search: string;
-}
+};

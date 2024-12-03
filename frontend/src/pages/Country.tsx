@@ -72,7 +72,8 @@ const Country = () => {
     return (
         <>
             <Navbar />
-            <main role="main">
+            { country ? 
+            ( <main role="main">
                 <section className={styles.pagecontainer} aria-label="Information about country">
                     <article className={styles.container}>
                         <Link to={"/ExploreCountries"} className={styles.return}>
@@ -197,6 +198,14 @@ const Country = () => {
                     />
                 </section>
             </main>
+            ) : (
+                <main className={styles.noCountry} role="main" aria-describedby="not-found">
+                    <h1 id="not-found" aria-label="Error 404: Page not found">
+                        404
+                    </h1>
+                </main>
+                )
+            }
         </>
     );
 };

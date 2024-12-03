@@ -26,7 +26,7 @@ const Router = () => {
                 <Route path="/ExploreCountries" element={<ExploreCountries />} />
                 <Route path="/MyJournals" element={<MyJournals />} />
                 <Route path="/JournalPage/:countryName" element={<JournalPage />} />
-                <Route path="/:name" element={<Country />} />
+                <Route path="/Countries/:name" element={<Country />} />
             </Routes>
         </HashRouter>
     );

@@ -9,6 +9,16 @@
     justify-content: center;
 }
 
+.noCountry {
+    height: 500px;
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     height: fit-content;
     width: 900px;

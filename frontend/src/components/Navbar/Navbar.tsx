@@ -100,7 +100,7 @@ const Navbar = () => {
                                     aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
                                 />
 
-                                <Link to={"/Home"} className={styles.signOut} onClick={handleSignOut}>
+                                <Link to={"/"} className={styles.signOut} onClick={handleSignOut}>
                                     <p>Sign Out</p>
                                 </Link>
                             </div>

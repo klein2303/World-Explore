@@ -104,7 +104,7 @@ async function addReviews() {
         for (const journalId of journalIds) {
             const reviewsData = [
                 {
-                    title: "Disappointing Experience with High Expectations",
+                    title: "Disappointing Experience",
                     date: `200${journalId}-01-20`,
                     rating: 2,
                     text: "I had high expectations based on everything I’d read, but the experience didn’t live up to the hype. The attractions were overcrowded, and many places seemed overly commercialized. It was hard to get an authentic feel of the culture.",

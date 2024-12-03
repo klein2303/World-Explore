@@ -58,7 +58,6 @@ const ReviewBox = ({ country }: journalCountry) => {
 
     const [deleteReview] = useMutation(DELETE_REVIEW, {
         onCompleted: (data) => {
-            sessionStorage.setItem("deletedReview", "true");
             if (data.deleteReview === 0) {
                 navigation("/MyJournals");
             }

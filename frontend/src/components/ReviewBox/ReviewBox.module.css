@@ -22,6 +22,10 @@ body[data-theme="dark"] .returnLink {
     color: white;
 }
 
+body[data-theme="light"] .reviewBox {
+    color: #424242;
+}
+
 .returnLink:visited {
     text-decoration: none;
 }

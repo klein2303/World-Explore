@@ -239,7 +239,7 @@ body[data-theme="dark"] .logInButton:hover {
         font-weight: 300;
     }
 
-    .infoTextSection{
+    .infoTextSection {
         padding: 5px;
     }
 
@@ -358,7 +358,7 @@ body[data-theme="dark"] .logInButton:hover {
         font-size: 3.8vw;
         font-weight: 300;
     }
-    
+
     .infoTextHeader {
         font-size: 5vw;
         font-weight: 300;
@@ -374,18 +374,16 @@ body[data-theme="dark"] .logInButton:hover {
         font-weight: 300;
     }
 
-    .welcome{
+    .welcome {
         font-size: 5vw;
     }
 
-    .topText, .bottomText{
+    .topText,
+    .bottomText {
         font-size: 3.8vw;
     }
 
-    
     .contentOnPicture {
         top: 30%;
-
     }
-
 }

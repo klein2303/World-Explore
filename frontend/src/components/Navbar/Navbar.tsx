@@ -59,7 +59,11 @@ const Navbar = () => {
                         aria-label="Main Navigation">
                         {isOpen && (
                             <FocusTrap>
-                                <div className={styles.mobilemenu} role="dialog" aria-label="Mobile Navigation Menu" tabIndex={0}>
+                                <div
+                                    className={styles.mobilemenu}
+                                    role="dialog"
+                                    aria-label="Mobile Navigation Menu"
+                                    tabIndex={0}>
                                     {/* Close button for mobile menu */}
                                     <div className={styles.crosspos} role="presentation">
                                         <RxCross1
@@ -67,11 +71,11 @@ const Navbar = () => {
                                             className={styles.cross}
                                             onClick={() => setIsOpen(false)}
                                             aria-description="Close Mobile Menu"
-                                            tabIndex={0} 
+                                            tabIndex={0}
                                             onKeyDown={(e) => {
                                                 if (e.key === "Enter" || e.key === " ") {
-                                                    e.preventDefault(); 
-                                                    setIsOpen(false)
+                                                    e.preventDefault();
+                                                    setIsOpen(false);
                                                 }
                                             }}
                                         />
@@ -107,11 +111,11 @@ const Navbar = () => {
                                         sunColor="#424242"
                                         moonColor="white"
                                         aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                                        tabIndex={0} 
+                                        tabIndex={0}
                                         onKeyDown={(e) => {
                                             if (e.key === "Enter" || e.key === " ") {
-                                                e.preventDefault(); 
-                                                toggleTheme(); 
+                                                e.preventDefault();
+                                                toggleTheme();
                                             }
                                         }}
                                     />
@@ -128,11 +132,11 @@ const Navbar = () => {
                             className={styles.hamburgmenu}
                             onClick={() => setIsOpen(true)}
                             aria-description="Open Mobile Menu"
-                            tabIndex={0} 
+                            tabIndex={0}
                             onKeyDown={(e) => {
                                 if (e.key === "Enter" || e.key === " ") {
-                                    e.preventDefault(); 
-                                    setIsOpen(true)
+                                    e.preventDefault();
+                                    setIsOpen(true);
                                 }
                             }}
                         />
@@ -162,11 +166,11 @@ const Navbar = () => {
                                 sunColor="#424242"
                                 moonColor="white"
                                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                                tabIndex={0} 
+                                tabIndex={0}
                                 onKeyDown={(e) => {
                                     if (e.key === "Enter" || e.key === " ") {
-                                        e.preventDefault(); 
-                                        toggleTheme(); 
+                                        e.preventDefault();
+                                        toggleTheme();
                                     }
                                 }}
                             />
@@ -188,8 +192,8 @@ const Navbar = () => {
                                             tabIndex={0}
                                             onKeyDown={(e) => {
                                                 if (e.key === "Enter" || e.key === " ") {
-                                                    e.preventDefault(); 
-                                                    setIsOpen(false)
+                                                    e.preventDefault();
+                                                    setIsOpen(false);
                                                 }
                                             }}
                                         />
@@ -202,11 +206,11 @@ const Navbar = () => {
                                         sunColor="#424242"
                                         moonColor="white"
                                         aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                                        tabIndex={0} 
+                                        tabIndex={0}
                                         onKeyDown={(e) => {
                                             if (e.key === "Enter" || e.key === " ") {
-                                                e.preventDefault(); 
-                                                toggleTheme(); 
+                                                e.preventDefault();
+                                                toggleTheme();
                                             }
                                         }}
                                     />
@@ -230,8 +234,8 @@ const Navbar = () => {
                             tabIndex={0}
                             onKeyDown={(e) => {
                                 if (e.key === "Enter" || e.key === " ") {
-                                    e.preventDefault(); 
-                                    setIsOpen(true)
+                                    e.preventDefault();
+                                    setIsOpen(true);
                                 }
                             }}
                         />
@@ -253,11 +257,11 @@ const Navbar = () => {
                                 sunColor="#424242"
                                 moonColor="white"
                                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                                tabIndex={0} 
+                                tabIndex={0}
                                 onKeyDown={(e) => {
                                     if (e.key === "Enter" || e.key === " ") {
-                                        e.preventDefault(); 
-                                        toggleTheme(); 
+                                        e.preventDefault();
+                                        toggleTheme();
                                     }
                                 }}
                             />

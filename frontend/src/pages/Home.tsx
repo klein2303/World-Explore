@@ -16,9 +16,9 @@ const Home = () => {
     const handleScrollDown = (): void => {
         const targetSection = document.getElementById("target-section");
         if (targetSection) {
-          targetSection.scrollIntoView({ behavior: "smooth" });
+            targetSection.scrollIntoView({ behavior: "smooth" });
         }
-      };
+    };
 
     return (
         <>
@@ -103,12 +103,12 @@ const Home = () => {
                                 Create an account to start your exploration, create unforgettable memories, and let your
                                 journal entries bring the world to life.
                             </p>
-                            {token?(
+                            {token ? (
                                 <></>
-                            ):(
-                            <button className={styles.logInButton} onClick={handleOnClick}>
-                                Start now
-                            </button>
+                            ) : (
+                                <button className={styles.logInButton} onClick={handleOnClick}>
+                                    Start now
+                                </button>
                             )}
                         </section>
                     </div>

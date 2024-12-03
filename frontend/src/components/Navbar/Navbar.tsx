@@ -98,6 +98,13 @@ const Navbar = () => {
                                     sunColor="#424242"
                                     moonColor="white"
                                     aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                                    tabIndex={0} 
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter" || e.key === " ") {
+                                            e.preventDefault(); 
+                                            toggleTheme(); 
+                                        }
+                                    }}
                                 />
 
                                 <Link to={"/Home"} className={styles.signOut} onClick={handleSignOut}>
@@ -138,6 +145,13 @@ const Navbar = () => {
                                 sunColor="#424242"
                                 moonColor="white"
                                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                                tabIndex={0} 
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault(); 
+                                        toggleTheme(); 
+                                    }
+                                }}
                             />
                         </div>
                     </nav>
@@ -163,6 +177,13 @@ const Navbar = () => {
                                     sunColor="#424242"
                                     moonColor="white"
                                     aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                                    tabIndex={0} 
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter" || e.key === " ") {
+                                            e.preventDefault(); 
+                                            toggleTheme(); 
+                                        }
+                                    }}
                                 />
                                 <Link
                                     to={"/LogIn"}
@@ -199,6 +220,13 @@ const Navbar = () => {
                                 sunColor="#424242"
                                 moonColor="white"
                                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                                tabIndex={0} 
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault(); 
+                                        toggleTheme(); 
+                                    }
+                                }}
                             />
                         </div>
                     </nav>

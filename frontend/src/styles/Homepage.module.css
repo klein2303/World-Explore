@@ -39,6 +39,7 @@
 }
 
 .contentOnPicture {
+    top: 35%;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -68,10 +69,14 @@
 }
 
 .arrow {
-    color: #424242;
+    color: #ffff;
     margin-top: 20px;
     font-size: 5vw;
     animation: arrow-move 2s infinite;
+}
+
+body[data-theme="dark"] .arrow {
+    color: #424242;
 }
 
 .aboutDiv {
@@ -188,6 +193,10 @@ body[data-theme="dark"] .logInButton:hover {
         height: 50vw;
     }
 
+    .arrow {
+        display: none;
+    }
+
     .infoText {
         padding: 10px 20px 10px 20px;
         color: #424242;
@@ -294,13 +303,6 @@ body[data-theme="dark"] .logInButton:hover {
         text-align: center;
     }
 
-    .arrow {
-        color: #424242;
-        margin-top: 10px;
-        font-size: 5vw;
-        animation: arrow-move 2s infinite;
-    }
-
     .aboutDiv {
         display: flex;
         flex-direction: column;
@@ -353,13 +355,37 @@ body[data-theme="dark"] .logInButton:hover {
         padding: 10px;
         color: #424242;
         text-align: center;
-        font-size: 2.8vw;
+        font-size: 3.8vw;
         font-weight: 300;
     }
     
     .infoTextHeader {
-        font-size: 3.4vw;
+        font-size: 5vw;
         font-weight: 300;
+    }
+
+    .lastInfoText {
+        font-size: 3.8vw;
+        font-weight: 300;
+    }
+
+    .logInButton {
+        font-size: 3.8vw;
+        font-weight: 300;
+    }
+
+    .welcome{
+        font-size: 5vw;
+    }
+
+    .topText, .bottomText{
+        font-size: 3.8vw;
+    }
+
+    
+    .contentOnPicture {
+        top: 30%;
+
     }
 
 }

@@ -4,7 +4,7 @@ import Filter from "../components/Filter/Filter";
 import styles from "../styles/ExploreCountries.module.css";
 import Search from "../components/Search/Search";
 import { filterAtom } from "../atoms/FilterAtom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { MdOutlineSort } from "react-icons/md";
 import { FilterType } from "../types/FilterType";
 import { gql, useQuery } from "@apollo/client";
@@ -12,9 +12,12 @@ import Pagination from "@mui/material/Pagination";
 import { pageAtom } from "../atoms/PageAtom";
 import { useEffect, useState, useCallback } from "react";
 import { useTheme } from "../context/ThemeContext";
+import { notificationAtom } from "../atoms/NotificationAtom";
 
 const ExploreCountries = () => {
     const { theme } = useTheme();
+    
+    const notification = useRecoilValue(notificationAtom);
 
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
     const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
@@ -134,6 +137,7 @@ const ExploreCountries = () => {
                         )}
                     </div>
                 </div>
+                {notification && <div className={styles.notification}>{notification}</div>}
             </main>
         </>
     );

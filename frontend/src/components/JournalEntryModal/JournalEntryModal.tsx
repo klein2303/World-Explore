@@ -5,6 +5,8 @@ import { removeQuotes } from "../../utils/utils";
 import { gql, useMutation } from "@apollo/client";
 import { JournalTypeWrite } from "../../types/JournalType";
 import { useLocation, useNavigate } from "react-router-dom";
+import { notificationAtom } from "../../atoms/NotificationAtom";
+import { useSetRecoilState } from "recoil";
 
 interface JournalEntryModalProps {
     country: string;
@@ -25,6 +27,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     const user = removeQuotes(sessionStorage.getItem("user")!);
     const navigate = useNavigate();
     const location = useLocation();
+    const setNotification = useSetRecoilState(notificationAtom);
 
     // Check if the link matches the exact URL
     const isTargetLink = location.pathname === "/ExploreCountries";
@@ -56,9 +59,14 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     const [addReview] = useMutation(CREATE_REVIEW, {
         onCompleted: async () => {
             setError("");
+            //console.log("Session storage set to true: ", sessionStorage.getItem("journalSubmitted"));
+            setNotification("Journal entry has been successfully submitted!");
+            setTimeout(() => setNotification(null), 3000);
             onClose();
 
-            if (!isTargetLink) navigate(0);
+            if (!isTargetLink) {
+                navigate(0);
+            }
         },
         onError: (error) => {
             setError(error.message);

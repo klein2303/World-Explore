@@ -78,13 +78,16 @@ body[data-theme="dark"] .filteritem {
     align-items: center;
     color: #424242;
 }
+
+.customCheckbox:hover{
+    font-weight: 500;
+    color:#241f47
+}
+
+
 /* Dark mode custom checkbox styling */
 body[data-theme="dark"] .customCheckbox {
     color: white;
-}
-
-.checkboxVisual:hover {
-    background-color: #424242;
 }
 
 /* Checkbox Visual */
@@ -160,10 +163,6 @@ body[data-theme="dark"] .checkboxVisual:hover {
         display: none;
     }
 
-    .checkboxVisual:hover {
-        fill: #424242;
-    }
-
     .customCheckbox {
         height: fit-content;
         width: fit-content;
@@ -177,9 +176,9 @@ body[data-theme="dark"] .checkboxVisual:hover {
         border: 2px solid #8a86a4;
     }
 
-    .customCheckbox:hover {
+    /*.customCheckbox:hover {
         background-color: #e4e1f7;
-    }
+    }*/
 
     body[data-theme="dark"] .customCheckbox:hover {
         background-color: #8a86a4;
@@ -251,9 +250,9 @@ body[data-theme="dark"] .checkboxVisual:hover {
         border: 2px solid #8a86a4;
     }
 
-    .customCheckbox:hover {
+    /*.customCheckbox:hover {
         background-color: #e4e1f7;
-    }
+    }*/
 
     body[data-theme="dark"] .customCheckbox:hover {
         background-color: #8a86a4;

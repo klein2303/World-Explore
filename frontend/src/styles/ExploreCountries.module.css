@@ -56,6 +56,10 @@
     color: #424242;
 }
 
+.sortdropdown:hover{
+    cursor: pointer;
+}
+
 .sorticon {
     font-size: 18px;
 }

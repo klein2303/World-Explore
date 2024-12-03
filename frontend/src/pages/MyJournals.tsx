@@ -87,7 +87,7 @@ const MyJournals = () => {
                 {data.writtenjournals.length === 0 ? (                    
                     <>
                         <p className={styles.noResultsMessage}>
-                            You haven´t written any journal entries for this search yet. Try another search or explore all the countries in the world in the Explore Countries Page
+                            You haven´t written any journal entries for this search yet. Try another search or explore all the countries in the world in the Explore Countries Page.
                         </p>
                     </>
                 ) : (

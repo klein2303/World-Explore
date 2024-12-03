@@ -11,6 +11,8 @@ const Home = () => {
         navigate("/Register");
     };
 
+    const token = sessionStorage.getItem("auth-token");
+
     return (
         <>
             <Navbar />
@@ -92,9 +94,13 @@ const Home = () => {
                                 Create an account to start your exploration, create unforgettable memories, and let your
                                 journal entries bring the world to life.
                             </p>
+                            {token?(
+                                <></>
+                            ):(
                             <button className={styles.logInButton} onClick={handleOnClick}>
                                 Start now
                             </button>
+                            )}
                         </section>
                     </div>
                 </section>

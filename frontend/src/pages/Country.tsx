@@ -1,7 +1,7 @@
 import styles from "../styles/Country.module.css";
 import { PiArrowElbowDownLeft } from "react-icons/pi";
 import Navbar from "../components/Navbar/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { LuMapPin } from "react-icons/lu";
 import { GrLanguage } from "react-icons/gr";
@@ -12,10 +12,15 @@ import PublicJournalEntryList from "../components/PublicJournalEntry/PublicJourn
 import { JournalTypeWrite } from "../types/JournalType"; // Import JournalType for the journal data
 import { FaPenNib } from "react-icons/fa"; // Icon for the button
 import JournalEntryModal from "../components/JournalEntryModal/JournalEntryModal";
+import { notificationAtom } from "../atoms/NotificationAtom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 const Country = () => {
     const { name } = useParams<{ name: string }>();
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Modal state
+
+    const notification = useRecoilValue(notificationAtom);
+    const setNotification = useSetRecoilState(notificationAtom);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Modal state    
 
     const COUNTRY_AND_JOURNAL_QUERY = gql`
         query GetCountryAndReviews($name: String!) {
@@ -59,10 +64,22 @@ const Country = () => {
     const closeModal = () => setIsModalOpen(false);
 
     // Function to handle journal entry submission
-    const handleJournalSubmit = (entry: JournalTypeWrite) => {
+    const handleJournalSubmit = async (entry: JournalTypeWrite) => {
         console.log("New journal entry submitted:", entry);
-        closeModal(); // Close the modal
+        sessionStorage.setItem("journalSubmitted", "true");
+        console.log("Session storage set: ", sessionStorage.getItem("journalSubmitted"));
+        closeModal();
     };
+
+    useEffect(() => {
+        const journalSubmitted = sessionStorage.getItem("journalSubmitted");
+        console.log("Session storage retrieved in Country: ", journalSubmitted);
+        if (journalSubmitted === "true") {
+            setNotification("Journal has been successfully submitted!");
+            sessionStorage.setItem("journalSubmitted", "false");
+            setTimeout(() => setNotification(null), 3000); // Display for 1.5 seconds
+        }
+    }, [setNotification]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -195,6 +212,8 @@ const Country = () => {
                         onClose={closeModal}
                         onSubmit={handleJournalSubmit}
                     />
+                    {/* Notification message */}
+                    {notification && <div className={styles.notification}>{notification}</div>}
                 </section>
             </main>
         </>

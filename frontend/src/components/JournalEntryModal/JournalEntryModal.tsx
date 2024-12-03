@@ -59,15 +59,21 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     const [addReview] = useMutation(CREATE_REVIEW, {
         onCompleted: async () => {
             setError("");
-            //console.log("Session storage set to true: ", sessionStorage.getItem("journalSubmitted"));
+            sessionStorage.setItem("journalSubmitted", "true");
+            console.log("Session storage set to true: ", sessionStorage.getItem("journalSubmitted"));
             setNotification("Journal entry has been successfully submitted!");
             setTimeout(() => setNotification(null), 3000);
             onClose();
 
+            if (isTargetLink) {  
+                sessionStorage.setItem("journalSubmitted", "false");
+                console.log("Session storage reset to false: ", sessionStorage.getItem("journalSubmitted"));
+            }
+        
             if (!isTargetLink) {
                 navigate(0);
             }
-        },
+        },        
         onError: (error) => {
             setError(error.message);
         },

@@ -4,7 +4,7 @@ import Filter from "../components/Filter/Filter";
 import styles from "../styles/ExploreCountries.module.css";
 import Search from "../components/Search/Search";
 import { filterAtom } from "../atoms/FilterAtom";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { MdOutlineSort } from "react-icons/md";
 import { FilterType } from "../types/FilterType";
 import { gql, useQuery } from "@apollo/client";
@@ -22,6 +22,7 @@ const ExploreCountries = () => {
     const [filter, setFilter] = useRecoilState<FilterType>(filterAtom);
     const [currentPage, setCurrentPage] = useRecoilState(pageAtom);
     const [noResults, setNoResults] = useState<boolean>(false);
+    const setNotification = useSetRecoilState(notificationAtom);
 
     const COUNTRIES_COUNT = gql`
         {
@@ -65,6 +66,28 @@ const ExploreCountries = () => {
     useEffect(() => {
         resetPage();
     }, [filter.search, filter.continent, resetPage]);
+    
+    useEffect(() => {
+        if (notification) {
+            console.log("Notification already set:", notification);
+            setTimeout(() => setNotification(null), 3000); // Clear notification after 3 seconds
+        }
+    }, [notification, setNotification]);
+    
+    useEffect(() => {
+        const journalSubmitted = sessionStorage.getItem("journalSubmitted");
+        console.log("Session storage retrieved in ExploreCountries: ", journalSubmitted);
+    
+        if (journalSubmitted === "true") {
+            setNotification("Journal has been successfully submitted!");
+            // Reset the flag immediately after displaying the notification
+            sessionStorage.setItem("journalSubmitted", "false");
+            console.log("Session storage reset to false");
+    
+            // Remove notification after timeout
+            setTimeout(() => setNotification(null), 1500);
+        }
+    }, [setNotification]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;

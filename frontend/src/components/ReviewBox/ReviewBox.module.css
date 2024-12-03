@@ -18,7 +18,7 @@
     text-decoration: underline;
 }
 
-.countryPageButton{
+.countryPageButton {
     padding: 10px;
     font-size: 18px;
     background-color: #fcf5ff;
@@ -29,7 +29,7 @@
     max-width: fit-content;
 }
 
-.countryPageButton:hover{
+.countryPageButton:hover {
     background-color: #d1cdf5;
 }
 
@@ -50,7 +50,7 @@ body[data-theme="dark"] .returnLink {
     text-decoration: none;
 }
 
-.linkAndButton{
+.linkAndButton {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -114,9 +114,9 @@ body[data-theme="dark"] .title {
     height: 100%;
     border-radius: 10px;
     padding: 20px;
-    overflow-wrap: break-word; 
-    word-break: break-word; 
-    white-space: normal; 
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
 }
 
 body[data-theme="dark"] .reviewBox {

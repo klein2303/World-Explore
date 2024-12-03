@@ -35,7 +35,7 @@ const ReviewBox = ({ country }: journalCountry) => {
 
     const handleOnClick = () => {
         navigate(`/Countries/${country}`);
-    };    
+    };
 
     // Render 5 stars based on a given rating
     const renderStars = (rating: number) => {
@@ -61,7 +61,9 @@ const ReviewBox = ({ country }: journalCountry) => {
                                 {" "}
                                 <PiArrowElbowDownLeft /> Return to all journals
                             </Link>
-                            <button className={styles.countryPageButton} onClick={handleOnClick}>Go to info page</button>
+                            <button className={styles.countryPageButton} onClick={handleOnClick}>
+                                Go to info page
+                            </button>
                         </section>
                         <section className={styles.upperSection}>
                             <p className={styles.title} aria-label="journals">

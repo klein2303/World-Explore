@@ -65,7 +65,7 @@ body[data-theme="light"] .reviewBox {
 
 .deleteIcon {
     font-size: 27px;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 .linkAndButton {
@@ -175,7 +175,7 @@ body[data-theme="dark"] .reviewText {
     }
 
     .deleteIcon {
-        font-size: 24px;    
+        font-size: 24px;
     }
 
     .reviewBox {

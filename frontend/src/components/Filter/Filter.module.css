@@ -115,9 +115,9 @@ body[data-theme="dark"] .checkbox:checked + label .checkboxVisual {
     background-color: #ffffff;
 }
 
-body[data-theme="dark"] .checkboxVisual:hover {
+/*body[data-theme="dark"] .checkboxVisual:hover {
     background-color: white;
-}
+}*/
 
 /* Mobile and Tablet adjustments for dark mode */
 @media (max-width: 750px) {

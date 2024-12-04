@@ -18,6 +18,30 @@
     text-decoration: underline;
 }
 
+.countryPageButton {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #fcf5ff;
+    color: #424242;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: fit-content;
+}
+
+.countryPageButton:hover {
+    background-color: #d1cdf5;
+}
+
+body[data-theme="dark"] .countryPageButton {
+    background-color: #8a86a4;
+    color: #ffff;
+}
+
+body[data-theme="dark"] .countryPageButton:hover {
+    background-color: #7a7694;
+}
+
 body[data-theme="dark"] .returnLink {
     color: white;
 }
@@ -42,6 +66,12 @@ body[data-theme="light"] .reviewBox {
 .deleteIcon {
     font-size: 27px;
     cursor: pointer;    
+}
+
+.linkAndButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .upperSection {
@@ -102,7 +132,9 @@ body[data-theme="dark"] .title {
     height: 100%;
     border-radius: 10px;
     padding: 20px;
-    /*padding-bottom: 60px;*/
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
 }
 
 body[data-theme="dark"] .reviewBox {

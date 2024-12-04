@@ -3,9 +3,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { removeQuotes } from "../../utils/utils";
 import { PiArrowElbowDownLeft } from "react-icons/pi";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 import { IoTrashOutline } from "react-icons/io5";
 
 interface journalCountry {
@@ -37,6 +35,11 @@ const ReviewBox = ({ country }: journalCountry) => {
     });
 
     const journalId = data?.writtenjournal.id;
+
+
+    const handleOnClick = () => {
+        navigation(`/Countries/${country}`);
+    };
 
     // Render 5 stars based on a given rating
     const renderStars = (rating: number) => {
@@ -88,10 +91,15 @@ const ReviewBox = ({ country }: journalCountry) => {
             {data.writtenjournal ? (
                 <>
                     <section>
-                        <Link to={"/MyJournals"} className={styles.returnLink}>
-                            {" "}
-                            <PiArrowElbowDownLeft /> Return to all journals
-                        </Link>
+                        <section className={styles.linkAndButton}>
+                            <Link to={"/MyJournals"} className={styles.returnLink}>
+                                {" "}
+                                <PiArrowElbowDownLeft /> Return to all journals
+                            </Link>
+                            <button className={styles.countryPageButton} onClick={handleOnClick}>
+                                Go to info page
+                            </button>
+                        </section>
                         <section className={styles.upperSection}>
                             <p className={styles.title} aria-label="journals">
                                 My {country} journals

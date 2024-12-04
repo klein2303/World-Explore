@@ -117,6 +117,13 @@ const ReviewBox = ({ country }: journalCountry) => {
                                         className={styles.deleteIcon}
                                         aria-label="delete"
                                         onClick={() => handleClick(review.id, journalId)}
+                                        tabIndex={0}
+                                        onKeyDown={(e) => {
+                                            if (e.key === "Enter" || e.key === " ") {
+                                                e.preventDefault();
+                                                handleClick(review.id, journalId);
+                                            }
+                                        }}
                                     />
                                 </section>
                                 <p className={styles.reviewTitle}>{review.title}</p>

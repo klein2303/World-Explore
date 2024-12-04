@@ -50,10 +50,17 @@ POSTGRES_DB=worldexploredb
 
 <br />
 
+Lastly, make sure that App.tsx in the frontend-folder 
+
 This will run the project via the backend on the virtual machine. You can also run the project locally through a local backend. If so, refer to [this guide](backend/README.md)
 
 Now you need to install some npm components.
-To do so, run the following commands in a terminal while inside the mentioned folder:
+To do so, run the following commands in a terminal while inside the mentioned folder has the following uri: 
+
+``` typescript
+uri: "http://it2810-10.idi.ntnu.no:3001/",
+```
+
 
 - `npm install`
 - `npm install react-router-dom`

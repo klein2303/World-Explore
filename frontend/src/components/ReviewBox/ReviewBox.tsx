@@ -1,9 +1,10 @@
 import styles from "./ReviewBox.module.css";
 import { FaRegStar, FaStar } from "react-icons/fa";
-import { gql, useQuery } from "@apollo/client";
+import { gql, useMutation, useQuery } from "@apollo/client";
 import { removeQuotes } from "../../utils/utils";
 import { PiArrowElbowDownLeft } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";
+import { IoTrashOutline } from "react-icons/io5";
 
 interface journalCountry {
     country: string;
@@ -11,7 +12,7 @@ interface journalCountry {
 
 const ReviewBox = ({ country }: journalCountry) => {
     const user = removeQuotes(sessionStorage.getItem("user")!);
-    const navigate = useNavigate();
+    const navigation = useNavigate();
 
     const JOURNAL = gql`
         query GetJournal($countryid: String!, $profileid: String!) {
@@ -33,8 +34,11 @@ const ReviewBox = ({ country }: journalCountry) => {
         fetchPolicy: "cache-and-network",
     });
 
+    const journalId = data?.writtenjournal.id;
+
+
     const handleOnClick = () => {
-        navigate(`/Countries/${country}`);
+        navigation(`/Countries/${country}`);
     };
 
     // Render 5 stars based on a given rating
@@ -49,8 +53,39 @@ const ReviewBox = ({ country }: journalCountry) => {
         );
     };
 
+    const DELETE_REVIEW = gql`
+        mutation DeleteReview($id: ID!, $journalid: Int!) {
+            deleteReview(id: $id, journalid: $journalid)
+        }
+    `;
+
+    const [deleteReview] = useMutation(DELETE_REVIEW, {
+        onCompleted: (data) => {
+            if (data.deleteReview === 0) {
+                navigation("/MyJournals");
+            }
+            else {
+                navigation(0)
+            }
+        },
+        onError: (error) => {
+            console.error('Error deleting review:', error.message);
+        },
+    });
+
+    const handleClick = async (id: number, journalid: string) => {
+        try {
+            await deleteReview({
+                variables: { id: id, journalid: parseInt(journalid, 10) },
+            });
+        } catch (error) {
+            console.error('Failed to delete review:', error);
+        }
+    }
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
+
     return (
         <main className="main">
             {data.writtenjournal ? (
@@ -85,6 +120,20 @@ const ReviewBox = ({ country }: journalCountry) => {
                                 className={styles.reviewBox}
                                 aria-description="Section containing the journal entry"
                                 tabIndex={0}>
+                                <section className={styles.iconcontainer}>
+                                    <IoTrashOutline
+                                        className={styles.deleteIcon}
+                                        aria-label="delete"
+                                        onClick={() => handleClick(review.id, journalId)}
+                                        tabIndex={0}
+                                        onKeyDown={(e) => {
+                                            if (e.key === "Enter" || e.key === " ") {
+                                                e.preventDefault();
+                                                handleClick(review.id, journalId);
+                                            }
+                                        }}
+                                    />
+                                </section>
                                 <p className={styles.reviewTitle}>{review.title}</p>
                                 <p className={styles.date}>{review.date}</p>
                                 <article className={styles.reviewText}>{review.text} </article>
@@ -110,3 +159,5 @@ const ReviewBox = ({ country }: journalCountry) => {
     );
 };
 export default ReviewBox;
+
+

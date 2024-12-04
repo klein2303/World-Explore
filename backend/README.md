@@ -33,6 +33,12 @@ POSTGRES_DB=db
 
 <br />
 
+Now make sure that App.tsx in the frontend-folder has the following uri:
+
+``` typescript
+uri: "http://localhost:3001/",
+```
+
 Now you have to run:
 
 ```
@@ -55,7 +61,9 @@ npx prisma migrate dev --name init
 
 `npx prisma db push` pushes the schema to the postgresql server.
 
-Now to run the Apollo server run the command:
+To push the data, add data and then update the schema (see below).
+
+After that, run the Apollo server with the command:
 
 ```
 npm start
@@ -102,9 +110,18 @@ docker compose down
 
 To add the default data into the database run the script fictures.cjs in the terminal like:
 
+For Windows:
+
 ```
 node .\scripts\fixtures.cjs
 node .\scripts\addReviews.cjs
+```
+
+For Mac/Linux:
+
+```
+node ./scripts/fixtures.cjs
+node ./scripts/addReviews.cjs
 ```
 
 and remember to update

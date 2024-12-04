@@ -61,19 +61,19 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
             setError("");
             sessionStorage.setItem("journalSubmitted", "true");
             console.log("Session storage set to true: ", sessionStorage.getItem("journalSubmitted"));
-            setNotification("Journal entry has been successfully submitted!");
+            setNotification("Journal entry has been successfully submitted! View it under My Journals.");
             setTimeout(() => setNotification(null), 3000);
             onClose();
 
-            if (isTargetLink) {  
+            if (isTargetLink) {
                 sessionStorage.setItem("journalSubmitted", "false");
                 console.log("Session storage reset to false: ", sessionStorage.getItem("journalSubmitted"));
             }
-        
+
             if (!isTargetLink) {
                 navigate(0);
             }
-        },        
+        },
         onError: (error) => {
             setError(error.message);
         },

@@ -236,7 +236,45 @@ body[data-theme="dark"] .funfacttext,
 body[data-theme="dark"] .icon,
 body[data-theme="dark"] .infotitle,
 body[data-theme="dark"] .infotext {
-    color: white; /* Ensure all texts are white in dark mode */
+    color: white;
+}
+
+.notification {
+    background-color: #4caf50;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    animation:
+        fadein 0.5s,
+        fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }
 
 @media (max-width: 900px) {
@@ -314,6 +352,15 @@ body[data-theme="dark"] .infotext {
         font-size: 14px;
         line-height: 2;
     }
+
+    .notification {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        font-size: 14px;
+        padding: 10px;
+    }
 }
 
 @media (max-width: 420px) {
@@ -369,28 +416,13 @@ body[data-theme="dark"] .infotext {
         font-size: 14px;
         line-height: 2;
     }
-}
 
-.notification {
-    background-color: #4caf50; /* Green background */
-    color: white; /* White text */
-    padding: 15px; /* Some padding */
-    position: fixed; /* Fixed position */
-    bottom: 30px; /* 30px from the bottom */
-    right: 30px; /* 30px from the right */
-    z-index: 1000; /* High z-index to ensure it is on top */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow */
-    font-size: 16px; /* Font size */
-    animation: fadein 0.5s, fadeout 0.5s 2.5s; /* Fade in and out animation */
-}
-
-@keyframes fadein {
-    from { bottom: 0; opacity: 0; }
-    to { bottom: 30px; opacity: 1; }
-}
-
-@keyframes fadeout {
-    from { bottom: 30px; opacity: 1; }
-    to { bottom: 0; opacity: 0; }
+    .notification {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        font-size: 14px;
+        padding: 10px;
+    }
 }

@@ -9,8 +9,8 @@ import { TbMoneybag } from "react-icons/tb";
 import { PiPlant } from "react-icons/pi";
 import { gql, useQuery } from "@apollo/client";
 import PublicJournalEntryList from "../components/PublicJournalEntry/PublicJournalEntryList";
-import { JournalTypeWrite } from "../types/JournalType"; // Import JournalType for the journal data
-import { FaPenNib } from "react-icons/fa"; // Icon for the button
+import { JournalTypeWrite } from "../types/JournalType";
+import { FaPenNib } from "react-icons/fa";
 import JournalEntryModal from "../components/JournalEntryModal/JournalEntryModal";
 import { notificationAtom } from "../atoms/NotificationAtom";
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -20,7 +20,7 @@ const Country = () => {
 
     const notification = useRecoilValue(notificationAtom);
     const setNotification = useSetRecoilState(notificationAtom);
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Modal state    
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const COUNTRY_AND_JOURNAL_QUERY = gql`
         query GetCountryAndReviews($name: String!) {
@@ -71,13 +71,14 @@ const Country = () => {
         closeModal();
     };
 
+    // Function to handle notification message
     useEffect(() => {
         const journalSubmitted = sessionStorage.getItem("journalSubmitted");
         console.log("Session storage retrieved in Country: ", journalSubmitted);
         if (journalSubmitted === "true") {
-            setNotification("Journal has been successfully submitted!");
+            setNotification("Journal has been successfully submitted! View it under My Journals.");
             sessionStorage.setItem("journalSubmitted", "false");
-            setTimeout(() => setNotification(null), 3000); // Display for 1.5 seconds
+            setTimeout(() => setNotification(null), 3000);
         }
     }, [setNotification]);
 
@@ -213,7 +214,11 @@ const Country = () => {
                         onSubmit={handleJournalSubmit}
                     />
                     {/* Notification message */}
-                    {notification && <div className={styles.notification}>{notification}</div>}
+                    {notification && (
+                        <div className={styles.notification} role="alert" aria-live="assertive" aria-atomic="true">
+                            {notification}
+                        </div>
+                    )}
                 </section>
             </main>
         </>

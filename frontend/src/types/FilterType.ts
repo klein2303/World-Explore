@@ -12,3 +12,7 @@ type ContinentType = {
     Oceania: boolean;
     "South America": boolean;
 };
+
+export type JournalSearchType = {
+    search: string;
+};

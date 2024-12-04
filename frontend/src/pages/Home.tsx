@@ -11,6 +11,15 @@ const Home = () => {
         navigate("/Register");
     };
 
+    const token = sessionStorage.getItem("auth-token");
+
+    const handleScrollDown = (): void => {
+        const targetSection = document.getElementById("target-section");
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <>
             <Navbar />
@@ -22,10 +31,12 @@ const Home = () => {
                         <p className={styles.welcome}>Welcome to World Explore!</p>
                         <p className={styles.topText}>All your special travels at one place</p>
                         <p className={styles.bottomText}>Explore and write to your heart's content</p>
-                        <TfiArrowDown className={styles.arrow} aria-label="arrow-down" />
+                        <button onClick={handleScrollDown}>
+                            <TfiArrowDown className={styles.arrow} aria-label="arrow-down" />
+                        </button>
                     </section>
                 </section>
-                <section>
+                <section id="target-section">
                     <div className={styles.aboutDiv} aria-description="about world explore">
                         <section className={styles.paragraphSection}>
                             <section className={styles.infoTextSection}>
@@ -86,16 +97,20 @@ const Home = () => {
                                 className={styles.infoImagesRight}
                             />
                         </section>
-                        <br />
-                        <section className={styles.lastParagraphSection}>
+                        <br />    
+                            {token ? (
+                                <></>
+                            ) : (
+                                <section className={styles.lastParagraphSection}>
                             <p className={styles.lastInfoText}>
                                 Create an account to start your exploration, create unforgettable memories, and let your
                                 journal entries bring the world to life.
                             </p>
-                            <button className={styles.logInButton} onClick={handleOnClick}>
-                                Start now
-                            </button>
-                        </section>
+                                <button className={styles.logInButton} onClick={handleOnClick}>
+                                    Start now
+                                </button>
+                                </section>
+                            )}
                     </div>
                 </section>
             </main>

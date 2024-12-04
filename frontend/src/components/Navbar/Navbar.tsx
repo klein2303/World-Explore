@@ -7,6 +7,7 @@ import { LuMapPin } from "react-icons/lu";
 import { LiaGlobeSolid } from "react-icons/lia";
 import { useTheme } from "../../context/ThemeContext";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import FocusTrap from "focus-trap-react";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -57,53 +58,73 @@ const Navbar = () => {
                         role="navigation"
                         aria-label="Main Navigation">
                         {isOpen && (
-                            <div className={styles.mobilemenu} role="dialog" aria-label="Mobile Navigation Menu">
-                                {/* Close button for mobile menu */}
-                                <div className={styles.crosspos} role="presentation">
-                                    <RxCross1
-                                        id="Close-Mobile-Menu"
-                                        className={styles.cross}
-                                        onClick={() => setIsOpen(false)}
-                                        aria-description="Close Mobile Menu"
+                            <FocusTrap>
+                                <div
+                                    className={styles.mobilemenu}
+                                    role="dialog"
+                                    aria-label="Mobile Navigation Menu"
+                                    tabIndex={0}>
+                                    {/* Close button for mobile menu */}
+                                    <div className={styles.crosspos} role="presentation">
+                                        <RxCross1
+                                            id="Close-Mobile-Menu"
+                                            className={styles.cross}
+                                            onClick={() => setIsOpen(false)}
+                                            aria-description="Close Mobile Menu"
+                                            tabIndex={0}
+                                            onKeyDown={(e) => {
+                                                if (e.key === "Enter" || e.key === " ") {
+                                                    e.preventDefault();
+                                                    setIsOpen(false);
+                                                }
+                                            }}
+                                        />
+                                    </div>
+
+                                    <Link
+                                        to="/"
+                                        className={`${styles.navlink} ${activeLink === "/" ? styles.active : ""}`}
+                                        onClick={() => handleLinkClick("/")}
+                                        aria-labelledby="Home">
+                                        <p>Home</p>
+                                    </Link>
+                                    <Link
+                                        to="/ExploreCountries"
+                                        className={`${styles.navlink} ${activeLink === "/ExploreCountries" ? styles.active : ""}`}
+                                        onClick={() => handleLinkClick("/ExploreCountries")}
+                                        aria-labelledby="journals">
+                                        <p id="journals">Explore Countries</p>
+                                    </Link>
+                                    <Link
+                                        to="/MyJournals"
+                                        className={`${styles.navlink} ${activeLink === "/MyJournals" ? styles.active : ""}`}
+                                        onClick={() => handleLinkClick("/MyJournals")}
+                                        aria-label="My Journals">
+                                        <p>My Journals</p>
+                                    </Link>
+
+                                    <DarkModeSwitch
+                                        style={{ marginLeft: "10px" }}
+                                        checked={theme === "dark"}
+                                        onChange={toggleTheme}
+                                        size={25}
+                                        sunColor="#424242"
+                                        moonColor="white"
+                                        aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                                        tabIndex={0}
+                                        onKeyDown={(e) => {
+                                            if (e.key === "Enter" || e.key === " ") {
+                                                e.preventDefault();
+                                                toggleTheme();
+                                            }
+                                        }}
                                     />
+
+                                    <Link to={"/"} className={styles.signOut} onClick={handleSignOut}>
+                                        <p>Sign Out</p>
+                                    </Link>
                                 </div>
-
-                                <Link
-                                    to="/"
-                                    className={`${styles.navlink} ${activeLink === "/" ? styles.active : ""}`}
-                                    onClick={() => handleLinkClick("/")}
-                                    aria-labelledby="Home">
-                                    <p>Home</p>
-                                </Link>
-                                <Link
-                                    to="/ExploreCountries"
-                                    className={`${styles.navlink} ${activeLink === "/ExploreCountries" ? styles.active : ""}`}
-                                    onClick={() => handleLinkClick("/ExploreCountries")}
-                                    aria-labelledby="journals">
-                                    <p id="journals">Explore Countries</p>
-                                </Link>
-                                <Link
-                                    to="/MyJournals"
-                                    className={`${styles.navlink} ${activeLink === "/MyJournals" ? styles.active : ""}`}
-                                    onClick={() => handleLinkClick("/MyJournals")}
-                                    aria-label="My Journals">
-                                    <p>My Journals</p>
-                                </Link>
-
-                                <DarkModeSwitch
-                                    style={{ marginLeft: "10px" }}
-                                    checked={theme === "dark"}
-                                    onChange={toggleTheme}
-                                    size={25}
-                                    sunColor="#424242"
-                                    moonColor="white"
-                                    aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                                />
-
-                                <Link to={"/Home"} className={styles.signOut} onClick={handleSignOut}>
-                                    <p>Sign Out</p>
-                                </Link>
-                            </div>
+                            </FocusTrap>
                         )}
 
                         {/* Button to open mobile menu */}
@@ -111,6 +132,13 @@ const Navbar = () => {
                             className={styles.hamburgmenu}
                             onClick={() => setIsOpen(true)}
                             aria-description="Open Mobile Menu"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                    e.preventDefault();
+                                    setIsOpen(true);
+                                }
+                            }}
                         />
 
                         <Link to={"/"} className={styles.navTitle}>
@@ -138,6 +166,13 @@ const Navbar = () => {
                                 sunColor="#424242"
                                 moonColor="white"
                                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                                tabIndex={0}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault();
+                                        toggleTheme();
+                                    }
+                                }}
                             />
                         </div>
                     </nav>
@@ -146,32 +181,48 @@ const Navbar = () => {
                 <main>
                     <nav className={styles.notLoggedNavbar} role="navigation" aria-label="Main Navigation">
                         {isOpen && (
-                            <div className={styles.mobilemenu} role="dialog" aria-label="Mobile Navigation Menu">
-                                {/* Close button for mobile menu */}
-                                <div className={styles.crosspos} role="presentation">
-                                    <RxCross1
-                                        className={styles.cross}
-                                        onClick={() => setIsOpen(false)}
-                                        aria-label="Close Mobile Menu"
+                            <FocusTrap>
+                                <div className={styles.mobilemenu} role="dialog" aria-label="Mobile Navigation Menu">
+                                    {/* Close button for mobile menu */}
+                                    <div className={styles.crosspos} role="presentation">
+                                        <RxCross1
+                                            className={styles.cross}
+                                            onClick={() => setIsOpen(false)}
+                                            aria-label="Close Mobile Menu"
+                                            tabIndex={0}
+                                            onKeyDown={(e) => {
+                                                if (e.key === "Enter" || e.key === " ") {
+                                                    e.preventDefault();
+                                                    setIsOpen(false);
+                                                }
+                                            }}
+                                        />
+                                    </div>
+                                    <DarkModeSwitch
+                                        style={{ marginLeft: "10px", marginTop: "10px" }}
+                                        checked={theme === "dark"}
+                                        onChange={toggleTheme}
+                                        size={25}
+                                        sunColor="#424242"
+                                        moonColor="white"
+                                        aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                                        tabIndex={0}
+                                        onKeyDown={(e) => {
+                                            if (e.key === "Enter" || e.key === " ") {
+                                                e.preventDefault();
+                                                toggleTheme();
+                                            }
+                                        }}
                                     />
+                                    <Link
+                                        to={"/LogIn"}
+                                        className={styles.login}
+                                        onClick={handleSignOut}
+                                        aria-label="Log in">
+                                        <p>Log in</p>
+                                    </Link>
                                 </div>
-                                <DarkModeSwitch
-                                    style={{ marginLeft: "10px", marginTop: "10px" }}
-                                    checked={theme === "dark"}
-                                    onChange={toggleTheme}
-                                    size={25}
-                                    sunColor="#424242"
-                                    moonColor="white"
-                                    aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                                />
-                                <Link
-                                    to={"/LogIn"}
-                                    className={styles.login}
-                                    onClick={handleSignOut}
-                                    aria-label="Log in">
-                                    <p>Log in</p>
-                                </Link>
-                            </div>
+                            </FocusTrap>
                         )}
 
                         {/* Button to open mobile menu */}
@@ -180,6 +231,13 @@ const Navbar = () => {
                             className={styles.hamburgmenu}
                             onClick={() => setIsOpen(true)}
                             aria-label="Open Mobile Menu"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                    e.preventDefault();
+                                    setIsOpen(true);
+                                }
+                            }}
                         />
 
                         <Link to={"/"} className={styles.navTitle}>
@@ -199,6 +257,13 @@ const Navbar = () => {
                                 sunColor="#424242"
                                 moonColor="white"
                                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                                tabIndex={0}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        e.preventDefault();
+                                        toggleTheme();
+                                    }
+                                }}
                             />
                         </div>
                     </nav>

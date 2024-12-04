@@ -53,7 +53,8 @@ body[data-theme="dark"] .reviewCard {
     -webkit-line-clamp: 3; /* Limit the number of lines */
     line-clamp: 2; /* Standard property for compatibility */
     -webkit-box-orient: vertical;
-    padding-bottom: 2px;
+    margin-bottom: 10px;
+    margin-top: 15px;
 }
 
 .readMoreButton {
@@ -72,6 +73,10 @@ body[data-theme="dark"] .readMoreButton {
 }
 
 .readMoreButton:hover {
+    background-color: #797979;
+}
+
+body[data-theme="dark"] .readMoreButton:hover{
     background-color: #797979;
 }
 

@@ -127,7 +127,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
                         onChange={(e) => setTitle(e.target.value)}
                         className={styles.input}
                         aria-label="Title input"
-                        maxLength={50}
+                        maxLength={35}
                     />
                     <input
                         type="date"

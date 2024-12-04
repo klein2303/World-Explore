@@ -40,6 +40,11 @@
     text-decoration: underline;
 }
 
+body[data-theme="dark"] .returntext:hover{
+    color: white;
+    text-decoration: underline;
+}
+
 .returnicon {
     font-size: 22px;
 }

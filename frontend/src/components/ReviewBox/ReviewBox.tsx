@@ -36,7 +36,6 @@ const ReviewBox = ({ country }: journalCountry) => {
 
     const journalId = data?.writtenjournal.id;
 
-
     const handleOnClick = () => {
         navigation(`/Countries/${country}`);
     };
@@ -63,13 +62,12 @@ const ReviewBox = ({ country }: journalCountry) => {
         onCompleted: (data) => {
             if (data.deleteReview === 0) {
                 navigation("/MyJournals");
-            }
-            else {
-                navigation(0)
+            } else {
+                navigation(0);
             }
         },
         onError: (error) => {
-            console.error('Error deleting review:', error.message);
+            console.error("Error deleting review:", error.message);
         },
     });
 
@@ -79,9 +77,9 @@ const ReviewBox = ({ country }: journalCountry) => {
                 variables: { id: id, journalid: parseInt(journalid, 10) },
             });
         } catch (error) {
-            console.error('Failed to delete review:', error);
+            console.error("Failed to delete review:", error);
         }
-    }
+    };
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -159,5 +157,3 @@ const ReviewBox = ({ country }: journalCountry) => {
     );
 };
 export default ReviewBox;
-
-

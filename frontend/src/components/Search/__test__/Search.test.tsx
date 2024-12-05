@@ -17,18 +17,6 @@ vi.mock("use-debounce", () => ({
 }));
 
 describe("Search Component", () => {
-    const mockFilterState = {
-        search: "",
-        continent: {
-            Africa: false,
-            Asia: false,
-            Europe: false,
-            "North America": false,
-            Oceania: false,
-            "South America": false,
-        },
-        sort: "A-Z",
-    };
 
     it("renders correctly and matches snapshot", () => {
         const { asFragment } = render(

@@ -1,50 +1,82 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import { describe, it, expect } from "vitest";
-import { MemoryRouter } from "react-router-dom";
-import Search from "../Search";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { RecoilRoot } from "recoil";
+import { describe, it, expect, vi } from "vitest";
+import Search from "../Search";
 
-describe("Search Component Tests", () => {
-    it("renders the search input and icon correctly", () => {
-        // Render the Search component
+// Mock `setFilters` from `FilterStorage` to track calls
+vi.mock("../../../utils/FilterStorage", async () => {
+    const originalModule = await vi.importActual("../../../utils/FilterStorage");
+    return {
+        ...originalModule, // Include all original exports
+        setFilters: vi.fn(), // Mock only `setFilters`
+    };
+});
+
+vi.mock("use-debounce", () => ({
+    useDebounce: (value: any) => [value], // Immediately return the value
+}));
+
+describe("Search Component", () => {
+    const mockFilterState = {
+        search: "",
+        continent: {
+            Africa: false,
+            Asia: false,
+            Europe: false,
+            "North America": false,
+            Oceania: false,
+            "South America": false,
+        },
+        sort: "A-Z",
+    };
+
+    it("renders correctly and matches snapshot", () => {
         const { asFragment } = render(
             <RecoilRoot>
-                <MemoryRouter>
-                    <Search />
-                </MemoryRouter>
+                <Search />
             </RecoilRoot>,
         );
 
-        // Take a snapshot of the initial render
+        // Verify input and search icon are rendered
+        expect(screen.getByPlaceholderText("Search after countries...")).toBeInTheDocument();
+        expect(screen.getByRole("button", { name: "Search button" })).toBeInTheDocument();
+
+        // Match snapshot for initial render
         expect(asFragment()).toMatchSnapshot();
-
-        // Check if the search input field is present
-        const inputElement = screen.getByPlaceholderText("Search after countries...");
-        expect(inputElement).toBeInTheDocument();
-
-        // Check if the search button (icon) is present
-        //const searchButton = screen.getByRole("button", { name: "Click to search" });
-        //expect(searchButton).toBeInTheDocument();
     });
 
-    it("allows typing in the search input", () => {
-        // Render the Search component
+    it("updates input value when typing", () => {
         render(
             <RecoilRoot>
-                <MemoryRouter>
-                    <Search />
-                </MemoryRouter>
+                <Search />
             </RecoilRoot>,
         );
 
-        // Get the input element by its placeholder text
-        const inputElement = screen.getByPlaceholderText("Search after countries...");
+        const input = screen.getByPlaceholderText("Search after countries...");
 
-        // Simulate typing in the input field
-        fireEvent.change(inputElement, { target: { value: "Canada" } });
+        // Simulate typing
+        fireEvent.change(input, { target: { value: "Norway" } });
 
-        // Check if the input value has been updated
-        expect(inputElement).toHaveValue("Canada");
+        // Verify the input value is updated
+        expect(input).toHaveValue("Norway");
+    });
+
+    it("renders correctly in a snapshot after typing", async () => {
+        const { asFragment } = render(
+            <RecoilRoot>
+                <Search />
+            </RecoilRoot>,
+        );
+
+        const input = screen.getByPlaceholderText("Search after countries...");
+
+        // Simulate typing
+        fireEvent.change(input, { target: { value: "Denmark" } });
+
+        // Wait for debounce to finish
+        await waitFor(() => {
+            // Verify the component matches the snapshot after typing
+            expect(asFragment()).toMatchSnapshot();
+        });
     });
 });

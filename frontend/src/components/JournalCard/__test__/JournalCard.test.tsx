@@ -42,15 +42,6 @@ describe("JournalCard", () => {
         expect(screen.getByText("Japan")).toBeInTheDocument();
     });
 
-    /*it("renders 'Write Journal' when no journal date exists", () => {
-        render(
-            <MemoryRouter>
-                <JournalCard {...mockProps} />
-            </MemoryRouter>
-        );
-        expect(screen.getByText("Write Journal")).toBeInTheDocument();
-    });*/
-
     it("renders 'Read Journal' when a journal date exists", () => {
         const newProps = { ...mockProps, date: "2023-10-10" };
         render(

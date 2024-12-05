@@ -1,7 +1,7 @@
 import styles from "../styles/Country.module.css";
 import { PiArrowElbowDownLeft } from "react-icons/pi";
 import Navbar from "../components/Navbar/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { LuMapPin } from "react-icons/lu";
 import { GrLanguage } from "react-icons/gr";
@@ -9,13 +9,17 @@ import { TbMoneybag } from "react-icons/tb";
 import { PiPlant } from "react-icons/pi";
 import { gql, useQuery } from "@apollo/client";
 import PublicJournalEntryList from "../components/PublicJournalEntry/PublicJournalEntryList";
-import { JournalTypeWrite } from "../types/JournalType"; // Import JournalType for the journal data
-import { FaPenNib } from "react-icons/fa"; // Icon for the button
+import { FaPenNib } from "react-icons/fa";
 import JournalEntryModal from "../components/JournalEntryModal/JournalEntryModal";
+import { notificationAtom } from "../atoms/NotificationAtom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
 const Country = () => {
     const { name } = useParams<{ name: string }>();
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Modal state
+
+    const notification = useRecoilValue<string | null>(notificationAtom);
+    const setNotification = useSetRecoilState<string | null>(notificationAtom);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const COUNTRY_AND_JOURNAL_QUERY = gql`
         query GetCountryAndReviews($name: String!) {
@@ -59,10 +63,20 @@ const Country = () => {
     const closeModal = () => setIsModalOpen(false);
 
     // Function to handle journal entry submission
-    const handleJournalSubmit = (entry: JournalTypeWrite) => {
-        console.log("New journal entry submitted:", entry);
-        closeModal(); // Close the modal
+    const handleJournalSubmit = async () => {
+        sessionStorage.setItem("journalSubmitted", "true");
+        closeModal();
     };
+
+    // Function to handle notification message
+    useEffect(() => {
+        const journalSubmitted = sessionStorage.getItem("journalSubmitted");
+        if (journalSubmitted === "true") {
+            setNotification("Journal has been successfully submitted! View it under My Journals.");
+            sessionStorage.setItem("journalSubmitted", "false");
+            setTimeout(() => setNotification(null), 3000);
+        }
+    }, [setNotification]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -204,6 +218,12 @@ const Country = () => {
                             onClose={closeModal}
                             onSubmit={handleJournalSubmit}
                         />
+                        {/* Notification message */}
+                        {notification && (
+                            <div className={styles.notification} role="alert" aria-live="assertive" aria-atomic="true">
+                                {notification}
+                            </div>
+                        )}
                     </section>
                 </main>
             ) : (

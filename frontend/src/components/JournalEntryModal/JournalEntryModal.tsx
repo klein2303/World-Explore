@@ -27,7 +27,7 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
     const user = removeQuotes(sessionStorage.getItem("user")!);
     const navigate = useNavigate();
     const location = useLocation();
-    const setNotification = useSetRecoilState(notificationAtom);
+    const setNotification = useSetRecoilState<string | null>(notificationAtom);
 
     // Check if the link matches the exact URL
     const isTargetLink = location.pathname === "/ExploreCountries";
@@ -60,14 +60,12 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
         onCompleted: async () => {
             setError("");
             sessionStorage.setItem("journalSubmitted", "true");
-            console.log("Session storage set to true: ", sessionStorage.getItem("journalSubmitted"));
             setNotification("Journal entry has been successfully submitted! View it under My Journals.");
             setTimeout(() => setNotification(null), 3000);
             onClose();
 
             if (isTargetLink) {
                 sessionStorage.setItem("journalSubmitted", "false");
-                console.log("Session storage reset to false: ", sessionStorage.getItem("journalSubmitted"));
             }
 
             if (!isTargetLink) {

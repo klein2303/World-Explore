@@ -12,10 +12,6 @@ vi.mock("../../../utils/FilterStorage", async () => {
     };
 });
 
-vi.mock("use-debounce", () => ({
-    useDebounce: (value: any) => [value], // Immediately return the value
-}));
-
 describe("Search Component", () => {
 
     it("renders correctly and matches snapshot", () => {

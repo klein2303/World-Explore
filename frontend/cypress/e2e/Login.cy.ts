@@ -51,24 +51,24 @@ describe("Run Login page on mobile", () => {
 
 const credentials = {
     user: {
-        email: "natha@gmail.com", 
-        password: "12345678"
+        email: "natha@gmail.com",
+        password: "12345678",
     },
     blocked: {
-        email:"someone@gamil.com",
-        password: "cdehbcuehcunbd"
-    }, 
+        email: "someone@gamil.com",
+        password: "cdehbcuehcunbd",
+    },
     wrongpassword: {
-        email: "natha@gmail.com", 
-        password: "dshdcbhebvceywu"
-    }
+        email: "natha@gmail.com",
+        password: "dshdcbhebvceywu",
+    },
 };
 
 const logInUser = (credential) => {
-    cy.get('[data-cy=email]').type(credential.email);
-    cy.get('[data-cy=loginpassword]').type(credential.password);
-    cy.get('[data-cy=submitlogin]').click();
-}
+    cy.get("[data-cy=email]").type(credential.email);
+    cy.get("[data-cy=loginpassword]").type(credential.password);
+    cy.get("[data-cy=submitlogin]").click();
+};
 
 describe("Check login functionality", () => {
     beforeEach(() => {
@@ -76,19 +76,18 @@ describe("Check login functionality", () => {
         cy.visit("http://localhost:5173/project2#/Login");
     });
 
-    it('prints error and does not redirect if user does not exist', () => {
+    it("prints error and does not redirect if user does not exist", () => {
         logInUser(credentials.blocked);
-        cy.get('[data-cy=loginerror]').should('contain', 'No such user found');
-        cy.url().should('include', "http://localhost:5173/project2#/Login");
+        cy.get("[data-cy=loginerror]").should("contain", "No such user found");
+        cy.url().should("include", "http://localhost:5173/project2#/Login");
     });
-    it('prints error and does not redirect if wrong password is written', () => {
+    it("prints error and does not redirect if wrong password is written", () => {
         logInUser(credentials.wrongpassword);
-        cy.get('[data-cy=loginerror]').should('contain', 'Invalid password');
-        cy.url().should('include', 'http://localhost:5173/project2#/Login');
+        cy.get("[data-cy=loginerror]").should("contain", "Invalid password");
+        cy.url().should("include", "http://localhost:5173/project2#/Login");
     });
-    it('redirects valid user to home page when successful log in', () => {
+    it("redirects valid user to home page when successful log in", () => {
         logInUser(credentials.user);
-        cy.url().should('include', 'http://localhost:5173/project2#/');
-    });  
-
+        cy.url().should("include", "http://localhost:5173/project2#/");
+    });
 });

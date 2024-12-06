@@ -45,67 +45,66 @@ describe("Run Register page on mobile", () => {
 const registeringAccounts = {
     alreadyExistingUser: {
         name: "natha",
-        email: "natha@gmail.com", 
-        password: "12345678"
+        email: "natha@gmail.com",
+        password: "12345678",
     },
     invalidEmail1: {
         name: "some",
-        email:"someone",
-        password: "cdehbcuehcunbd"
-    }, 
+        email: "someone",
+        password: "cdehbcuehcunbd",
+    },
     invalidEmail2: {
         name: "some",
         email: "someone@",
-        password: "ewjdhuidhiudh"
+        password: "ewjdhuidhiudh",
     },
     invalidEmail3: {
         name: "some",
         email: "someone@gmail",
-        password: "siwjsxiojxosix"
-    }, 
+        password: "siwjsxiojxosix",
+    },
     invalidPassword: {
         name: "noone",
-        email: "noone@gmail.com", 
-        password: "dshd"
-    }
+        email: "noone@gmail.com",
+        password: "dshd",
+    },
 };
 
 const registerNewUser = (registeringAccount) => {
-    cy.get('[data-cy=registername]').type(registeringAccount.name)
-    cy.get('[data-cy=registeremail]').type(registeringAccount.email);
-    cy.get('[data-cy=registerpassword]').type(registeringAccount.password);
-    cy.get('[data-cy=submitregister]').click();
-}
+    cy.get("[data-cy=registername]").type(registeringAccount.name);
+    cy.get("[data-cy=registeremail]").type(registeringAccount.email);
+    cy.get("[data-cy=registerpassword]").type(registeringAccount.password);
+    cy.get("[data-cy=submitregister]").click();
+};
 
 describe("Check registering functionality", () => {
     beforeEach(() => {
         cy.viewport(1280, 720);
         cy.visit("http://localhost:5173/project2#/Register");
     });
-    it('prints error and does not redirect if user already exists', () => {
+    it("prints error and does not redirect if user already exists", () => {
         registerNewUser(registeringAccounts.alreadyExistingUser);
-        cy.get('[data-cy=registererror]').should('contain', 'User already exists');
-        cy.url().should('include', "/Register");
+        cy.get("[data-cy=registererror]").should("contain", "User already exists");
+        cy.url().should("include", "/Register");
     });
-    it('prints error and does not redirect if invalid email with only name is inserted', () => {
+    it("prints error and does not redirect if invalid email with only name is inserted", () => {
         registerNewUser(registeringAccounts.invalidEmail1);
-        cy.get('[data-cy=registererror]').should('contain', 'Invalid email');
-        cy.url().should('include', '/Register');
+        cy.get("[data-cy=registererror]").should("contain", "Invalid email");
+        cy.url().should("include", "/Register");
     });
-    it('prints error and does not redirect if invalid email with only name and @ is inserted', () => {
+    it("prints error and does not redirect if invalid email with only name and @ is inserted", () => {
         registerNewUser(registeringAccounts.invalidEmail2);
-        cy.get('[data-cy=registererror]').should('contain', 'Invalid email');
-        cy.url().should('include', '/Register');
+        cy.get("[data-cy=registererror]").should("contain", "Invalid email");
+        cy.url().should("include", "/Register");
     });
-    it('prints error and does not redirect if invalid email without domain is inserted', () => {
+    it("prints error and does not redirect if invalid email without domain is inserted", () => {
         registerNewUser(registeringAccounts.invalidEmail3);
-        cy.get('[data-cy=registererror]').should('contain', 'Invalid email');
-        cy.url().should('include', '/Register');
+        cy.get("[data-cy=registererror]").should("contain", "Invalid email");
+        cy.url().should("include", "/Register");
     });
-    it('prints error and does not redirect if invalid password is inserted', () => {
+    it("prints error and does not redirect if invalid password is inserted", () => {
         registerNewUser(registeringAccounts.invalidPassword);
-        cy.get('[data-cy=registererror]').should('contain', 'Password must be at least 8 characters');
-        cy.url().should('include', '/Register');
+        cy.get("[data-cy=registererror]").should("contain", "Password must be at least 8 characters");
+        cy.url().should("include", "/Register");
     });
-
 });

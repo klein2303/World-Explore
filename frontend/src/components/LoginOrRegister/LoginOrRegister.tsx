@@ -130,7 +130,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                         />
                         {error !== "" && <h5 data-cy="loginerror">{error}</h5>}
                         <button
-                            type = "submit"
+                            type="submit"
                             className={styles.submitButton}
                             data-cy="submitlogin"
                             onClick={() => login({ variables: { email, password } })}>
@@ -181,7 +181,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                         />
                         {error !== "" && <h5 data-cy="registererror">{error}</h5>}
                         <button
-                            type = "submit"
+                            type="submit"
                             data-cy="submitregister"
                             className={styles.submitButton}
                             onClick={() => signup({ variables: { username, email, password } })}>

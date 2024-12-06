@@ -13,7 +13,6 @@ vi.mock("../../../utils/FilterStorage", async () => {
 });
 
 describe("Search Component", () => {
-
     it("renders correctly and matches snapshot", () => {
         const { asFragment } = render(
             <RecoilRoot>

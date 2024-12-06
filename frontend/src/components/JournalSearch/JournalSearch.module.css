@@ -12,7 +12,7 @@
 
 /* Dark Mode Search Container */
 body[data-theme="dark"] .searchcontainer {
-    border: 2px solid #8a86a4;
+    border: 2px solid #6b6787;
     background-color: #424242;
 }
 
@@ -47,7 +47,7 @@ body[data-theme="dark"] .input {
 
 /* Dark Mode Search Icon */
 body[data-theme="dark"] .searchicon {
-    background-color: #8a86a4; /* Accent color background in dark mode */
+    background-color: #6b6787; /* Accent color background in dark mode */
     color: white;
 }
 

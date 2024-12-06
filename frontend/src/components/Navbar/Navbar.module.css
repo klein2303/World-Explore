@@ -127,7 +127,7 @@ body[data-theme="dark"] .navlink {
 }
 
 body[data-theme="dark"] .signOut {
-    background-color: #8a86a4;
+    background-color: #6b6787;
     color: white;
 }
 
@@ -150,7 +150,7 @@ body[data-theme="dark"] .profile {
 
 body[data-theme="dark"] .login {
     color: white;
-    background-color: #8a86a4;
+    background-color: #6b6787;
 }
 
 body[data-theme="dark"] .login:hover {

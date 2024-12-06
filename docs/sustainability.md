@@ -1,0 +1,3 @@
+## Sustainability 
+We have implemented several initiavites to enhance the sustainability of our website. First, we implemented dark mode for provide an energy-efficient solution while encouraging users to engage with the site for longer periods. Dark mode also supports device battery longevity by reducing energy consumption, minimizing frequent charging, and contributing to a positive environmental impact. 
+Another solution added for increasing the sustainability of the website, is by adding caching. Caching allows reduction in data transfer, optimalization of server lodad as well as imporved user experience caused by faster load times, making the website both eco-friendly and more efficient.

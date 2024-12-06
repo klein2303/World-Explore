@@ -64,27 +64,21 @@ exports[`PublicJournalEntry Component > renders correctly and matches snapshot 1
         traveler123
       </p>
     </div>
-    <div
-      aria-label="Review text"
-      class="_reviewInfoBox_1b1c0f"
-      role="contentinfo"
+    <p
+      aria-expanded="false"
+      class="_reviewText_1b1c0f"
+      id="review-text-Amazing Experience"
     >
-      <p
-        aria-expanded="false"
-        class="_reviewText_1b1c0f"
-        id="review-text-Amazing Experience"
-      >
-        This experience was absolutely wonderful and unforgettable. The journey was packed with excitement a...
-      </p>
-      <button
-        aria-controls="review-text-Amazing Experience"
-        aria-expanded="false"
-        aria-label="Expand review text"
-        class="_readMoreButton_1b1c0f"
-      >
-        Read More
-      </button>
-    </div>
+      This experience was absolutely wonderful and unforgettable. The journey was packed with excitement a...
+    </p>
+    <button
+      aria-controls="review-text-Amazing Experience"
+      aria-expanded="false"
+      aria-label="Expand review text"
+      class="_readMoreButton_1b1c0f"
+    >
+      Read more
+    </button>
   </article>
 </DocumentFragment>
 `;

@@ -78,7 +78,7 @@ const typeDefs = `
         publicreviews: [Review!]!
         filteredpublicreviews(country: String!): [Review!]!
 
-        writtenjournals(skip: Int, profileid: String!): [Journal!]!
+        writtenjournals(skip: Int, profileid: String!, information: String): [Journal!]!
         writtenjournal(countryid: String!, profileid: String!): Journal
     }
 
@@ -89,6 +89,8 @@ const typeDefs = `
       addProfile(username: String!, email: String!, password: String!): Profile
       login( email: String!, password: String!): AuthPayload
       signup(username: String!, email: String!, password: String!): AuthPayload
+
+      deleteReview(id: ID!, journalid: Int!): Int!
     }
 
     type AuthPayload {
@@ -175,7 +177,7 @@ const resolvers = {
                 },
             });
         },
-        writtenjournals: async (_, { skip, profileid }) => {
+        writtenjournals: async (_, { skip, profileid, information }) => {
             return await prisma.journal.findMany({
                 skip: skip,
                 take: 15,
@@ -184,6 +186,10 @@ const resolvers = {
                     reviews: {
                         some: {},
                     },
+                    countryid: {
+                        contains: information.toLowerCase(),
+                        mode: "insensitive",
+                    }
                 },
             });
         },
@@ -370,6 +376,25 @@ const resolvers = {
                 token,
                 user,
             };
+        },
+        deleteReview: async (_, { id, journalid}) => {
+            const deletedReview = await prisma.review.delete({
+                where: { id: parseInt(id, 10) },
+              });
+
+            const remainingReviews = await prisma.review.count({
+                where: { journalid: journalid },
+            });
+
+            if (remainingReviews === 0) {
+                await prisma.journal.delete({
+                  where: { id: journalid },
+                });
+
+                return 0;
+            }
+            
+            return 1;;
         },
     },
 };

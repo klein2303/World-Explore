@@ -134,17 +134,15 @@ describe("Run My Journals page on desktop with no journals", () => {
         cy.viewport(1024, 720);
 
         cy.get("p")
-            .contains("You haven´t written any journal entries yet. Explore all the countries in the world here:")
+            .contains("You haven´t written any journal entries for this search yet")
             .should("be.visible");
-        cy.get("a").contains("Explore Countries Page").should("be.visible");
     });
 
     it("Checks if the right information is displayed on mobile", () => {
         cy.viewport(375, 667);
 
         cy.get("p")
-            .contains("You haven´t written any journal entries yet. Explore all the countries in the world here:")
+            .contains("You haven´t written any journal entries for this search yet")
             .should("be.visible");
-        cy.get("a").contains("Explore Countries Page").should("be.visible");
     });
 });

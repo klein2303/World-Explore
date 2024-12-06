@@ -56,7 +56,7 @@ describe("Run the country page on desktop", () => {
             }
         }).as("GraphQL");
 
-        cy.visit("http://localhost:5173/project2#/Norway");
+        cy.visit("http://localhost:5173/project2#/Countries/Norway");
         cy.wait("@GraphQL", { timeout: 10000 });
     });
 
@@ -199,7 +199,7 @@ describe("Run the country page on mobile", () => {
             }
         }).as("GraphQL");
 
-        cy.visit("http://localhost:5173/project2#/Japan");
+        cy.visit("http://localhost:5173/project2#/Countries/Japan");
         cy.wait("@GraphQL", { timeout: 10000 });
     });
 

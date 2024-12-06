@@ -75,7 +75,7 @@ const PublicJournalEntry = ({ review }: PublicJournalEntryProps) => {
                 </div>
 
                 {/* Review Text with "Read More" button */}
-
+                <hr></hr>
                 <p
                     className={styles.reviewText}
                     aria-expanded={isExpanded || showModal}

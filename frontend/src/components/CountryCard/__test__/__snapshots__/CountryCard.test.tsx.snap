@@ -8,7 +8,7 @@ exports[`CountryCard > opens the modal when the pencil icon is clicked 1`] = `
     role="region"
   >
     <a
-      href="/France"
+      href="/Countries/France"
     >
       <img
         alt="image of the country France"
@@ -63,7 +63,7 @@ exports[`CountryCard > renders correctly with the given props 1`] = `
     role="region"
   >
     <a
-      href="/France"
+      href="/Countries/France"
     >
       <img
         alt="image of the country France"

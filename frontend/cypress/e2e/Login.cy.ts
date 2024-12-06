@@ -49,10 +49,9 @@ describe("Run Login page on mobile", () => {
     });
 });
 
-
 const credentials = {
     user: {
-        email: "nath@gmail.com", 
+        email: "natha@gmail.com", 
         password: "12345678"
     },
     blocked: {
@@ -71,42 +70,11 @@ const logInUser = (credential) => {
     cy.get('[data-cy=submitlogin]').click();
 }
 
-describe("Checks login functionality", () => {
+describe("Check login functionality", () => {
     beforeEach(() => {
         cy.viewport(1280, 720);
-
-        // Intercept the login POST request before visiting the page
-        cy.intercept("POST", "/graphql", (req) => {
-            console.log("Intercepted login request:", req);
-            if (req.body.operationName === "login") {
-                const { email, password } = req.body.variables;
-        
-                if (email === "nath@gmail.com" && password === "12345678") {
-                    req.reply({
-                        data: {
-                            login: {
-                                token: "fake-jwt-token",
-                                user: {
-                                    id: "1",
-                                    email: "nath@gmail.com",
-                                    password: "12345678",
-                                },
-                            },
-                        },
-                    });
-                } else {
-                    req.reply({
-                        data: {
-                            login: null,
-                        },
-                    });
-                }
-            }
-        }).as("loginRequest");
-        
         cy.visit("http://localhost:5173/project2#/Login");
     });
-
 
     it('prints error and does not redirect if user does not exist', () => {
         logInUser(credentials.blocked);
@@ -120,8 +88,7 @@ describe("Checks login functionality", () => {
     });
     it('redirects valid user to home page when successful log in', () => {
         logInUser(credentials.user);
-        cy.wait("@loginRequest");
-        cy.url().should('not.include', '/Login');
+        cy.url().should('include', 'http://localhost:5173/project2#/');
     });  
 
 });

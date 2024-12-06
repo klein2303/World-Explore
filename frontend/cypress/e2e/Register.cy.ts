@@ -85,27 +85,8 @@ const registerNewUser = (registeringAccount) => {
 describe("Check registering functionality", () => {
     beforeEach(() => {
         cy.viewport(1280, 720);
-        // Intercept the signup POST request before visiting the page
-        cy.intercept("POST", "/graphql", (req) => {
-            if (req.body.operationName === "signup") {
-                req.reply({
-                    data: {
-                        signup: {
-                            token: "fake-jwt-token",  
-                            user: {
-                                id: "1",  
-                                username: req.body.variables.username,  
-                                email: req.body.variables.email,  
-                                password: req.body.variables.password,  
-                            },
-                        },
-                    },
-                });
-            }
-        }).as("signupRequest");
         cy.visit("http://localhost:5173/project2#/Register");
     });
-
     it('prints error and does not redirect if user already exists', () => {
         registerNewUser(registeringAccounts.alreadyExistingUser);
         cy.get('[data-cy=registererror]').should('contain', 'User already exists');

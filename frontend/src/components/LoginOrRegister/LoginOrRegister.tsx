@@ -110,6 +110,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             className={styles.inputField}
                             type="email"
                             name="email"
+                            data-cy="email"
                             value={email}
                             onChange={handleLoginInputChange}
                             onKeyDown={handleKeyDown}
@@ -120,15 +121,18 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             className={styles.inputField}
                             type="password"
                             name="password"
+                            data-cy="loginpassword"
                             value={password}
                             onChange={handleLoginInputChange}
                             onKeyDown={handleKeyDown}
                             placeholder="Password"
                             aria-description="Password input field for login"
                         />
-                        {error !== "" && <h5>{error}</h5>}
+                        {error !== "" && <h5 data-cy="loginerror">{error}</h5>}
                         <button
+                            type = "submit"
                             className={styles.submitButton}
+                            data-cy="submitlogin"
                             onClick={() => login({ variables: { email, password } })}>
                             Log in
                         </button>
@@ -146,6 +150,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             className={styles.inputField}
                             type="text"
                             name="name"
+                            data-cy="registername"
                             value={username}
                             onChange={handleRegisterInputChange}
                             onKeyDown={handleKeyDown}
@@ -156,6 +161,7 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             className={styles.inputField}
                             type="email"
                             name="email"
+                            data-cy="registeremail"
                             value={email}
                             onChange={handleRegisterInputChange}
                             onKeyDown={handleKeyDown}
@@ -166,14 +172,17 @@ const LoginOrRegister = ({ loginPage }: ComponentInterface) => {
                             className={styles.inputField}
                             type="password"
                             name="password"
+                            data-cy="registerpassword"
                             value={password}
                             onChange={handleRegisterInputChange}
                             onKeyDown={handleKeyDown}
                             placeholder="Please enter a password"
                             aria-description="Password input field"
                         />
-                        {error !== "" && <h5>{error}</h5>}
+                        {error !== "" && <h5 data-cy="registererror">{error}</h5>}
                         <button
+                            type = "submit"
+                            data-cy="submitregister"
                             className={styles.submitButton}
                             onClick={() => signup({ variables: { username, email, password } })}>
                             Create account

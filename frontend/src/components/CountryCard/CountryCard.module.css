@@ -12,7 +12,7 @@
 
 /* Dark mode Card Container */
 body[data-theme="dark"] .cardcontainer {
-    background-color: #8a86a4;
+    background-color: #6b6787;
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }

@@ -73,6 +73,18 @@ Make sure you are connected to the NTNU VPN before runnning the project.
 
 Now run `npm run dev` in order to run the project
 
+## Dummy user and dummy data
+
+We have prepared a dummy user so you don't need to register a new user (although, feel free to do so): 
+
+'''
+Email: john@gmail.com
+Password: password
+'''
+
+We have only made dummy data for some countries, i.e journalentries for some countries (John loves to travel). 
+Specifically: Japan, Italy, Spain, France, Australia, Egypt, Angola 
+
 ## Running tests
 
 In order to run the component tests first navigate to the correct folder as described under "Running the project". Then run the following command in the terminal:

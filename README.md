@@ -35,7 +35,7 @@ Then you need to create two files: `.env` and `.env.local` in the backend folder
 In `.env` copy in this:
 
 ```
-DATABASE_URL="postgresql://postgres@it2810-10.idi.ntnu.no:5432/worldexploredb?schema=public"
+DATABASE_URL="postgresql://postgres@it2810-10.idi.ntnu.no:5432/worldexploredb2?schema=public"
 ```
 
 While in `.env.local` copy in this:
@@ -45,7 +45,7 @@ POSTGRES_USER=postgres
 POSTGRES_HOST="it2810-10.idi.ntnu.no"
 POSTGRES_PORT=5342
 POSTGRES_PASSWORD=
-POSTGRES_DB=worldexploredb
+POSTGRES_DB=worldexploredb2
 ```
 
 <br />

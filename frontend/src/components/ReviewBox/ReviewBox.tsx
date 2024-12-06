@@ -12,7 +12,7 @@ interface journalCountry {
 
 const ReviewBox = ({ country }: journalCountry) => {
     const user = removeQuotes(sessionStorage.getItem("user")!);
-    const navigation = useNavigate();
+    const navigation = useNavigate(); // For navigation to other pages
 
     const JOURNAL = gql`
         query GetJournal($countryid: String!, $profileid: String!) {
@@ -36,6 +36,7 @@ const ReviewBox = ({ country }: journalCountry) => {
 
     const journalId = data?.writtenjournal.id;
 
+    // When the button is pressed, the user gets navigated to respective country's country-page
     const handleOnClick = () => {
         navigation(`/Countries/${country}`);
     };
@@ -58,6 +59,7 @@ const ReviewBox = ({ country }: journalCountry) => {
         }
     `;
 
+    // For deleting reviews
     const [deleteReview] = useMutation(DELETE_REVIEW, {
         onCompleted: (data) => {
             if (data.deleteReview === 0) {

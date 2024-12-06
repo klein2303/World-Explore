@@ -35,7 +35,7 @@ const Search = () => {
                 onChange={handleInputChange}
                 value={input}
             />
-            <GoSearch className={styles.searchicon} role="button" aria-description="Click to search" tabIndex={0} />
+            <GoSearch className={styles.searchicon} role="button" aria-label="Search button" tabIndex={0} />
         </main>
     );
 };

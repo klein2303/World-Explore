@@ -68,6 +68,7 @@ const Navbar = () => {
                                     <div className={styles.crosspos} role="presentation">
                                         <RxCross1
                                             id="Close-Mobile-Menu"
+                                            data-testid="Close-Mobile-Menu"
                                             className={styles.cross}
                                             onClick={() => setIsOpen(false)}
                                             aria-description="Close Mobile Menu"
@@ -104,6 +105,7 @@ const Navbar = () => {
                                     </Link>
 
                                     <DarkModeSwitch
+                                        data-testid="dark-mode-toggle"
                                         style={{ marginLeft: "10px" }}
                                         checked={theme === "dark"}
                                         onChange={toggleTheme}
@@ -129,6 +131,7 @@ const Navbar = () => {
 
                         {/* Button to open mobile menu */}
                         <RxHamburgerMenu
+                            data-testid="HamburgerMenu"
                             className={styles.hamburgmenu}
                             onClick={() => setIsOpen(true)}
                             aria-description="Open Mobile Menu"

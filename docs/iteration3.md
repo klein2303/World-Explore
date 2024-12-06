@@ -4,8 +4,6 @@
   - [Table of content](#table-of-content)
   - [Decisions](#decisions)
   - [Developments](#developments)
-  - [Accessibility](#accessibility)
-  - [Sustainability](#sustainability)
   - [Technicalities](#technicalities)
   - [Future](#future)
   - [Usage of AI](#usage-of-ai)
@@ -30,24 +28,6 @@ In addition to that, some functionalities were added:
 
 On top of that, we also managed to make some component tests alongside the end-to-end tests.
 
-## Accessibility 
-In order to strive for proper accessibility, we focused on giving our HTML-tags proper aria-types. The aria types we used were:
-- aria-label
-- aria-labelledby
-- aria-description
-- aria-describedby
-- aria-hidden
-
-The types were put according to mozillas aria-guide (generalized for different browsers), which can be found [here](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes)
-
-Furthermore, we made sure that the application is fully keyboard-supported with tab and enter. 
-
-In addition to this, we have tried to follow the WCAG-standard, which can be found on [this website](https://www.uutilsynet.no/wcag-standarden/wcag-standarden/86)
-We have mainly ignored the points about sound and video, since our application doesn't feature this. 
-
-## Sustainability 
-We have implemented several initiavites to enhance the sustainability of our website. First, we implemented dark mode for provide an energy-efficient solution while encouraging users to engage with the site for longer periods. Dark mode also supports device battery longevity by reducing energy consumption, minimizing frequent charging, and contributing to a positive environmental impact. 
-Another solution added for increasing the sustainability of the website, is by adding caching. Caching allows reduction in data transfer, optimalization of server lodad as well as imporved user experience caused by faster load times, making the website both eco-friendly and more efficient.
 
 ## Technicalities
 Some technicalities we have after this iteration are: 

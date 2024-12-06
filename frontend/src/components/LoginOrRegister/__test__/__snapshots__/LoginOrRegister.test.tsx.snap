@@ -1,0 +1,235 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoginOrRegister Component > Login Tests > renders correctly on mobile 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Login og register component"
+  >
+    <section
+      aria-label="Login"
+      class="_loginOrRegister_d1f9f8"
+    >
+      <section
+        aria-labelledby="log-in"
+        class="_title_d1f9f8"
+      >
+        <h3
+          id="log-in"
+        >
+          Log in
+        </h3>
+        <h4>
+          Enter your WorldExplore account details
+        </h4>
+      </section>
+      <hr
+        class="_line_d1f9f8"
+      />
+      <section
+        aria-label="Input fields"
+        class="_inputSections_d1f9f8"
+      >
+        <input
+          aria-description="Email input field for login"
+          class="_inputField_d1f9f8"
+          name="email"
+          placeholder="Email"
+          type="email"
+          value=""
+        />
+        <input
+          aria-description="Password input field for login"
+          class="_inputField_d1f9f8"
+          name="password"
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+        <button
+          class="_submitButton_d1f9f8"
+        >
+          Log in
+        </button>
+      </section>
+    </section>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`LoginOrRegister Component > Login Tests > renders the login form correctly 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Login og register component"
+  >
+    <section
+      aria-label="Login"
+      class="_loginOrRegister_d1f9f8"
+    >
+      <section
+        aria-labelledby="log-in"
+        class="_title_d1f9f8"
+      >
+        <h3
+          id="log-in"
+        >
+          Log in
+        </h3>
+        <h4>
+          Enter your WorldExplore account details
+        </h4>
+      </section>
+      <hr
+        class="_line_d1f9f8"
+      />
+      <section
+        aria-label="Input fields"
+        class="_inputSections_d1f9f8"
+      >
+        <input
+          aria-description="Email input field for login"
+          class="_inputField_d1f9f8"
+          name="email"
+          placeholder="Email"
+          type="email"
+          value=""
+        />
+        <input
+          aria-description="Password input field for login"
+          class="_inputField_d1f9f8"
+          name="password"
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+        <button
+          class="_submitButton_d1f9f8"
+        >
+          Log in
+        </button>
+      </section>
+    </section>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`LoginOrRegister Component > Register Tests > handles registration form submission with valid data 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Login og register component"
+  >
+    <section
+      aria-label="Register a new account"
+      class="_loginOrRegister_d1f9f8"
+    >
+      <section
+        aria-labelledby="create-account"
+        class="_title_d1f9f8"
+      >
+        <h5
+          id="create-account"
+        >
+          Create an account
+        </h5>
+      </section>
+      <hr
+        class="_line_d1f9f8"
+      />
+      <section
+        aria-label="Input fields"
+        class="_inputSections_d1f9f8"
+      >
+        <input
+          aria-description="Name input field"
+          class="_inputField_d1f9f8"
+          name="name"
+          placeholder="Please enter your name"
+          type="text"
+          value="John Doe"
+        />
+        <input
+          aria-description="Email input field"
+          class="_inputField_d1f9f8"
+          name="email"
+          placeholder="Please enter your email"
+          type="email"
+          value="john@example.com"
+        />
+        <input
+          aria-description="Password input field"
+          class="_inputField_d1f9f8"
+          name="password"
+          placeholder="Please enter a password"
+          type="password"
+          value="password123"
+        />
+        <button
+          class="_submitButton_d1f9f8"
+        >
+          Create account
+        </button>
+      </section>
+    </section>
+  </section>
+</DocumentFragment>
+`;
+
+exports[`LoginOrRegister Component > Register Tests > renders the registration form correctly 1`] = `
+<DocumentFragment>
+  <section
+    aria-label="Login og register component"
+  >
+    <section
+      aria-label="Register a new account"
+      class="_loginOrRegister_d1f9f8"
+    >
+      <section
+        aria-labelledby="create-account"
+        class="_title_d1f9f8"
+      >
+        <h5
+          id="create-account"
+        >
+          Create an account
+        </h5>
+      </section>
+      <hr
+        class="_line_d1f9f8"
+      />
+      <section
+        aria-label="Input fields"
+        class="_inputSections_d1f9f8"
+      >
+        <input
+          aria-description="Name input field"
+          class="_inputField_d1f9f8"
+          name="name"
+          placeholder="Please enter your name"
+          type="text"
+          value=""
+        />
+        <input
+          aria-description="Email input field"
+          class="_inputField_d1f9f8"
+          name="email"
+          placeholder="Please enter your email"
+          type="email"
+          value=""
+        />
+        <input
+          aria-description="Password input field"
+          class="_inputField_d1f9f8"
+          name="password"
+          placeholder="Please enter a password"
+          type="password"
+          value=""
+        />
+        <button
+          class="_submitButton_d1f9f8"
+        >
+          Create account
+        </button>
+      </section>
+    </section>
+  </section>
+</DocumentFragment>
+`;

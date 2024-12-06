@@ -12,7 +12,7 @@ interface journalCountry {
 
 const ReviewBox = ({ country }: journalCountry) => {
     const user = removeQuotes(sessionStorage.getItem("user")!);
-    const navigation = useNavigate();
+    const navigation = useNavigate(); // For navigation to other pages
 
     const JOURNAL = gql`
         query GetJournal($countryid: String!, $profileid: String!) {
@@ -36,7 +36,7 @@ const ReviewBox = ({ country }: journalCountry) => {
 
     const journalId = data?.writtenjournal.id;
 
-
+    // When the button is pressed, the user gets navigated to respective country's country-page
     const handleOnClick = () => {
         navigation(`/Countries/${country}`);
     };
@@ -59,17 +59,17 @@ const ReviewBox = ({ country }: journalCountry) => {
         }
     `;
 
+    // For deleting reviews
     const [deleteReview] = useMutation(DELETE_REVIEW, {
         onCompleted: (data) => {
             if (data.deleteReview === 0) {
                 navigation("/MyJournals");
-            }
-            else {
-                navigation(0)
+            } else {
+                navigation(0);
             }
         },
         onError: (error) => {
-            console.error('Error deleting review:', error.message);
+            console.error("Error deleting review:", error.message);
         },
     });
 
@@ -79,9 +79,9 @@ const ReviewBox = ({ country }: journalCountry) => {
                 variables: { id: id, journalid: parseInt(journalid, 10) },
             });
         } catch (error) {
-            console.error('Failed to delete review:', error);
+            console.error("Failed to delete review:", error);
         }
-    }
+    };
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
@@ -159,5 +159,3 @@ const ReviewBox = ({ country }: journalCountry) => {
     );
 };
 export default ReviewBox;
-
-

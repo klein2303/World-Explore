@@ -97,20 +97,20 @@ const Home = () => {
                                 className={styles.infoImagesRight}
                             />
                         </section>
-                        <br />    
-                            {token ? (
-                                <></>
-                            ) : (
-                                <section className={styles.lastParagraphSection}>
-                            <p className={styles.lastInfoText}>
-                                Create an account to start your exploration, create unforgettable memories, and let your
-                                journal entries bring the world to life.
-                            </p>
+                        <br />
+                        {token ? (
+                            <></>
+                        ) : (
+                            <section className={styles.lastParagraphSection}>
+                                <p className={styles.lastInfoText}>
+                                    Create an account to start your exploration, create unforgettable memories, and let
+                                    your journal entries bring the world to life.
+                                </p>
                                 <button className={styles.logInButton} onClick={handleOnClick}>
                                     Start now
                                 </button>
-                                </section>
-                            )}
+                            </section>
+                        )}
                     </div>
                 </section>
             </main>

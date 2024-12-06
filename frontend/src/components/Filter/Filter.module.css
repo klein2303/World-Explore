@@ -11,7 +11,7 @@
 
 /* Dark mode Filter Container */
 body[data-theme="dark"] .filtercontainer {
-    background-color: #8a86a4;
+    background-color: #6b6787;
     color: white;
 }
 
@@ -168,7 +168,7 @@ body[data-theme="dark"] .checkbox:checked + label .checkboxVisual {
 
     /* Dark mode mobile custom checkbox */
     body[data-theme="dark"] .customCheckbox {
-        border: 2px solid #8a86a4;
+        border: 2px solid #6b6787;
     }
 
     /*.customCheckbox:hover {
@@ -176,7 +176,7 @@ body[data-theme="dark"] .checkbox:checked + label .checkboxVisual {
     }*/
 
     body[data-theme="dark"] .customCheckbox:hover {
-        background-color: #8a86a4;
+        background-color: #6b6787;
     }
 
     .checkbox:checked + .customCheckbox {
@@ -185,7 +185,7 @@ body[data-theme="dark"] .checkbox:checked + label .checkboxVisual {
 
     /* Dark mode checked custom checkbox */
     body[data-theme="dark"] .checkbox:checked + .customCheckbox {
-        background-color: #8a86a4;
+        background-color: #6b6787;
     }
 }
 
@@ -242,7 +242,7 @@ body[data-theme="dark"] .checkbox:checked + label .checkboxVisual {
 
     /* Dark mode custom checkbox */
     body[data-theme="dark"] .customCheckbox {
-        border: 2px solid #8a86a4;
+        border: 2px solid #6b6787;
     }
 
     /*.customCheckbox:hover {
@@ -250,7 +250,7 @@ body[data-theme="dark"] .checkbox:checked + label .checkboxVisual {
     }*/
 
     body[data-theme="dark"] .customCheckbox:hover {
-        background-color: #8a86a4;
+        background-color: #6b6787;
     }
 
     .checkbox:checked + .customCheckbox {
@@ -259,6 +259,6 @@ body[data-theme="dark"] .checkbox:checked + label .checkboxVisual {
 
     /* Dark mode checked custom checkbox */
     body[data-theme="dark"] .checkbox:checked + .customCheckbox {
-        background-color: #8a86a4;
+        background-color: #6b6787;
     }
 }

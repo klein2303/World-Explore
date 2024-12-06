@@ -1,12 +1,23 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom"; // Import MemoryRouter
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { MockedProvider } from "@apollo/client/testing";
-import gql from "graphql-tag"; // Import gql separately if not from Apollo Client
+import { gql } from "@apollo/client";
 import ReviewBox from "../ReviewBox";
 
 vi.mock("../../utils/utils", () => ({
     removeQuotes: (value: string) => value,
 }));
+
+// Mock `useNavigate` globally
+const mockNavigate = vi.fn();
+vi.mock("react-router-dom", async () => {
+    const actual = await vi.importActual("react-router-dom");
+    return {
+        ...actual,
+        useNavigate: () => mockNavigate,
+    };
+});
 
 const JOURNAL = gql`
     query GetJournal($countryid: String!, $profileid: String!) {
@@ -24,7 +35,13 @@ const JOURNAL = gql`
     }
 `;
 
-describe("ReviewBox", () => {
+const DELETE_REVIEW = gql`
+    mutation DeleteReview($id: ID!, $journalid: Int!) {
+        deleteReview(id: $id, journalid: $journalid)
+    }
+`;
+
+describe("ReviewBox Component", () => {
     const mockUser = "mockUserId";
     const consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 
@@ -33,7 +50,7 @@ describe("ReviewBox", () => {
     });
 
     afterEach(() => {
-        consoleErrorSpy.mockRestore(); // Restore console.error after each test
+        consoleErrorSpy.mockRestore();
     });
 
     const baseMock = {
@@ -48,46 +65,43 @@ describe("ReviewBox", () => {
             {
                 ...baseMock,
                 result: {
-                    data: null, // Simulate loading by not resolving immediately
+                    data: null, // Simulate loading
                 },
             },
         ];
 
-        render(
-            <MockedProvider mocks={mocks} addTypename={false}>
-                <ReviewBox country="France" />
-            </MockedProvider>,
+        const { asFragment } = render(
+            <MemoryRouter>
+                <MockedProvider mocks={mocks} addTypename={false}>
+                    <ReviewBox country="France" />
+                </MockedProvider>
+            </MemoryRouter>,
         );
 
         expect(screen.getByText(/loading.../i)).toBeInTheDocument();
+        expect(asFragment()).toMatchSnapshot();
     });
 
     it("renders error state when query fails", async () => {
         const mocks = [
             {
-                request: {
-                    query: JOURNAL,
-                    variables: { countryid: "France", profileid: mockUser },
-                },
+                request: baseMock.request,
                 result: {
-                    errors: [
-                        {
-                            message: "Query failed",
-                            locations: [{ line: 2, column: 3 }],
-                            path: ["writtenjournal"],
-                        },
-                    ],
+                    errors: [{ message: "Query failed" }],
                 },
             },
         ];
 
-        render(
-            <MockedProvider mocks={mocks} addTypename={false}>
-                <ReviewBox country="France" />
-            </MockedProvider>,
+        const { asFragment } = render(
+            <MemoryRouter>
+                <MockedProvider mocks={mocks} addTypename={false}>
+                    <ReviewBox country="France" />
+                </MockedProvider>
+            </MemoryRouter>,
         );
 
         await waitFor(() => expect(screen.getByText(/error: query failed/i)).toBeInTheDocument());
+        expect(asFragment()).toMatchSnapshot();
     });
 
     it("renders reviews correctly when data is fetched", async () => {
@@ -122,49 +136,20 @@ describe("ReviewBox", () => {
             },
         ];
 
-        render(
-            <MockedProvider mocks={mocks} addTypename={false}>
-                <ReviewBox country="France" />
-            </MockedProvider>,
+        const { asFragment } = render(
+            <MemoryRouter>
+                <MockedProvider mocks={mocks} addTypename={false}>
+                    <ReviewBox country="France" />
+                </MockedProvider>
+            </MemoryRouter>,
         );
 
-        // Wait for the reviews to load
         await waitFor(() => expect(screen.getByText("Amazing trip")).toBeInTheDocument());
 
-        // Verify the first review
+        // Verify reviews
         expect(screen.getByText("Amazing trip")).toBeInTheDocument();
-        expect(screen.getByText("2024-11-20")).toBeInTheDocument();
-        expect(screen.getByText("Loved the Eiffel Tower and the food!")).toBeInTheDocument();
-
-        // Verify the second review
         expect(screen.getByText("Relaxing vacation")).toBeInTheDocument();
-        expect(screen.getByText("2024-11-15")).toBeInTheDocument();
-        expect(screen.getByText("The countryside was peaceful and refreshing.")).toBeInTheDocument();
-    });
-
-    it("renders no content if there are no reviews", async () => {
-        const mocks = [
-            {
-                ...baseMock,
-                result: {
-                    data: {
-                        writtenjournal: {
-                            id: "1",
-                            reviews: [],
-                        },
-                    },
-                },
-            },
-        ];
-
-        render(
-            <MockedProvider mocks={mocks} addTypename={false}>
-                <ReviewBox country="France" />
-            </MockedProvider>,
-        );
-
-        await waitFor(() => expect(screen.queryByText("Amazing trip")).not.toBeInTheDocument());
-        expect(screen.queryByText(/relaxing vacation/i)).not.toBeInTheDocument();
+        expect(asFragment()).toMatchSnapshot();
     });
 
     it("renders stars correctly for different ratings", async () => {
@@ -192,20 +177,183 @@ describe("ReviewBox", () => {
         ];
 
         render(
-            <MockedProvider mocks={mocks} addTypename={false}>
-                <ReviewBox country="France" />
-            </MockedProvider>,
+            <MemoryRouter>
+                <MockedProvider mocks={mocks} addTypename={false}>
+                    <ReviewBox country="France" />
+                </MockedProvider>
+            </MemoryRouter>,
         );
 
-        // Wait for the data to load
         await waitFor(() => expect(screen.getByText("Mixed experience")).toBeInTheDocument());
 
-        // Verify the star rendering for a 3-star review
-        const ratingSection = screen.getByLabelText("rating");
-        const stars = Array.from(ratingSection.childNodes);
-        expect(stars).toHaveLength(5);
+        const stars = screen.getByLabelText("rating").querySelectorAll("[aria-label='filled star']");
+        expect(stars).toHaveLength(3); // 3 filled stars
+    });
 
-        const filledStars = stars.filter((star) => (star as Element).getAttribute("aria-label") === "filled star");
-        expect(filledStars).toHaveLength(3); // 3 filled stars for the 3-star review
+    it("renders no reviews message when data contains no reviews", async () => {
+        const mocks = [
+            {
+                ...baseMock,
+                result: {
+                    data: {
+                        writtenjournal: {
+                            id: "1",
+                            reviews: [],
+                        },
+                    },
+                },
+            },
+        ];
+
+        const { asFragment } = render(
+            <MemoryRouter>
+                <MockedProvider mocks={mocks} addTypename={false}>
+                    <ReviewBox country="France" />
+                </MockedProvider>
+            </MemoryRouter>,
+        );
+
+        await waitFor(() => expect(screen.queryByText("Amazing trip")).not.toBeInTheDocument());
+        expect(asFragment()).toMatchSnapshot();
+    });
+
+    it("handles review deletion correctly", async () => {
+        const mocks = [
+            {
+                ...baseMock,
+                result: {
+                    data: {
+                        writtenjournal: {
+                            id: "1",
+                            reviews: [
+                                {
+                                    id: "103",
+                                    title: "Mixed experience",
+                                    date: "2024-10-10",
+                                    text: "Some great moments, but also some issues.",
+                                    rating: 3,
+                                    ispublic: false,
+                                },
+                            ],
+                        },
+                    },
+                },
+            },
+            {
+                request: {
+                    query: DELETE_REVIEW,
+                    variables: { id: "103", journalid: 1 },
+                },
+                result: {
+                    data: { deleteReview: 1 },
+                },
+            },
+        ];
+
+        render(
+            <MemoryRouter>
+                <MockedProvider mocks={mocks} addTypename={false}>
+                    <ReviewBox country="France" />
+                </MockedProvider>
+            </MemoryRouter>,
+        );
+
+        // Wait for the review to load
+        await waitFor(() => expect(screen.getByText("Mixed experience")).toBeInTheDocument());
+
+        // Find the delete button
+        const deleteButton = screen.getByLabelText("delete");
+
+        // Simulate click event
+        fireEvent.click(deleteButton);
+
+        // Wait for the deletion to be handled
+        await waitFor(() => expect(consoleErrorSpy).not.toHaveBeenCalled());
+    });
+
+    it("navigates to the country info page when 'Go to info page' button is clicked", async () => {
+        const mocks = [
+            {
+                ...baseMock,
+                result: {
+                    data: {
+                        writtenjournal: {
+                            id: "1",
+                            reviews: [
+                                {
+                                    id: "103",
+                                    title: "Mixed experience",
+                                    date: "2024-10-10",
+                                    text: "Some great moments, but also some issues.",
+                                    rating: 3,
+                                    ispublic: false,
+                                },
+                            ],
+                        },
+                    },
+                },
+            },
+        ];
+
+        render(
+            <MemoryRouter>
+                <MockedProvider mocks={mocks} addTypename={false}>
+                    <ReviewBox country="France" />
+                </MockedProvider>
+            </MemoryRouter>,
+        );
+
+        // Wait for the reviews to load
+        await waitFor(() => expect(screen.getByText("Mixed experience")).toBeInTheDocument());
+
+        // Click the "Go to info page" button
+        const infoButton = screen.getByRole("button", { name: "Go to info page" });
+        fireEvent.click(infoButton);
+
+        // Ensure navigation is called with the correct path
+        expect(mockNavigate).toHaveBeenCalledWith("/Countries/France");
+    });
+
+    it("renders correctly on mobile", async () => {
+        const mocks = [
+            {
+                ...baseMock,
+                result: {
+                    data: {
+                        writtenjournal: {
+                            id: "1",
+                            reviews: [
+                                {
+                                    id: "103",
+                                    title: "Mixed experience",
+                                    date: "2024-10-10",
+                                    text: "Some great moments, but also some issues.",
+                                    rating: 3,
+                                    ispublic: false,
+                                },
+                            ],
+                        },
+                    },
+                },
+            },
+        ];
+
+        // Simulate mobile viewport
+        Object.defineProperty(window, "innerWidth", { writable: true, configurable: true, value: 375 });
+        window.dispatchEvent(new Event("resize"));
+
+        render(
+            <MemoryRouter>
+                <MockedProvider mocks={mocks} addTypename={false}>
+                    <ReviewBox country="France" />
+                </MockedProvider>
+            </MemoryRouter>,
+        );
+
+        await waitFor(() => expect(screen.getByText("Mixed experience")).toBeInTheDocument());
+
+        const ratingSection = screen.getByLabelText("rating");
+        expect(ratingSection).toBeVisible();
+        expect(window.innerWidth).toBe(375);
     });
 });

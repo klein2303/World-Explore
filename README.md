@@ -21,7 +21,7 @@ In the Explore-Countries-page the user has the ability to browse through differe
 
 By clicking on a country card, one gets navigated to a country page where there's a picture of the country, some key facts and an information box. In addition to this, the user has the ability to write a journal entry for the country, or read other public entries. 
 
-By navigating to the My Journals page, the user can browse through all their journals for different countries. By clicking on a journal, the user can read all of their journal entries for that country. A journal entry has a title, date, description, and rating, and a message that tells the user if the entry is public or not.
+By navigating to the My Journals page, the user can browse through all their journals for different countries. By clicking on a journal, the user can read all of their journal entries for that country. A journal entry has a title, date, description, and rating, and a message that tells the user if the entry is public or not. One can also delete a journal entry if one wishes.
 
 The website is also made mobile friendly, as it will adapt to the smaller screen if viewed on one.
 
@@ -92,7 +92,7 @@ In order to run the component tests first navigate to the correct folder as desc
 
 `npm test`
 
-To run the E2E tests with cypress you have to first start the backend and frontend. Then you have to run the command:
+To run the E2E tests with cypress you have to first start the frontend. If the frontend isn't connected to the backend VM you have to start backend too. Then you have to run the command:
 
 ```
 npx cypress open

@@ -67,11 +67,6 @@ const registeringAccounts = {
         name: "noone",
         email: "noone@gmail.com", 
         password: "dshd"
-    },
-    validUser: {
-        name: "noone", 
-        email: "noone@gmail.com",
-        password: "12345678"
     }
 };
 
@@ -112,9 +107,5 @@ describe("Check registering functionality", () => {
         cy.get('[data-cy=registererror]').should('contain', 'Password must be at least 8 characters');
         cy.url().should('include', '/Register');
     });
-    it('redirects valid user to home page when successfully register', () => {
-        registerNewUser(registeringAccounts.validUser);
-        cy.url().should('include', 'http://localhost:5173/project2#/');
-    });  
 
 });

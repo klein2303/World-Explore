@@ -66,6 +66,13 @@ const JournalEntryModal = ({ country, isOpen, onClose }: JournalEntryModalProps)
 
             if (isTargetLink) {
                 sessionStorage.setItem("journalSubmitted", "false");
+
+                setTitle("");
+                setDate("")
+                setRating(0)
+                setIsPublic(false)
+                setText("")
+                setError("")
             }
 
             if (!isTargetLink) {

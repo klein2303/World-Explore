@@ -77,12 +77,13 @@ Now run `npm run dev` in order to run the project
 
 We have prepared a dummy user so you don't need to register a new user (although, feel free to do so): 
 
-'''
+```
 Email: john@gmail.com
 Password: password
-'''
+```
 
-We have only made dummy data for some countries, i.e journalentries for some countries (John loves to travel). 
+We have only made dummy data for some countries, i.e journal entries for some countries (John loves to travel). 
+
 Specifically: Japan, Italy, Spain, France, Australia, Egypt, Angola 
 
 ## Running tests

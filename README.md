@@ -82,9 +82,9 @@ Email: john@gmail.com
 Password: password
 ```
 
-We have only made dummy data for some countries, i.e journal entries for some countries (John loves to travel). 
+We have also prepared dummy data for some countries, i.e journal entries for some countries (John loves to travel). 
 
-Specifically: Japan, Italy, Spain, France, Australia, Egypt, Angola 
+Specifically: Japan, Italy, Spain, France, Australia, Egypt, Angola, Afghanistan
 
 ## Running tests
 

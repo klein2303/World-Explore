@@ -1,8 +1,4 @@
-# IT2810: Project 2
-
-## Virtual Machine link
-
-Link to virtual machine: it2810-10.idi.ntnu.no/project2 
+This repository contains one of two projects from the subject IT2810 Web Development at NTNU. The course covers technologies and methods used in development of web-applications. Through the projects, we leared about architectures, languages, formats and standards for web-applications and how real-life projects at companies can be developed. Together with three other students, I made this project and another one, that can be found here: https://github.com/klein2303/Realstore
 
 ## Table of content:
 

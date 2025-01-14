@@ -3,8 +3,6 @@ const fs = require("fs");
 const csv = require("csv-parser");
 const path = require("path");
 
-// Hvorfor får jeg null i kollonner jeg vet det er info på i databasen???????????
-
 console.log("Script is starting...");
 
 // Database connection parameters

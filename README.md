@@ -23,64 +23,108 @@ The website is also made mobile friendly, as it will adapt to the smaller screen
 
 ## Running the project
 
-To run the project, you need to have Node 22 installed. Clone the repository from git with `git clone https://git.ntnu.no/IT2810-H24/T10-Project-2.git`. Then navigate to the folder `frontend` by writing `cd frontend` in the terminal. Make sure you are located in the main branch when running the project. To ckeckout to the main branch you can run `git checkout main` in the terminal.
+To run the project, you need to have Node 22 installed. In order to run the project locally, you need to have docker desktop installed. After docker is installed, continue with this guide:
 
-Then you need to create two files: `.env` and `.env.local` in the backend folder on root level, if they are not already there. Also make sure the content inside the files are correct.
-<br />
-<br />
-In `.env` copy in this:
+Clone the repository from git with `git clone https://git.ntnu.no/IT2810-H24/T10-Project-2.git`. Then navigate to the folder `frontend` by writing `cd frontend` in the terminal. Make sure you are located in the main branch when running the project. To ckeckout to the main branch you can run `git checkout main` in the terminal.
 
-```
-DATABASE_URL="postgresql://postgres@it2810-10.idi.ntnu.no:5432/worldexploredb2?schema=public"
-```
 
-While in `.env.local` copy in this:
+### Setting up the backend
+
+First you need to create two files: `.env` and `.env.local` inside the backend folder by navigating into it.
+
+In `.env` paste in the following:
 
 ```
-POSTGRES_USER=postgres
-POSTGRES_HOST="it2810-10.idi.ntnu.no"
-POSTGRES_PORT=5342
-POSTGRES_PASSWORD=
-POSTGRES_DB=worldexploredb2
+DATABASE_URL="postgresql://user:1234@localhost:5432/db?schema=public"
 ```
 
-<br />
+While in `.env.local` paste in the following:
 
-Lastly, make sure that App.tsx in the frontend-folder has the following uri:
-
-``` typescript
-uri: "http://it2810-10.idi.ntnu.no:3001/",
+```
+POSTGRES_USER=user
+POSTGRES_PASSWORD=1234
+POSTGRES_DB=db
 ```
 
-This will run the project via the backend on the virtual machine. You can also run the project locally through a local backend. If so, refer to [this guide](backend/README.md)
+Now you have to run:
+
+```
+npm i
+```
+
+### Set up docker and schema: 
+
+Start by running the following command in the terminal:
+
+```
+docker compose up --build -d
+```
+
+After that run the commands:
+
+```
+npx prisma generate
+npx prisma db push
+npx prisma migrate dev --name init
+```
+
+`npx prisma db push` pushes the schema to the postgresql server.
+
+### Filling in data/Updating data:
+
+We can now fill inn some premade data. The same steps apply for updating the schema.
+
+Run the following scripts, one by one:
+
+For Windows:
+
+```
+node .\scripts\fixtures.cjs
+node .\scripts\addReviews.cjs
+```
+
+For Mac/Unix-based:
+
+```
+node ./scripts/fixtures.cjs
+node ./scripts/addReviews.cjs
+```
+
+Now run the commands in the terminal to update the schema:
+
+```
+npm run migrate
+npx prisma db push
+```
+
+### Starting the application:
 
 Now you need to install some npm components.
-To do so, run the following commands in a terminal while inside the mentioned folder has the following uri: 
-
-
-
+To do so, run the following commands in a terminal while inside the frontend folder: 
 
 - `npm install`
-- `npm install react-router-dom`
-- `npm install react-icons`
-- `npm install recoil`
 
-Make sure you are connected to the NTNU VPN before runnning the project. 
+Now run `npm run dev` in order to run the project!
 
-Now run `npm run dev` in order to run the project
-
-## Dummy user and dummy data
-
-We have prepared a dummy user so you don't need to register a new user (although, feel free to do so): 
+To shut down docker you need to run the command:
 
 ```
-Email: john@gmail.com
-Password: password
+docker compose down
 ```
 
-We have also prepared dummy data for some countries, i.e journal entries for some countries (John loves to travel). 
+## Visualising the database
 
-Specifically: Japan, Italy, Spain, France, Australia, Egypt, Angola, Afghanistan
+To visualise the database download the extension PostgreSQL in VSCode. After you have done that click on the PostgreSQL icon in the menu. To add the database for this project click the `+` button. Writhe inn this information:
+
+-   Hostname: localhost
+-   User: user
+-   Password: 1234
+-   Port number: 5432
+-   Click on the standard conenction
+-   Then name the database worldexploreDB
+
+To se any of the information in the databse right click on the database and choose `Select` and then click `Run Select Top 1000`
+
 
 ## Running tests
 
